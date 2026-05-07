@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Business of Accounting: How Firms Operate and Grow</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A1929'/%3E%3Crect x='4' y='21' width='5' height='7' rx='1.5' fill='%231E78C4' opacity='.75'/%3E%3Crect x='11' y='15' width='5' height='13' rx='1.5' fill='%231E78C4'/%3E%3Crect x='18' y='8' width='5' height='20' rx='1.5' fill='%2352A44A'/%3E%3Cpolyline points='6.5,22 13.5,16 20.5,10' stroke='%234BA0E8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: {
+        aam: { 900:'#070F1C',800:'#0A1929',750:'#0D2038',700:'#102540',600:'#153258',500:'#1E78C4',400:'#4BA0E8',300:'#7BBEF5' },
+        moss: { 700:'#2A5228',600:'#3A7335',500:'#52A44A',400:'#79C86E',300:'#A3D49B' }
+      }}}
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{scroll-behavior:smooth}
+    body{font-family:'Inter',system-ui,sans-serif;background:#0A1929;color:#E2E8F0}
+    /* NAV */
+    .nav-link{transition:color .2s}
+    .nav-link:hover{color:#4BA0E8}
+    .nav-link.active{color:#4BA0E8;border-bottom:2px solid #1E78C4}
+    /* PILLS */
+    .section-pill{background:rgba(30,120,196,.15);border:1px solid rgba(30,120,196,.4);color:#4BA0E8;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:12px}
+    .section-pill-green{background:rgba(82,164,74,.15);border:1px solid rgba(82,164,74,.4);color:#79C86E}
+    /* CARDS */
+    .card{background:#102540;border:1px solid rgba(30,120,196,.18);border-radius:12px}
+    .card-blue{background:rgba(30,120,196,.1);border:1px solid rgba(30,120,196,.3);border-radius:12px}
+    .card-green{background:rgba(82,164,74,.1);border:1px solid rgba(82,164,74,.25);border-radius:12px}
+    .callout{background:rgba(30,120,196,.08);border-left:3px solid #1E78C4;border-radius:0 8px 8px 0;padding:14px 18px}
+    .callout-green{background:rgba(82,164,74,.08);border-left:3px solid #52A44A;border-radius:0 8px 8px 0;padding:14px 18px}
+    .callout-warn{background:rgba(251,191,36,.08);border-left:3px solid #F59E0B;border-radius:0 8px 8px 0;padding:14px 18px}
+    /* HERO NAV CARDS */
+    .section-card{transition:all .28s cubic-bezier(.34,1.4,.64,1);cursor:pointer}
+    .section-card:hover{transform:translateY(-5px) scale(1.03);background:rgba(30,120,196,.14)!important;border-color:rgba(30,120,196,.6)!important;box-shadow:0 16px 36px rgba(30,120,196,.22)}
+    .section-card:hover .section-num{color:#7BBEF5!important}
+    /* INTERACTIVE ELEMENTS */
+    .clickable{cursor:pointer;transition:all .18s}
+    .clickable:hover{border-color:rgba(30,120,196,.5)!important;transform:translateX(2px)}
+    .clickable.active-item{border-color:#1E78C4!important;background:rgba(30,120,196,.08)}
+    .click-hint{font-size:.63rem;color:#4B5563;display:flex;align-items:center;gap:3px;margin-top:6px;transition:.15s}
+    .clickable:hover .click-hint,.clickable.active-item .click-hint{color:#4BA0E8}
+    /* EXPAND PANELS */
+    .expand-panel{display:none}
+    .expand-panel.open{display:block;animation:fadeIn .25s ease}
+    /* FIRM BADGES */
+    .firm-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:6px;font-size:.73rem;font-weight:700;background:rgba(30,120,196,.1);border:1px solid rgba(30,120,196,.22);color:#CBD5E1;letter-spacing:.01em;line-height:1.2}
+    .firm-badge .fb-bar{width:3px;height:14px;border-radius:2px;flex-shrink:0}
+    /* P&L */
+    .pl-row{cursor:pointer;border-radius:8px;transition:all .15s}
+    .pl-row:hover{filter:brightness(1.15);transform:translateX(3px)}
+    .pl-row.pl-active{outline:2px solid rgba(30,120,196,.5)}
+    /* FORMULA */
+    .formula-pill{cursor:pointer;transition:all .2s;padding:12px 16px;border-radius:10px;border:1px solid rgba(30,120,196,.25);background:rgba(30,120,196,.1);text-align:center}
+    .formula-pill:hover{transform:scale(1.06);border-color:rgba(30,120,196,.6)!important;box-shadow:0 4px 16px rgba(30,120,196,.15)}
+    .formula-pill.pill-active{outline:2px solid #1E78C4;background:rgba(30,120,196,.18)}
+    .formula-result{background:rgba(82,164,74,.18);border:1px solid rgba(82,164,74,.45);padding:12px 16px;border-radius:10px;text-align:center}
+    /* SPECTRUM */
+    .spec-btn{cursor:pointer;border-radius:10px;padding:14px 10px;text-align:center;transition:all .2s;border:2px solid transparent}
+    .spec-btn:hover{transform:translateY(-2px)}
+    .spec-btn.spec-active{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.3)}
+    .spec-detail{display:none}
+    .spec-detail.visible{display:block;animation:fadeIn .25s ease}
+    /* CALENDAR */
+    .cal-cell{height:30px;border-radius:5px;font-size:.62rem;font-weight:600;display:flex;align-items:center;justify-content:center;transition:.15s;cursor:pointer}
+    .cal-cell:hover{opacity:.8;transform:scale(1.08)}
+    .intensity-0{background:#102540;color:#4B5563}
+    .intensity-1{background:rgba(30,120,196,.15);color:#7BBEF5}
+    .intensity-2{background:rgba(30,120,196,.38);color:#4BA0E8}
+    .intensity-3{background:rgba(30,120,196,.65);color:#E2E8F0;font-weight:800}
+    .cal-context{display:none}
+    .cal-context.visible{display:block;animation:fadeIn .2s ease}
+    /* ACCORDION */
+    .accordion-body{display:none}
+    .accordion-body.open{display:block;animation:fadeIn .2s ease}
+    .accordion-icon{transition:transform .2s}
+    .accordion-icon.open{transform:rotate(180deg)}
+    /* GLOSSARY */
+    .term-card{cursor:pointer}
+    .term-card .why-hint{display:flex;align-items:center;gap:4px;font-size:.65rem;color:#4B5563;margin-top:8px;transition:.15s}
+    .term-card:hover .why-hint{color:#4BA0E8}
+    .term-expand{max-height:0;overflow:hidden;transition:max-height .35s ease,opacity .3s ease;opacity:0}
+    .term-card.expanded .term-expand{max-height:200px;opacity:1}
+    .term-card.expanded{border-color:rgba(30,120,196,.45)!important;background:rgba(30,120,196,.07)}
+    .term-card.hidden{display:none}
+    .search-highlight{background:rgba(30,120,196,.3);border-radius:2px;padding:0 2px}
+    .filter-btn{transition:.15s;border-radius:20px;padding:5px 14px;font-size:.78rem;font-weight:600;border:1px solid rgba(30,120,196,.3);color:#94A3B8;cursor:pointer}
+    .filter-btn.active{background:rgba(30,120,196,.15);border-color:#1E78C4;color:#4BA0E8}
+    .filter-btn:hover{border-color:#1E78C4;color:#E2E8F0}
+    /* CHECKLIST */
+    .commit-item{transition:.2s}
+    .commit-item.checked .commit-text{text-decoration:line-through;opacity:.5}
+    .commit-item.checked .commit-check{background:#1E78C4;border-color:#1E78C4}
+    .commit-check{width:22px;height:22px;min-width:22px;border:2px solid rgba(30,120,196,.5);border-radius:5px;cursor:pointer;transition:.15s;display:flex;align-items:center;justify-content:center}
+    .commit-check svg{opacity:0;transition:.15s}
+    .commit-item.checked .commit-check svg{opacity:1}
+    /* CALC */
+    input[type=range]{-webkit-appearance:none;appearance:none;height:5px;border-radius:5px;background:#102540;outline:none}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#1E78C4;cursor:pointer;transition:.1s}
+    input[type=range]::-webkit-slider-thumb:hover{background:#4BA0E8;transform:scale(1.1)}
+    .stat-box{background:#070F1C;border:1px solid rgba(30,120,196,.25);border-radius:10px;padding:16px;text-align:center}
+    .stat-value{font-size:1.6rem;font-weight:800;color:#4BA0E8}
+    .stat-label{font-size:.72rem;color:#94A3B8;text-transform:uppercase;letter-spacing:.07em;margin-top:2px}
+    /* MISC */
+    .bg-alt{background:#0D2038}
+    .aam-badge{background:rgba(30,120,196,.12);border:1px solid rgba(30,120,196,.3);border-radius:8px;padding:4px 10px;font-size:.7rem;font-weight:700;letter-spacing:.05em;color:#4BA0E8}
+    ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#0A1929}::-webkit-scrollbar-thumb{background:#153258;border-radius:3px}
+    #progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#1E78C4,#52A44A);z-index:100;transition:width .1s}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes pulse-border{0%,100%{box-shadow:0 0 0 0 rgba(30,120,196,.4)}50%{box-shadow:0 0 0 6px rgba(30,120,196,0)}}
+    @keyframes floatUp{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+    .pulse{animation:pulse-border 2s ease infinite}
+    /* STACK PATTERN (left list + right panel) */
+    .stack-item{cursor:pointer;transition:all .18s;border-radius:10px;border:1px solid rgba(30,120,196,.18)}
+    .stack-item:hover{background:rgba(30,120,196,.08);border-color:rgba(30,120,196,.45)!important;transform:translateX(3px)}
+    .stack-item.stack-active{background:rgba(30,120,196,.13);border-color:#1E78C4!important}
+    /* TACTIC CARDS */
+    .tactic-card{transition:all .24s cubic-bezier(.34,1.4,.64,1)}
+    .tactic-card:hover{transform:translateY(-5px);box-shadow:0 12px 28px rgba(30,120,196,.18);border-color:rgba(30,120,196,.4)!important}
+    /* QUESTION CARDS */
+    .q-card{transition:all .18s}
+    .q-card:hover{transform:translateX(4px);border-color:rgba(30,120,196,.45)!important;box-shadow:3px 0 16px rgba(30,120,196,.12)}
+    /* CALENDAR */
+    .cal-month-hdr{transition:.15s;cursor:pointer;padding:2px 4px;border-radius:4px}
+    .cal-month-hdr:hover{color:#7BBEF5!important}
+    .cal-month-active{color:#4BA0E8!important;font-weight:800;background:rgba(30,120,196,.15);border-radius:4px}
+    /* QUIZ */
+    .quiz-choice{cursor:pointer;transition:all .15s;border:1px solid rgba(30,120,196,.25);background:rgba(30,120,196,.07);border-radius:10px;padding:12px 16px;text-align:left;width:100%;font-size:.85rem;color:#CBD5E1}
+    .quiz-choice:hover:not(:disabled){background:rgba(30,120,196,.15);border-color:#1E78C4;transform:translateX(2px)}
+    .quiz-choice.correct{background:rgba(82,164,74,.2)!important;border-color:#52A44A!important;color:#A3D49B}
+    .quiz-choice.wrong{background:rgba(239,68,68,.15)!important;border-color:#EF4444!important;color:#FDA5A5}
+    .quiz-choice:disabled{cursor:default;transform:none}
+    /* FORMULA HINT */
+    .formula-hint{border:1.5px dashed rgba(30,120,196,.25);border-radius:10px;padding:14px;text-align:center;color:#4B5563;font-size:.75rem;cursor:default;transition:border-color .2s}
+    /* CALCULATOR */
+    .calc-card{transition:box-shadow .3s,border-color .3s}
+    .calc-card:hover{box-shadow:0 0 40px rgba(30,120,196,.14);border-color:rgba(30,120,196,.35)!important}
+    .stat-box{transition:all .2s}
+    .stat-box:hover{border-color:rgba(30,120,196,.5)!important;transform:translateY(-2px)}
+    /* COMMIT CELEBRATE */
+    @keyframes checkBounce{0%{transform:scale(.4)}55%{transform:scale(1.4)}80%{transform:scale(.88)}100%{transform:scale(1)}}
+    @keyframes floatAway{0%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-55px) scale(1.6)}}
+    .commit-celebrate{position:fixed;pointer-events:none;z-index:9999;font-size:1.6rem;animation:floatAway .75s ease forwards}
+    .commit-item.checked .commit-check{background:#52A44A!important;border-color:#52A44A!important;animation:checkBounce .35s ease}
+    /* THINGS TO TRY */
+    .try-item{cursor:pointer;transition:all .18s;border-radius:10px;border:1px solid rgba(30,120,196,.12);padding:14px 16px;background:transparent}
+    .try-item:hover{border-color:rgba(30,120,196,.42);background:rgba(30,120,196,.05);transform:translateX(3px)}
+    .try-item.try-open{border-color:rgba(82,164,74,.5);background:rgba(82,164,74,.05)}
+    .try-expand{max-height:0;overflow:hidden;transition:max-height .32s ease,opacity .25s ease;opacity:0}
+    .try-item.try-open .try-expand{max-height:180px;opacity:1}
+    /* AI PROMPT COPY */
+    .copy-btn{transition:.15s;border-radius:6px;padding:3px 10px;font-size:.7rem;font-weight:600;border:1px solid rgba(30,120,196,.3);color:#4BA0E8;cursor:pointer;background:transparent;white-space:nowrap}
+    .copy-btn:hover{background:rgba(30,120,196,.12);border-color:#1E78C4}
+    .copy-btn.copied{color:#79C86E!important;border-color:rgba(82,164,74,.5)!important;background:rgba(82,164,74,.1)!important}
+  </style>
+</head>
+<body>
+<div id="progress" style="width:0%"></div>
+
+<!-- NAV -->
+<nav class="fixed top-0 w-full z-50 backdrop-blur border-b" style="border-color:rgba(30,120,196,.2);background:rgba(10,25,41,.96)">
+  <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-14">
+    <div class="flex items-center gap-3">
+      <span class="font-bold text-sm tracking-wide" style="color:#4BA0E8">THE BUSINESS OF ACCOUNTING</span>
+      <span class="aam-badge hidden sm:inline">AAM 2026</span>
+    </div>
+    <div class="hidden md:flex items-center gap-6 text-sm">
+      <a href="#firm-basics" class="nav-link text-slate-400">Firm Basics</a>
+      <a href="#service-mix" class="nav-link text-slate-400">Service Mix</a>
+      <a href="#decisions" class="nav-link text-slate-400">Decisions</a>
+      <a href="#glossary" class="nav-link text-slate-400">Glossary</a>
+      <a href="#next-steps" class="nav-link text-slate-400">Next Steps</a>
+    </div>
+    <button class="md:hidden text-slate-400 p-2" onclick="toggleMenu()">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 flex flex-col gap-3 text-sm border-t" style="border-color:rgba(30,120,196,.15)">
+    <a href="#firm-basics" class="text-slate-400 nav-link pt-3" onclick="toggleMenu()">Firm Basics</a>
+    <a href="#service-mix" class="text-slate-400 nav-link" onclick="toggleMenu()">Service Mix</a>
+    <a href="#decisions" class="text-slate-400 nav-link" onclick="toggleMenu()">Decisions</a>
+    <a href="#glossary" class="text-slate-400 nav-link" onclick="toggleMenu()">Glossary</a>
+    <a href="#next-steps" class="text-slate-400 nav-link" onclick="toggleMenu()">Next Steps</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="pt-28 pb-20 px-4" style="background:linear-gradient(160deg,#070F1C 0%,#0A1929 60%,#0D2038 100%)">
+  <div class="max-w-3xl mx-auto text-center">
+    <div class="section-pill mb-4">AAM Summit 2026 · Reference Resource</div>
+    <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-3">
+      The Business of <span style="color:#4BA0E8">Accounting</span>
+    </h1>
+    <p class="font-semibold text-lg mb-4" style="color:#79C86E">How Firms Operate and Grow</p>
+    <p class="text-slate-400 mb-8 max-w-xl mx-auto">Everything from the session in one place — key concepts, interactive tools, and questions that will change your conversations with partners.</p>
+    <div class="flex flex-wrap justify-center gap-3 text-sm">
+      <a href="#firm-basics" class="text-white px-5 py-2.5 rounded-lg font-semibold transition hover:opacity-90" style="background:#1E78C4">Start Here →</a>
+      <a href="#glossary" class="border px-5 py-2.5 rounded-lg font-semibold transition hover:bg-aam-750" style="border-color:rgba(30,120,196,.5);color:#4BA0E8">Jump to Glossary</a>
+      <a href="#next-steps" class="border px-5 py-2.5 rounded-lg font-semibold transition hover:bg-aam-750" style="border-color:rgba(82,164,74,.5);color:#79C86E">Next Steps</a>
+    </div>
+  </div>
+  <div class="max-w-4xl mx-auto mt-14 grid grid-cols-2 md:grid-cols-4 gap-3">
+    <a href="#firm-basics" class="card section-card p-4 text-center" style="border-color:rgba(30,120,196,.2)">
+      <div class="section-num font-black text-2xl mb-1" style="color:#1E78C4">01</div>
+      <div class="font-semibold text-sm">What Is a CPA Firm?</div>
+      <div class="text-slate-500 text-xs mt-1">Structure, economics & the P&L</div>
+    </a>
+    <a href="#service-mix" class="card section-card p-4 text-center" style="border-color:rgba(30,120,196,.2)">
+      <div class="section-num font-black text-2xl mb-1" style="color:#1E78C4">02</div>
+      <div class="font-semibold text-sm">Service & Industry Mix</div>
+      <div class="text-slate-500 text-xs mt-1">Revenue models & busy seasons</div>
+    </a>
+    <a href="#decisions" class="card section-card p-4 text-center" style="border-color:rgba(30,120,196,.2)">
+      <div class="section-num font-black text-2xl mb-1" style="color:#1E78C4">03</div>
+      <div class="font-semibold text-sm">Decision-Making</div>
+      <div class="text-slate-500 text-xs mt-1">Partners, budgets & influence</div>
+    </a>
+    <a href="#glossary" class="card section-card p-4 text-center" style="border-color:rgba(30,120,196,.2)">
+      <div class="section-num font-black text-2xl mb-1" style="color:#1E78C4">04</div>
+      <div class="font-semibold text-sm">Glossary</div>
+      <div class="text-slate-500 text-xs mt-1">Terms & credentials decoded</div>
+    </a>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 01 ══════════ -->
+<section id="firm-basics" class="py-20 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="section-pill">Section 01</div>
+    <h2 class="text-3xl font-bold mb-2">What Is a CPA Firm?</h2>
+    <p class="text-slate-400 mb-2">By the end of this section: <em class="not-italic font-medium" style="color:#4BA0E8">I can explain how we make money.</em></p>
+    <p class="text-slate-400 text-sm mb-10 max-w-3xl">CPA firms are professional services businesses that sell expertise and time. Unlike product businesses, their inventory is the knowledge and hours of their people — and that shapes everything: how they're structured, how they price, how they grow, and why every dollar of overhead is scrutinized so personally.</p>
+
+    <!-- FIRM LANDSCAPE -->
+    <h3 class="text-lg font-semibold mb-1" style="color:#4BA0E8">The Firm Landscape</h3>
+    <p class="text-xs text-slate-500 mb-4">Click any firm type to see real examples and what it means for your BD approach.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+      <div class="card p-5 clickable" id="fc-0" onclick="selectFirm(0)">
+        <div class="font-bold mb-1" style="color:#4BA0E8">Big 4 & National</div>
+        <div class="text-xs text-slate-500 mb-2">Deloitte, PwC, EY, KPMG + large nationals</div>
+        <p class="text-sm text-slate-300">Thousands of staff, Fortune 500 clients, global presence. Full service suite across all industries.</p>
+        <div class="click-hint"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>See firm examples</div>
+      </div>
+      <div class="card p-5 clickable" id="fc-1" onclick="selectFirm(1)">
+        <div class="font-bold mb-1" style="color:#4BA0E8">Regional Firms</div>
+        <div class="text-xs text-slate-500 mb-2">$50M–$500M revenue, multi-office</div>
+        <p class="text-sm text-slate-300">Strong middle-market focus. Growing advisory and niche practices. Where much of accounting innovation happens today.</p>
+        <div class="click-hint"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>See firm examples</div>
+      </div>
+      <div class="card p-5 clickable" id="fc-2" onclick="selectFirm(2)">
+        <div class="font-bold mb-1" style="color:#4BA0E8">Local Firms</div>
+        <div class="text-xs text-slate-500 mb-2">$5M–$50M revenue</div>
+        <p class="text-sm text-slate-300">Deep community roots. Often compliance-heavy with advisory emerging as a growth layer. The backbone of local business communities.</p>
+        <div class="click-hint"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>See firm examples</div>
+      </div>
+      <div class="card p-5 clickable" id="fc-3" onclick="selectFirm(3)" style="border-color:rgba(82,164,74,.2)">
+        <div class="font-bold mb-1" style="color:#79C86E">Boutique & Specialty ⭐</div>
+        <div class="text-xs font-semibold mb-2" style="color:#52A44A">Fastest-growing model</div>
+        <p class="text-sm text-slate-300">Built around a specific niche. Deep expertise commands premium pricing that generalists cannot match.</p>
+        <div class="click-hint"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>See firm examples</div>
+      </div>
+    </div>
+    <!-- Firm examples panel -->
+    <div id="firm-panel" class="expand-panel card-blue p-5 mb-10 rounded-xl">
+      <div id="firm-panel-content"></div>
+    </div>
+
+    <!-- P&L EQUATION -->
+    <h3 class="text-lg font-semibold mb-1" style="color:#4BA0E8">How a CPA Firm Makes Money</h3>
+    <p class="text-xs text-slate-500 mb-4">Click any line item to understand what drives it — and where your work fits in.</p>
+    <div class="card p-6 mb-6">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="space-y-2">
+          <div class="pl-row flex items-center gap-3 p-3" id="plr-0" onclick="selectPL(0)">
+            <span class="font-bold w-6 text-right" style="color:#4BA0E8">+</span>
+            <div class="flex-1"><div class="font-semibold">Revenue</div><div class="text-xs text-slate-400">Fees from client services</div></div>
+            <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+          <div class="pl-row flex items-center gap-3 p-3" id="plr-1" onclick="selectPL(1)" style="background:rgba(239,68,68,.06)">
+            <span class="text-red-400 font-bold w-6 text-right">−</span>
+            <div class="flex-1"><div class="font-semibold">Labor Cost</div><div class="text-xs text-slate-400">Salaries, benefits, contractors (50–65% of revenue)</div></div>
+            <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+          <div class="pl-row flex items-center gap-3 p-3" id="plr-2" onclick="selectPL(2)" style="background:rgba(239,68,68,.06)">
+            <span class="text-red-400 font-bold w-6 text-right">−</span>
+            <div class="flex-1"><div class="font-semibold">Overhead</div><div class="text-xs text-slate-400">Rent, software, insurance, admin</div></div>
+            <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+          <div class="pl-row flex items-center gap-3 p-3" id="plr-3" onclick="selectPL(3)" style="background:rgba(82,164,74,.12);border:1px solid rgba(82,164,74,.25);border-radius:8px">
+            <span class="font-bold w-6 text-right" style="color:#79C86E">=</span>
+            <div class="flex-1"><div class="font-bold" style="color:#79C86E">Profit</div><div class="text-xs text-slate-300">Distributed to equity partners as personal income</div></div>
+            <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </div>
+        <div id="pl-detail-panel">
+          <div class="text-sm font-semibold text-slate-300 mb-3">The Two Levers</div>
+          <div class="space-y-3">
+            <div class="callout">
+              <div class="font-semibold text-sm mb-1" style="color:#7BBEF5">① Revenue Growth</div>
+              <ul class="text-xs text-slate-300 space-y-1"><li>→ Win more clients or expand existing relationships</li><li>→ Move up the value chain: compliance → advisory</li><li>→ Higher value commands premium pricing</li><li>→ Niche specialization reduces price shopping</li></ul>
+            </div>
+            <div class="callout">
+              <div class="font-semibold text-sm mb-1" style="color:#7BBEF5">② Cost Efficiency</div>
+              <ul class="text-xs text-slate-300 space-y-1"><li>→ Higher leverage ratio: more staff per partner</li><li>→ Technology replacing low-value hours</li><li>→ Fixed-fee pricing eliminates write-down risk</li></ul>
+            </div>
+          </div>
+          <div class="callout-warn mt-3 text-xs text-amber-200"><strong>Your role:</strong> Every growth initiative should connect to one of these two levers. If it doesn't, you'll lose the budget conversation.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFITABILITY FORMULA -->
+    <h3 class="text-lg font-semibold mb-1" style="color:#4BA0E8">The Profitability Formula</h3>
+    <p class="text-xs text-slate-500 mb-4">Click any component to understand what moves it — and what a shift of a few points really means.</p>
+    <div class="card p-5 mb-4">
+      <div class="flex flex-wrap items-center justify-center gap-2 text-center mb-4">
+        <div class="formula-pill" id="fp-0" onclick="selectFormula(0)">
+          <div class="font-bold" style="color:#7BBEF5">Utilization Rate</div>
+          <div class="text-xs text-slate-400">% of hours billed<br>Target: 70–80%</div>
+        </div>
+        <div class="text-slate-500 font-bold text-lg">×</div>
+        <div class="formula-pill" id="fp-1" onclick="selectFormula(1)">
+          <div class="font-bold" style="color:#7BBEF5">Realization Rate</div>
+          <div class="text-xs text-slate-400">% of billed time collected<br>Target: 85–95%</div>
+        </div>
+        <div class="text-slate-500 font-bold text-lg">×</div>
+        <div class="formula-pill" id="fp-2" onclick="selectFormula(2)">
+          <div class="font-bold" style="color:#7BBEF5">Leverage Ratio</div>
+          <div class="text-xs text-slate-400">Staff per partner<br>The multiplier</div>
+        </div>
+        <div class="text-slate-500 font-bold text-lg">=</div>
+        <div class="formula-result formula-pill" id="fp-3" onclick="selectFormula(3)" style="cursor:pointer">
+          <div class="font-black" style="color:#A3D49B">Profit Per Partner</div>
+          <div class="text-xs text-slate-300">The engine of firm economics</div>
+        </div>
+      </div>
+      <div id="formula-detail" class="formula-hint">💡 Click any component above — see benchmarks, what moves it, and exactly how your BD work affects this number.</div>
+    </div>
+
+    <!-- PROFITABILITY CALCULATOR -->
+    <div class="card-blue p-6 mb-4 calc-card" style="border:1px solid rgba(30,120,196,.2)">
+      <div class="flex items-center gap-2 mb-1">
+        <div class="w-2 h-2 rounded-full" style="background:#1E78C4"></div>
+        <h3 class="font-bold" style="color:#4BA0E8">Profitability Calculator</h3>
+        <span class="text-xs text-slate-500 ml-1">— interactive</span>
+      </div>
+      <p class="text-xs text-slate-400 mb-5">Adjust the inputs to see how each variable affects partner income — and what a 5% utilization drop really costs.</p>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="space-y-5">
+          <div>
+            <div class="flex justify-between text-sm mb-1"><span class="text-slate-300">Staff per Partner</span><span class="font-bold" id="lbl-staff" style="color:#4BA0E8">8</span></div>
+            <input type="range" min="2" max="20" value="8" id="inp-staff" class="w-full" oninput="document.getElementById('lbl-staff').textContent=this.value;calcProfit()">
+            <div class="flex justify-between text-xs text-slate-600 mt-1"><span>2</span><span>20</span></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1"><span class="text-slate-300">Billing Rate ($/hr)</span><span class="font-bold" id="lbl-rate" style="color:#4BA0E8">$200</span></div>
+            <input type="range" min="100" max="500" step="25" value="200" id="inp-rate" class="w-full" oninput="document.getElementById('lbl-rate').textContent='$'+this.value;calcProfit()">
+            <div class="flex justify-between text-xs text-slate-600 mt-1"><span>$100</span><span>$500</span></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1"><span class="text-slate-300">Utilization Rate</span><span class="font-bold" id="lbl-util" style="color:#4BA0E8">75%</span></div>
+            <input type="range" min="50" max="95" value="75" id="inp-util" class="w-full" oninput="document.getElementById('lbl-util').textContent=this.value+'%';calcProfit()">
+            <div class="flex justify-between text-xs text-slate-600 mt-1"><span>50%</span><span>95%</span></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1"><span class="text-slate-300">Realization Rate</span><span class="font-bold" id="lbl-real" style="color:#4BA0E8">90%</span></div>
+            <input type="range" min="60" max="100" value="90" id="inp-real" class="w-full" oninput="document.getElementById('lbl-real').textContent=this.value+'%';calcProfit()">
+            <div class="flex justify-between text-xs text-slate-600 mt-1"><span>60%</span><span>100%</span></div>
+          </div>
+        </div>
+        <div class="space-y-3">
+          <div class="grid grid-cols-2 gap-3">
+            <div class="stat-box"><div class="stat-value" id="out-gross">—</div><div class="stat-label">Gross Billings</div></div>
+            <div class="stat-box"><div class="stat-value" id="out-collected">—</div><div class="stat-label">Revenue Collected</div></div>
+          </div>
+          <div class="stat-box" style="background:#070F1C;border-color:rgba(82,164,74,.45)">
+            <div class="text-2xl font-black" id="out-profit" style="color:#79C86E">—</div>
+            <div class="stat-label">Est. Partner Income</div>
+            <div class="text-xs text-slate-500 mt-1">after ~60% firm overhead &amp; labor</div>
+          </div>
+          <div class="rounded-lg p-3" style="background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.2)">
+            <div class="text-amber-400 font-semibold text-xs mb-1">⚠ If Utilization Drops 5%...</div>
+            <div class="flex justify-between"><span class="text-slate-400 text-xs">Partner income impact</span><span class="text-amber-300 font-bold" id="out-drop">—</span></div>
+            <div class="text-slate-500 text-xs mt-1">This is why utilization is the most protected number in the firm.</div>
+          </div>
+          <div id="calc-insight" class="text-xs text-slate-400 italic text-center"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHO LEADS -->
+    <h3 class="text-lg font-semibold mb-1 mt-10" style="color:#4BA0E8">Who Leads the Firm</h3>
+    <p class="text-xs text-slate-500 mb-4">Click any role to understand their mindset and how to work with them effectively.</p>
+    <div class="space-y-2 mb-2">
+      <div class="card p-4 clickable" id="lr-0" onclick="toggleLeader(0)">
+        <div class="flex items-start gap-4">
+          <div class="w-9 h-9 min-w-9 rounded-full flex items-center justify-center mt-0.5" style="background:rgba(30,120,196,.18);border:1px solid rgba(30,120,196,.35)"><svg width="16" height="16" fill="none" stroke="#4BA0E8" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
+          <div class="flex-1"><div class="font-semibold text-sm">Managing Partner / CEO</div><div class="text-xs text-slate-400">"CEO" vs "Managing Partner" signals how the firm views itself as a business. Sets strategy, owns culture, controls priorities.</div></div>
+          <svg class="w-4 h-4 text-slate-500 accordion-icon mt-0.5" id="licon-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="accordion-body pl-14 pt-3" id="lbody-0">
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="callout text-xs"><div class="font-semibold mb-1" style="color:#4BA0E8">What they care about</div>Firm growth, partner satisfaction, talent retention, reputation, and the long-term value of what they've built.</div>
+            <div class="callout text-xs"><div class="font-semibold mb-1" style="color:#79C86E">How to approach</div>Lead with firm-level impact. Benchmark against peers. Show that your initiative supports the firm's stated strategic priorities.</div>
+          </div>
+        </div>
+      </div>
+      <div class="card p-4 clickable" id="lr-1" onclick="toggleLeader(1)">
+        <div class="flex items-start gap-4">
+          <div class="w-9 h-9 min-w-9 rounded-full flex items-center justify-center mt-0.5" style="background:rgba(30,120,196,.18);border:1px solid rgba(30,120,196,.35)"><svg width="16" height="16" fill="none" stroke="#4BA0E8" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="flex-1"><div class="font-semibold text-sm">Executive Committee</div><div class="text-xs text-slate-400">Strategic oversight and governance body. Approves firm-wide decisions. Accountable to equity partners.</div></div>
+          <svg class="w-4 h-4 text-slate-500 accordion-icon mt-0.5" id="licon-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="accordion-body pl-14 pt-3" id="lbody-1">
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="callout text-xs"><div class="font-semibold mb-1" style="color:#4BA0E8">What they care about</div>Risk management, firm-wide consistency, partner alignment, and protecting the firm's reputation and finances.</div>
+            <div class="callout text-xs"><div class="font-semibold mb-1" style="color:#79C86E">How to approach</div>If your initiative needs Executive Committee approval, have the MP or a champion partner present it. Don't go directly to the committee without internal alignment first.</div>
+          </div>
+        </div>
+      </div>
+      <div class="card p-4 clickable" id="lr-2" onclick="toggleLeader(2)" style="border-color:rgba(30,120,196,.3)">
+        <div class="flex items-start gap-4">
+          <div class="w-9 h-9 min-w-9 rounded-full flex items-center justify-center mt-0.5" style="background:rgba(30,120,196,.22);border:1px solid rgba(75,160,232,.5)"><svg width="16" height="16" fill="none" stroke="#7BBEF5" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div class="flex-1"><div class="font-semibold text-sm">Equity Partners / Shareholders</div><div class="text-xs text-slate-300">Own the firm. Capital contributors. Profit share. Their income is <strong style="color:#7BBEF5">directly tied to every dollar spent</strong>.</div></div>
+          <svg class="w-4 h-4 text-slate-500 accordion-icon mt-0.5" id="licon-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="accordion-body pl-14 pt-3" id="lbody-2">
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="callout text-xs"><div class="font-semibold mb-1" style="color:#4BA0E8">What they care about</div>Partner draws, client retention, origination credit, firm reputation, and whether the firm is on a path to growth or stagnation.</div>
+            <div class="callout text-xs"><div class="font-semibold mb-1" style="color:#79C86E">How to approach</div>Every ask is personal — it's their money. Lead with ROI in dollars. Use peer firm benchmarks. Show risk mitigation. The ask comes second.</div>
+          </div>
+          <div class="callout-warn text-xs mt-2">Most protective of spend. Every unspent dollar goes to their paycheck — that's not a metaphor.</div>
+        </div>
+      </div>
+      <div class="card p-4 clickable" id="lr-3" onclick="toggleLeader(3)">
+        <div class="flex items-start gap-4">
+          <div class="w-9 h-9 min-w-9 rounded-full flex items-center justify-center mt-0.5" style="background:rgba(148,163,184,.1);border:1px solid rgba(148,163,184,.25)"><svg width="16" height="16" fill="none" stroke="#94A3B8" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+          <div class="flex-1"><div class="font-semibold text-sm">Non-Equity / Income Partners</div><div class="text-xs text-slate-400">Partner title without ownership. Fixed comp. On track to equity. High influence, less formal power.</div></div>
+          <svg class="w-4 h-4 text-slate-500 accordion-icon mt-0.5" id="licon-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="accordion-body pl-14 pt-3" id="lbody-3">
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="callout text-xs"><div class="font-semibold mb-1" style="color:#4BA0E8">What they care about</div>Building a book of business, proving they deserve equity, being seen as a strategic thinker by equity partners above them.</div>
+            <div class="callout text-xs"><div class="font-semibold mb-1" style="color:#79C86E">How to approach</div>Excellent internal champions. Bring them in early and give them credit. Your initiative becomes their initiative — that's a win-win.</div>
+          </div>
+        </div>
+      </div>
+      <div class="card p-4 clickable" id="lr-4" onclick="toggleLeader(4)">
+        <div class="flex items-start gap-4">
+          <div class="w-9 h-9 min-w-9 rounded-full flex items-center justify-center mt-0.5" style="background:rgba(100,116,139,.1);border:1px solid rgba(100,116,139,.25)"><svg width="16" height="16" fill="none" stroke="#64748B" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+          <div class="flex-1"><div class="font-semibold text-sm">Directors, Managers & Staff</div><div class="text-xs text-slate-400">The delivery engine. The leverage pyramid lives here. Client work, billing hours, building expertise.</div></div>
+          <svg class="w-4 h-4 text-slate-500 accordion-icon mt-0.5" id="licon-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="accordion-body pl-14 pt-3" id="lbody-4">
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="callout text-xs"><div class="font-semibold mb-1" style="color:#4BA0E8">What they care about</div>Career growth, interesting work, being recognized, compensation, and not being pulled off billable work for non-billable tasks.</div>
+            <div class="callout text-xs"><div class="font-semibold mb-1" style="color:#79C86E">BD relevance</div>Managers and directors are often the closest to clients day-to-day. Training them to spot opportunities and have BD conversations is one of the highest-leverage marketing investments a firm can make.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 02 ══════════ -->
+<section id="service-mix" class="py-20 px-4 bg-alt">
+  <div class="max-w-5xl mx-auto">
+    <div class="section-pill">Section 02</div>
+    <h2 class="text-3xl font-bold mb-2">Service & Industry Mix</h2>
+    <p class="text-slate-400 mb-10">By the end of this section: <em class="not-italic font-medium" style="color:#79C86E">I know where growth comes from.</em></p>
+
+    <!-- SERVICE SPECTRUM -->
+    <h3 class="text-lg font-semibold mb-2" style="color:#4BA0E8">The Service Spectrum</h3>
+    <p class="text-xs text-slate-500 mb-3">Every service a firm offers falls somewhere on this spectrum. Knowing where yours lives tells you everything about pricing, margins, and how to sell it.</p>
+    <div class="flex items-center justify-between text-xs text-slate-500 px-1 mb-2">
+      <span class="font-semibold" style="color:#6B7280">← REQUIRED</span>
+      <span class="font-semibold" style="color:#52A44A">CHOSEN →</span>
+    </div>
+    <!-- Spectrum gradient underline -->
+    <div class="h-1.5 rounded-full mb-3" style="background:linear-gradient(90deg,#4B5563,#1E78C4,#4BA0E8,#52A44A)"></div>
+    <div class="grid grid-cols-4 gap-2 mb-2">
+      <button class="spec-btn" id="spec-0" onclick="selectSpectrum(0)" style="background:rgba(107,114,128,.12);border-color:rgba(107,114,128,.35)">
+        <div class="text-sm font-bold text-slate-200 mb-1">Audit &amp;<br>Assurance</div>
+        <div class="text-xs text-slate-500 font-semibold">$ Tight margins</div>
+        <div class="text-xs text-slate-600 mt-1">Required</div>
+      </button>
+      <button class="spec-btn" id="spec-1" onclick="selectSpectrum(1)" style="background:rgba(30,120,196,.1);border-color:rgba(30,120,196,.3)">
+        <div class="text-sm font-bold text-slate-200 mb-1">Tax<br>Compliance</div>
+        <div class="text-xs font-semibold" style="color:#4BA0E8">$$ Reliable</div>
+        <div class="text-xs text-slate-600 mt-1">Recurring</div>
+      </button>
+      <button class="spec-btn" id="spec-2" onclick="selectSpectrum(2)" style="background:rgba(30,120,196,.18);border-color:rgba(30,120,196,.5)">
+        <div class="text-sm font-bold text-slate-200 mb-1">Tax Advisory<br>&amp; Planning</div>
+        <div class="text-xs font-semibold" style="color:#7BBEF5">$$$ Higher margins</div>
+        <div class="text-xs mt-1" style="color:#4BA0E8">Value-based</div>
+      </button>
+      <button class="spec-btn" id="spec-3" onclick="selectSpectrum(3)" style="background:rgba(82,164,74,.14);border-color:rgba(82,164,74,.4)">
+        <div class="text-sm font-bold text-slate-200 mb-1">Advisory<br>Services</div>
+        <div class="text-xs font-semibold" style="color:#79C86E">$$$$ Best potential</div>
+        <div class="text-xs mt-1" style="color:#52A44A">Chosen</div>
+      </button>
+    </div>
+    <div id="spec-detail" class="card-blue p-5 mb-8 spec-detail rounded-xl">
+      <div id="spec-content"></div>
+    </div>
+
+    <!-- COMPLIANCE vs ADVISORY -->
+    <h3 class="text-lg font-semibold mb-2" style="color:#4BA0E8">Compliance vs. Advisory: The Strategic Shift</h3>
+    <p class="text-xs text-slate-500 mb-4">Click a model to explore pricing, growth ceiling, and how to adapt your marketing approach.</p>
+    <div class="grid md:grid-cols-3 gap-4 mb-10">
+      <div class="space-y-2">
+        <div class="card p-4 stack-item" id="ca-0" onclick="selectCA(0)">
+          <div class="font-bold text-slate-200 mb-1">Compliance Model</div>
+          <div class="text-xs text-slate-500">Hourly billing · high leverage · deadline-driven</div>
+        </div>
+        <div class="card p-4 stack-item" id="ca-1" onclick="selectCA(1)" style="border-color:rgba(82,164,74,.25)">
+          <div class="font-bold mb-1" style="color:#79C86E">Advisory Model ⭐</div>
+          <div class="text-xs text-slate-500">Value-based · outcome-focused · higher margin</div>
+        </div>
+      </div>
+      <div class="md:col-span-2">
+        <div id="ca-panel" class="card-blue p-5 rounded-xl" style="min-height:160px">
+          <div class="text-xs text-slate-500 italic flex items-center gap-2 h-full" id="ca-default"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>Select a model on the left to explore pricing, growth ceiling, marketing's role, and how to adapt your approach.</div>
+        </div>
+      </div>
+    </div>
+    <div class="callout-green text-xs mt-4 mb-10">
+      <div class="font-semibold mb-2" style="color:#79C86E">⚡ The Strategic Shift: Why It Matters Now</div>
+      <p class="text-slate-300 mb-2">Technology is automating compliance work faster than most firms expected. Firms competing only on compliance are experiencing margin compression — and the firms pulling ahead are those pivoting toward advisory. This isn't a future trend; it's showing up in firm financials today.</p>
+      <p class="text-slate-400">As a marketer or BD professional, your role is to help clients see that better options exist — and to help partners recognize that the shift to advisory is their competitive advantage, not a threat to their model.</p>
+    </div>
+
+    <!-- BUSY SEASON CALENDAR -->
+    <h3 class="text-lg font-semibold mb-1" style="color:#4BA0E8">The Firm Calendar</h3>
+    <div class="flex items-center gap-2 mb-4">
+      <p class="text-xs text-slate-500">Know the blackout windows before you plan your next initiative.</p>
+      <span class="text-xs font-semibold px-2 py-0.5 rounded-full pulse" style="background:rgba(30,120,196,.2);border:1px solid rgba(30,120,196,.4);color:#4BA0E8">💡 Click any month</span>
+    </div>
+    <div class="card p-5 overflow-x-auto">
+      <div id="cal-grid"></div>
+      <div class="flex flex-wrap gap-4 mt-4 text-xs text-slate-400">
+        <div class="flex items-center gap-2"><div class="w-4 h-3 rounded intensity-3"></div><span>Peak (avoid)</span></div>
+        <div class="flex items-center gap-2"><div class="w-4 h-3 rounded intensity-2"></div><span>Busy</span></div>
+        <div class="flex items-center gap-2"><div class="w-4 h-3 rounded intensity-1"></div><span>Moderate</span></div>
+        <div class="flex items-center gap-2"><div class="w-4 h-3 rounded intensity-0"></div><span>Open ← target these</span></div>
+      </div>
+      <div id="cal-context" class="cal-context mt-5 card-blue p-4 rounded-lg"><div id="cal-context-content"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 03 ══════════ -->
+<section id="decisions" class="py-20 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="section-pill">Section 03</div>
+    <h2 class="text-3xl font-bold mb-2">Decision-Making &amp; The Partner Model</h2>
+    <p class="text-slate-400 mb-10">By the end of this section: <em class="not-italic font-medium" style="color:#4BA0E8">I know how to get something approved.</em></p>
+
+    <h3 class="text-lg font-semibold mb-2" style="color:#4BA0E8">Know Who You're Talking To</h3>
+    <p class="text-xs text-slate-500 mb-4">Click any partner type to see their mindset, motivations, and how to position your ask.</p>
+    <div class="grid md:grid-cols-3 gap-4 mb-10">
+      <div class="space-y-2">
+        <div class="card p-4 stack-item" id="pt-0" onclick="selectPartner(0)" style="border-color:rgba(239,68,68,.2)">
+          <div class="font-bold text-red-400 mb-1">Equity Partner</div>
+          <div class="text-xs text-slate-500">Owns the firm · profit share · has a vote</div>
+          <div class="text-xs mt-1" style="color:#F59E0B">Most protective of spend</div>
+        </div>
+        <div class="card p-4 stack-item" id="pt-1" onclick="selectPartner(1)">
+          <div class="font-bold mb-1" style="color:#4BA0E8">Non-Equity Partner</div>
+          <div class="text-xs text-slate-500">Partner title, no ownership · on track to equity</div>
+          <div class="text-xs mt-1" style="color:#4BA0E8">High influence, less formal power</div>
+        </div>
+        <div class="card p-4 stack-item" id="pt-2" onclick="selectPartner(2)">
+          <div class="font-bold text-slate-300 mb-1">Senior Leader</div>
+          <div class="text-xs text-slate-500">COO, CFO, Director · high access</div>
+          <div class="text-xs mt-1 text-slate-400">Key ally to cultivate early</div>
+        </div>
+      </div>
+      <div class="md:col-span-2 flex flex-col">
+        <div id="pt-panel" class="card-blue p-5 rounded-xl flex-1" style="min-height:180px">
+          <div class="text-xs text-slate-500 italic flex items-center gap-2" id="pt-default"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>Select a partner type to see their frame, what to lead with, and what to avoid.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TACTICAL PLAYBOOK -->
+    <h3 class="text-lg font-semibold mb-4" style="color:#4BA0E8">The Tactical Playbook</h3>
+    <div class="grid sm:grid-cols-2 gap-3 mb-10">
+      <div class="card p-4 flex gap-3 tactic-card"><div class="font-black text-lg" style="color:#52A44A">✓</div><div><div class="font-semibold text-sm mb-1">Start with the most influential partner, not the friendliest.</div><div class="text-xs text-slate-400">Find out who actually moves votes. The friendliest partner rarely has the most leverage.</div></div></div>
+      <div class="card p-4 flex gap-3 tactic-card"><div class="font-black text-lg" style="color:#52A44A">✓</div><div><div class="font-semibold text-sm mb-1">Frame every ask around revenue or cost.</div><div class="text-xs text-slate-400">Speak the language of the room you're trying to influence.</div></div></div>
+      <div class="card p-4 flex gap-3 tactic-card"><div class="font-black text-lg" style="color:#52A44A">✓</div><div><div class="font-semibold text-sm mb-1">Win small things first to build credibility.</div><div class="text-xs text-slate-400">A track record of small wins buys you the credibility for bigger asks.</div></div></div>
+      <div class="card p-4 flex gap-3 tactic-card"><div class="font-black text-lg" style="color:#52A44A">✓</div><div><div class="font-semibold text-sm mb-1">Quantify everything.</div><div class="text-xs text-slate-400">"This campaign generated 3 new audits at $40K each." Rough numbers beat anecdote.</div></div></div>
+      <div class="card p-4 flex gap-3 tactic-card"><div class="font-black text-lg" style="color:#52A44A">✓</div><div><div class="font-semibold text-sm mb-1">Respect busy season — plan around it, not through it.</div><div class="text-xs text-slate-400">Trying to launch a campaign in February is like scheduling a sales call during a surgery.</div></div></div>
+      <div class="card p-4 flex gap-3 tactic-card"><div class="font-black text-lg" style="color:#52A44A">✓</div><div><div class="font-semibold text-sm mb-1">Know which lever leadership emphasizes most.</div><div class="text-xs text-slate-400">Growth-focused leaders want BD fuel. Efficiency-focused leaders want ROI proof.</div></div></div>
+    </div>
+
+    <!-- QUESTIONS -->
+    <h3 class="text-lg font-semibold mb-2" style="color:#4BA0E8">Questions That Open Doors</h3>
+    <p class="text-xs text-slate-500 mb-4">These signal that you think like a business strategist. Click to expand the why behind each question.</p>
+    <div class="space-y-2" id="questions-accordion"></div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 04: GLOSSARY ══════════ -->
+<section id="glossary" class="py-20 px-4 bg-alt">
+  <div class="max-w-5xl mx-auto">
+    <div class="section-pill">Section 04</div>
+    <div class="flex items-center justify-between mb-2 flex-wrap gap-3">
+      <h2 class="text-3xl font-bold">Acronyms &amp; Alphabet Soup</h2>
+      <button onclick="startQuiz()" class="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-sm transition hover:opacity-90" style="background:linear-gradient(135deg,#1E78C4,#52A44A);color:#fff">🎯 Quiz Me</button>
+    </div>
+    <p class="text-slate-400 mb-2">By the end of this section: <em class="not-italic font-medium" style="color:#4BA0E8">I can speak the language of the room.</em></p>
+    <p class="text-xs text-slate-500 mb-8">Click any term to reveal why it matters. Search to find what you need fast. Use <strong style="color:#4BA0E8">Quiz Me</strong> to test yourself.</p>
+
+    <!-- QUIZ PANEL -->
+    <div id="quiz-panel" class="hidden mb-8"></div>
+
+    <!-- GLOSSARY MAIN -->
+    <div id="glossary-main">
+    <div class="mb-4 relative">
+      <svg class="absolute left-3 top-3 w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" id="gloss-search" placeholder="Search terms, definitions…" oninput="filterGlossary()" class="w-full pl-9 pr-4 py-2.5 rounded-lg text-sm outline-none" style="background:#102540;border:1px solid rgba(30,120,196,.3);color:#E2E8F0">
+    </div>
+    <div class="flex flex-wrap gap-2 mb-2" id="cat-filters">
+      <button class="filter-btn active" onclick="setCat('all',this)">All Terms</button>
+      <button class="filter-btn" onclick="setCat('firm',this)">Business of the Firm</button>
+      <button class="filter-btn" onclick="setCat('services',this)">Services &amp; Work</button>
+      <button class="filter-btn" onclick="setCat('standards',this)">Standards &amp; Rules</button>
+      <button class="filter-btn" onclick="setCat('credentials',this)">Credentials</button>
+    </div>
+    <div class="text-xs text-slate-600 mb-6" id="gloss-count"></div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3" id="gloss-grid"></div>
+    </div><!-- /glossary-main -->
+  </div>
+</section>
+
+<!-- ══════════ NEXT STEPS ══════════ -->
+<section id="next-steps" class="py-20 px-4" style="background:linear-gradient(180deg,#0A1929 0%,#070F1C 100%)">
+  <div class="max-w-3xl mx-auto">
+    <div class="section-pill section-pill-green">What You're Taking With You</div>
+    <h2 class="text-3xl font-bold mb-2">Things to Try This Week</h2>
+    <p class="text-slate-400 mb-10">The most valuable session takeaway isn't a framework — it's a habit. Pick one thing and do it before your next partner meeting.</p>
+    <h3 class="text-lg font-semibold mb-4" style="color:#79C86E">Your Commitments</h3>
+    <div class="space-y-3 mb-10" id="commitments-list"></div>
+    <h3 class="text-lg font-semibold mb-2" style="color:#79C86E">Specific Things to Try</h3>
+    <p class="text-xs text-slate-500 mb-4">Click any item to expand with more context on how to actually do it.</p>
+    <div class="space-y-2 mb-10" id="try-list"></div>
+    <h3 class="text-lg font-semibold mb-2" style="color:#79C86E">AI Prompts to Try</h3>
+    <p class="text-xs text-slate-500 mb-4">Copy any prompt and paste it into Claude or ChatGPT to immediately apply what you learned.</p>
+    <div class="space-y-3" id="ai-prompts-list"></div>
+  </div>
+</section>
+
+<footer class="border-t py-10 px-4 text-center" style="border-color:rgba(30,120,196,.15);background:#070F1C">
+  <div class="font-bold text-sm mb-1" style="color:#1E78C4">THE BUSINESS OF ACCOUNTING: HOW FIRMS OPERATE AND GROW</div>
+  <div class="text-slate-600 text-xs mb-1">AAM Summit 2026 · Presented by Alex Drost &amp; Laura Metz</div>
+  <div class="text-slate-700 text-xs">Reference Resource · For session attendees</div>
+</footer>
+
+<!-- ══════════ JAVASCRIPT ══════════ -->
+<script>
+// NAV
+function toggleMenu(){ document.getElementById('mobile-menu').classList.toggle('hidden'); }
+window.addEventListener('scroll',()=>{
+  const p=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100;
+  document.getElementById('progress').style.width=p+'%';
+  const secs=['firm-basics','service-mix','decisions','glossary','next-steps'];
+  let active='';
+  for(const id of secs){ const el=document.getElementById(id); if(el&&window.scrollY>=el.offsetTop-80) active=id; }
+  document.querySelectorAll('.nav-link').forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+active));
+});
+
+// CALCULATOR
+function fmt(n){ if(n>=1e6) return '$'+(n/1e6).toFixed(2)+'M'; if(n>=1000) return '$'+Math.round(n/1000)+'K'; return '$'+Math.round(n); }
+function calcProfit(){
+  const staff=+document.getElementById('inp-staff').value, rate=+document.getElementById('inp-rate').value;
+  const util=+document.getElementById('inp-util').value/100, real=+document.getElementById('inp-real').value/100, hrs=1800;
+  const gross=staff*hrs*rate*util, collected=gross*real, profit=collected*.4;
+  const profit5=staff*hrs*rate*(util-.05)*real*.4, delta=profit-profit5;
+  document.getElementById('out-gross').textContent=fmt(gross);
+  document.getElementById('out-collected').textContent=fmt(collected);
+  document.getElementById('out-profit').textContent=fmt(profit);
+  document.getElementById('out-drop').textContent='−'+fmt(delta)+'/yr';
+  document.getElementById('calc-insight').textContent=`A 5% utilization drop costs ${(delta/profit*100).toFixed(1)}% of partner income — ${fmt(delta)} that never makes it to the paycheck.`;
+}
+calcProfit();
+
+// FIRM EXAMPLES
+const firmData=[
+  { title:'Big 4 & National', color:'#4BA0E8',
+    firms:[['Deloitte','~$60B global, 330K+ people'],['PwC','~$53B global, 320K+ people'],['EY','~$45B global, 300K+ people'],['KPMG','~$35B global, 265K+ people'],['BDO USA','Largest non-Big 4, $2.5B+ US'],['RSM US','#1 middle market, $4B+ US'],['Grant Thornton','$2.4B+ US revenue'],['Forvis Mazars','Top 10, merged 2024'],['CBIZ','Advisory-forward national']],
+    insight:'Marketing teams of 50–200+. BD is highly formalized with dedicated pursuit teams. Brand is a major competitive asset at this level.',
+    bd:'Competitive intelligence, industry-specific thought leadership, pursuit support, and proposal development are core marketing functions.' },
+  { title:'Regional Firms', color:'#1E78C4',
+    firms:[['Moss Adams','West Coast leader, ~$1B'],['Plante Moran','Midwest, ~$800M'],['Baker Tilly','National regional, ~$1.5B'],['Wipfli','Midwest focus, tech-forward'],['Marcum','Northeast, PE/VC niche'],['Cherry Bekaert','Southeast, advisory growth'],['Citrin Cooperman','Mid-Atlantic/National'],['Armanino','Tech, crypto, advisory'],['Dixon Hughes Goodman','Southeast powerhouse']],
+    insight:'Marketing teams of 5–25 people. BD often driven by key partner relationships, but increasingly formalized. Advisory growth is the major strategic priority.',
+    bd:'Campaign management, content marketing, event strategy, and CRM/pipeline management are your core value-adds here.' },
+  { title:'Local Firms', color:'#94A3B8',
+    firms:[['Clark Nuber','Seattle-based, ~$55M'],['Carr Riggs & Ingram','Southeast, growing fast'],['Frazier & Deeter','Atlanta-based, advisory push'],['Henry+Horne','Arizona, mid-market focus'],['Sikich','Chicago/Midwest, advisory'],['Sponsel CPA Group','Indianapolis regional'],['Whitley Penn','Texas-based, advisory'],['Wegner CPAs','Wisconsin, client-focused']],
+    insight:'Marketing often 1–3 people. Partners are the primary rainmakers; marketing provides support and coordination.',
+    bd:'Relationship marketing, community presence, referral programs, and helping partners tell their story are where you create the most leverage.' },
+  { title:'Boutique & Specialty', color:'#52A44A',
+    firms:[['Pilot','Startup bookkeeping/CAS, $100M+'],['Kruze Consulting','VC-backed startup accounting'],['Withum','Tech, cannabis, PE advisory'],['Aprio','International business niche'],['Cerebral Tax Advisors','ADHD/neurodiversity niche'],['Bookkeeper360','eCommerce/DTC focused'],['inDinero','SMB all-in-one'],['Xendoo','Subscription accounting']],
+    insight:'Built around a specific niche. Premium pricing. Content marketing and thought leadership often outperform traditional BD entirely.',
+    bd:'Marketing strategy IS the core growth engine here — not a support function. Niche content, SEO, and community-building drive pipeline.' }
+];
+
+let activeFirm=-1;
+function selectFirm(i){
+  document.querySelectorAll('[id^=fc-]').forEach((c,j)=>c.classList.toggle('active-item',j===i));
+  const d=firmData[i], panel=document.getElementById('firm-panel');
+  if(activeFirm===i){ panel.classList.remove('open'); activeFirm=-1; return; }
+  activeFirm=i;
+  document.getElementById('firm-panel-content').innerHTML=`
+    <div class="flex items-center justify-between mb-4">
+      <div class="font-bold text-base" style="color:${d.color}">${d.title} — Firm Examples</div>
+      <button onclick="selectFirm(${i})" class="text-slate-600 hover:text-slate-400 text-xs">✕ close</button>
+    </div>
+    <div class="flex flex-wrap gap-2 mb-4">${d.firms.map(([n,note])=>`<div class="firm-badge"><div class="fb-bar" style="background:${d.color}"></div><div><div style="color:#E2E8F0">${n}</div><div style="font-size:.6rem;color:#64748B;font-weight:400">${note}</div></div></div>`).join('')}</div>
+    <div class="grid sm:grid-cols-2 gap-3 text-xs">
+      <div class="callout"><div class="font-semibold mb-1" style="color:${d.color}">Firm Profile</div>${d.insight}</div>
+      <div class="callout-green"><div class="font-semibold mb-1" style="color:#79C86E">BD/Marketing Role</div>${d.bd}</div>
+    </div>`;
+  panel.classList.add('open');
+}
+
+// P&L DETAIL
+const plData=[
+  { label:'Revenue', color:'#4BA0E8',
+    h:'What Drives Firm Revenue', body:'<p class="mb-2">Revenue = Hours × Rate × Utilization × Realization. Every component is a lever you can pull.</p><ul class="space-y-1"><li>→ <strong>Typical mix:</strong> 50–65% compliance, 35–50% advisory at growth-oriented firms</li><li>→ <strong>Revenue per FTE:</strong> $80K–$140K at staff level; $400K–$1M+ at partner level</li><li>→ <strong>Growth rate:</strong> Healthy firms grow 7–12%/year organically; advisory-first firms grow 15–25%</li></ul><div class="callout mt-3 text-xs">Marketing\'s job: make the firm easier to find, easier to choose, and easier to grow into. That directly impacts the revenue line.</div>' },
+  { label:'Labor Cost', color:'#EF4444',
+    h:'The Talent Cost Reality', body:'<p class="mb-2">Labor is 50–65% of revenue — the single biggest cost in every CPA firm. That constraint shapes every other decision.</p><ul class="space-y-1"><li>→ <strong>Staff:</strong> $55K–$90K base; with benefits ~$70K–$115K fully loaded</li><li>→ <strong>Manager:</strong> $90K–$140K; Senior Manager: $120K–$175K</li><li>→ <strong>Partner (non-equity):</strong> $200K–$350K fixed</li><li>→ <strong>Leverage insight:</strong> Every additional staff FTE who bills 1,600 hrs at $175/hr = $280K revenue</li></ul><div class="callout-warn mt-3 text-xs">The talent market is tight. Firms that can retain and grow people have a structural cost advantage over those that churn.</div>' },
+  { label:'Overhead', color:'#EF4444',
+    h:'What\'s In Overhead', body:'<p class="mb-2">Overhead is typically 15–25% of revenue. Marketing usually lives here — which is why it gets scrutinized.</p><ul class="space-y-1"><li>→ <strong>Technology:</strong> Growing fastest — practice management, tax software, collaboration tools</li><li>→ <strong>Marketing &amp; BD:</strong> Typically 1–3% of revenue (industry average). High-performing firms: 3–5%</li><li>→ <strong>Rent/facilities:</strong> Declining post-COVID as firms downsize office footprint</li><li>→ <strong>Professional liability insurance:</strong> Significant and non-negotiable</li><li>→ <strong>Training &amp; CPE:</strong> Required; often 40 hours/year per licensed professional</li></ul><div class="callout mt-3 text-xs">Marketing budget lives in overhead. Knowing you represent 1–3% of revenue helps you frame your asks proportionally.</div>' },
+  { label:'Profit', color:'#79C86E',
+    h:'How Partner Profit Works', body:'<p class="mb-2">Profit is what remains after labor and overhead — typically 20–35% of revenue for a healthy firm. That goes to equity partners as personal income.</p><ul class="space-y-1"><li>→ <strong>Healthy firm:</strong> 25–35% profit margin</li><li>→ <strong>High-performing:</strong> 35–45%</li><li>→ <strong>Struggling:</strong> Below 20% — partners feel it immediately</li><li>→ <strong>Distribution:</strong> Partners receive periodic "draws" against projected annual income</li><li>→ <strong>NIPP benchmark:</strong> $400K–$900K+ at well-run regional and national firms</li></ul><div class="callout-green mt-3 text-xs">When you frame an initiative around protecting or growing this number, you\'re speaking the language that lands.</div>' }
+];
+
+let activePL=-1;
+function selectPL(i){
+  document.querySelectorAll('.pl-row').forEach((r,j)=>r.classList.toggle('pl-active',j===i));
+  const d=plData[i], panel=document.getElementById('pl-detail-panel');
+  if(activePL===i){ panel.innerHTML=defaultPLPanel(); activePL=-1; return; }
+  activePL=i;
+  panel.innerHTML=`<div class="card-blue p-4 rounded-xl h-full"><div class="font-bold mb-3" style="color:${d.color}">${d.h}</div><div class="text-xs text-slate-300 space-y-1">${d.body}</div></div>`;
+}
+function defaultPLPanel(){return`<div class="text-sm font-semibold text-slate-300 mb-3">The Two Levers</div><div class="space-y-3"><div class="callout"><div class="font-semibold text-sm mb-1" style="color:#7BBEF5">① Revenue Growth</div><ul class="text-xs text-slate-300 space-y-1"><li>→ Win more clients or expand existing relationships</li><li>→ Move up the value chain: compliance → advisory</li><li>→ Higher value commands premium pricing</li></ul></div><div class="callout"><div class="font-semibold text-sm mb-1" style="color:#7BBEF5">② Cost Efficiency</div><ul class="text-xs text-slate-300 space-y-1"><li>→ Higher leverage ratio: more staff per partner</li><li>→ Technology replacing low-value hours</li><li>→ Fixed-fee pricing eliminates write-down risk</li></ul></div></div><div class="callout-warn mt-3 text-xs text-amber-200"><strong>Your role:</strong> Every growth initiative should connect to one of these two levers.</div>`;}
+
+// FORMULA DETAIL
+const formulaData=[
+  { label:'Utilization Rate', color:'#4BA0E8',
+    body:'<strong>What it is:</strong> The % of available hours billed to clients. At 1,800 available hours/year, 75% = 1,350 billable hours.<br><br><strong>Benchmarks:</strong> Staff: 75–85% | Managers: 65–75% | Partners: 40–55% (rest is BD, admin, oversight)<br><br><strong>What kills it:</strong> Unbillable training, poor project planning, admin overhead, non-billable internal work.<br><br><strong>Your impact:</strong> Campaigns that bring in more work directly protect utilization. Positioning the firm in growth-stage niches reduces volatility.' },
+  { label:'Realization Rate', color:'#7BBEF5',
+    body:'<strong>What it is:</strong> The % of billed time actually collected. Billed $100K, collected $87K = 87% realization.<br><br><strong>Why it drops:</strong> Client disputes, scope creep billed after the fact, fee discounts for long-standing clients, bad debt.<br><br><strong>Benchmarks:</strong> Strong: 90–95% | Average: 80–90% | Weak: Below 80% — usually a pricing or client quality problem.<br><br><strong>Fixed fees help:</strong> Moving to value-based pricing eliminates the realization problem entirely — you price the outcome, not the hour.' },
+  { label:'Leverage Ratio', color:'#A3D49B',
+    body:'<strong>What it is:</strong> Staff (non-partner professionals) per equity partner. 8 staff : 1 partner = 8:1 leverage.<br><br><strong>Why it matters:</strong> Each additional staff member supporting a partner multiplies revenue-generating capacity without adding a new partner.<br><br><strong>Benchmarks:</strong> Strong: 6:1–10:1 | Advisory firms: Often lower (4:1–6:1) but offset by higher per-hour billing.<br><br><strong>BD connection:</strong> Growing revenue faster than you add partners improves leverage — and profit per partner. That\'s the BD investment case in one sentence.' },
+  { label:'Profit Per Partner', color:'#52A44A',
+    body:'<strong>What it is:</strong> The output of the formula — total firm profit divided by number of equity partners. It\'s the number every equity partner thinks about constantly, even if they never say it out loud.<br><br><strong>Healthy benchmarks:</strong> Regional firms: $400K–$700K NIPP | High-performing: $700K–$1.2M+ | Below $300K: Partners are feeling it.<br><br><strong>What moves it:</strong> Any increase in utilization, realization, or leverage flows directly to this number. A 5-point utilization improvement at a 20-person firm can add $100K+ per partner.<br><br><strong>Why it matters to you:</strong> When equity partners scrutinize your budget, this is the number they\'re protecting. Frame your ROI in terms of what it does to profit per partner and you\'ll speak their language exactly.' }
+];
+
+const formulaHint='💡 Click any component above — see benchmarks, what moves it, and exactly how your BD work affects this number.';
+let activeFP=-1;
+function selectFormula(i){
+  document.querySelectorAll('[id^=fp-]').forEach((p,j)=>p.classList.toggle('pill-active',j===i));
+  const d=formulaData[i], panel=document.getElementById('formula-detail');
+  if(activeFP===i){
+    panel.className='formula-hint'; panel.innerHTML=formulaHint; activeFP=-1; return;
+  }
+  activeFP=i;
+  panel.className='card p-4 mt-2'; panel.setAttribute('style','border:1px solid rgba(30,120,196,.35);animation:fadeIn .2s ease');
+  panel.innerHTML=`<div class="flex items-center justify-between mb-2"><div class="font-bold" style="color:${d.color}">${d.label}</div><button onclick="selectFormula(${i})" class="text-slate-600 hover:text-slate-400 text-xs">✕ close</button></div><div class="text-xs text-slate-300 leading-relaxed">${d.body}</div>`;
+}
+
+// LEADERSHIP ROWS
+function toggleLeader(i){
+  const body=document.getElementById('lbody-'+i), icon=document.getElementById('licon-'+i);
+  const open=body.classList.contains('open');
+  body.classList.toggle('open',!open); icon.classList.toggle('open',!open);
+  document.getElementById('lr-'+i).classList.toggle('active-item',!open);
+}
+
+// SERVICE SPECTRUM
+const specData=[
+  { title:'Audit & Assurance', tag:'REQUIRED', tagColor:'#6B7280',
+    pricing:'Hourly billing. Tight, competitive margins. Rate increases are difficult — clients shop on reliability and price.',
+    client:'Required by lenders, regulators, and investors. Creates annual rhythm that keeps you in front of clients.',
+    bd:'Retention, compliance deadlines, and relationship reliability. Switching costs keep clients, but don\'t drive growth.',
+    examples:'Public company audits, nonprofit audits, employee benefit plan audits, agreed-upon procedures, compilations.',
+    insight:'Firms compete on reliability and accuracy — not differentiation. Hardest service line to grow through marketing alone.' },
+  { title:'Tax Compliance', tag:'RECURRING', tagColor:'#1E78C4',
+    pricing:'Hourly → shifting to flat fee. Revenue is reliable and seasonal. Bundled pricing increasing across the industry.',
+    client:'Everyone needs it. Predictable April 15 and September 15 deadlines create a natural relationship rhythm.',
+    bd:'Efficiency, accuracy, and the relationship — then use the engagement to cross-sell advisory services.',
+    examples:'Individual returns, corporate returns (1120/1120S), partnership returns (1065), trust & estate returns, payroll tax.',
+    insight:'The compliance relationship is the on-ramp to every advisory conversation that follows. Don\'t undervalue it as a BD entry point.' },
+  { title:'Tax Advisory & Planning', tag:'VALUE-BASED', tagColor:'#4BA0E8',
+    pricing:'Value-based pricing possible. Higher margins when positioned around measurable savings delivered to the client.',
+    client:'Clients choose based on perceived savings potential. "We will save you money" is an outcome, not just a service.',
+    bd:'Thought leadership, client education, and proactive outreach — not reactive deadline-driven service delivery.',
+    examples:'Year-end tax planning, entity structure optimization, R&D tax credits, cost segregation studies, international tax.',
+    insight:'This is where "we sell time" ends and "we sell outcomes" begins. The first door into true advisory relationship.' },
+  { title:'Advisory Services', tag:'CHOSEN', tagColor:'#52A44A',
+    pricing:'Project or retainer. Best margin potential. Same scope: $10K at one firm, $150K at another — the difference is positioning.',
+    client:'CFO services, M&A, Valuation, CAS, Tech consulting. Client decides timing, depth, and engagement length.',
+    bd:'Industry credibility, thought leadership, outcome proof. The firm must earn this business — it\'s not automatically renewed.',
+    examples:'CFO advisory/CAS, M&A due diligence, business valuation, strategic planning, technology consulting, ESG reporting.',
+    insight:'The gap between $10K and $150K for the same work isn\'t effort — it\'s perceived expertise, positioning, and how the relationship was built.' }
+];
+
+function selectSpectrum(i){
+  const d=specData[i];
+  document.querySelectorAll('.spec-btn').forEach((b,j)=>{
+    b.classList.toggle('spec-active',j===i);
+    if(j===i){ b.style.boxShadow='0 8px 24px rgba(0,0,0,.3)'; b.style.transform='translateY(-4px) scale(1.03)'; }
+    else{ b.style.boxShadow=''; b.style.transform=''; }
+  });
+  document.getElementById('spec-content').innerHTML=`
+    <div class="flex items-center gap-3 mb-4">
+      <span class="text-xs font-bold px-2 py-0.5 rounded" style="background:${d.tagColor}22;color:${d.tagColor};border:1px solid ${d.tagColor}44">${d.tag}</span>
+      <span class="font-bold text-base">${d.title}</span>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm mb-4">
+      <div><div class="text-xs font-semibold mb-1 uppercase tracking-wide" style="color:#4BA0E8">Pricing</div><div class="text-slate-300 text-xs">${d.pricing}</div></div>
+      <div><div class="text-xs font-semibold mb-1 uppercase tracking-wide" style="color:#4BA0E8">Client Relationship</div><div class="text-slate-300 text-xs">${d.client}</div></div>
+      <div><div class="text-xs font-semibold mb-1 uppercase tracking-wide" style="color:#4BA0E8">BD Approach</div><div class="text-slate-300 text-xs">${d.bd}</div></div>
+      <div><div class="text-xs font-semibold mb-1 uppercase tracking-wide" style="color:#79C86E">Examples</div><div class="text-slate-300 text-xs">${d.examples}</div></div>
+    </div>
+    <div class="text-xs text-amber-200 italic border-t pt-3" style="border-color:rgba(251,191,36,.15)">💡 ${d.insight}</div>`;
+  document.getElementById('spec-detail').classList.add('visible');
+}
+selectSpectrum(2);
+
+// COMPLIANCE vs ADVISORY — stack+panel
+const caDetailData=[
+  { title:'Compliance Model', color:'#4BA0E8',
+    rows:[['Revenue driver','Hours billed × hourly rate'],['Profit lever','Lower-cost staff (leverage)'],['BD approach','Retention, efficiency, deadlines'],['Growth ceiling','Scales with headcount only']],
+    points:[
+      {h:'Growth ceiling',b:'Scales with headcount — you can only grow as fast as you can hire and train people. Margin improvement is slow.'},
+      {h:"Marketing's role",b:'Retention marketing, referral programs, deadline reminders, and efficiency stories. The relationship is the product.'},
+      {h:'The trap',b:'Competing on compliance price is a race to the bottom. The exit is moving clients up the value chain.'}]},
+  { title:'Advisory Model ⭐', color:'#79C86E',
+    rows:[['Revenue driver','Value-based or project pricing'],['Growth ceiling','Much higher — scales via process'],['BD approach','Outcomes, ROI, transformation'],['Margin potential','$400–$600/hr equivalent']],
+    points:[
+      {h:'The opportunity',b:'The same partner hours that produce $150/hr in compliance can produce $400–$600/hr in advisory when packaged around outcomes.'},
+      {h:"Marketing's role",b:'Thought leadership, industry expertise content, outcome case studies, and client education. You\'re marketing a transformation, not a service.'},
+      {h:'The challenge',b:"Clients don't always know they need advisory. Education is the BD strategy — and that's a marketing problem."}]}
+];
+let activeCA=-1;
+function selectCA(i){
+  document.querySelectorAll('[id^=ca-]').forEach((el,j)=>el.classList.toggle('stack-active',j===i));
+  if(activeCA===i){document.getElementById('ca-panel').innerHTML='<div class="text-xs text-slate-500 italic flex items-center gap-2"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>Select a model on the left to explore pricing, growth ceiling, and how to adapt your approach.</div>';activeCA=-1;return;}
+  activeCA=i;
+  const d=caDetailData[i];
+  document.getElementById('ca-panel').innerHTML=`
+    <div class="font-bold mb-3" style="color:${d.color}">${d.title}</div>
+    <div class="grid grid-cols-2 gap-x-6 gap-y-1 mb-4 text-xs">${d.rows.map(([k,v])=>`<div class="text-slate-500">${k}</div><div class="text-slate-200">${v}</div>`).join('')}</div>
+    <div class="space-y-2">${d.points.map(p=>`<div class="callout${i===1?'-green':''} text-xs"><strong class="text-slate-200">${p.h}:</strong> ${p.b}</div>`).join('')}</div>`;
+}
+
+// CALENDAR
+const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const calData=[[2,1,1],[3,2,1],[3,3,1],[3,2,1],[1,1,2],[0,1,2],[0,0,2],[1,1,2],[1,2,2],[2,1,1],[2,0,1],[1,0,0]];
+const calContext=[
+  {month:'January',headline:'Tax Season Begins',tax:'Individual and business tax prep kicks off. Key staff fully committed through April.',audit:'Fiscal year-end audits beginning. Audit teams ramping up.',advisory:'Q1 planning conversations are highest-value — catch clients before they lock in their year.',bd:'🟢 Strong BD window in the first two weeks. Activate referral conversations now.'},
+  {month:'February',headline:'Peak Tax Season',tax:'All-hands blackout. Do not ask anything of tax partners or staff.',audit:'Year-end audits in full swing. Teams at 80–90% capacity.',advisory:'Minimal — everyone is focused on compliance deliverables.',bd:'🔴 Near-total blackout. Focus on behind-the-scenes planning for post-season campaigns.'},
+  {month:'March',headline:'Deep Tax Season',tax:'Peak of peak. Extension conversations beginning. Partners unavailable.',audit:'Major audit push. Large clients closing.',advisory:'Squeezed between compliance obligations.',bd:'🔴 Full blackout. Use this time to prepare campaigns for May launch.'},
+  {month:'April',headline:'Tax Deadline Month',tax:'April 15 deadline. Huge relief after the 15th — partners re-emerge.',audit:'Winding down for most fiscal year-end clients. Bandwidth returning.',advisory:'Post-deadline advisory conversations beginning to pick up.',bd:'🟡 Post-April 15 is a surprise window. Partners are relieved and briefly available.'},
+  {month:'May',headline:'Recovery & Planning',tax:'Extensions filed. Relatively quiet. Staff recovering. A prime window.',audit:'Moderate — calendar year audits wrapping up.',advisory:'Strong momentum — clients want to act on what they learned from returns.',bd:'🟢 Excellent BD month. Partners available and energized. Plan major initiatives here.'},
+  {month:'June',headline:'Summer Planning',tax:'Quiet. Good for internal projects, training, planning.',audit:'Moderate — some fiscal year-end clients.',advisory:'Advisory and CAS work picking up.',bd:'🟢 Strong window. Leadership has bandwidth. Good time to pitch new initiatives.'},
+  {month:'July',headline:'Midsummer Prime',tax:'Calm. Some quarterly deadlines but not overwhelming.',audit:'Low — summer off-season.',advisory:'Advisory growing — CFO services, project work, strategic planning.',bd:'🟢 Best BD window of the year for many firms. Pursue thought leadership and relationship-building.'},
+  {month:'August',headline:'Summer Continues',tax:'August deadlines (extensions). Moderate ramp-up starting.',audit:'Picking back up as fiscal year-ends approach.',advisory:'Advisory work continuing.',bd:'🟡 Good but window beginning to close as fall ramp-up starts.'},
+  {month:'September',headline:'Fall Ramp-Up',tax:'September 15 deadline. Fall tax season beginning.',audit:'Calendar year-end audits ramping.',advisory:'Moderately active.',bd:'🟡 Get campaigns launched before October crunch hits.'},
+  {month:'October',headline:'Fall Busy Season',tax:'Heavy workload returns. Q3 closings, year-end planning.',audit:'Calendar year-end audits in progress.',advisory:'Competes with compliance for partner time.',bd:'🟡 Tightening. Focus on retention and existing client conversations.'},
+  {month:'November',headline:'Year-End Push',tax:'Year-end planning. High-value but time-constrained.',audit:'Approaching busy season.',advisory:'Year-end advisory conversations often highest-value.',bd:'🟡 Relationship maintenance. Not a good time for large new asks.'},
+  {month:'December',headline:'Holiday Season',tax:'Light deadlines. Year-end planning winding down.',audit:'Pre-busy-season preparation.',advisory:'Quiet mid-month. Clients mentally checked out.',bd:'🟢 Holiday touchpoints, relationship events, Q1 campaign planning.'}
+];
+// Per-row colors: [0=empty, 1=light, 2=medium, 3=peak]
+const rowBg=[
+  ['rgba(255,255,255,.04)','rgba(251,191,36,.18)','rgba(251,191,36,.48)','rgba(251,191,36,.82)'],  // Tax: amber
+  ['rgba(255,255,255,.04)','rgba(30,120,196,.18)','rgba(30,120,196,.48)','rgba(30,120,196,.82)'],  // Audit: blue
+  ['rgba(255,255,255,.04)','rgba(82,164,74,.18)','rgba(82,164,74,.48)','rgba(82,164,74,.82)']       // Advisory: green
+];
+const rowTxt=[
+  ['#4B5563','#F59E0B','#FBBF24','#1a1a1a'],
+  ['#4B5563','#7BBEF5','#4BA0E8','#E2E8F0'],
+  ['#4B5563','#79C86E','#52A44A','#E2E8F0']
+];
+let activeCalMonth=-1;
+function buildCalendar(){
+  const rows=['Tax','Audit','Advisory'];
+  let html='<div class="overflow-x-auto"><table class="w-full min-w-max text-xs border-separate" style="border-spacing:3px">';
+  html+='<tr><td class="w-20 pr-2"></td>';
+  months.forEach((m,i)=>{html+=`<td id="cal-hdr-${i}" class="text-center text-slate-500 pb-1 px-1 cal-month-hdr font-medium" onclick="showMonthContext(${i})">${m}</td>`;});
+  html+='</tr>';
+  rows.forEach((row,ri)=>{
+    const labelColor=['#F59E0B','#7BBEF5','#79C86E'][ri];
+    html+=`<tr><td class="pr-2 text-right font-semibold text-xs" style="color:${labelColor}">${row}</td>`;
+    calData.forEach((month,mi)=>{
+      const intensity=month[ri];
+      const bg=rowBg[ri][intensity], tc=rowTxt[ri][intensity];
+      html+=`<td><div class="cal-cell" style="background:${bg};color:${tc};border:1px solid ${intensity===0?'rgba(255,255,255,.06)':'transparent'}" title="${months[mi]} ${row}" onclick="showMonthContext(${mi})">${intensity===3?'●':intensity===2?'◆':intensity===1?'·':''}</div></td>`;
+    });
+    html+='</tr>';
+  });
+  html+='</table></div>';
+  document.getElementById('cal-grid').innerHTML=html;
+}
+function showMonthContext(mi){
+  // Highlight active month header
+  months.forEach((_,j)=>{
+    const hdr=document.getElementById('cal-hdr-'+j);
+    if(hdr) hdr.classList.toggle('cal-month-active',j===mi);
+  });
+  activeCalMonth=mi;
+  const ctx=calContext[mi], el=document.getElementById('cal-context');
+  document.getElementById('cal-context-content').innerHTML=`
+    <div class="flex items-center justify-between mb-3">
+      <div class="font-bold" style="color:#4BA0E8">${ctx.month} — ${ctx.headline}</div>
+      <button onclick="document.getElementById('cal-context').classList.remove('visible');document.querySelectorAll('[id^=cal-hdr-]').forEach(h=>h.classList.remove('cal-month-active'))" class="text-slate-600 hover:text-slate-400 text-xs">✕ close</button>
+    </div>
+    <div class="grid sm:grid-cols-3 gap-3 mb-3 text-xs">
+      <div><div class="font-semibold text-amber-400 mb-1">Tax</div><div class="text-slate-400">${ctx.tax}</div></div>
+      <div><div class="font-semibold text-slate-300 mb-1">Audit</div><div class="text-slate-400">${ctx.audit}</div></div>
+      <div><div class="font-semibold mb-1" style="color:#79C86E">Advisory</div><div class="text-slate-400">${ctx.advisory}</div></div>
+    </div>
+    <div class="text-xs font-medium p-2 rounded" style="background:rgba(82,164,74,.08);border:1px solid rgba(82,164,74,.2);color:#A3D49B">BD Window: ${ctx.bd}</div>`;
+  el.classList.add('visible');
+}
+buildCalendar();
+
+// PARTNER TYPES — stack+panel
+const ptDetailData=[
+  { title:'Equity Partner', color:'#F87171',
+    frame:"Every dollar you ask for is money out of their pocket. They're not being difficult — that's just math.",
+    frameStyle:'callout-warn',
+    points:[
+      {h:'Lead with',b:'Revenue generated, cost reduced, or risk mitigated. Use numbers — even rough ones beat anecdote.'},
+      {h:'Use',b:'Peer firm benchmarks. "Firms like ours that invested in this saw X." Social proof from their peer group is the most powerful lever.'},
+      {h:'Avoid',b:'Brand awareness or intangible value arguments without a business case attached.'}]},
+  { title:'Non-Equity Partner', color:'#4BA0E8',
+    frame:"They want to prove they belong at the equity table. Your initiative gives them a platform and a visible win.",
+    frameStyle:'callout',
+    points:[
+      {h:'Lead with',b:'The opportunity to be seen as strategic. Position them as the champion, not just the approver.'},
+      {h:'Use',b:"Them as your path to equity partners. A non-equity partner who believes in your initiative and presents it internally is worth more than any deck you could build."},
+      {h:'Remember',b:'They\'re motivated to take calculated risks that make them look visionary. That\'s your opening.'}]},
+  { title:'Senior Leader (COO/CFO/Director)', color:'#94A3B8',
+    frame:"Operational efficiency and process. They move faster than partners and often have pre-approval authority up to a threshold.",
+    frameStyle:'callout-green',
+    points:[
+      {h:'Lead with',b:'Efficiency gains, process improvement, scalability. They think in systems, not just relationships.'},
+      {h:'Use',b:"Them as an operational ally who can shepherd your initiative through internal process — and often has more calendar availability than equity partners."},
+      {h:'Best for',b:'Getting things scoped, structured, and approved at an operational level before taking it to partners.'}]}
+];
+let activePT=-1;
+function selectPartner(i){
+  document.querySelectorAll('[id^=pt-]').forEach((el,j)=>el.classList.toggle('stack-active',j===i));
+  if(activePT===i){document.getElementById('pt-panel').innerHTML='<div class="text-xs text-slate-500 italic flex items-center gap-2"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>Select a partner type to see their frame, what to lead with, and what to avoid.</div>';activePT=-1;return;}
+  activePT=i;
+  const d=ptDetailData[i];
+  document.getElementById('pt-panel').innerHTML=`
+    <div class="font-bold mb-3" style="color:${d.color}">${d.title}</div>
+    <div class="${d.frameStyle} text-xs mb-3"><strong class="text-slate-200">Their frame:</strong> ${d.frame}</div>
+    <div class="space-y-2">${d.points.map(p=>`<p class="text-xs text-slate-300"><strong class="text-slate-100">${p.h}:</strong> ${p.b}</p>`).join('')}</div>`;
+}
+
+// STRATEGIC QUESTIONS
+const questions=[
+  {audience:'To Any Partner',color:'#1E78C4',q:'"Which service line has the best margin right now, and where is capacity available?"',why:'Signals you understand their economics and are thinking about BD through a profitability lens, not just a brand lens. A marketer who asks this gets invited back to the next strategy meeting.'},
+  {audience:'To Your COO',color:'#94A3B8',q:'"Where are we leaving money on the table — delivery efficiency or pricing discipline?"',why:'Opens a conversation about operational improvement the COO is likely already thinking about. You become a strategic ally instead of a cost center.'},
+  {audience:'To Your Managing Partner',color:'#4BA0E8',q:'"If we could grow one practice 30% next year, which one creates the most firm-wide lift?"',why:'Forces the MP to articulate strategic priorities — and tells you exactly where to focus BD investment. You stop guessing about where marketing matters most.'},
+  {audience:'To Your CFO',color:'#94A3B8',q:'"What does our revenue mix look like if advisory grows from 15% to 25% in three years?"',why:'Demonstrates you think in business model terms, not just campaign terms. Opens the door to real strategy conversations about the firm\'s future.'},
+  {audience:'To a Practice Leader',color:'#52A44A',q:'"If I could help you land one more ideal client in the next 90 days, what would that client look like?"',why:'Forces specificity. Most partners haven\'t articulated their ideal client profile recently. This question makes you a pipeline contributor, not a brand manager.'},
+  {audience:'Before Any Ask',color:'#F59E0B',q:'"Partners don\'t say no to ideas — they say no to ideas that cost them money without clear upside."',why:'Every budget request should lead with revenue generated, cost reduced, or risk mitigated. The ask comes second. This reframe changes the conversation before you\'re even in the room.'},
+  {audience:'In Any Partner Meeting',color:'#7BBEF5',q:'"What do our best clients have in common that we don\'t talk about enough internally?"',why:'Partners know this intuitively but rarely articulate it. The answer becomes your ideal client profile, your niche strategy, and your best content marketing angle — all in one.'},
+  {audience:'Before Planning Season',color:'#1E78C4',q:'"What would need to be true for us to raise our realization rate by 5 points next year?"',why:'Shows you understand the firm\'s most sensitive financial metric. The answer usually reveals either a pricing problem or a client quality problem — both are marketing-adjacent.'},
+  {audience:'When Pitching Tech',color:'#52A44A',q:'"If this tool works as promised, how does it change what we can charge or how we staff?"',why:'Partners care about capability leverage, not features. Tie every technology pitch to the P&L impact — margin expansion, capacity increase, or service differentiation.'},
+  {audience:'About Niche Strategy',color:'#94A3B8',q:'"If we stopped serving every type of client equally, which niche would you double down on — and what\'s holding us back?"',why:'Gets to the heart of why generalist firms struggle to grow. The answer is almost always fear of turning business away. Understanding that unlocks the real positioning conversation.'},
+  {audience:'About BD Budget',color:'#F59E0B',q:'"If every marketing dollar had to be tied to a specific outcome, what outcome would you want it to produce first?"',why:'Partners approve budgets when they believe in the outcome, not the activity. This question forces alignment before you build the plan — not during the approval process.'},
+];
+function buildQuestions(){
+  document.getElementById('questions-accordion').innerHTML=questions.map((q,i)=>`
+    <div class="card q-card">
+      <button class="w-full flex items-center justify-between p-4 text-left gap-3" onclick="toggleQ(${i})">
+        <div class="flex items-start gap-3 flex-1 min-w-0">
+          <span class="text-xs font-bold px-2 py-0.5 rounded shrink-0 mt-0.5" style="background:${q.color}22;color:${q.color};border:1px solid ${q.color}33">${q.audience}</span>
+          <span class="text-sm text-slate-200 italic">${q.q}</span>
+        </div>
+        <svg class="accordion-icon w-4 h-4 min-w-4 text-slate-500" id="qicon-${i}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div class="accordion-body px-4 pb-4" id="qbody-${i}"><div class="callout text-sm text-slate-300">${q.why}</div></div>
+    </div>`).join('');
+}
+function toggleQ(i){
+  const body=document.getElementById('qbody-'+i), icon=document.getElementById('qicon-'+i);
+  const open=body.classList.contains('open');
+  body.classList.toggle('open',!open); icon.classList.toggle('open',!open);
+}
+buildQuestions();
+
+// GLOSSARY
+const terms=[
+  {term:'Partner Draw',cat:'firm',def:'How equity partners receive their share of firm profits. Partners don\'t receive a traditional salary — their income is a draw against firm earnings, paid periodically.',why:'Why every unspent dollar feels personal to an equity partner. Marketing spend comes directly out of partner draws — that\'s not a metaphor.'},
+  {term:'NIPP',cat:'firm',def:'Net Income Per Partner — a key firm performance benchmark that divides total firm net income by number of equity partners.',why:'The benchmark peers compare against. If your firm\'s NIPP is below peer average, partners feel it acutely and scrutinize every expense line.'},
+  {term:'Leverage Ratio',cat:'firm',def:'Number of professional staff supporting each equity partner. A firm with 40 staff and 5 partners has an 8:1 leverage ratio.',why:'Higher leverage = more scalable profitability per partner. Firms that can\'t scale leverage hit a growth ceiling. Advisory models improve this by enabling fewer staff to deliver more value.'},
+  {term:'Realization Rate',cat:'firm',def:'The percentage of billed time that is actually collected from clients. If you bill $100K but collect $90K, realization is 90%.',why:'Measures both pricing discipline and client quality. Low realization means the firm is discounting work after the fact — often because scope or the client was wrong.'},
+  {term:'Utilization Rate',cat:'firm',def:'The percentage of a professional\'s available hours that are billable to clients. At 1,800 available hours/year, 75% = 1,350 billable hours.',why:'Low = too much bench time. Too high = burnout risk. The most closely watched metric in any CPA firm because it directly multiplies into revenue.'},
+  {term:'EBITDA',cat:'firm',def:'Earnings Before Interest, Taxes, Depreciation and Amortization — profitability measured before financing costs and accounting adjustments.',why:'The most common lens partners use to measure both firm performance and client business value. Use it fluently and you signal financial literacy immediately.'},
+  {term:'Origination Credit',cat:'firm',def:'Credit given to the partner or professional who won a client or engagement — distinct from service credit for doing the work.',why:'Shapes incentive structures and creates "rainmaker culture." Understanding who gets origination credit tells you who cares most about BD and who your internal champions will be.'},
+  {term:'Revenue Per Partner',cat:'firm',def:'Total firm revenue divided by number of equity partners. Tracks productivity and scale efficiency.',why:'A sister metric to NIPP. Firms trying to grow without adding partners need this to move up — and it\'s exactly where BD impact shows up most clearly.'},
+  {term:'WIP',cat:'services',def:'Work in Progress — time and expenses performed but not yet billed. Lives on the balance sheet until invoiced.',why:'High WIP signals billing delays — a cash flow concern. Partners push for aggressive WIP conversion at quarter-end.'},
+  {term:'Engagement Letter',cat:'services',def:'A formal document outlining scope, responsibilities, fee arrangements, and terms for a client engagement.',why:'Defines what the firm is — and isn\'t — responsible for. Scope creep without an engagement letter amendment means the firm often eats the cost.'},
+  {term:'CAS',cat:'services',def:'Client Accounting Services — outsourced bookkeeping, controller services, CFO-as-a-service, and other accounting functions as a managed service.',why:'One of the fastest-growing service lines in the profession. Often the on-ramp to broader advisory. Tech-enabled CAS firms have dramatically better margins.'},
+  {term:'COI',cat:'services',def:'Center of Influence — a trusted professional (attorney, banker, financial planner) who refers clients to the firm.',why:'Relationship currency in the firm\'s BD ecosystem. A strong COI network generates warm introductions that advertising cannot replicate.'},
+  {term:'Fixed Fee / Value Pricing',cat:'services',def:'Pricing a project at a fixed amount rather than by the hour. The client knows what they\'ll pay; the firm owns the efficiency risk.',why:'Firms that price by value can earn 2–4× the hourly equivalent on the same work. The primary path to advisory margin expansion.'},
+  {term:'Pass-Through Entity',cat:'services',def:'A business structure (S-corp, partnership, LLC) where profits flow to owners\' personal returns rather than being taxed at the entity level first.',why:'Relevant to most CPA firm clients — especially in tax planning conversations. Understanding this shapes how you talk about tax advisory.'},
+  {term:'GAAP',cat:'standards',def:'Generally Accepted Accounting Principles — the official rulebook for preparing U.S. financial statements. Governed by FASB.',why:'If a partner says "not GAAP-compliant," the answer is no — full stop. Understanding the weight of GAAP helps you understand why compliance work exists.'},
+  {term:'PCAOB',cat:'standards',def:'Public Company Accounting Oversight Board — regulator overseeing audits of companies that trade on U.S. public markets.',why:'Explains why public company audit work is more heavily regulated and why not all CPA firms do it. Shapes firm positioning conversations.'},
+  {term:'Independence',cat:'standards',def:'The requirement that auditors remain unbiased and free from conflicts of interest. Certain services create independence issues for audit clients.',why:'Explains why the same firm often cannot provide both audit and advisory to the same client. A major structural constraint on cross-sell strategy.'},
+  {term:'CPA',cat:'credentials',def:'Certified Public Accountant — licensed to sign off on audits, provide tax advice, and attest to financial statements.',why:'Core credential of the profession. Gates attest work and signing authority. If someone isn\'t a CPA, they cannot sign an audit report.'},
+  {term:'CFA',cat:'credentials',def:'Chartered Financial Analyst — investment analysis and portfolio management credential from the CFA Institute.',why:'Shows up in firms offering investment advisory or wealth management services.'},
+  {term:'EA',cat:'credentials',def:'Enrolled Agent — a tax practitioner licensed by the IRS with authority to represent taxpayers in audits, collections, and appeals.',why:'Tax controversy and complex personal tax situations. EAs can do tax work without the audit/attest authority of a CPA.'},
+  {term:'ABV',cat:'credentials',def:'Accredited in Business Valuation — AICPA credential for professionals performing business valuations.',why:'Signals valuation advisory capability — common in M&A, litigation support, and estate planning.'},
+  {term:'CVA',cat:'credentials',def:'Certified Valuation Analyst — NACVA credential for privately-held company valuation.',why:'Often found in regional and mid-market firms that compete heavily for M&A advisory work.'},
+  {term:'CMA',cat:'credentials',def:'Certified Management Accountant — IMA credential focused on internal financial planning, budgeting, and performance management.',why:'CFO services and client advisory work. Common in CAS practices.'},
+  {term:'CFP',cat:'credentials',def:'Certified Financial Planner — credential for personal financial planning, retirement, estate, and tax planning.',why:'Wealth management and personal financial advisory services.'},
+];
+let activeCat='all';
+function highlight(text,search){
+  if(!search) return text;
+  const re=new RegExp('('+search.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
+  return text.replace(re,'<mark class="search-highlight">$1</mark>');
+}
+function buildGlossary(filter=''){
+  const grid=document.getElementById('gloss-grid'), search=filter.toLowerCase().trim();
+  const filtered=terms.filter(t=>(activeCat==='all'||t.cat===activeCat)&&(!search||t.term.toLowerCase().includes(search)||t.def.toLowerCase().includes(search)||t.why.toLowerCase().includes(search)));
+  document.getElementById('gloss-count').textContent=filtered.length+' term'+(filtered.length!==1?'s':'')+(search||activeCat!=='all'?' matching':' total')+' — click any to expand';
+  grid.innerHTML=filtered.map((t,i)=>{
+    const catLabel={firm:'Firm',services:'Services',standards:'Standards',credentials:'Credential'}[t.cat];
+    return`<div class="card p-4 term-card" id="tcard-${i}" onclick="toggleTerm(${i})"><div class="term-front"><div class="flex items-start justify-between gap-2 mb-2"><div class="font-bold" style="color:#7BBEF5">${highlight(t.term,filter)}</div><span class="text-xs text-slate-600 border border-slate-700 rounded px-1.5 py-0.5 min-w-fit shrink-0">${catLabel}</span></div><div class="text-sm text-slate-300 leading-relaxed">${highlight(t.def,filter)}</div><div class="why-hint mt-2"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>Why it matters for your work</span></div></div><div class="term-expand mt-3 pt-3 border-t" style="border-color:rgba(30,120,196,.25)"><div class="text-xs font-semibold mb-1 uppercase tracking-wide" style="color:#52A44A">Why this matters</div><div class="text-xs text-slate-300 leading-relaxed">${highlight(t.why,filter)}</div></div></div>`;
+  }).join('');
+  if(!filtered.length) grid.innerHTML='<div class="text-slate-500 text-sm col-span-3 text-center py-8">No terms match your search.</div>';
+}
+function toggleTerm(i){
+  const card=document.getElementById('tcard-'+i);
+  const was=card.classList.contains('expanded');
+  document.querySelectorAll('.term-card').forEach(c=>c.classList.remove('expanded'));
+  if(!was) card.classList.add('expanded');
+}
+function filterGlossary(){ buildGlossary(document.getElementById('gloss-search').value); }
+function setCat(cat,btn){ activeCat=cat; document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); filterGlossary(); }
+buildGlossary();
+
+// COMMITMENTS
+const commitments=[
+  {id:'c1',title:'Connect every ask to the P&L.',detail:'Before your next budget request, map it to either revenue growth or cost reduction. If you can\'t draw that line, rethink the ask.'},
+  {id:'c2',title:'Know where your firm sits — and why it matters.',detail:'Identify your firm\'s top service lines by margin. Let that shape your campaign calendar, messaging, and BD priorities.'},
+  {id:'c3',title:'Build your business case like an investor pitch.',detail:'Every unspent marketing dollar goes to a partner\'s pocket. Frame initiatives in ROI terms, with a timeline and measurable outcome.'},
+  {id:'c4',title:'Use the vocabulary. Ask the questions.',detail:'Write down 3 strategic questions you\'ve never asked your MP, COO, or CFO. Ask one this week. Then see what opens up.'},
+];
+function buildCommitments(){
+  document.getElementById('commitments-list').innerHTML=commitments.map((c,i)=>`
+    <div class="card p-4 commit-item" id="${c.id}">
+      <div class="flex items-start gap-3">
+        <div class="commit-check mt-0.5" onclick="toggleCommit('${c.id}')"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#0A1929" stroke-width="2.5"><polyline points="1,6 5,10 11,2"/></svg></div>
+        <div><div class="font-semibold text-sm commit-text mb-1">${String(i+1).padStart(2,'0')}. ${c.title}</div><div class="text-xs text-slate-400">${c.detail}</div></div>
+      </div>
+    </div>`).join('');
+}
+function toggleCommit(id){
+  const el=document.getElementById(id);
+  const wasChecked=el.classList.contains('checked');
+  el.classList.toggle('checked');
+  if(!wasChecked) celebrateCommit(el);
+}
+function celebrateCommit(el){
+  const emojis=['⭐','✨','🎉','💡','🔥','🚀'];
+  for(let k=0;k<3;k++){
+    setTimeout(()=>{
+      const em=document.createElement('div');
+      em.className='commit-celebrate';
+      em.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+      const rect=el.querySelector('.commit-check').getBoundingClientRect();
+      em.style.left=(rect.left+rect.width/2-12+Math.random()*30-15)+'px';
+      em.style.top=(rect.top+window.scrollY-10)+'px';
+      document.body.appendChild(em);
+      setTimeout(()=>em.remove(),800);
+    },k*120);
+  }
+}
+buildCommitments();
+
+// ── THINGS TO TRY ─────────────────────────────────────────────────────────
+const tryItems=[
+  { title:'Ask your partner: "What\'s our realization rate?"',
+    short:'Then listen. What they say — and how — tells you everything about their priorities.',
+    more:'When they answer, notice whether they cite a number or brush it off. A partner who knows their realization rate precisely is operationally sharp and will respond to data. A partner who says "I don\'t know" just revealed a gap you can help fill — and a conversation you can lead. Either way, you\'re now speaking their language.' },
+  { title:'Map your firm\'s decision path for a major spend.',
+    short:'Write down who identifies the need, who approves it, who influences it informally, and where it stalls.',
+    more:'Draw it literally. Who first says "we need this"? Who adds it to the agenda? Who has informal veto power before it reaches a vote? Understanding this map turns you from a requestor into an orchestrator. Most marketing professionals skip this step — and that\'s why initiatives stall.' },
+  { title:'Align one active campaign to a revenue or cost lever.',
+    short:'Pick the one hardest to justify — reframe it in P&L terms before your next conversation.',
+    more:'Revenue lever: new clients, expanded wallet share, higher-value service mix. Cost lever: technology ROI, leverage improvement, fixed-fee transition risk reduction. If you can\'t connect a campaign to one of these two, the partners in that meeting will make the connection for you — and the answer will be no.' },
+  { title:'Ask a practice leader: which service line has the most available capacity?',
+    short:'Capacity + demand = the best marketing ROI. That\'s where to focus BD energy.',
+    more:'The answer is almost never "all of them." It\'s usually one or two service lines where partners have bench time or are actively targeting a specific type of client. That\'s your signal. Directing BD energy toward available capacity is the fastest path to measurable ROI — and it gives you a built-in business case.' },
+  { title:'Use three terms from the glossary in your next partner conversation.',
+    short:'Utilization, realization, leverage ratio. The shift in how people respond will be immediate.',
+    more:'Try: "I was looking at our utilization benchmarks and thought..." or "If we improve realization through better scope management, that flows directly to NIPP." The change isn\'t just that you sound credible — it\'s that partners start treating you like a peer instead of a vendor. That\'s the access you\'re trying to earn.' },
+  { title:'Find out who gets origination credit at your firm.',
+    short:'This single piece of information tells you who your internal BD champions are.',
+    more:'Origination credit shapes everything: who cares about client wins, who will advocate for marketing spend, and who will take credit for a campaign\'s results. If you can tie a marketing outcome to a partner\'s origination credit, you\'ve made them your most motivated champion.' }
+];
+let activeTry=-1;
+function buildTryList(){
+  document.getElementById('try-list').innerHTML=tryItems.map((t,i)=>`
+    <div class="try-item" id="try-${i}" onclick="toggleTry(${i})">
+      <div class="flex items-start gap-3">
+        <span class="font-bold text-base mt-0.5 shrink-0" style="color:#52A44A">→</span>
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-sm mb-0.5">${t.title}</div>
+          <div class="text-xs text-slate-400">${t.short}</div>
+          <div class="try-expand"><div class="callout-green text-xs mt-3">${t.more}</div></div>
+        </div>
+        <svg class="w-4 h-4 text-slate-600 shrink-0 mt-0.5 transition-transform" id="try-icon-${i}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </div>`).join('');
+}
+function toggleTry(i){
+  const el=document.getElementById('try-'+i);
+  const icon=document.getElementById('try-icon-'+i);
+  const open=el.classList.contains('try-open');
+  document.querySelectorAll('[id^=try-]').forEach((e,j)=>{
+    e.classList.remove('try-open');
+    const ic=document.getElementById('try-icon-'+j);
+    if(ic) ic.style.transform='';
+  });
+  if(!open){ el.classList.add('try-open'); icon.style.transform='rotate(180deg)'; }
+}
+buildTryList();
+
+// ── AI PROMPTS ─────────────────────────────────────────────────────────────
+const aiPrompts=[
+  { tag:'FIRM ECONOMICS', text:'"Explain how utilization rate affects profitability in a mid-sized CPA firm, using simple terms a marketing director could use in a partner conversation."' },
+  { tag:'BUSINESS CASE', text:'"Help me draft a 2-minute business case for a $150K CRM investment at a 40-partner CPA firm. The audience is equity partners focused on margin."' },
+  { tag:'TRANSLATE TO PARTNER LANGUAGE', text:'"Rewrite this in a way that would resonate with a Managing Partner focused on margin and revenue growth: [paste your idea]."' },
+  { tag:'CAMPAIGN ROI', text:'"I ran a thought leadership campaign that generated [X leads]. Help me translate this into language that resonates with equity partners."' },
+  { tag:'NICHE STRATEGY', text:'"Based on these top 10 client types [list them], help me identify whether our firm is positioned as a generalist or specialist — and what a focused niche strategy might look like."' },
+  { tag:'PARTNER CONVERSATION PREP', text:'"I have a meeting with our Managing Partner next week to pitch [describe initiative]. Help me anticipate their top 3 objections and prepare responses framed in financial terms."' },
+  { tag:'BUSY SEASON CALENDAR', text:'"Build a 12-month marketing calendar for a CPA firm. Account for busy season blackout windows: January–April for tax, September–October for fall ramp-up. Show which months are ideal for major launches, client events, and thought leadership pushes."' },
+  { tag:'ADVISORY TRANSITION', text:'"Draft a client communication explaining how our firm is expanding from compliance to advisory services. Write it for a business owner who currently sees us only as their tax preparer."' },
+  { tag:'REALIZATION RATE IMPACT', text:'"If our firm\'s realization rate improved from 85% to 92%, what would that mean in real dollars for a firm doing $8M in revenue? And what marketing or pricing strategies might help close that gap?"' },
+  { tag:'LEVERAGE SCENARIO', text:'"What would improving our leverage ratio from 5:1 to 7:1 mean for a 10-partner firm in terms of revenue capacity, staff needed, and the minimum marketing investment threshold that becomes justifiable?"' }
+];
+function buildAIPrompts(){
+  document.getElementById('ai-prompts-list').innerHTML=aiPrompts.map((p,i)=>`
+    <div class="callout-green">
+      <div class="flex items-center justify-between mb-1 gap-2">
+        <div class="font-semibold text-xs" style="color:#79C86E">${p.tag}</div>
+        <button class="copy-btn" id="cpbtn-${i}" onclick="copyPrompt(${i})">Copy</button>
+      </div>
+      <p class="text-slate-300 text-xs italic">${p.text}</p>
+    </div>`).join('');
+}
+function copyPrompt(i){
+  const raw=aiPrompts[i].text.replace(/^"|"$/g,'');
+  navigator.clipboard.writeText(raw).then(()=>{
+    const btn=document.getElementById('cpbtn-'+i);
+    btn.textContent='Copied!'; btn.classList.add('copied');
+    setTimeout(()=>{ btn.textContent='Copy'; btn.classList.remove('copied'); },2000);
+  }).catch(()=>{
+    const btn=document.getElementById('cpbtn-'+i);
+    btn.textContent='Copied!'; btn.classList.add('copied');
+    setTimeout(()=>{ btn.textContent='Copy'; btn.classList.remove('copied'); },2000);
+  });
+}
+buildAIPrompts();
+
+// ── QUIZ ──────────────────────────────────────────────────────────────────
+let quizQs=[], quizIdx=0, quizScore=0, quizAnswered=false;
+function shuffle(a){return [...a].sort(()=>Math.random()-.5);}
+function startQuiz(){
+  const pool=shuffle(terms);
+  quizQs=pool.slice(0,Math.min(12,pool.length)).map((t,i)=>{
+    const wrong=shuffle(pool.filter(x=>x.term!==t.term)).slice(0,3);
+    return{term:t,choices:shuffle([t,...wrong])};
+  });
+  quizIdx=0; quizScore=0; quizAnswered=false;
+  document.getElementById('glossary-main').classList.add('hidden');
+  document.getElementById('quiz-panel').classList.remove('hidden');
+  renderQuizQ();
+}
+function renderQuizQ(){
+  quizAnswered=false;
+  const q=quizQs[quizIdx], total=quizQs.length;
+  const pct=Math.round(quizIdx/total*100);
+  document.getElementById('quiz-panel').innerHTML=`
+    <div class="card p-6">
+      <div class="flex items-center justify-between mb-4">
+        <div class="text-xs font-semibold" style="color:#4BA0E8">Question ${quizIdx+1} of ${total}</div>
+        <button onclick="endQuiz()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border transition hover:opacity-90" style="border-color:rgba(239,68,68,.45);color:#F87171;background:rgba(239,68,68,.1)">✕ Exit Quiz</button>
+      </div>
+      <div class="h-1.5 rounded-full mb-5" style="background:#102540"><div class="h-1.5 rounded-full transition-all" style="width:${pct}%;background:linear-gradient(90deg,#1E78C4,#52A44A)"></div></div>
+      <div class="card-blue p-4 rounded-xl mb-5">
+        <div class="text-xs text-slate-500 mb-2 uppercase tracking-wide font-semibold">What term matches this definition?</div>
+        <div class="text-slate-100 text-sm leading-relaxed">${q.term.def}</div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="quiz-choices">
+        ${q.choices.map((c,ci)=>`<button class="quiz-choice" id="qc-${ci}" onclick="answerQuiz(${ci})">${c.term}</button>`).join('')}
+      </div>
+      <div id="quiz-feedback" class="mt-4 hidden"></div>
+      <div class="mt-4 flex justify-end hidden" id="quiz-next">
+        <button onclick="nextQuizQ()" class="px-5 py-2 rounded-lg font-semibold text-sm transition hover:opacity-90" style="background:#1E78C4;color:#fff">${quizIdx+1===total?'See Results →':'Next →'}</button>
+      </div>
+    </div>`;
+}
+function answerQuiz(ci){
+  if(quizAnswered) return;
+  quizAnswered=true;
+  const q=quizQs[quizIdx];
+  const correct=q.choices[ci].term===q.term.term;
+  if(correct) quizScore++;
+  // Color buttons
+  q.choices.forEach((_,j)=>{
+    const btn=document.getElementById('qc-'+j);
+    btn.disabled=true;
+    if(q.choices[j].term===q.term.term) btn.classList.add('correct');
+    else if(j===ci) btn.classList.add('wrong');
+  });
+  // Feedback
+  const fb=document.getElementById('quiz-feedback');
+  fb.classList.remove('hidden');
+  fb.innerHTML=`<div class="p-3 rounded-lg text-xs ${correct?'text-green-300':'text-red-300'}" style="background:${correct?'rgba(82,164,74,.12)':'rgba(239,68,68,.1)'};border:1px solid ${correct?'rgba(82,164,74,.3)':'rgba(239,68,68,.25)'}">
+    <div class="font-semibold mb-1">${correct?'✓ Correct!':'✗ Not quite — the answer is: '+q.term.term}</div>
+    <div style="color:#94A3B8"><strong class="text-slate-300">Why it matters:</strong> ${q.term.why}</div>
+  </div>`;
+  document.getElementById('quiz-next').classList.remove('hidden');
+}
+function nextQuizQ(){
+  quizIdx++;
+  if(quizIdx>=quizQs.length) showQuizResults();
+  else renderQuizQ();
+}
+function showQuizResults(){
+  const total=quizQs.length, pct=Math.round(quizScore/total*100);
+  const msgs=[[100,'🎓 Perfect score. You\'re fluent in accounting language.'],[83,'🌟 Near-fluent. One more pass through the glossary and you\'ll be unstoppable.'],[66,'💪 Solid foundation. Review the terms you missed and quiz again.'],[0,'📖 Good start — return to the glossary and try again. The language will stick.']];
+  const msg=msgs.find(([t])=>pct>=t)[1];
+  document.getElementById('quiz-panel').innerHTML=`
+    <div class="card p-8 text-center">
+      <div class="text-5xl font-black mb-2" style="color:#4BA0E8">${quizScore}<span class="text-slate-600 text-3xl">/${total}</span></div>
+      <div class="text-slate-300 font-semibold mb-1">${pct}% correct</div>
+      <div class="text-sm text-slate-400 italic mb-6">${msg}</div>
+      <div class="flex justify-center gap-3 flex-wrap">
+        <button onclick="startQuiz()" class="px-5 py-2 rounded-lg font-semibold text-sm hover:opacity-90" style="background:#1E78C4;color:#fff">Try Again</button>
+        <button onclick="endQuiz()" class="px-5 py-2 rounded-lg font-semibold text-sm border hover:bg-aam-750" style="border-color:rgba(30,120,196,.4);color:#4BA0E8">Back to Glossary</button>
+      </div>
+    </div>`;
+}
+function endQuiz(){
+  document.getElementById('glossary-main').classList.remove('hidden');
+  document.getElementById('quiz-panel').classList.add('hidden');
+  document.getElementById('quiz-panel').innerHTML='';
+}
+</script>
+</body>
+</html>
