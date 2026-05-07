@@ -33,9 +33,16 @@
     .callout-green{background:rgba(82,164,74,.08);border-left:3px solid #52A44A;border-radius:0 8px 8px 0;padding:14px 18px}
     .callout-warn{background:rgba(251,191,36,.08);border-left:3px solid #F59E0B;border-radius:0 8px 8px 0;padding:14px 18px}
     /* HERO NAV CARDS */
-    .section-card{transition:all .28s cubic-bezier(.34,1.4,.64,1);cursor:pointer}
-    .section-card:hover{transform:translateY(-5px) scale(1.03);background:rgba(30,120,196,.14)!important;border-color:rgba(30,120,196,.6)!important;box-shadow:0 16px 36px rgba(30,120,196,.22)}
-    .section-card:hover .section-num{color:#7BBEF5!important}
+    .section-nav-card{display:flex;flex-direction:column;align-items:center;text-align:center;padding:18px 14px 14px;border-radius:14px;border:1px solid var(--nc-border);background:var(--nc-bg);text-decoration:none;transition:all .25s cubic-bezier(.34,1.4,.64,1);cursor:pointer;position:relative;overflow:hidden}
+    .section-nav-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--nc);opacity:.7;transition:opacity .2s}
+    .section-nav-card:hover{transform:translateY(-5px);box-shadow:0 14px 32px rgba(0,0,0,.25);border-color:var(--nc)!important}
+    .section-nav-card:hover::before{opacity:1}
+    .section-nav-card:hover .snc-arrow{opacity:1;transform:translateY(0)}
+    .snc-icon{font-size:1.6rem;margin-bottom:8px;line-height:1}
+    .snc-label{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--nc);opacity:.8;margin-bottom:4px}
+    .snc-title{font-size:.82rem;font-weight:700;color:#E2E8F0;margin-bottom:4px;line-height:1.3}
+    .snc-desc{font-size:.68rem;color:#64748B;line-height:1.4;margin-bottom:8px}
+    .snc-arrow{font-size:.68rem;font-weight:700;color:var(--nc);opacity:0;transform:translateY(4px);transition:all .2s}
     /* INTERACTIVE ELEMENTS */
     .clickable{cursor:pointer;transition:all .18s}
     .clickable:hover{border-color:rgba(30,120,196,.5)!important;transform:translateX(2px)}
@@ -105,9 +112,16 @@
     .stat-label{font-size:.72rem;color:#94A3B8;text-transform:uppercase;letter-spacing:.07em;margin-top:2px}
     /* MISC */
     .bg-alt{background:#0D2038}
-    .aam-badge{background:rgba(30,120,196,.12);border:1px solid rgba(30,120,196,.3);border-radius:8px;padding:4px 10px;font-size:.7rem;font-weight:700;letter-spacing:.05em;color:#4BA0E8}
-    ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#0A1929}::-webkit-scrollbar-thumb{background:#153258;border-radius:3px}
-    #progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#1E78C4,#52A44A);z-index:100;transition:width .1s}
+    .aam-badge{background:rgba(82,164,74,.15);border:1px solid rgba(82,164,74,.45);border-radius:8px;padding:4px 12px;font-size:.7rem;font-weight:700;letter-spacing:.05em;color:#79C86E;position:relative;cursor:default;overflow:hidden;white-space:nowrap}
+    .aam-default,.aam-hover{display:block;transition:opacity .2s,transform .2s}
+    .aam-hover{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(4px);color:#A3D49B}
+    .aam-badge:hover .aam-default{opacity:0;transform:translateY(-4px)}
+    .aam-badge:hover .aam-hover{opacity:1;transform:translateY(0)}
+    /* NAV ACTIVE */
+    .nav-link:hover{color:#F59E0B!important}
+    .nav-link.active{color:#F59E0B!important;border-bottom:2px solid #F59E0B!important}
+    ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#0A1929}::-webkit-scrollbar-thumb{background:#1E78C4;border-radius:5px;border:2px solid #0A1929}::-webkit-scrollbar-thumb:hover{background:#4BA0E8}
+    #progress{position:fixed;top:0;left:0;height:9px;background:linear-gradient(90deg,#1E78C4,#52A44A);z-index:100;transition:width .15s;box-shadow:0 1px 8px rgba(82,164,74,.35)}
     @keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
     @keyframes pulse-border{0%,100%{box-shadow:0 0 0 0 rgba(30,120,196,.4)}50%{box-shadow:0 0 0 6px rgba(30,120,196,0)}}
     @keyframes floatUp{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
@@ -161,10 +175,10 @@
 
 <!-- NAV -->
 <nav class="fixed top-0 w-full z-50 backdrop-blur border-b" style="border-color:rgba(30,120,196,.2);background:rgba(10,25,41,.96)">
-  <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-14">
+  <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16" style="padding-top:6px;padding-bottom:4px">
     <div class="flex items-center gap-3">
-      <span class="font-bold text-sm tracking-wide" style="color:#4BA0E8">THE BUSINESS OF ACCOUNTING</span>
-      <span class="aam-badge hidden sm:inline">AAM 2026</span>
+      <a href="#" class="font-bold text-sm tracking-wide" style="color:#4BA0E8;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#7BBEF5'" onmouseout="this.style.color='#4BA0E8'">THE BUSINESS OF ACCOUNTING</a>
+      <span class="aam-badge hidden sm:inline"><span class="aam-default">AAM Summit 2026</span><span class="aam-hover">🌴 Palm Springs</span></span>
     </div>
     <div class="hidden md:flex items-center gap-6 text-sm">
       <a href="#firm-basics" class="nav-link text-slate-400">Firm Basics</a>
@@ -196,37 +210,45 @@
     <p class="font-semibold text-lg mb-4" style="color:#79C86E">How Firms Operate and Grow</p>
     <p class="text-slate-400 mb-8 max-w-xl mx-auto">Everything from the session in one place — key concepts, interactive tools, and questions that will change your conversations with partners.</p>
     <div class="flex flex-wrap justify-center gap-3 text-sm">
-      <a href="#firm-basics" class="text-white px-5 py-2.5 rounded-lg font-semibold transition hover:opacity-90" style="background:#1E78C4">Start Here →</a>
-      <a href="#glossary" class="border px-5 py-2.5 rounded-lg font-semibold transition hover:bg-aam-750" style="border-color:rgba(30,120,196,.5);color:#4BA0E8">Jump to Glossary</a>
-      <a href="#next-steps" class="border px-5 py-2.5 rounded-lg font-semibold transition hover:bg-aam-750" style="border-color:rgba(82,164,74,.5);color:#79C86E">Next Steps</a>
+      <a href="#firm-basics" class="text-white px-8 py-3.5 rounded-lg font-semibold transition hover:opacity-90" style="background:#D97706;box-shadow:0 4px 20px rgba(217,119,6,.35)">Start Here →</a>
+      <a href="#glossary" class="border px-7 py-3.5 rounded-lg font-semibold transition hover:bg-aam-750" style="border-color:rgba(30,120,196,.5);color:#4BA0E8">Jump to Glossary</a>
+      <a href="#next-steps" class="border px-7 py-3.5 rounded-lg font-semibold transition hover:bg-aam-750" style="border-color:rgba(82,164,74,.5);color:#79C86E">Next Steps</a>
     </div>
   </div>
   <div class="max-w-4xl mx-auto mt-14 grid grid-cols-2 md:grid-cols-4 gap-3">
-    <a href="#firm-basics" class="card section-card p-4 text-center" style="border-color:rgba(30,120,196,.2)">
-      <div class="section-num font-black text-2xl mb-1" style="color:#1E78C4">01</div>
-      <div class="font-semibold text-sm">What Is a CPA Firm?</div>
-      <div class="text-slate-500 text-xs mt-1">Structure, economics & the P&L</div>
+    <a href="#firm-basics" class="section-nav-card" style="--nc:#1E78C4;--nc-bg:rgba(30,120,196,.12);--nc-border:rgba(30,120,196,.35)">
+      <div class="snc-icon">🏛️</div>
+      <div class="snc-label">Part 1</div>
+      <div class="snc-title">What Is a CPA Firm?</div>
+      <div class="snc-desc">Structure, economics & the P&L</div>
+      <div class="snc-arrow">Explore ↓</div>
     </a>
-    <a href="#service-mix" class="card section-card p-4 text-center" style="border-color:rgba(30,120,196,.2)">
-      <div class="section-num font-black text-2xl mb-1" style="color:#1E78C4">02</div>
-      <div class="font-semibold text-sm">Service & Industry Mix</div>
-      <div class="text-slate-500 text-xs mt-1">Revenue models & busy seasons</div>
+    <a href="#service-mix" class="section-nav-card" style="--nc:#52A44A;--nc-bg:rgba(82,164,74,.12);--nc-border:rgba(82,164,74,.35)">
+      <div class="snc-icon">📊</div>
+      <div class="snc-label">Part 2</div>
+      <div class="snc-title">Service & Industry Mix</div>
+      <div class="snc-desc">Revenue models & busy seasons</div>
+      <div class="snc-arrow">Explore ↓</div>
     </a>
-    <a href="#decisions" class="card section-card p-4 text-center" style="border-color:rgba(30,120,196,.2)">
-      <div class="section-num font-black text-2xl mb-1" style="color:#1E78C4">03</div>
-      <div class="font-semibold text-sm">Decision-Making</div>
-      <div class="text-slate-500 text-xs mt-1">Partners, budgets & influence</div>
+    <a href="#decisions" class="section-nav-card" style="--nc:#D97706;--nc-bg:rgba(217,119,6,.12);--nc-border:rgba(217,119,6,.35)">
+      <div class="snc-icon">🤝</div>
+      <div class="snc-label">Part 3</div>
+      <div class="snc-title">Decision-Making</div>
+      <div class="snc-desc">Partners, budgets & influence</div>
+      <div class="snc-arrow">Explore ↓</div>
     </a>
-    <a href="#glossary" class="card section-card p-4 text-center" style="border-color:rgba(30,120,196,.2)">
-      <div class="section-num font-black text-2xl mb-1" style="color:#1E78C4">04</div>
-      <div class="font-semibold text-sm">Glossary</div>
-      <div class="text-slate-500 text-xs mt-1">Terms & credentials decoded</div>
+    <a href="#glossary" class="section-nav-card" style="--nc:#7BBEF5;--nc-bg:rgba(123,190,245,.12);--nc-border:rgba(123,190,245,.35)">
+      <div class="snc-icon">📖</div>
+      <div class="snc-label">Reference</div>
+      <div class="snc-title">Glossary</div>
+      <div class="snc-desc">Terms & credentials decoded</div>
+      <div class="snc-arrow">Explore ↓</div>
     </a>
   </div>
 </section>
 
 <!-- ══════════ SECTION 01 ══════════ -->
-<section id="firm-basics" class="py-20 px-4">
+<section id="firm-basics" class="py-20 px-4" style="border-top:3px solid rgba(30,120,196,.35)">
   <div class="max-w-5xl mx-auto">
     <div class="section-pill">Section 01</div>
     <h2 class="text-3xl font-bold mb-2">What Is a CPA Firm?</h2>
@@ -465,7 +487,7 @@
 </section>
 
 <!-- ══════════ SECTION 02 ══════════ -->
-<section id="service-mix" class="py-20 px-4 bg-alt">
+<section id="service-mix" class="py-20 px-4 bg-alt" style="border-top:3px solid rgba(82,164,74,.35)">
   <div class="max-w-5xl mx-auto">
     <div class="section-pill">Section 02</div>
     <h2 class="text-3xl font-bold mb-2">Service & Industry Mix</h2>
@@ -552,7 +574,7 @@
 </section>
 
 <!-- ══════════ SECTION 03 ══════════ -->
-<section id="decisions" class="py-20 px-4">
+<section id="decisions" class="py-20 px-4" style="border-top:3px solid rgba(245,158,11,.35)">
   <div class="max-w-5xl mx-auto">
     <div class="section-pill">Section 03</div>
     <h2 class="text-3xl font-bold mb-2">Decision-Making &amp; The Partner Model</h2>
@@ -604,7 +626,7 @@
 </section>
 
 <!-- ══════════ SECTION 04: GLOSSARY ══════════ -->
-<section id="glossary" class="py-20 px-4 bg-alt">
+<section id="glossary" class="py-20 px-4 bg-alt" style="border-top:3px solid rgba(123,190,245,.35)">
   <div class="max-w-5xl mx-auto">
     <div class="section-pill">Section 04</div>
     <div class="flex items-center justify-between mb-2 flex-wrap gap-3">
@@ -1142,39 +1164,119 @@ function toggleTry(i){
 buildTryList();
 
 // ── AI PROMPTS ─────────────────────────────────────────────────────────────
-const aiPrompts=[
-  { tag:'FIRM ECONOMICS', text:'"Explain how utilization rate affects profitability in a mid-sized CPA firm, using simple terms a marketing director could use in a partner conversation."' },
-  { tag:'BUSINESS CASE', text:'"Help me draft a 2-minute business case for a $150K CRM investment at a 40-partner CPA firm. The audience is equity partners focused on margin."' },
-  { tag:'TRANSLATE TO PARTNER LANGUAGE', text:'"Rewrite this in a way that would resonate with a Managing Partner focused on margin and revenue growth: [paste your idea]."' },
-  { tag:'CAMPAIGN ROI', text:'"I ran a thought leadership campaign that generated [X leads]. Help me translate this into language that resonates with equity partners."' },
-  { tag:'NICHE STRATEGY', text:'"Based on these top 10 client types [list them], help me identify whether our firm is positioned as a generalist or specialist — and what a focused niche strategy might look like."' },
-  { tag:'PARTNER CONVERSATION PREP', text:'"I have a meeting with our Managing Partner next week to pitch [describe initiative]. Help me anticipate their top 3 objections and prepare responses framed in financial terms."' },
-  { tag:'BUSY SEASON CALENDAR', text:'"Build a 12-month marketing calendar for a CPA firm. Account for busy season blackout windows: January–April for tax, September–October for fall ramp-up. Show which months are ideal for major launches, client events, and thought leadership pushes."' },
-  { tag:'ADVISORY TRANSITION', text:'"Draft a client communication explaining how our firm is expanding from compliance to advisory services. Write it for a business owner who currently sees us only as their tax preparer."' },
-  { tag:'REALIZATION RATE IMPACT', text:'"If our firm\'s realization rate improved from 85% to 92%, what would that mean in real dollars for a firm doing $8M in revenue? And what marketing or pricing strategies might help close that gap?"' },
-  { tag:'LEVERAGE SCENARIO', text:'"What would improving our leverage ratio from 5:1 to 7:1 mean for a 10-partner firm in terms of revenue capacity, staff needed, and the minimum marketing investment threshold that becomes justifiable?"' }
+const aiThemes=[
+  {
+    icon:'💰',
+    label:'Understand the Firm\'s Financial Engine',
+    desc:'Translate the economics into terms you can use with partners',
+    prompts:[
+      { tag:'UTILIZATION & REALIZATION', text:'I\'m a marketing director at a mid-sized CPA firm. Explain how utilization rate and realization rate interact to drive profitability — and tell me specifically what levers marketing can influence. Give me concrete examples so I can use this in a partner conversation without sounding like I\'m reading a textbook.' },
+      { tag:'LEVERAGE RATIO SCENARIO', text:'Our firm has a 5:1 staff-to-partner leverage ratio and is considering pushing it to 7:1. Walk me through what that would mean in terms of revenue capacity, headcount needs, and — critically — what minimum marketing investment becomes justifiable at the higher ratio. Assume a 10-partner firm doing $6M in revenue.' },
+      { tag:'REALIZATION RATE IMPACT', text:'If our firm\'s realization rate improved from 84% to 91%, what would that mean in actual dollars for a firm billing $10M? Then give me three pricing or client management strategies that marketing could advocate for to close that gap — framed in ways that would resonate with equity partners who watch write-downs closely.' }
+    ]
+  },
+  {
+    icon:'🎯',
+    label:'Build a Business Case Partners Will Actually Fund',
+    desc:'Frame marketing investment in the language of margin and ROI',
+    prompts:[
+      { tag:'CRM INVESTMENT PITCH', text:'Help me draft a 3-minute verbal business case for a $120K CRM investment at a 30-partner CPA firm. The audience is equity partners who are skeptical of overhead. Frame the ROI using concepts they care about: realization rate, client retention, cross-sell revenue, and payback period. Anticipate their two most likely objections and give me rebuttals.' },
+      { tag:'BD TIME AS INVESTMENT', text:'I need to convince a Managing Partner that allowing senior managers to spend 10% of their time on business development — instead of billable work — is a net positive. Build me a financial argument using utilization math, pipeline value, and long-term leverage. Assume a 1,800-hour year, a $275 billing rate, and a 3-year average client lifetime value of $45K.' },
+      { tag:'TRANSLATE MY IDEA', text:'I want to propose [describe your marketing initiative here] to our firm\'s leadership. Rewrite my pitch so it leads with financial impact — revenue potential, margin effect, or risk reduction — before I mention the marketing mechanics. Use the vocabulary a Managing Partner fluent in utilization, realization, and leverage would respond to.' }
+    ]
+  },
+  {
+    icon:'📅',
+    label:'Navigate Busy Season & the Firm Calendar',
+    desc:'Plan marketing around the rhythms that govern firm life',
+    prompts:[
+      { tag:'ANNUAL MARKETING CALENDAR', text:'Build a 12-month marketing and BD calendar for a regional CPA firm with a traditional service mix (60% tax, 25% audit, 15% advisory). Mark the blackout windows — January through April 15 for tax busy season, September through October for fall ramp-up — and identify the optimal windows for major content launches, client appreciation events, award submissions, and thought leadership pushes. Format it month by month with a brief rationale for each recommendation.' },
+      { tag:'POST-BUSY SEASON PIVOT', text:'Tax season just ended and our partners are finally available. We have a window of roughly 8 weeks before summer slowdowns and fall ramp-up. Help me design a focused 8-week BD blitz — specific activities, sequencing, and metrics — that makes the most of partner bandwidth while it exists. Prioritize cross-sell into advisory and new client pipeline for next fiscal year.' }
+    ]
+  },
+  {
+    icon:'🔄',
+    label:'Help the Firm Shift from Compliance to Advisory',
+    desc:'Support the most important strategic transition in accounting today',
+    prompts:[
+      { tag:'CLIENT COMMUNICATION', text:'Draft a client-facing communication that explains our firm is expanding beyond tax and audit to offer more proactive advisory services — cash flow planning, CFO support, and strategic consulting. Write it for a privately-held business owner who currently sees us only as their tax preparer. The tone should feel like a trusted advisor sharing good news, not a sales pitch. End with a clear call to action for a 20-minute conversation.' },
+      { tag:'ADVISORY SERVICE POSITIONING', text:'Our firm wants to reposition one of our niche practices — [insert industry, e.g. construction, healthcare, real estate] — as a strategic advisory partner rather than just a compliance shop. Help me write a value proposition that speaks to the business outcomes clients care about (growth, risk reduction, profitability) rather than the services we deliver. Then suggest two content ideas that would demonstrate this expertise to prospects.' },
+      { tag:'INTERNAL BD CULTURE SHIFT', text:'Our partners still think of marketing as "events and logos." How do I shift the culture toward viewing BD as a revenue system — with pipeline stages, conversion rates, and client lifetime value? Write me a 5-minute framing I could use at a partner retreat that connects marketing investment to the firm metrics they already track. Make it feel like a business argument, not a creative pitch.' }
+    ]
+  },
+  {
+    icon:'🏆',
+    label:'Develop Niche Strategy & Differentiation',
+    desc:'Help the firm stop competing on price by owning a category',
+    prompts:[
+      { tag:'NICHE DIAGNOSIS', text:'Here are our firm\'s top 15 client types by revenue: [list them]. Analyze this mix and tell me: Are we operating as a generalist or do we have a defensible niche? Where is the concentration that suggests a focused vertical strategy? What would a 3-year plan to dominate one or two niches look like, and what marketing investments would that require to execute?' },
+      { tag:'DIFFERENTIATION MESSAGING', text:'We\'re a regional CPA firm that serves [industry] clients. Most competitors in our market lead with "we\'re a full-service firm with personalized attention." Help me develop a differentiated positioning that goes beyond that. Give me a one-paragraph positioning statement, a tagline option, and three proof points that would make a prospect in this industry feel like we built our firm specifically for them.' }
+    ]
+  },
+  {
+    icon:'🤝',
+    label:'Prepare for Tough Partner Conversations',
+    desc:'Walk into the room ready for the questions that kill proposals',
+    prompts:[
+      { tag:'OBJECTION PREP', text:'I\'m pitching [describe initiative] to our Managing Partner next week. Based on what you know about how equity partners at CPA firms think — margin protection, utilization, risk aversion, client relationships — give me their top 4 likely objections to this proposal and a response to each one. Frame my responses using the financial metrics they track, not marketing KPIs.' },
+      { tag:'DECODING PARTNER RESISTANCE', text:'When I present marketing ideas, partners often say things like "we grow through referrals," "our clients aren\'t on social media," or "that\'s not how accounting works." Help me understand the underlying concern behind each of these statements — what financial or cultural fear is driving the resistance — and give me a more productive way to engage with each objection than trying to argue them out of it.' }
+    ]
+  }
 ];
+
+const COPY_SVG=`<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`;
+
 function buildAIPrompts(){
-  document.getElementById('ai-prompts-list').innerHTML=aiPrompts.map((p,i)=>`
-    <div class="callout-green">
-      <div class="flex items-center justify-between mb-1 gap-2">
-        <div class="font-semibold text-xs" style="color:#79C86E">${p.tag}</div>
-        <button class="copy-btn" id="cpbtn-${i}" onclick="copyPrompt(${i})">Copy</button>
+  let html='';
+  aiThemes.forEach((theme,ti)=>{
+    html+=`<div class="ai-theme-block" style="border:1px solid rgba(82,164,74,.18);border-radius:12px;overflow:hidden;margin-bottom:10px">
+      <button class="ai-theme-hdr w-full flex items-center justify-between px-5 py-4 text-left" onclick="toggleTheme(${ti})" style="background:rgba(82,164,74,.07);border:none;cursor:pointer">
+        <div class="flex items-center gap-3">
+          <span style="font-size:1.2rem">${theme.icon}</span>
+          <div>
+            <div class="font-semibold text-sm" style="color:#A3D49B">${theme.label}</div>
+            <div class="text-xs" style="color:#4B6B4A;margin-top:1px">${theme.desc}</div>
+          </div>
+        </div>
+        <svg class="ai-theme-chevron flex-shrink-0" id="chev-${ti}" width="16" height="16" fill="none" stroke="#79C86E" stroke-width="2.5" viewBox="0 0 24 24" style="transition:transform .2s"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="ai-theme-body" id="theme-body-${ti}" style="display:none">
+        <div class="px-5 py-4 space-y-4">
+          ${theme.prompts.map((p,pi)=>{
+            const globalIdx=ti*10+pi;
+            return `<div style="background:rgba(82,164,74,.05);border:1px solid rgba(82,164,74,.2);border-radius:10px;padding:14px 16px">
+              <div class="flex items-center justify-between mb-2 gap-2">
+                <span style="font-size:.65rem;font-weight:700;letter-spacing:.08em;color:#79C86E;text-transform:uppercase">${p.tag}</span>
+                <button class="copy-btn flex items-center gap-1.5" id="cpbtn-${globalIdx}" onclick="copyPromptNew(${ti},${pi},${globalIdx})">${COPY_SVG}Copy</button>
+              </div>
+              <p class="text-slate-300" style="font-size:.8rem;line-height:1.6;font-style:italic">"${p.text}"</p>
+            </div>`;
+          }).join('')}
+        </div>
       </div>
-      <p class="text-slate-300 text-xs italic">${p.text}</p>
-    </div>`).join('');
-}
-function copyPrompt(i){
-  const raw=aiPrompts[i].text.replace(/^"|"$/g,'');
-  navigator.clipboard.writeText(raw).then(()=>{
-    const btn=document.getElementById('cpbtn-'+i);
-    btn.textContent='Copied!'; btn.classList.add('copied');
-    setTimeout(()=>{ btn.textContent='Copy'; btn.classList.remove('copied'); },2000);
-  }).catch(()=>{
-    const btn=document.getElementById('cpbtn-'+i);
-    btn.textContent='Copied!'; btn.classList.add('copied');
-    setTimeout(()=>{ btn.textContent='Copy'; btn.classList.remove('copied'); },2000);
+    </div>`;
   });
+  document.getElementById('ai-prompts-list').innerHTML=html;
+}
+
+function toggleTheme(ti){
+  const body=document.getElementById('theme-body-'+ti);
+  const chev=document.getElementById('chev-'+ti);
+  const isOpen=body.style.display!=='none';
+  body.style.display=isOpen?'none':'block';
+  chev.style.transform=isOpen?'':'rotate(180deg)';
+}
+
+function copyPromptNew(ti,pi,globalIdx){
+  const text=aiThemes[ti].prompts[pi].text;
+  navigator.clipboard.writeText(text).then(()=>_flashCopied(globalIdx)).catch(()=>_flashCopied(globalIdx));
+}
+function _flashCopied(id){
+  const btn=document.getElementById('cpbtn-'+id);
+  const orig=btn.innerHTML;
+  btn.innerHTML=`<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Copied!`;
+  btn.classList.add('copied');
+  setTimeout(()=>{ btn.innerHTML=orig; btn.classList.remove('copied'); },2000);
 }
 buildAIPrompts();
 
