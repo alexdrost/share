@@ -26,9 +26,9 @@
     .section-pill{background:rgba(30,120,196,.15);border:1px solid rgba(30,120,196,.4);color:#4BA0E8;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:12px}
     .section-pill-green{background:rgba(82,164,74,.15);border:1px solid rgba(82,164,74,.4);color:#79C86E}
     /* CARDS */
-    .card{background:#102540;border:1px solid rgba(30,120,196,.18);border-radius:12px}
-    .card-blue{background:rgba(30,120,196,.1);border:1px solid rgba(30,120,196,.3);border-radius:12px}
-    .card-green{background:rgba(82,164,74,.1);border:1px solid rgba(82,164,74,.25);border-radius:12px}
+    .card{background:#102540;border:1.5px solid rgba(30,120,196,.28);border-radius:12px}
+    .card-blue{background:rgba(30,120,196,.1);border:1.5px solid rgba(30,120,196,.38);border-radius:12px}
+    .card-green{background:rgba(82,164,74,.1);border:1.5px solid rgba(82,164,74,.35);border-radius:12px}
     .callout{background:rgba(30,120,196,.08);border-left:3px solid #1E78C4;border-radius:0 8px 8px 0;padding:14px 18px}
     .callout-green{background:rgba(82,164,74,.08);border-left:3px solid #52A44A;border-radius:0 8px 8px 0;padding:14px 18px}
     .callout-warn{background:rgba(251,191,36,.08);border-left:3px solid #F59E0B;border-radius:0 8px 8px 0;padding:14px 18px}
@@ -53,11 +53,12 @@
     .expand-panel{display:none}
     .expand-panel.open{display:block;animation:fadeIn .25s ease}
     /* FIRM BADGES */
-    .firm-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:6px;font-size:.73rem;font-weight:700;background:rgba(30,120,196,.1);border:1px solid rgba(30,120,196,.22);color:#CBD5E1;letter-spacing:.01em;line-height:1.2}
+    .firm-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:6px;font-size:.73rem;font-weight:700;background:rgba(30,120,196,.1);border:1px solid rgba(30,120,196,.22);color:#CBD5E1;letter-spacing:.01em;line-height:1.2;transition:all .18s}
+    .firm-badge:hover{transform:scale(1.06);border-color:rgba(255,255,255,.45)!important;box-shadow:0 2px 14px rgba(0,0,0,.4)}
     .firm-badge .fb-bar{width:3px;height:14px;border-radius:2px;flex-shrink:0}
     /* P&L */
-    .pl-row{cursor:pointer;border-radius:8px;transition:all .15s}
-    .pl-row:hover{filter:brightness(1.15);transform:translateX(3px)}
+    .pl-row{cursor:pointer;border-radius:8px;transition:all .15s;border:1px solid rgba(255,255,255,.07)}
+    .pl-row:hover{filter:brightness(1.18);transform:translateX(3px);border-color:rgba(255,255,255,.15)!important}
     .pl-row.pl-active{outline:2px solid rgba(30,120,196,.5)}
     /* FORMULA */
     .formula-pill{cursor:pointer;transition:all .2s;padding:12px 16px;border-radius:10px;border:1px solid rgba(30,120,196,.25);background:rgba(30,120,196,.1);text-align:center}
@@ -71,8 +72,9 @@
     .spec-detail{display:none}
     .spec-detail.visible{display:block;animation:fadeIn .25s ease}
     /* CALENDAR */
-    .cal-cell{height:30px;border-radius:5px;font-size:.62rem;font-weight:600;display:flex;align-items:center;justify-content:center;transition:.15s;cursor:pointer}
-    .cal-cell:hover{opacity:.8;transform:scale(1.08)}
+    .cal-cell{height:30px;border-radius:5px;font-size:.62rem;font-weight:600;display:flex;align-items:center;justify-content:center;transition:filter .15s,outline .15s,border-color .15s;cursor:pointer}
+    .cal-cell.col-lit{box-shadow:inset 0 0 0 1000px rgba(255,255,255,.07)}
+    .cal-month-hdr.col-lit{color:#CBD5E1!important}
     .intensity-0{background:#102540;color:#4B5563}
     .intensity-1{background:rgba(30,120,196,.15);color:#7BBEF5}
     .intensity-2{background:rgba(30,120,196,.38);color:#4BA0E8}
@@ -91,20 +93,19 @@
     .term-expand{max-height:0;overflow:hidden;transition:max-height .35s ease,opacity .3s ease;opacity:0}
     .term-card.expanded .term-expand{max-height:200px;opacity:1}
     .term-card.expanded{border-color:rgba(30,120,196,.45)!important;background:rgba(30,120,196,.07)}
+    .term-card:hover:not(.expanded){outline:1px solid rgba(255,255,255,.28);outline-offset:1px}
     .term-card.hidden{display:none}
     .search-highlight{background:rgba(30,120,196,.3);border-radius:2px;padding:0 2px}
     .filter-btn{transition:.15s;border-radius:20px;padding:5px 14px;font-size:.78rem;font-weight:600;border:1px solid rgba(30,120,196,.3);color:#94A3B8;cursor:pointer}
     .filter-btn.active{background:rgba(30,120,196,.15);border-color:#1E78C4;color:#4BA0E8}
     .filter-btn:hover{border-color:#1E78C4;color:#E2E8F0}
     /* CHECKLIST */
-    .commit-item{transition:.2s}
-    .commit-item.checked .commit-text{text-decoration:line-through;opacity:.5}
-    .commit-item.checked .commit-check{background:#1E78C4;border-color:#1E78C4}
-    .commit-check{width:22px;height:22px;min-width:22px;border:2px solid rgba(30,120,196,.5);border-radius:5px;cursor:pointer;transition:.15s;display:flex;align-items:center;justify-content:center}
-    .commit-check svg{opacity:0;transition:.15s}
-    .commit-item.checked .commit-check svg{opacity:1}
+    .commit-item{transition:all .2s;cursor:pointer}
+    .commit-item:hover{border-color:rgba(245,158,11,.4)!important;background:rgba(245,158,11,.05)!important;transform:translateX(2px);box-shadow:0 4px 18px rgba(245,158,11,.08)}
+    .commit-star{font-size:1.35rem;line-height:1;flex-shrink:0;margin-top:1px;transition:all .22s;color:#374151}
+    .commit-item.checked .commit-star{color:#F59E0B;filter:drop-shadow(0 0 6px rgba(245,158,11,.55))}
     /* CALC */
-    input[type=range]{-webkit-appearance:none;appearance:none;height:5px;border-radius:5px;background:#102540;outline:none}
+    input[type=range]{-webkit-appearance:none;appearance:none;height:5px;border-radius:5px;background:#2D4A6A;outline:none}
     input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#1E78C4;cursor:pointer;transition:.1s}
     input[type=range]::-webkit-slider-thumb:hover{background:#4BA0E8;transform:scale(1.1)}
     .stat-box{background:#070F1C;border:1px solid rgba(30,120,196,.25);border-radius:10px;padding:16px;text-align:center}
@@ -120,7 +121,12 @@
     /* NAV ACTIVE */
     .nav-link:hover{color:#F59E0B!important}
     .nav-link.active{color:#F59E0B!important;border-bottom:2px solid #F59E0B!important}
-    ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#0A1929}::-webkit-scrollbar-thumb{background:#1E78C4;border-radius:5px;border:2px solid #0A1929}::-webkit-scrollbar-thumb:hover{background:#4BA0E8}
+    /* SCROLL TOP BTN */
+    #scroll-top-btn{position:fixed;bottom:28px;right:24px;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:200;opacity:0;pointer-events:none;transition:opacity .3s;background:rgba(30,120,196,.85);border:1px solid rgba(30,120,196,.6);box-shadow:0 4px 18px rgba(0,0,0,.35);backdrop-filter:blur(6px)}
+    #scroll-top-btn.visible{opacity:1;pointer-events:auto;animation:btnBounce 2s ease-in-out infinite}
+    #scroll-top-btn:hover{background:#1E78C4;transform:scale(1.1);animation:none}
+    @keyframes btnBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+    ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#282E3A}::-webkit-scrollbar-thumb{background:#1E78C4;border-radius:5px;border:2px solid #282E3A}::-webkit-scrollbar-thumb:hover{background:#4BA0E8}
     #progress{position:fixed;top:0;left:0;height:9px;background:linear-gradient(90deg,#1E78C4,#52A44A);z-index:100;transition:width .15s;box-shadow:0 1px 8px rgba(82,164,74,.35)}
     @keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
     @keyframes pulse-border{0%,100%{box-shadow:0 0 0 0 rgba(30,120,196,.4)}50%{box-shadow:0 0 0 6px rgba(30,120,196,0)}}
@@ -131,8 +137,11 @@
     .stack-item:hover{background:rgba(30,120,196,.08);border-color:rgba(30,120,196,.45)!important;transform:translateX(3px)}
     .stack-item.stack-active{background:rgba(30,120,196,.13);border-color:#1E78C4!important}
     /* TACTIC CARDS */
-    .tactic-card{transition:all .24s cubic-bezier(.34,1.4,.64,1)}
-    .tactic-card:hover{transform:translateY(-5px);box-shadow:0 12px 28px rgba(30,120,196,.18);border-color:rgba(30,120,196,.4)!important}
+    .tactic-card{transition:all .2s;cursor:pointer}
+    .tactic-card:hover{border-color:rgba(30,120,196,.4)!important;background:rgba(30,120,196,.07)!important}
+    .tactic-card.tactic-open{border-color:rgba(82,164,74,.45)!important;background:rgba(82,164,74,.05)!important}
+    .tactic-expand{max-height:0;overflow:hidden;transition:max-height .32s ease,opacity .25s ease;opacity:0}
+    .tactic-card.tactic-open .tactic-expand{max-height:200px;opacity:1}
     /* QUESTION CARDS */
     .q-card{transition:all .18s}
     .q-card:hover{transform:translateX(4px);border-color:rgba(30,120,196,.45)!important;box-shadow:3px 0 16px rgba(30,120,196,.12)}
@@ -157,27 +166,56 @@
     @keyframes checkBounce{0%{transform:scale(.4)}55%{transform:scale(1.4)}80%{transform:scale(.88)}100%{transform:scale(1)}}
     @keyframes floatAway{0%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-55px) scale(1.6)}}
     .commit-celebrate{position:fixed;pointer-events:none;z-index:9999;font-size:1.6rem;animation:floatAway .75s ease forwards}
-    .commit-item.checked .commit-check{background:#52A44A!important;border-color:#52A44A!important;animation:checkBounce .35s ease}
+    .commit-item.checked .commit-star{animation:checkBounce .35s ease}
     /* THINGS TO TRY */
-    .try-item{cursor:pointer;transition:all .18s;border-radius:10px;border:1px solid rgba(30,120,196,.12);padding:14px 16px;background:transparent}
-    .try-item:hover{border-color:rgba(30,120,196,.42);background:rgba(30,120,196,.05);transform:translateX(3px)}
-    .try-item.try-open{border-color:rgba(82,164,74,.5);background:rgba(82,164,74,.05)}
-    .try-expand{max-height:0;overflow:hidden;transition:max-height .32s ease,opacity .25s ease;opacity:0}
-    .try-item.try-open .try-expand{max-height:180px;opacity:1}
+    .try-item{transition:all .2s;border-radius:10px;border:1px solid rgba(30,120,196,.12);padding:14px 16px;background:transparent;border-left:3px solid rgba(82,164,74,.15)}
+    .try-item:hover{border-color:rgba(82,164,74,.4);border-left-color:#52A44A;background:rgba(82,164,74,.06);box-shadow:0 4px 20px rgba(82,164,74,.1);transform:translateX(2px)}
+    .try-item:hover .try-arrow{color:#52A44A!important;transform:translateX(3px)}
+    .try-item.try-done .try-check{background:#52A44A!important;border-color:#52A44A!important}
+    .try-item.try-done .try-title,.try-item.try-done .text-slate-400{text-decoration:line-through;opacity:.45}
+    .try-check{width:20px;height:20px;min-width:20px;border:2px solid rgba(82,164,74,.4);border-radius:4px;cursor:pointer;transition:.15s;display:flex;align-items:center;justify-content:center;margin-top:1px}
+    .try-check svg{opacity:0;transition:.15s}
+    .try-item.try-done .try-check{background:#52A44A;border-color:#52A44A}
+    .try-item.try-done .try-check svg{opacity:1}
+    .try-arrow{transition:all .18s;color:#4B5563;font-size:1rem;line-height:1;margin-top:1px;flex-shrink:0}
+    .try-guide-btn{font-size:.62rem;font-weight:700;letter-spacing:.04em;padding:3px 8px;border-radius:20px;border:1px solid rgba(82,164,74,.4);color:#79C86E;background:transparent;cursor:pointer;white-space:nowrap;transition:all .15s;flex-shrink:0}
+    .try-guide-btn:hover{background:rgba(82,164,74,.12);border-color:#52A44A}
+    .try-guide-btn.guide-open{background:rgba(82,164,74,.12);border-color:#52A44A}
+    .try-guide-expand{max-height:0;overflow:hidden;transition:max-height .35s ease,opacity .28s ease;opacity:0}
+    .try-guide-expand.open{max-height:400px;opacity:1}
     /* AI PROMPT COPY */
     .copy-btn{transition:.15s;border-radius:6px;padding:3px 10px;font-size:.7rem;font-weight:600;border:1px solid rgba(30,120,196,.3);color:#4BA0E8;cursor:pointer;background:transparent;white-space:nowrap}
     .copy-btn:hover{background:rgba(30,120,196,.12);border-color:#1E78C4}
     .copy-btn.copied{color:#79C86E!important;border-color:rgba(82,164,74,.5)!important;background:rgba(82,164,74,.1)!important}
+    /* FONT SIZE CONTROL — pill style */
+    html.fs-1{font-size:18px!important}
+    html.fs-2{font-size:20px!important}
+    html.fs-3{font-size:22px!important}
+    html.fs-4{font-size:25px!important}
+    .fsz-ctrl{display:inline-flex;align-items:stretch;border:1px solid rgba(255,255,255,.22);border-radius:7px;overflow:hidden;margin-left:10px}
+    .fsz-edge{cursor:pointer;border:none;color:#8C9EBB;background:transparent;font-weight:900;transition:background .15s,color .15s;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:1rem;line-height:1;padding:0;flex-shrink:0}
+    .fsz-edge:hover:not([disabled]){background:rgba(30,120,196,.18);color:#CBD5E1}
+    .fsz-edge[disabled]{opacity:.22;cursor:default;pointer-events:none}
+    .fsz-center{font-size:.62rem;font-weight:700;color:#7BBEF5;padding:0 9px;height:26px;display:flex;align-items:center;border-left:1px solid rgba(255,255,255,.16);border-right:1px solid rgba(255,255,255,.16);user-select:none;white-space:nowrap;letter-spacing:.05em}
+    .fsz-ctrl:hover{border-color:rgba(75,160,232,.55)!important;transition:border-color .18s}
+    /* THEME BUTTON */
+    .theme-btn{cursor:pointer;border-radius:7px;border:1px solid rgba(255,255,255,.22);color:#8C9EBB;background:transparent;transition:all .15s;padding:0 12px;height:26px;display:flex;align-items:center;margin-left:8px;font-size:.62rem;font-weight:700;letter-spacing:.05em;white-space:nowrap}
+    .theme-btn:hover{border-color:rgba(75,160,232,.65);color:#CBD5E1}
+    /* FADE GENTLY (no translate jump for P&L panel) */
+    @keyframes fadeGently{from{opacity:0}to{opacity:1}}
   </style>
 </head>
 <body>
 <div id="progress" style="width:0%"></div>
+<button id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+  <svg width="18" height="18" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
 
 <!-- NAV -->
-<nav class="fixed top-0 w-full z-50 backdrop-blur border-b" style="border-color:rgba(30,120,196,.2);background:rgba(10,25,41,.96)">
+<nav class="fixed top-0 w-full z-50 backdrop-blur border-b" style="border-color:rgba(255,255,255,.08);background:rgba(40,46,58,.97)">
   <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16" style="padding-top:6px;padding-bottom:4px">
     <div class="flex items-center gap-3">
-      <a href="#" class="font-bold text-sm tracking-wide" style="color:#4BA0E8;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#7BBEF5'" onmouseout="this.style.color='#4BA0E8'">THE BUSINESS OF ACCOUNTING</a>
+      <a href="#" id="nav-brand" class="font-bold text-sm tracking-wide" style="color:#4BA0E8;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#7BBEF5'" onmouseout="this.style.color='#4BA0E8'">THE BUSINESS OF ACCOUNTING</a>
       <span class="aam-badge hidden sm:inline"><span class="aam-default">AAM Summit 2026</span><span class="aam-hover">🌴 Palm Springs</span></span>
     </div>
     <div class="hidden md:flex items-center gap-6 text-sm">
@@ -186,6 +224,16 @@
       <a href="#decisions" class="nav-link text-slate-400">Decisions</a>
       <a href="#glossary" class="nav-link text-slate-400">Glossary</a>
       <a href="#next-steps" class="nav-link text-slate-400">Next Steps</a>
+    </div>
+    <div class="hidden md:flex items-center">
+      <div class="fsz-ctrl" id="fsz-ctrl" title="Text size">
+        <button id="fsz-minus" class="fsz-edge" onclick="stepFontSize(-1)" title="Smaller" disabled>−</button>
+        <span class="fsz-center" id="fsz-label">Font Size</span>
+        <button id="fsz-plus" class="fsz-edge" onclick="stepFontSize(1)" title="Larger">+</button>
+      </div>
+      <button id="theme-btn" class="theme-btn" onclick="switchTheme()" title="Toggle light / dark mode">
+        <span id="theme-label">Light Mode</span>
+      </button>
     </div>
     <button class="md:hidden text-slate-400 p-2" onclick="toggleMenu()">
       <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -201,7 +249,7 @@
 </nav>
 
 <!-- HERO -->
-<section class="pt-28 pb-20 px-4" style="background:linear-gradient(160deg,#070F1C 0%,#0A1929 60%,#0D2038 100%)">
+<section id="hero" class="pt-28 pb-20 px-4" style="background:linear-gradient(160deg,#070F1C 0%,#0A1929 60%,#0D2038 100%)">
   <div class="max-w-3xl mx-auto text-center">
     <div class="section-pill mb-4">AAM Summit 2026 · Reference Resource</div>
     <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-3">
@@ -295,9 +343,9 @@
     <div class="card p-6 mb-6">
       <div class="grid md:grid-cols-2 gap-8">
         <div class="space-y-2">
-          <div class="pl-row flex items-center gap-3 p-3" id="plr-0" onclick="selectPL(0)">
-            <span class="font-bold w-6 text-right" style="color:#4BA0E8">+</span>
-            <div class="flex-1"><div class="font-semibold">Revenue</div><div class="text-xs text-slate-400">Fees from client services</div></div>
+          <div class="pl-row flex items-center gap-3 p-3" id="plr-0" onclick="selectPL(0)" style="background:rgba(82,164,74,.07);border-color:rgba(82,164,74,.2)">
+            <span class="font-bold w-6 text-right" style="color:#79C86E">+</span>
+            <div class="flex-1"><div class="font-semibold" style="color:#79C86E">Revenue</div><div class="text-xs text-slate-400">Fees from client services</div></div>
             <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
           </div>
           <div class="pl-row flex items-center gap-3 p-3" id="plr-1" onclick="selectPL(1)" style="background:rgba(239,68,68,.06)">
@@ -544,7 +592,30 @@
       </div>
       <div class="md:col-span-2">
         <div id="ca-panel" class="card-blue p-5 rounded-xl" style="min-height:160px">
-          <div class="text-xs text-slate-500 italic flex items-center gap-2 h-full" id="ca-default"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>Select a model on the left to explore pricing, growth ceiling, marketing's role, and how to adapt your approach.</div>
+          <div id="ca-default">
+            <div class="font-semibold mb-3" style="color:#4BA0E8">Two Models, Very Different Economics</div>
+            <div class="grid grid-cols-2 gap-3 mb-3 text-xs">
+              <div style="background:rgba(30,120,196,.08);border:1px solid rgba(30,120,196,.22);border-radius:8px;padding:10px 12px">
+                <div class="font-bold text-slate-200 mb-2">Compliance</div>
+                <div class="text-slate-400 space-y-1.5">
+                  <div>📌 Revenue = hours × hourly rate</div>
+                  <div>📌 Growth = hire more people</div>
+                  <div>📌 Margin = shrinking with automation</div>
+                  <div>📌 BD = retention &amp; deadline timing</div>
+                </div>
+              </div>
+              <div style="background:rgba(82,164,74,.08);border:1px solid rgba(82,164,74,.25);border-radius:8px;padding:10px 12px">
+                <div class="font-bold mb-2" style="color:#79C86E">Advisory ⭐</div>
+                <div class="text-slate-400 space-y-1.5">
+                  <div>✨ Revenue = value delivered</div>
+                  <div>✨ Growth = expertise &amp; trust</div>
+                  <div>✨ Margin = expanding with scale</div>
+                  <div>✨ BD = insight &amp; relationships</div>
+                </div>
+              </div>
+            </div>
+            <p class="text-xs text-slate-500 italic">← Click a model to explore pricing mechanics, growth ceiling, and how to adapt your approach.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -584,39 +655,64 @@
     <p class="text-xs text-slate-500 mb-4">Click any partner type to see their mindset, motivations, and how to position your ask.</p>
     <div class="grid md:grid-cols-3 gap-4 mb-10">
       <div class="space-y-2">
-        <div class="card p-4 stack-item" id="pt-0" onclick="selectPartner(0)" style="border-color:rgba(239,68,68,.2)">
+        <div class="card p-4 stack-item" id="pt-0" onclick="selectPartner(0)" style="border-color:rgba(251,191,36,.25)">
+          <div class="font-bold mb-1" style="color:#FBBF24">Managing Partner</div>
+          <div class="text-xs text-slate-500">Sets firm strategy · owns culture & growth</div>
+          <div class="text-xs mt-1" style="color:#FBBF24">Thinks in years, not quarters</div>
+        </div>
+        <div class="card p-4 stack-item" id="pt-1" onclick="selectPartner(1)" style="border-color:rgba(239,68,68,.2)">
           <div class="font-bold text-red-400 mb-1">Equity Partner</div>
           <div class="text-xs text-slate-500">Owns the firm · profit share · has a vote</div>
           <div class="text-xs mt-1" style="color:#F59E0B">Most protective of spend</div>
         </div>
-        <div class="card p-4 stack-item" id="pt-1" onclick="selectPartner(1)">
+        <div class="card p-4 stack-item" id="pt-2" onclick="selectPartner(2)">
           <div class="font-bold mb-1" style="color:#4BA0E8">Non-Equity Partner</div>
           <div class="text-xs text-slate-500">Partner title, no ownership · on track to equity</div>
           <div class="text-xs mt-1" style="color:#4BA0E8">High influence, less formal power</div>
         </div>
-        <div class="card p-4 stack-item" id="pt-2" onclick="selectPartner(2)">
+        <div class="card p-4 stack-item" id="pt-3" onclick="selectPartner(3)" style="border-color:rgba(168,85,247,.2)">
+          <div class="font-bold mb-1" style="color:#C084FC">Director / Principal</div>
+          <div class="text-xs text-slate-500">Below equity · owns client work · BD-hungry</div>
+          <div class="text-xs mt-1" style="color:#C084FC">Most underutilized BD ally</div>
+        </div>
+        <div class="card p-4 stack-item" id="pt-4" onclick="selectPartner(4)">
           <div class="font-bold text-slate-300 mb-1">Senior Leader</div>
-          <div class="text-xs text-slate-500">COO, CFO, Director · high access</div>
-          <div class="text-xs mt-1 text-slate-400">Key ally to cultivate early</div>
+          <div class="text-xs text-slate-500">COO, CFO, Firm Administrator · high access</div>
+          <div class="text-xs mt-1 text-slate-400">Operational champion to recruit early</div>
         </div>
       </div>
       <div class="md:col-span-2 flex flex-col">
-        <div id="pt-panel" class="card-blue p-5 rounded-xl flex-1" style="min-height:180px">
-          <div class="text-xs text-slate-500 italic flex items-center gap-2" id="pt-default"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>Select a partner type to see their frame, what to lead with, and what to avoid.</div>
+        <div id="pt-panel" class="card-blue p-5 rounded-xl flex-1" style="min-height:220px">
+          <div id="pt-default">
+            <div class="font-semibold mb-2" style="color:#4BA0E8">How Decisions Actually Get Made</div>
+            <p class="text-xs text-slate-400 mb-3">CPA firms don't operate like corporations. There's no single executive with budget authority. Major spending requires partnership consensus — and the real decision happens in informal conversations <em>before</em> the vote, not during it. Understanding who holds formal power, who holds informal influence, and who can kill an initiative quietly is the difference between getting funded and getting tabled.</p>
+            <div class="grid grid-cols-3 gap-2 mb-3">
+              <div class="text-center p-2 rounded-lg" style="background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.2)">
+                <div class="text-xs font-bold mb-1" style="color:#FBBF24">Managing Partner</div>
+                <div class="text-xs text-slate-500">Sets vision &amp; tone. Your most strategic relationship.</div>
+              </div>
+              <div class="text-center p-2 rounded-lg" style="background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2)">
+                <div class="text-xs font-bold text-red-400 mb-1">Equity Partners</div>
+                <div class="text-xs text-slate-500">Hold the formal vote. Every dollar is personal to them.</div>
+              </div>
+              <div class="text-center p-2 rounded-lg" style="background:rgba(168,85,247,.08);border:1px solid rgba(168,85,247,.2)">
+                <div class="text-xs font-bold mb-1" style="color:#C084FC">Directors</div>
+                <div class="text-xs text-slate-500">Influence from below. Most underutilized BD allies.</div>
+              </div>
+            </div>
+            <div class="text-xs p-2 rounded-lg" style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.18)">
+              <span class="font-semibold" style="color:#F59E0B">Key insight:</span> <span class="text-slate-400">Win informal support from 1–2 key partners before the meeting. A proposal that enters the room with momentum already behind it is rarely voted down.</span>
+            </div>
+            <p class="text-xs text-slate-500 italic mt-3">← Click any role to see their mindset, what to lead with, and what to avoid.</p>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- TACTICAL PLAYBOOK -->
-    <h3 class="text-lg font-semibold mb-4" style="color:#4BA0E8">The Tactical Playbook</h3>
-    <div class="grid sm:grid-cols-2 gap-3 mb-10">
-      <div class="card p-4 flex gap-3 tactic-card"><div class="font-black text-lg" style="color:#52A44A">✓</div><div><div class="font-semibold text-sm mb-1">Start with the most influential partner, not the friendliest.</div><div class="text-xs text-slate-400">Find out who actually moves votes. The friendliest partner rarely has the most leverage.</div></div></div>
-      <div class="card p-4 flex gap-3 tactic-card"><div class="font-black text-lg" style="color:#52A44A">✓</div><div><div class="font-semibold text-sm mb-1">Frame every ask around revenue or cost.</div><div class="text-xs text-slate-400">Speak the language of the room you're trying to influence.</div></div></div>
-      <div class="card p-4 flex gap-3 tactic-card"><div class="font-black text-lg" style="color:#52A44A">✓</div><div><div class="font-semibold text-sm mb-1">Win small things first to build credibility.</div><div class="text-xs text-slate-400">A track record of small wins buys you the credibility for bigger asks.</div></div></div>
-      <div class="card p-4 flex gap-3 tactic-card"><div class="font-black text-lg" style="color:#52A44A">✓</div><div><div class="font-semibold text-sm mb-1">Quantify everything.</div><div class="text-xs text-slate-400">"This campaign generated 3 new audits at $40K each." Rough numbers beat anecdote.</div></div></div>
-      <div class="card p-4 flex gap-3 tactic-card"><div class="font-black text-lg" style="color:#52A44A">✓</div><div><div class="font-semibold text-sm mb-1">Respect busy season — plan around it, not through it.</div><div class="text-xs text-slate-400">Trying to launch a campaign in February is like scheduling a sales call during a surgery.</div></div></div>
-      <div class="card p-4 flex gap-3 tactic-card"><div class="font-black text-lg" style="color:#52A44A">✓</div><div><div class="font-semibold text-sm mb-1">Know which lever leadership emphasizes most.</div><div class="text-xs text-slate-400">Growth-focused leaders want BD fuel. Efficiency-focused leaders want ROI proof.</div></div></div>
-    </div>
+    <h3 class="text-lg font-semibold mb-1" style="color:#4BA0E8">The Tactical Playbook</h3>
+    <p class="text-xs text-slate-500 mb-4">Click any tactic to expand with practical context on how to apply it.</p>
+    <div class="grid sm:grid-cols-2 gap-3 mb-10" id="tactic-list"></div>
 
     <!-- QUESTIONS -->
     <h3 class="text-lg font-semibold mb-2" style="color:#4BA0E8">Questions That Open Doors</h3>
@@ -675,14 +771,158 @@
   </div>
 </section>
 
-<footer class="border-t py-10 px-4 text-center" style="border-color:rgba(30,120,196,.15);background:#070F1C">
-  <div class="font-bold text-sm mb-1" style="color:#1E78C4">THE BUSINESS OF ACCOUNTING: HOW FIRMS OPERATE AND GROW</div>
-  <div class="text-slate-600 text-xs mb-1">AAM Summit 2026 · Presented by Alex Drost &amp; Laura Metz</div>
-  <div class="text-slate-700 text-xs">Reference Resource · For session attendees</div>
+<footer class="border-t py-12 px-4 text-center" style="border-color:rgba(255,255,255,.08);background:rgba(40,46,58,.97)">
+  <div class="font-bold text-sm mb-3" style="color:#4BA0E8">THE BUSINESS OF ACCOUNTING: HOW FIRMS OPERATE AND GROW</div>
+  <div class="mb-2">
+    <a href="https://www.linkedin.com/in/adrost/" target="_blank" rel="noopener" id="footer-dev-link" class="font-semibold text-sm" style="color:#CBD5E1;text-decoration:underline;text-underline-offset:3px;transition:color .2s" onmouseover="this.style.color='#F59E0B'" onmouseout="this.style.color=window._footerDevColor||'#CBD5E1'">Developed by Alex Drost</a>
+  </div>
+  <div style="color:#64748B;font-size:.72rem">AAM Summit 2026 · Reference Resource · For session attendees</div>
 </footer>
 
 <!-- ══════════ JAVASCRIPT ══════════ -->
 <script>
+// FONT SIZE CONTROL
+const FSZ_PX=[16,18,20,22,25];
+let fontLevel=0;
+function updateFszUI(){
+  const lbl=document.getElementById('fsz-label');
+  if(lbl) lbl.textContent='Font Size';
+  const minus=document.getElementById('fsz-minus');
+  const plus=document.getElementById('fsz-plus');
+  if(minus){ if(fontLevel===0){minus.setAttribute('disabled','');}else{minus.removeAttribute('disabled');} }
+  if(plus){ if(fontLevel===FSZ_PX.length-1){plus.setAttribute('disabled','');}else{plus.removeAttribute('disabled');} }
+}
+function stepFontSize(dir){
+  const next=Math.max(0,Math.min(FSZ_PX.length-1,fontLevel+dir));
+  if(next===fontLevel)return;
+  fontLevel=next;
+  const html=document.documentElement;
+  html.classList.remove('fs-1','fs-2','fs-3','fs-4');
+  if(fontLevel>0) html.classList.add('fs-'+fontLevel);
+  updateFszUI();
+}
+updateFszUI();
+// LIGHT MODE CSS — injected as a <style> element so it's last in cascade and beats everything
+const LIGHT_CSS='body{background:#F0F4F9!important;color:#1E293B!important}'
+  +'nav{background:rgba(255,255,255,.97)!important;border-color:rgba(0,0,0,.1)!important}'
+  +'footer{background:rgba(240,244,249,.97)!important;border-color:rgba(0,0,0,.1)!important}'
+  +'#hero{background:linear-gradient(160deg,#EEF4FF 0%,#F0F4F9 60%,#E8EDF4 100%)!important}'
+  +'#next-steps{background:linear-gradient(180deg,#F0F4F9 0%,#E8EDF4 100%)!important}'
+  +'.bg-alt{background:#E8EDF4!important}'
+  +'.card{background:#FFFFFF!important;border-color:rgba(30,120,196,.18)!important}'
+  +'.card-blue{background:rgba(30,120,196,.05)!important;border-color:rgba(30,120,196,.2)!important}'
+  +'.card-green{background:rgba(82,164,74,.05)!important;border-color:rgba(82,164,74,.2)!important}'
+  +'.callout{background:rgba(30,120,196,.05)!important}.callout-green{background:rgba(82,164,74,.06)!important}'
+  +'.callout-warn{background:rgba(251,191,36,.07)!important}'
+  +'.stat-box{background:#FFFFFF!important;border-color:rgba(30,120,196,.18)!important}'
+  +'.section-nav-card{background:#FFFFFF!important}'
+  +'.stack-item{border-color:rgba(30,120,196,.15)!important}'
+  +'.stack-item:hover{background:rgba(30,120,196,.05)!important}'
+  +'.stack-item.stack-active{background:rgba(30,120,196,.09)!important}'
+  +'.tactic-card{background:#FFFFFF!important;border-color:rgba(0,0,0,.08)!important}'
+  +'.tactic-card.tactic-open{background:rgba(82,164,74,.04)!important;border-color:rgba(82,164,74,.3)!important}'
+  +'.term-card{background:#FFFFFF!important;border-color:rgba(0,0,0,.08)!important}'
+  +'.term-card.expanded{background:rgba(30,120,196,.04)!important;border-color:rgba(30,120,196,.28)!important}'
+  +'.quiz-choice{background:rgba(30,120,196,.04)!important;border-color:rgba(30,120,196,.2)!important;color:#334155!important}'
+  +'.quiz-choice:hover:not(:disabled){background:rgba(30,120,196,.1)!important}'
+  +'.try-item{background:rgba(255,255,255,.9)!important;border-color:rgba(30,120,196,.12)!important}'
+  +'.pl-row{border-color:rgba(0,0,0,.07)!important}'
+  +'.formula-pill{background:rgba(30,120,196,.05)!important;border-color:rgba(30,120,196,.2)!important}'
+  +'.formula-result{background:rgba(82,164,74,.09)!important}'
+  +'.filter-btn{color:#475569!important;border-color:rgba(30,120,196,.25)!important}'
+  +'.filter-btn.active{color:#1E78C4!important;background:rgba(30,120,196,.08)!important;border-color:#1E78C4!important}'
+  +'.commit-item{border-color:rgba(0,0,0,.08)!important;background:rgba(255,255,255,.6)!important}'
+  +'.copy-btn{color:#1E78C4!important;border-color:rgba(30,120,196,.28)!important}'
+  +'.aam-badge{background:rgba(82,164,74,.08)!important;border-color:rgba(82,164,74,.3)!important}'
+  /* Darker text — previously too faint in light mode */
+  +'.text-slate-100{color:#0F172A!important}.text-slate-200{color:#0F172A!important}'
+  +'.text-slate-300{color:#1E293B!important}.text-slate-400{color:#334155!important}'
+  +'.text-slate-500{color:#475569!important}.text-slate-600{color:#334155!important}'
+  /* Override near-white and over-light inline style colours from dark-mode markup */
+  +'[style*="color:#CBD5E1"]{color:#1E293B!important}[style*="color:#E2E8F0"]{color:#0F172A!important}'
+  +'[style*="color:#94A3B8"]{color:#475569!important}[style*="color:#7BBEF5"]{color:#1E78C4!important}'
+  +'[style*="color:#64748B"]{color:#334155!important}[style*="color:#4BA0E8"]{color:#1044A0!important}'
+  /* Greens — dark forest green for structural labels; AI prompts headings/tags go fully black */
+  +'[style*="color:#79C86E"]{color:#2D6B2A!important}[style*="color:#A3D49B"]{color:#2A5228!important}'
+  +'[style*="color:#52A44A"]{color:#2D6B2A!important}[style*="color:#4B6B4A"]{color:#2A5228!important}'
+  /* AI prompts — main heading (label) black; desc + tag + prompt body stay dark green */
+  +'#ai-prompts-list [style*="color:#A3D49B"]{color:#0F172A!important}'
+  +'#ai-prompts-list [style*="color:#79C86E"]{color:#2A5228!important}'
+  +'#ai-prompts-list [style*="color:#4B6B4A"]{color:#2A5228!important}'
+  +'#ai-prompts-list .text-slate-300{color:#2A5228!important}'
+  /* Calendar cells — needs visible borders and legible backgrounds */
+  +'.cal-cell{border:1px solid rgba(30,120,196,.12)!important}'
+  +'.intensity-0{background:#DDE3EC!important;color:#64748B!important}'
+  +'.intensity-1{background:rgba(30,120,196,.12)!important;color:#1558A8!important}'
+  +'.intensity-2{background:rgba(30,120,196,.28)!important;color:#1044A0!important}'
+  +'.intensity-3{background:rgba(30,120,196,.55)!important;color:#FFFFFF!important}'
+  +'.cal-month-hdr{color:#334155!important}'
+  +'.cal-month-active{color:#1558A8!important;background:rgba(30,120,196,.12)!important}'
+  +'.col-lit{box-shadow:inset 0 0 0 1000px rgba(0,0,0,.05)!important}'
+  +'input[type=range]{background:#8EA9C1!important}'
+  +'#gloss-search{background:#FFFFFF!important;border-color:rgba(30,120,196,.22)!important;color:#1E293B!important}'
+  +'.nav-link{color:#475569!important}.nav-link.active{color:#B45309!important;border-bottom-color:#B45309!important}.nav-link:hover{color:#1558A8!important}'
+  +'.snc-desc{color:#64748B!important}.snc-title{color:#1E293B!important}'
+  +'.firm-badge{background:rgba(30,120,196,.05)!important;border-color:rgba(30,120,196,.15)!important;color:#1E293B!important}'
+  +'.try-guide-btn{border-color:rgba(58,115,53,.4)!important;color:#3A7335!important}'
+  +'.spec-btn{border-color:rgba(0,0,0,.1)!important}'
+  +'.q-card{border-color:rgba(0,0,0,.08)!important}'
+  +'.section-pill{background:rgba(30,120,196,.1)!important;color:#1E78C4!important;border-color:rgba(30,120,196,.3)!important}'
+  +'.section-pill-green{background:rgba(82,164,74,.1)!important;color:#3A7335!important}'
+  +'.formula-hint{border-color:rgba(30,120,196,.2)!important;color:#64748B!important}'
+  +'.theme-btn{border-color:rgba(0,0,0,.16)!important;color:#475569!important}'
+  +'.theme-btn:hover{border-color:rgba(30,120,196,.4)!important;color:#1E293B!important}'
+  +'.fsz-edge{color:#475569!important}.fsz-center{color:#1558A8!important}'
+  +'.fsz-ctrl{border-color:rgba(0,0,0,.18)!important}'
+  +'.fsz-center{border-left-color:rgba(0,0,0,.12)!important;border-right-color:rgba(0,0,0,.12)!important}'
+  +'.fsz-edge:hover:not([disabled]){background:rgba(30,120,196,.08)!important;color:#1E293B!important}'
+  /* Profit calculator — utilization drop warning box (more visible amber background) */
+  +'#mobile-menu{background:rgba(255,255,255,.97)!important;border-color:rgba(0,0,0,.08)!important}'
+  +'.text-amber-400{color:#92400E!important}.text-amber-300{color:#78350F!important}.text-amber-200{color:#78350F!important}'
+  +'#out-drop{color:#78350F!important}#calc-insight{color:#334155!important}'
+  +'[style*="background:rgba(251,191,36,.06)"]{background:#FFFFFF!important;border-color:rgba(180,83,9,.45)!important}'
+  /* Service industry spectrum buttons */
+  +'.spec-btn{background:#FFFFFF!important;border-color:rgba(0,0,0,.14)!important}'
+  +'.spec-btn.spec-active{border-color:rgba(30,120,196,.5)!important}'
+  /* Glossary term-card hover — visible black outline */
+  +'.term-card:hover:not(.expanded){outline:1.5px solid rgba(0,0,0,.55)!important;outline-offset:1px}'
+  /* Firm badge hover — subtle dark shadow */
+  +'.firm-badge:hover{border-color:rgba(0,0,0,.38)!important;box-shadow:0 2px 10px rgba(0,0,0,.15)!important}'
+  /* AI prompt section — theme blocks */
+  +'.ai-theme-block{border-color:rgba(42,82,40,.25)!important;background:#F4F9F4!important}'
+  +'.ai-theme-hdr{background:rgba(42,82,40,.07)!important}'
+  +'.ai-theme-body>div>div{background:rgba(42,82,40,.05)!important;border-color:rgba(42,82,40,.2)!important}'
+  /* AAM Summit badge — black text in light mode */
+  +'.aam-badge .aam-default{color:#0F172A!important}.aam-badge .aam-hover{color:#0F172A!important}'
+  +'::-webkit-scrollbar-track{background:#DDE3EC!important}::-webkit-scrollbar-thumb{background:#94A3B8!important}';
+// THEME TOGGLE (named switchTheme to avoid conflict with AI prompts toggleTheme)
+let isLightMode=false;
+function switchTheme(){
+  isLightMode=!isLightMode;
+  // Inject/remove a <style> element last in <head> — beats Tailwind CDN cascade
+  let ls=document.getElementById('lm-style');
+  if(!ls){ls=document.createElement('style');ls.id='lm-style';document.head.appendChild(ls);}
+  ls.textContent=isLightMode?LIGHT_CSS:'';
+  // Update button text — label shows what clicking will DO next
+  const lbl=document.getElementById('theme-label');
+  if(lbl) lbl.textContent=isLightMode?'Dark Mode':'Light Mode';
+  // Brand link inline color (can't be overridden by stylesheet alone due to onmouseover)
+  const brand=document.getElementById('nav-brand');
+  if(brand){
+    const dc='#4BA0E8',lc='#1E78C4',dh='#7BBEF5',lh='#4BA0E8';
+    brand.style.color=isLightMode?lc:dc;
+    brand.onmouseover=function(){this.style.color=isLightMode?lh:dh;};
+    brand.onmouseout=function(){this.style.color=isLightMode?lc:dc;};
+  }
+  // Footer "Developed by" link — manage inline color per mode
+  const devLink=document.getElementById('footer-dev-link');
+  if(devLink){
+    const dDef='#CBD5E1',lDef='#334155';
+    const defColor=isLightMode?lDef:dDef;
+    window._footerDevColor=defColor;
+    devLink.style.color=defColor;
+  }
+}
 // NAV
 function toggleMenu(){ document.getElementById('mobile-menu').classList.toggle('hidden'); }
 window.addEventListener('scroll',()=>{
@@ -692,6 +932,7 @@ window.addEventListener('scroll',()=>{
   let active='';
   for(const id of secs){ const el=document.getElementById(id); if(el&&window.scrollY>=el.offsetTop-80) active=id; }
   document.querySelectorAll('.nav-link').forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+active));
+  document.getElementById('scroll-top-btn').classList.toggle('visible',window.scrollY>300);
 });
 
 // CALCULATOR
@@ -750,7 +991,7 @@ function selectFirm(i){
 
 // P&L DETAIL
 const plData=[
-  { label:'Revenue', color:'#4BA0E8',
+  { label:'Revenue', color:'#79C86E',
     h:'What Drives Firm Revenue', body:'<p class="mb-2">Revenue = Hours × Rate × Utilization × Realization. Every component is a lever you can pull.</p><ul class="space-y-1"><li>→ <strong>Typical mix:</strong> 50–65% compliance, 35–50% advisory at growth-oriented firms</li><li>→ <strong>Revenue per FTE:</strong> $80K–$140K at staff level; $400K–$1M+ at partner level</li><li>→ <strong>Growth rate:</strong> Healthy firms grow 7–12%/year organically; advisory-first firms grow 15–25%</li></ul><div class="callout mt-3 text-xs">Marketing\'s job: make the firm easier to find, easier to choose, and easier to grow into. That directly impacts the revenue line.</div>' },
   { label:'Labor Cost', color:'#EF4444',
     h:'The Talent Cost Reality', body:'<p class="mb-2">Labor is 50–65% of revenue — the single biggest cost in every CPA firm. That constraint shapes every other decision.</p><ul class="space-y-1"><li>→ <strong>Staff:</strong> $55K–$90K base; with benefits ~$70K–$115K fully loaded</li><li>→ <strong>Manager:</strong> $90K–$140K; Senior Manager: $120K–$175K</li><li>→ <strong>Partner (non-equity):</strong> $200K–$350K fixed</li><li>→ <strong>Leverage insight:</strong> Every additional staff FTE who bills 1,600 hrs at $175/hr = $280K revenue</li></ul><div class="callout-warn mt-3 text-xs">The talent market is tight. Firms that can retain and grow people have a structural cost advantage over those that churn.</div>' },
@@ -791,7 +1032,7 @@ function selectFormula(i){
     panel.className='formula-hint'; panel.innerHTML=formulaHint; activeFP=-1; return;
   }
   activeFP=i;
-  panel.className='card p-4 mt-2'; panel.setAttribute('style','border:1px solid rgba(30,120,196,.35);animation:fadeIn .2s ease');
+  panel.className='card p-4 mt-2'; panel.setAttribute('style','border:1px solid rgba(30,120,196,.35);animation:fadeGently .18s ease');
   panel.innerHTML=`<div class="flex items-center justify-between mb-2"><div class="font-bold" style="color:${d.color}">${d.label}</div><button onclick="selectFormula(${i})" class="text-slate-600 hover:text-slate-400 text-xs">✕ close</button></div><div class="text-xs text-slate-300 leading-relaxed">${d.body}</div>`;
 }
 
@@ -870,9 +1111,10 @@ const caDetailData=[
       {h:'The challenge',b:"Clients don't always know they need advisory. Education is the BD strategy — and that's a marketing problem."}]}
 ];
 let activeCA=-1;
+const CA_DEFAULT_HTML='<div id="ca-default"><div class="font-semibold mb-3" style="color:#4BA0E8">Two Models, Very Different Economics</div><div class="grid grid-cols-2 gap-3 mb-3 text-xs"><div style="background:rgba(30,120,196,.08);border:1px solid rgba(30,120,196,.22);border-radius:8px;padding:10px 12px"><div class="font-bold text-slate-200 mb-2">Compliance</div><div class="text-slate-400 space-y-1.5"><div>📌 Revenue = hours × hourly rate</div><div>📌 Growth = hire more people</div><div>📌 Margin = shrinking with automation</div><div>📌 BD = retention &amp; deadline timing</div></div></div><div style="background:rgba(82,164,74,.08);border:1px solid rgba(82,164,74,.25);border-radius:8px;padding:10px 12px"><div class="font-bold mb-2" style="color:#79C86E">Advisory ⭐</div><div class="text-slate-400 space-y-1.5"><div>✨ Revenue = value delivered</div><div>✨ Growth = expertise &amp; trust</div><div>✨ Margin = expanding with scale</div><div>✨ BD = insight &amp; relationships</div></div></div></div><p class="text-xs text-slate-500 italic">← Click a model to explore pricing mechanics, growth ceiling, and how to adapt your approach.</p></div>';
 function selectCA(i){
   document.querySelectorAll('[id^=ca-]').forEach((el,j)=>el.classList.toggle('stack-active',j===i));
-  if(activeCA===i){document.getElementById('ca-panel').innerHTML='<div class="text-xs text-slate-500 italic flex items-center gap-2"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>Select a model on the left to explore pricing, growth ceiling, and how to adapt your approach.</div>';activeCA=-1;return;}
+  if(activeCA===i){document.getElementById('ca-panel').innerHTML=CA_DEFAULT_HTML;activeCA=-1;return;}
   activeCA=i;
   const d=caDetailData[i];
   document.getElementById('ca-panel').innerHTML=`
@@ -922,7 +1164,7 @@ function buildCalendar(){
     calData.forEach((month,mi)=>{
       const intensity=month[ri];
       const bg=rowBg[ri][intensity], tc=rowTxt[ri][intensity];
-      html+=`<td><div class="cal-cell" style="background:${bg};color:${tc};border:1px solid ${intensity===0?'rgba(255,255,255,.06)':'transparent'}" title="${months[mi]} ${row}" onclick="showMonthContext(${mi})">${intensity===3?'●':intensity===2?'◆':intensity===1?'·':''}</div></td>`;
+      html+=`<td><div class="cal-cell" id="cal-cell-${ri}-${mi}" style="background:${bg};color:${tc};border:1px solid ${intensity===0?'rgba(255,255,255,.06)':'transparent'}" onmouseenter="calColHover(${mi},true)" onmouseleave="calColHover(${mi},false)" onclick="showMonthContext(${mi})">${intensity===3?'●':intensity===2?'◆':intensity===1?'·':''}</div></td>`;
     });
     html+='</tr>';
   });
@@ -950,36 +1192,59 @@ function showMonthContext(mi){
     <div class="text-xs font-medium p-2 rounded" style="background:rgba(82,164,74,.08);border:1px solid rgba(82,164,74,.2);color:#A3D49B">BD Window: ${ctx.bd}</div>`;
   el.classList.add('visible');
 }
+function calColHover(mi,on){
+  const hdr=document.getElementById('cal-hdr-'+mi);
+  if(hdr) hdr.classList.toggle('col-lit',on);
+  for(let ri=0;ri<3;ri++){
+    const cell=document.getElementById('cal-cell-'+ri+'-'+mi);
+    if(cell) cell.classList.toggle('col-lit',on);
+  }
+}
 buildCalendar();
 
 // PARTNER TYPES — stack+panel
+const PT_DEFAULT='<div id="pt-default"><div class="font-semibold mb-2" style="color:#4BA0E8">How Decisions Actually Get Made</div><p class="text-xs text-slate-400 mb-3">CPA firms don\'t operate like corporations. There\'s no single executive with budget authority. Major spending requires partnership consensus — and the real decision happens in informal conversations <em>before</em> the vote, not during it.</p><div class="grid grid-cols-3 gap-2 mb-3"><div class="text-center p-2 rounded-lg" style="background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.2)"><div class="text-xs font-bold mb-1" style="color:#FBBF24">Managing Partner</div><div class="text-xs text-slate-500">Sets vision &amp; tone. Your most strategic relationship.</div></div><div class="text-center p-2 rounded-lg" style="background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2)"><div class="text-xs font-bold text-red-400 mb-1">Equity Partners</div><div class="text-xs text-slate-500">Hold the formal vote. Every dollar is personal.</div></div><div class="text-center p-2 rounded-lg" style="background:rgba(168,85,247,.08);border:1px solid rgba(168,85,247,.2)"><div class="text-xs font-bold mb-1" style="color:#C084FC">Directors</div><div class="text-xs text-slate-500">Influence from below. Most underutilized allies.</div></div></div><div class="text-xs p-2 rounded-lg" style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.18)"><span class="font-semibold" style="color:#F59E0B">Key insight:</span> <span class="text-slate-400">Win informal support from 1–2 key partners before the meeting. A proposal that enters the room with momentum already behind it is rarely voted down.</span></div><p class="text-xs text-slate-500 italic mt-3">← Click any role to see their mindset, what to lead with, and what to avoid.</p></div>';
 const ptDetailData=[
+  { title:'Managing Partner', color:'#FBBF24',
+    frame:"They carry the weight of the whole firm — growth, culture, talent, and profitability — simultaneously. They're not just another equity partner. They're thinking about legacy.",
+    frameStyle:'callout-warn',
+    points:[
+      {h:'Lead with',b:'Competitive positioning and firm-wide growth. "Where do you want this firm to be in five years?" is their question. Connect your initiative to that vision.'},
+      {h:'Use',b:'Peer firm comparisons and competitive intelligence. "The fastest-growing firms in our peer group are investing in X" speaks directly to their strategic anxiety.'},
+      {h:'Remember',b:'Managing Partners are often the loneliest role in the firm. They think longer-term than anyone else. A marketer who can think alongside them — not just execute for them — earns rare and valuable access.'}]},
   { title:'Equity Partner', color:'#F87171',
     frame:"Every dollar you ask for is money out of their pocket. They're not being difficult — that's just math.",
     frameStyle:'callout-warn',
     points:[
-      {h:'Lead with',b:'Revenue generated, cost reduced, or risk mitigated. Use numbers — even rough ones beat anecdote.'},
-      {h:'Use',b:'Peer firm benchmarks. "Firms like ours that invested in this saw X." Social proof from their peer group is the most powerful lever.'},
-      {h:'Avoid',b:'Brand awareness or intangible value arguments without a business case attached.'}]},
+      {h:'Lead with',b:'Revenue generated, cost reduced, or risk mitigated. Use numbers — even rough estimates beat anecdote. "This campaign generated three referrals worth ~$90K in first-year fees" is a business case.'},
+      {h:'Use',b:'Peer firm benchmarks. "Firms like ours that invested in this saw X." Social proof from their peer group is the most powerful lever available to you.'},
+      {h:'Avoid',b:'Brand awareness or intangible value arguments without a financial case attached. You\'ll lose that argument every time, because they\'re not wrong.'}]},
   { title:'Non-Equity Partner', color:'#4BA0E8',
-    frame:"They want to prove they belong at the equity table. Your initiative gives them a platform and a visible win.",
+    frame:"They want to prove they belong at the equity table. Your initiative gives them a platform, a visible win, and a chance to look strategic.",
     frameStyle:'callout',
     points:[
-      {h:'Lead with',b:'The opportunity to be seen as strategic. Position them as the champion, not just the approver.'},
+      {h:'Lead with',b:'The opportunity to be seen as forward-thinking. Position them as the champion of this initiative, not just an approver. They want to present good ideas as much as you want them approved.'},
       {h:'Use',b:"Them as your path to equity partners. A non-equity partner who believes in your initiative and presents it internally is worth more than any deck you could build."},
-      {h:'Remember',b:'They\'re motivated to take calculated risks that make them look visionary. That\'s your opening.'}]},
-  { title:'Senior Leader (COO/CFO/Director)', color:'#94A3B8',
-    frame:"Operational efficiency and process. They move faster than partners and often have pre-approval authority up to a threshold.",
+      {h:'Remember',b:'They\'re motivated to take calculated risks that make them look visionary. That hunger is your opening — align your initiative with their personal career narrative.'}]},
+  { title:'Director / Principal', color:'#C084FC',
+    frame:"They're one step below equity, running client work, building a book, and proving they can lead. They have the most to prove and the most energy to prove it.",
+    frameStyle:'callout',
+    points:[
+      {h:'Lead with',b:'Client impact and practice growth specific to their niche. Show them how this initiative helps their corner of the firm win — not the firm abstractly.'},
+      {h:'Use',b:"Them as your most enthusiastic BD allies. Directors are hungry, available, and motivated in ways that busy equity partners rarely are. Make them co-owners of a campaign and you've gained your most reliable internal sponsor."},
+      {h:'Remember',b:'This is the most underutilized marketing relationship in most accounting firms. Invest here early and you\'ll have advocates who grow into partners still carrying your banner.'}]},
+  { title:'Senior Leader (COO / CFO / Firm Administrator)', color:'#94A3B8',
+    frame:"Operational efficiency and process. They move faster than partners, often have pre-approval authority up to a threshold, and they care about whether things actually work.",
     frameStyle:'callout-green',
     points:[
-      {h:'Lead with',b:'Efficiency gains, process improvement, scalability. They think in systems, not just relationships.'},
-      {h:'Use',b:"Them as an operational ally who can shepherd your initiative through internal process — and often has more calendar availability than equity partners."},
-      {h:'Best for',b:'Getting things scoped, structured, and approved at an operational level before taking it to partners.'}]}
+      {h:'Lead with',b:'Efficiency gains, process improvement, and scalability. They think in systems, not just relationships. "This streamlines how we onboard clients" lands better than "this builds our brand."'},
+      {h:'Use',b:"Them as an operational shepherd who can move your initiative through internal process — and who often has more calendar availability than equity partners."},
+      {h:'Best for',b:'Getting proposals scoped, structured, and budgeted at an operational level before you take them to the partnership. Win the COO first, then enter the partner meeting with operational credibility already behind you.'}]}
 ];
 let activePT=-1;
 function selectPartner(i){
   document.querySelectorAll('[id^=pt-]').forEach((el,j)=>el.classList.toggle('stack-active',j===i));
-  if(activePT===i){document.getElementById('pt-panel').innerHTML='<div class="text-xs text-slate-500 italic flex items-center gap-2"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>Select a partner type to see their frame, what to lead with, and what to avoid.</div>';activePT=-1;return;}
+  if(activePT===i){document.getElementById('pt-panel').innerHTML=PT_DEFAULT;activePT=-1;return;}
   activePT=i;
   const d=ptDetailData[i];
   document.getElementById('pt-panel').innerHTML=`
@@ -1075,19 +1340,69 @@ function filterGlossary(){ buildGlossary(document.getElementById('gloss-search')
 function setCat(cat,btn){ activeCat=cat; document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); filterGlossary(); }
 buildGlossary();
 
+// TACTICAL PLAYBOOK
+const tactics=[
+  { title:'Start with the most influential partner, not the friendliest.',
+    short:'Find out who actually moves votes. The friendliest partner rarely has the most leverage.',
+    more:'The partner who encourages your ideas in the hallway and then votes against them in the room is a real phenomenon. Before any major pitch, map the informal power structure: who do other partners defer to? Who has sat on the compensation committee? Who has MP history? Winning — or at least neutralizing — that person before the meeting changes the outcome. You\'re not lobbying. You\'re being strategically efficient with your limited political capital.' },
+  { title:'Frame every ask around revenue or cost.',
+    short:'Speak the language of the room you\'re trying to influence.',
+    more:'Partners think in two currencies: margin protection and revenue growth. "Brand awareness" doesn\'t land in that vocabulary. "This campaign generated three referral conversations worth an estimated $90K in first-year fees" does. Before every presentation, translate your initiative into one of those two buckets. If you can\'t do it convincingly, the partners in the room will do it for you — and the answer will be no.' },
+  { title:'Win small things first to build credibility.',
+    short:'A track record of small wins buys you the credibility for bigger asks.',
+    more:'Pick something you can deliver in 30–60 days that partners will actually notice. A sharply-written article that generates a referral conversation. A client event mentioned in a partner meeting. An industry alert that a partner forwards to a prospect. Small wins compound. Each one earns you more access, more goodwill, and a larger seat at the table on the next budget cycle. Don\'t pitch the $200K initiative before you\'ve delivered a $10K proof point.' },
+  { title:'Quantify everything — rough numbers beat anecdote.',
+    short:'"This campaign generated 3 new audits at $40K each." Estimates are fine. Silence is not.',
+    more:'You don\'t need a perfect attribution model. You need a plausible one. "Approximately four new introductions came from this event and two are now in proposal stage at an estimated $35K each" is a business case. Partners run these numbers instinctively — if you don\'t give them a number, they\'ll make one up that\'s less favorable. Learn to speak in pipeline stages, close rates, and estimated first-year fees.' },
+  { title:'Respect busy season — plan around it, not through it.',
+    short:'Trying to launch a campaign in February is like scheduling a sales call during a surgery.',
+    more:'January through April 15 is effectively closed for any firm with significant tax work. Your best-ever campaign will get zero traction in February, and you\'ll burn goodwill asking for partner time. Use busy season to build: write content, get approvals, design campaigns. Come out the other side with a fully-loaded pipeline of initiatives ready to launch. May 1 is the most underutilized marketing date in the accounting industry.' },
+  { title:'Know which lever your leadership emphasizes most.',
+    short:'Growth-focused leaders want BD fuel. Efficiency-focused leaders want ROI proof.',
+    more:'Some leadership teams celebrate new clients above everything — they track logos, revenue additions, market penetration. Others are margin-obsessed: they watch realization rates, write-downs, and leverage more closely than top-line growth. Your Managing Partner\'s emphasis tells you how to frame every ask. Ask yourself before any pitch: is this a "grow the top line" leader or a "protect the margin" leader? Then build your case backward from their answer.' }
+];
+let activeTactic=-1;
+function buildTacticList(){
+  document.getElementById('tactic-list').innerHTML=tactics.map((t,i)=>`
+    <div class="card p-4 tactic-card" id="tactic-${i}" onclick="toggleTactic(${i})">
+      <div class="flex gap-3">
+        <div class="font-black text-lg shrink-0 mt-0.5" style="color:#52A44A">✓</div>
+        <div class="flex-1 min-w-0">
+          <div class="font-semibold text-sm mb-1">${t.title}</div>
+          <div class="text-xs text-slate-400">${t.short}</div>
+          <div class="tactic-expand"><div class="callout-green text-xs mt-3">${t.more}</div></div>
+        </div>
+        <svg id="tactic-icon-${i}" class="w-4 h-4 shrink-0 mt-1 transition-transform" fill="none" stroke="#52A44A" stroke-width="2" viewBox="0 0 24 24" style="opacity:.5"><path d="M19 9l-7 7-7-7"/></svg>
+      </div>
+    </div>`).join('');
+}
+function toggleTactic(i){
+  const el=document.getElementById('tactic-'+i);
+  const icon=document.getElementById('tactic-icon-'+i);
+  const open=el.classList.contains('tactic-open');
+  document.querySelectorAll('.tactic-card').forEach((c,j)=>{
+    c.classList.remove('tactic-open');
+    const ic=document.getElementById('tactic-icon-'+j);
+    if(ic) ic.style.transform='';
+  });
+  if(!open){ el.classList.add('tactic-open'); icon.style.transform='rotate(180deg)'; }
+}
+buildTacticList();
+
 // COMMITMENTS
 const commitments=[
-  {id:'c1',title:'Connect every ask to the P&L.',detail:'Before your next budget request, map it to either revenue growth or cost reduction. If you can\'t draw that line, rethink the ask.'},
-  {id:'c2',title:'Know where your firm sits — and why it matters.',detail:'Identify your firm\'s top service lines by margin. Let that shape your campaign calendar, messaging, and BD priorities.'},
-  {id:'c3',title:'Build your business case like an investor pitch.',detail:'Every unspent marketing dollar goes to a partner\'s pocket. Frame initiatives in ROI terms, with a timeline and measurable outcome.'},
-  {id:'c4',title:'Use the vocabulary. Ask the questions.',detail:'Write down 3 strategic questions you\'ve never asked your MP, COO, or CFO. Ask one this week. Then see what opens up.'},
+  {id:'c1',title:'Connect every ask to the P&L.',detail:'Before your next budget request, map it to either revenue growth or cost reduction. If you can\'t draw that line clearly, the partners in the room will draw it for you — and the answer will be no.'},
+  {id:'c2',title:'Know your firm\'s realization rate — then track what moves it.',detail:'Ask your CFO or COO for the number. Understand whether it\'s trending up or down and why. This single metric tells you more about firm health than almost any other, and knowing it signals to partners that you\'re fluent in their world.'},
+  {id:'c3',title:'Build your next business case like an investor pitch.',detail:'Every unspent marketing dollar goes to a partner\'s distribution check. Frame initiatives with a specific ROI, a timeline, and a measurable outcome. "We expect X new clients at $Y average fees within Z months" is a pitch. Everything else is overhead.'},
+  {id:'c4',title:'Map the informal power structure before your next major ask.',detail:'Identify who actually moves votes — not who\'s friendly, but who other partners defer to. One conversation with that person before the meeting changes your odds more than any slide deck.'},
+  {id:'c5',title:'Use the vocabulary. Start one real conversation.',detail:'Write down three questions you\'ve never asked your Managing Partner or practice leader — about the firm\'s strategy, its biggest constraint, or where it wants to grow. Ask one this week. What opens up will surprise you.'},
 ];
 function buildCommitments(){
   document.getElementById('commitments-list').innerHTML=commitments.map((c,i)=>`
-    <div class="card p-4 commit-item" id="${c.id}">
+    <div class="card p-4 commit-item" id="${c.id}" onclick="toggleCommit('${c.id}')">
       <div class="flex items-start gap-3">
-        <div class="commit-check mt-0.5" onclick="toggleCommit('${c.id}')"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#0A1929" stroke-width="2.5"><polyline points="1,6 5,10 11,2"/></svg></div>
-        <div><div class="font-semibold text-sm commit-text mb-1">${String(i+1).padStart(2,'0')}. ${c.title}</div><div class="text-xs text-slate-400">${c.detail}</div></div>
+        <div class="commit-star mt-0.5" id="cstar-${c.id}">☆</div>
+        <div><div class="font-semibold text-sm mb-1">${String(i+1).padStart(2,'0')}. ${c.title}</div><div class="text-xs text-slate-400">${c.detail}</div></div>
       </div>
     </div>`).join('');
 }
@@ -1095,16 +1410,18 @@ function toggleCommit(id){
   const el=document.getElementById(id);
   const wasChecked=el.classList.contains('checked');
   el.classList.toggle('checked');
+  const star=document.getElementById('cstar-'+id);
+  star.textContent=wasChecked?'☆':'★';
   if(!wasChecked) celebrateCommit(el);
 }
 function celebrateCommit(el){
-  const emojis=['⭐','✨','🎉','💡','🔥','🚀'];
+  const emojis=['⭐','✨','🌟','💛','🔥','🚀'];
   for(let k=0;k<3;k++){
     setTimeout(()=>{
       const em=document.createElement('div');
       em.className='commit-celebrate';
       em.textContent=emojis[Math.floor(Math.random()*emojis.length)];
-      const rect=el.querySelector('.commit-check').getBoundingClientRect();
+      const rect=el.querySelector('.commit-star').getBoundingClientRect();
       em.style.left=(rect.left+rect.width/2-12+Math.random()*30-15)+'px';
       em.style.top=(rect.top+window.scrollY-10)+'px';
       document.body.appendChild(em);
@@ -1118,48 +1435,89 @@ buildCommitments();
 const tryItems=[
   { title:'Ask your partner: "What\'s our realization rate?"',
     short:'Then listen. What they say — and how — tells you everything about their priorities.',
-    more:'When they answer, notice whether they cite a number or brush it off. A partner who knows their realization rate precisely is operationally sharp and will respond to data. A partner who says "I don\'t know" just revealed a gap you can help fill — and a conversation you can lead. Either way, you\'re now speaking their language.' },
+    steps:['Pick the right moment — after a meeting or in a scheduled 1:1. Don\'t cold-ask in a hallway.','Frame it naturally: "I\'ve been learning more about how the firm runs financially — mind if I ask you something?"','Ask directly: "What\'s our current realization rate, and is it trending up or down?"','Listen for both the number and the tone. Specificity means they track it. Vagueness is your opening.','Follow up: "What do you think is driving that?" — this is where the real conversation begins.','Use the answer to shape your next initiative. Low realization = pricing or scope discipline is your BD angle.'] },
   { title:'Map your firm\'s decision path for a major spend.',
     short:'Write down who identifies the need, who approves it, who influences it informally, and where it stalls.',
-    more:'Draw it literally. Who first says "we need this"? Who adds it to the agenda? Who has informal veto power before it reaches a vote? Understanding this map turns you from a requestor into an orchestrator. Most marketing professionals skip this step — and that\'s why initiatives stall.' },
+    steps:['Pick a recent initiative — one that was approved or killed — and reconstruct its path.','Draw it literally: who originated it, who championed it, who had informal veto power, and who voted.','Identify the 2–3 people whose support was truly decisive. That\'s your power map.','Note where it slowed down. Was it a missing advocate, bad timing, or a financial case gap?','Apply this map to your next ask. Secure key people before the meeting, not in it.','Revisit the map every 6 months. Informal power shifts when leadership turns over.'] },
   { title:'Align one active campaign to a revenue or cost lever.',
     short:'Pick the one hardest to justify — reframe it in P&L terms before your next conversation.',
-    more:'Revenue lever: new clients, expanded wallet share, higher-value service mix. Cost lever: technology ROI, leverage improvement, fixed-fee transition risk reduction. If you can\'t connect a campaign to one of these two, the partners in that meeting will make the connection for you — and the answer will be no.' },
+    steps:['List your three most active campaigns right now.','For each, finish this sentence: "This generates revenue by ___" or "This reduces cost by ___."','If you can\'t finish it cleanly, that campaign has a business case problem — not a creative problem.','Pick one specific lever: new client acquisition, cross-sell, retention, capacity utilization, or pricing power.','Rewrite your internal pitch leading with the financial lever — not the tactic.','Test it on a COO or finance-minded colleague before presenting to partners.'] },
   { title:'Ask a practice leader: which service line has the most available capacity?',
     short:'Capacity + demand = the best marketing ROI. That\'s where to focus BD energy.',
-    more:'The answer is almost never "all of them." It\'s usually one or two service lines where partners have bench time or are actively targeting a specific type of client. That\'s your signal. Directing BD energy toward available capacity is the fastest path to measurable ROI — and it gives you a built-in business case.' },
+    steps:['Schedule 15 minutes with a practice leader or COO. Frame it as a quick strategy question.','Ask: "If we could bring in five new ideal clients this quarter, which service line has the capacity to handle them?"','Follow up: "What does that ideal client look like — size, industry, complexity?"','Map your BD investment to that answer. That\'s your highest-ROI marketing target right now.','Build a focused 30-day push around that service line and document your rationale.','Report back: "I directed BD resources toward [X] based on your input — here\'s what moved."'] },
   { title:'Use three terms from the glossary in your next partner conversation.',
     short:'Utilization, realization, leverage ratio. The shift in how people respond will be immediate.',
-    more:'Try: "I was looking at our utilization benchmarks and thought..." or "If we improve realization through better scope management, that flows directly to NIPP." The change isn\'t just that you sound credible — it\'s that partners start treating you like a peer instead of a vendor. That\'s the access you\'re trying to earn.' },
+    steps:['Pick your three terms. Start with: utilization rate, realization rate, and leverage ratio.','Look up what each means and practice saying them in context out loud before the meeting.','Use them naturally in conversation: "I was thinking about our utilization benchmarks..." — not like you\'re reciting.','Pay attention to how the partner responds: do they engage more? Correct you? Ask how you know?','Whatever their reaction, use it as information. A correction is a lesson. Engagement is an opening.','Add one new term per month. In six months you\'ll move through partner conversations like a fluent speaker.'] },
   { title:'Find out who gets origination credit at your firm.',
     short:'This single piece of information tells you who your internal BD champions are.',
-    more:'Origination credit shapes everything: who cares about client wins, who will advocate for marketing spend, and who will take credit for a campaign\'s results. If you can tie a marketing outcome to a partner\'s origination credit, you\'ve made them your most motivated champion.' }
+    steps:['Ask your CFO, COO, or a trusted equity partner: "How does origination credit work here?"','Get specifics: is it the partner who brought in the client, who expanded the relationship, or who referred it?','Map your last three marketing wins to origination credit — who actually benefited?','Identify the top 2–3 partners most motivated by origination credit.','Proactively connect future marketing outcomes to those partners. Brief them before campaigns; attribute wins after.','Those partners become your loudest budget advocates at the next compensation discussion.'] },
+  { title:'Identify one compliance client ready for an advisory conversation.',
+    short:'The shift from compliance to advisory starts with a single relationship — find yours.',
+    steps:['Pull a list of your top 20–30 clients by revenue or tenure.','Flag any who are visibly scaling: recent hiring, acquisitions, expansion into new markets, or rising complexity.','Look for signals: their LinkedIn activity, website news, press — anything suggesting they\'re outgrowing compliance-only service.','Identify the partner who owns the relationship and has the deepest trust with that client.','Prepare a brief (one paragraph): "Client X is growing in ways our current scope doesn\'t address — here\'s what I see."','Bring it to the partner as a gift, not a pitch: "I did some research and thought you\'d find this interesting." Let them drive the next step.'] }
 ];
-let activeTry=-1;
+const TRY_CPY_SVG='<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
 function buildTryList(){
-  document.getElementById('try-list').innerHTML=tryItems.map((t,i)=>`
-    <div class="try-item" id="try-${i}" onclick="toggleTry(${i})">
-      <div class="flex items-start gap-3">
-        <span class="font-bold text-base mt-0.5 shrink-0" style="color:#52A44A">→</span>
-        <div class="flex-1 min-w-0">
-          <div class="font-semibold text-sm mb-0.5">${t.title}</div>
-          <div class="text-xs text-slate-400">${t.short}</div>
-          <div class="try-expand"><div class="callout-green text-xs mt-3">${t.more}</div></div>
-        </div>
-        <svg class="w-4 h-4 text-slate-600 shrink-0 mt-0.5 transition-transform" id="try-icon-${i}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-      </div>
-    </div>`).join('');
+  document.getElementById('try-list').innerHTML=tryItems.map((t,i)=>{
+    const stepsHtml=t.steps.map((s,n)=>'<li class="flex gap-2 text-xs text-slate-300"><span class="font-bold shrink-0" style="color:#52A44A;min-width:1.2em">'+(n+1)+'.</span><span>'+s+'</span></li>').join('');
+    return '<div class="try-item" id="try-'+i+'">'
+      +'<div class="flex items-start gap-3" onclick="toggleTryGuide('+i+')" style="cursor:pointer">'
+      +'<div class="try-check" id="try-chk-'+i+'" onclick="event.stopPropagation();checkTry('+i+')"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="#0A1929" stroke-width="2.5"><polyline points="1,6 5,10 11,2"/></svg></div>'
+      +'<div class="flex-1 min-w-0">'
+      +'<div class="flex items-start justify-between gap-2 mb-0.5">'
+      +'<div class="font-semibold text-sm try-title" id="try-title-'+i+'">'+t.title+'</div>'
+      +'<button class="try-guide-btn" id="try-gbtn-'+i+'" onclick="event.stopPropagation();toggleTryGuide('+i+')">Step-by-Step ↓</button>'
+      +'</div>'
+      +'<div class="text-xs text-slate-400">'+t.short+'</div>'
+      +'</div>'
+      +'</div>'
+      +'<div class="try-guide-expand" id="try-guide-'+i+'">'
+      +'<div class="mt-3 pt-3" style="border-top:1px solid rgba(82,164,74,.18)">'
+      +'<div class="flex items-center justify-between mb-2">'
+      +'<div class="text-xs font-semibold" style="color:#79C86E">Action Plan</div>'
+      +'<button class="copy-btn flex items-center gap-1.5" id="cpbtn-try-'+i+'" onclick="copyTrySteps('+i+')">'+TRY_CPY_SVG+'Copy</button>'
+      +'</div>'
+      +'<ol class="space-y-1.5">'+stepsHtml+'</ol>'
+      +'</div></div></div>';
+  }).join('');
 }
-function toggleTry(i){
+function checkTry(i){
   const el=document.getElementById('try-'+i);
-  const icon=document.getElementById('try-icon-'+i);
-  const open=el.classList.contains('try-open');
-  document.querySelectorAll('[id^=try-]').forEach((e,j)=>{
-    e.classList.remove('try-open');
-    const ic=document.getElementById('try-icon-'+j);
-    if(ic) ic.style.transform='';
-  });
-  if(!open){ el.classList.add('try-open'); icon.style.transform='rotate(180deg)'; }
+  const wasDone=el.classList.contains('try-done');
+  el.classList.toggle('try-done');
+  if(!wasDone){
+    // collapse guide if open
+    const guide=document.getElementById('try-guide-'+i);
+    const btn=document.getElementById('try-gbtn-'+i);
+    if(guide&&guide.classList.contains('open')){
+      guide.classList.remove('open');
+      if(btn){btn.classList.remove('guide-open');btn.textContent='Step-by-Step ↓';}
+    }
+    const emojis=['⭐','✨','🎯','💡','🔥','🚀'];
+    for(let k=0;k<3;k++){
+      setTimeout(()=>{
+        const em=document.createElement('div');
+        em.className='commit-celebrate';
+        em.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+        const rect=document.getElementById('try-chk-'+i).getBoundingClientRect();
+        em.style.left=(rect.left+rect.width/2-12+Math.random()*30-15)+'px';
+        em.style.top=(rect.top+window.scrollY-10)+'px';
+        document.body.appendChild(em);
+        setTimeout(()=>em.remove(),800);
+      },k*120);
+    }
+  }
+}
+function toggleTryGuide(i){
+  const guide=document.getElementById('try-guide-'+i);
+  const btn=document.getElementById('try-gbtn-'+i);
+  const open=guide.classList.contains('open');
+  guide.classList.toggle('open',!open);
+  btn.classList.toggle('guide-open',!open);
+  btn.textContent=open?'Step-by-Step ↓':'Step-by-Step ↑';
+}
+function copyTrySteps(i){
+  const text=tryItems[i].steps.map((s,n)=>`${n+1}. ${s}`).join('\n');
+  navigator.clipboard.writeText(tryItems[i].title+'\n\n'+text).then(()=>_flashCopied('try-'+i)).catch(()=>_flashCopied('try-'+i));
 }
 buildTryList();
 
