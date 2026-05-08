@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Syndicate Tax Audit Risks: What the IRS and Tax Court Actually Say | Hall CPA</title>
+<meta name="description" content="A CPA-written guide for high-income investors being pitched solar syndicate deals. Covers material participation, the four hurdles every solar deduction must clear, IRS audit exposure, and recent OBBBA changes. Includes interactive tools.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://solar.hallcpa.com/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Solar Syndicate Tax Audit Risks: What the IRS and Tax Court Actually Say">
+<meta property="og:description" content="A CPA-written guide for high-income investors being pitched solar syndicate deals.">
+<meta property="og:image" content="/assets/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://solar.hallcpa.com/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Hall CPA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Solar Syndicate Tax Audit Risks">
+<meta name="twitter:description" content="A CPA-written guide for high-income investors being pitched solar syndicate deals.">
+<meta name="twitter:image" content="/assets/og-card.jpg">
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Solar Syndicate Tax Audit Risks: What the IRS and Tax Court Actually Say",
+  "author": {
+    "@type": "Person",
+    "name": "Nathan Sosa, CPA, MST",
+    "jobTitle": "Manager, National Tax Department & Audit Defense Division",
+    "worksFor": {"@type": "AccountingService", "name": "Hall CPA, PLLC"}
+  },
+  "publisher": {
+    "@type": "AccountingService",
+    "name": "Hall CPA, PLLC",
+    "url": "https://www.hallcpa.com"
+  },
+  "datePublished": "2026-05-08",
+  "dateModified": "2026-05-08",
+  "description": "A CPA-written guide for high-income investors being pitched solar syndicate deals.",
+  "about": [
+    {"@type": "Thing", "name": "Solar tax credit"},
+    {"@type": "Thing", "name": "Passive activity loss"},
+    {"@type": "Thing", "name": "Material participation"},
+    {"@type": "Thing", "name": "Section 469"},
+    {"@type": "Thing", "name": "Section 48E"},
+    {"@type": "Thing", "name": "IRS audit"}
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          page: '#FAF8F4',
+          card: '#FFFFFF',
+          primary: '#1A1F2E',
+          secondary: '#4A5568',
+          muted: '#718096',
+          accent: '#1A3A52',
+          gold: '#C8A862',
+          'border-default': '#E2E0DA',
+          'border-strong': '#9CA3AF',
+          'risk-high': '#A52323',
+          'risk-modhigh': '#D9742B',
+          'risk-mod': '#E0A93D',
+          'risk-modlow': '#C9A227',
+          'risk-low': '#7A9461',
+          'risk-clear': '#5A9367',
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  :root {
+    --bg-page: #FAF8F4;
+    --bg-card: #FFFFFF;
+    --text-primary: #1A1F2E;
+    --text-secondary: #4A5568;
+    --text-muted: #718096;
+    --accent: #1A3A52;
+    --gold: #C8A862;
+    --border-default: #E2E0DA;
+    --risk-high: #A52323;
+    --risk-modhigh: #D9742B;
+    --risk-mod: #E0A93D;
+    --risk-modlow: #C9A227;
+    --risk-low: #7A9461;
+    --risk-clear: #5A9367;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg-page);
+    color: var(--text-primary);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .skip-link {
+    position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;
+  }
+  .skip-link:focus {
+    position: static; width: auto; height: auto;
+    padding: 8px 16px; background: var(--accent); color: #fff;
+  }
+  .prose-content { max-width: 720px; margin-left: auto; margin-right: auto; }
+  .wide-content { max-width: 960px; margin-left: auto; margin-right: auto; }
+  .h1 { font-size: 2.25rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--text-primary); }
+  @media (min-width: 768px) { .h1 { font-size: 3rem; } }
+  .h2 { font-size: 1.75rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; color: var(--text-primary); }
+  @media (min-width: 768px) { .h2 { font-size: 2.25rem; } }
+  .h3 { font-size: 1.375rem; font-weight: 600; line-height: 1.3; color: var(--text-primary); }
+  @media (min-width: 768px) { .h3 { font-size: 1.5rem; } }
+  .h4 { font-size: 1.125rem; font-weight: 600; line-height: 1.4; color: var(--text-primary); }
+  .body-large { font-size: 1.0625rem; line-height: 1.65; color: var(--text-primary); }
+  @media (min-width: 768px) { .body-large { font-size: 1.1875rem; } }
+  .caption { font-size: 0.8125rem; font-weight: 500; line-height: 1.4; letter-spacing: 0.01em; color: var(--text-muted); }
+  .eyebrow { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+  .citation { font-size: 0.9375rem; font-style: italic; color: var(--text-secondary); }
+  section.major { padding-top: 64px; padding-bottom: 16px; }
+  @media (min-width: 768px) { section.major { padding-top: 96px; } }
+  section.minor { padding-top: 40px; padding-bottom: 16px; }
+  @media (min-width: 768px) { section.minor { padding-top: 56px; } }
+  .container-page { max-width: 1200px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+  @media (min-width: 768px) { .container-page { padding-left: 48px; padding-right: 48px; } }
+  @media (min-width: 1280px) { .container-page { padding-left: 96px; padding-right: 96px; } }
+  .btn-primary {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--accent); color: #fff;
+    padding: 14px 28px; border-radius: 4px;
+    font-weight: 600; font-size: 16px; line-height: 1;
+    transition: background .15s ease;
+    border: 1px solid var(--accent);
+    cursor: pointer;
+  }
+  .btn-primary:hover { background: #122838; }
+  .btn-primary:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .btn-secondary {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: transparent; color: var(--accent);
+    padding: 14px 28px; border-radius: 4px;
+    font-weight: 600; font-size: 16px; line-height: 1;
+    border: 1px solid var(--accent);
+    transition: background .15s ease;
+    cursor: pointer;
+  }
+  .btn-secondary:hover { background: rgba(26,58,82,0.06); }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: 8px;
+    padding: 24px;
+  }
+  @media (min-width: 768px) { .card { padding: 32px; } }
+  .tool-card {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  @media (min-width: 768px) { .tool-card { padding: 32px; } }
+  .tool-label {
+    position: absolute; top: 16px; right: 20px;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-muted); font-weight: 600;
+  }
+  .form-input, .form-select, .form-textarea {
+    width: 100%; padding: 12px 16px; font-size: 16px;
+    border: 1px solid var(--border-default); border-radius: 4px;
+    background: #fff; color: var(--text-primary);
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    outline: none; border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(26,58,82,0.2);
+  }
+  .form-label { display: block; font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
+  .checkbox-row {
+    display: flex; gap: 12px; padding: 12px;
+    border: 1px solid var(--border-default); border-radius: 6px;
+    background: #fff; cursor: pointer; transition: background .12s ease, border-color .12s ease;
+  }
+  .checkbox-row:hover { border-color: var(--accent); background: #FBF9F4; }
+  .checkbox-row input[type="checkbox"] { margin-top: 4px; flex-shrink: 0; }
+  .pill {
+    display: inline-flex; align-items: center; padding: 4px 10px;
+    border-radius: 999px; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .dfn {
+    text-decoration: underline dotted var(--text-muted); text-underline-offset: 3px;
+    cursor: help; position: relative;
+  }
+  .dfn-pop {
+    position: absolute; left: 0; bottom: calc(100% + 8px);
+    background: #fff; border: 1px solid var(--border-default); border-radius: 6px;
+    padding: 12px; max-width: 320px; min-width: 240px;
+    font-size: 13px; line-height: 1.5; color: var(--text-secondary);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: none; z-index: 50;
+  }
+  .dfn:hover .dfn-pop, .dfn:focus-within .dfn-pop { display: block; }
+  .timeline-bar { display: flex; height: 36px; border-radius: 4px; overflow: hidden; border: 1px solid var(--border-default); }
+  .timeline-seg { flex: 1; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12px; font-weight: 600; }
+  .timeline-marker {
+    position: absolute; top: -6px; height: 48px; width: 2px; background: var(--text-primary);
+  }
+  .timeline-marker::before {
+    content: ''; position: absolute; top: -6px; left: -5px;
+    width: 12px; height: 12px; background: var(--text-primary); border-radius: 50%;
+  }
+  /* State tile grid */
+  .state-grid {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    gap: 4px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .state-tile {
+    aspect-ratio: 1 / 1;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700;
+    color: rgba(255,255,255,0.95);
+    border-radius: 3px;
+    cursor: pointer; transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
+    user-select: none;
+  }
+  .state-tile:hover { transform: translateY(-2px); filter: brightness(1.05); box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
+  .state-tile.selected { outline: 2px solid var(--text-primary); outline-offset: 2px; }
+  .state-empty { background: transparent; }
+  .legend-swatch { display: inline-block; width: 14px; height: 14px; border-radius: 2px; margin-right: 8px; vertical-align: middle; }
+  /* Hurdle steps */
+  .hurdle-step {
+    display: flex; align-items: flex-start; gap: 24px;
+    padding: 24px; border: 1px solid var(--border-default); border-radius: 8px;
+    background: #fff; margin-bottom: 16px;
+  }
+  .hurdle-num {
+    flex-shrink: 0; width: 56px; height: 56px;
+    background: var(--gold); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; font-weight: 700; border-radius: 4px;
+  }
+  /* Comparison table */
+  .compare-table { width: 100%; border-collapse: collapse; }
+  .compare-table th { text-align: left; padding: 16px; font-weight: 600; font-size: 14px; letter-spacing: 0.02em; }
+  .compare-table th.left { background: var(--risk-high); color: #fff; border-radius: 4px 0 0 0; }
+  .compare-table th.right { background: var(--accent); color: #fff; border-radius: 0 4px 0 0; }
+  .compare-table td { padding: 20px 16px; vertical-align: top; border-bottom: 1px solid var(--border-default); font-size: 16px; line-height: 1.6; }
+  .compare-table td.left { background: #FFF5F2; border-right: 1px solid var(--border-default); }
+  .compare-table td.right { background: #F4F8FA; }
+  @media (max-width: 767px) {
+    .compare-table, .compare-table thead, .compare-table tbody, .compare-table tr, .compare-table td, .compare-table th { display: block; }
+    .compare-table thead { display: none; }
+    .compare-table td { border-bottom: none; padding: 16px; border-radius: 4px; margin-bottom: 8px; }
+    .compare-table td.left::before { content: 'The promoter says:'; display: block; font-weight: 700; color: var(--risk-high); font-size: 12px; text-transform: uppercase; margin-bottom: 6px; }
+    .compare-table td.right::before { content: 'The tax code says:'; display: block; font-weight: 700; color: var(--accent); font-size: 12px; text-transform: uppercase; margin-bottom: 6px; }
+  }
+  /* Header */
+  .site-header {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--border-default);
+  }
+  .site-header-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .logo-text { font-weight: 700; font-size: 18px; letter-spacing: -0.01em; color: var(--accent); }
+  .logo-text span { color: var(--gold); }
+  /* Animations: minimal */
+  @keyframes fadein { from { opacity: 0; transform: translateY(4px);} to { opacity: 1; transform: none;} }
+  .fade-in { animation: fadein .25s ease-out both; }
+  /* Hidden section spacer */
+  .anchor-offset { scroll-margin-top: 96px; }
+  /* Print */
+  @media print {
+    .site-header, .skip-link, .no-print, button, .btn-primary, .btn-secondary { display: none !important; }
+    body { background: #fff; }
+  }
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- ============== HEADER ============== -->
+<header class="site-header">
+  <div class="container-page site-header-inner">
+    <a href="#" class="logo-text" aria-label="Hall CPA">Hall<span>·</span>CPA</a>
+    <a href="#lead-capture" class="btn-primary text-sm" style="padding:10px 18px;">Schedule a review →</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============== HERO ============== -->
+<section class="major" id="hero">
+  <div class="container-page">
+    <div class="prose-content">
+      <p class="eyebrow mb-4">A guide from Hall CPA, PLLC</p>
+      <h1 class="h1 mb-6">You were promised your solar investment would offset your active income. Here's what the tax code actually says.</h1>
+      <p class="body-large text-secondary mb-5">A growing number of high-income taxpayers are being pitched solar investments that promise to wipe out their W-2 or business income through depreciation deductions and a 30% investment tax credit. The promotion is consistent and the math sounds clean. But for most investors in these structures, the tax benefits won't survive an IRS audit — and the consequences are significantly worse than just losing the deduction.</p>
+      <p class="body-large text-secondary mb-8">This page is written by a CPA, not a sales pitch. It explains what the law actually requires, walks through what's gone wrong in the tax cases that have already been decided, and gives you tools to assess your own situation before you sign — or, if you've already invested, to understand your exposure.</p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="#lead-capture" data-cta="review" class="btn-primary">Get a private review of your deal →</a>
+        <a href="#tool-recapture" data-cta="exposure" class="btn-secondary">Already invested? Assess your audit exposure →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 60-SECOND ANSWER ============== -->
+<section class="major" id="sixty-second">
+  <div class="container-page">
+    <div class="prose-content">
+      <div class="card">
+        <h2 class="h2 mb-4">The 60-second version</h2>
+        <p class="body-large mb-4">The investment tax credit and accelerated depreciation on solar equipment can absolutely be claimed against active income — but only if the investor materially participates in the underlying business. For nearly every individual investor in a syndicated solar deal, that bar isn't cleared.</p>
+        <p class="body-large mb-4">When material participation isn't met, both the credit and the depreciation become <em>passive</em> — meaning they can only offset passive income from other passive activities. They can't offset W-2 wages, business income, or capital gains. For most investors in these structures, that's the entire point of the deal evaporating.</p>
+        <p class="mb-3">Three patterns recur in the deals that have lost in court:</p>
+        <ul class="list-disc pl-6 space-y-2 mb-4">
+          <li>The promoter, not the investor, runs day-to-day operations.</li>
+          <li>The investor's "hours" consist of investor-level activity (reviewing reports, signing documents, occasional site visits) — which under federal regulation does not count toward material participation.</li>
+          <li>The structure is documented as a sale-and-leaseback between the investor's LLC and a promoter affiliate, with little independent economic substance.</li>
+        </ul>
+        <p>If any of these describe a deal you're being pitched — or one you've already entered — the rest of this page is worth reading carefully.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PROMOTER VS CODE ============== -->
+<section class="major" id="promoter-vs-code">
+  <div class="container-page">
+    <div class="wide-content">
+      <h2 class="h2 mb-3">What promoters tell investors versus what the tax code says</h2>
+      <p class="body-large text-secondary mb-8">The pitches Hall CPA has reviewed are remarkably consistent across unrelated promoters. Below are four claims that come up nearly every time, and what the underlying authorities actually say.</p>
+      <div class="overflow-x-auto">
+      <table class="compare-table">
+        <thead>
+          <tr><th class="left">The promoter says</th><th class="right">The tax code says</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="left">"You can claim the 30% investment tax credit and depreciation against your active income — your W-2, your business income, all of it."</td>
+            <td class="right">These benefits are available against active income only if the activity is a § 162 trade or business in which the investor materially participates under § 469. When that's not met, both the credit and the depreciation are passive and can only offset passive income. (IRC §§ 38, 48E, 469)</td>
+          </tr>
+          <tr>
+            <td class="left">"Just spend 100 hours a year managing the project. You'll meet the 100-hour-and-more-than-anyone-else test."</td>
+            <td class="right">Under Treas. Reg. § 1.469-5T(f)(2)(ii)(A), hours spent in an investor capacity — reviewing financials, signing documents, monitoring operations in a non-managerial capacity — don't count toward material participation. The 100-hour test also requires the investor to put in more hours than any other individual, including the third-party manager who actually runs the project.</td>
+          </tr>
+          <tr>
+            <td class="left">"Set up an LLC. Once you own the LLC, you're managing your own business."</td>
+            <td class="right">Forming an LLC doesn't establish a § 162 trade or business. The Tax Court has repeatedly held that owning an entity that owns income-producing property — without genuine operational involvement — is investor activity, not trade or business activity. (<em>Higgins v. Commissioner</em>, 312 U.S. 212; <em>Olsen v. Commissioner</em>, T.C. Memo. 2021-41)</td>
+          </tr>
+          <tr>
+            <td class="left">"The IRS hasn't challenged this structure."</td>
+            <td class="right">The IRS has challenged the structure, and the courts have agreed with the IRS. <em>Olsen v. Commissioner</em> — the leading published case on point — addressed more than 200 investors in a single program. The Tax Court ruled against the lead taxpayer on four independent grounds; the Tenth Circuit affirmed.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TOOL 1 — RECAPTURE CLOCK ============== -->
+<section class="major anchor-offset" id="tool-recapture">
+  <div class="container-page">
+    <div class="wide-content">
+      <h2 class="h2 mb-2">If you've already invested: where are you in the recapture window?</h2>
+      <p class="body-large text-secondary mb-6">The investment tax credit vests over five years. Enter the date your project was placed in service to see your current position on the § 50(a) recapture clock.</p>
+      <div class="tool-card">
+        <span class="tool-label">Interactive · Tool 1 of 7</span>
+        <div class="grid md:grid-cols-2 gap-6 mt-4">
+          <div>
+            <label for="rc-date" class="form-label">Place-in-service date <span class="text-risk-high">*</span></label>
+            <input id="rc-date" type="month" class="form-input" max="2026-05">
+          </div>
+          <div>
+            <label for="rc-credit" class="form-label">Original ITC amount (optional)</label>
+            <input id="rc-credit" type="number" class="form-input" placeholder="$" min="0" step="1000">
+          </div>
+        </div>
+        <div class="mt-6 flex gap-3">
+          <button class="btn-primary" onclick="recaptureCalc()">Calculate recapture exposure</button>
+          <button class="btn-secondary" onclick="recaptureReset()">Start over</button>
+        </div>
+        <div id="rc-output" class="mt-8 hidden"></div>
+        <p class="caption mt-6">This tool calculates recapture under § 50(a) based on the date entered. It does not account for partner-level recapture under Reg. § 1.47-6, partial dispositions, or other technical events that may trigger recapture before the property is sold. Actual exposure depends on facts a CPA must review.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOUR HURDLES INTRO ============== -->
+<section class="major" id="four-hurdles">
+  <div class="container-page">
+    <div class="prose-content">
+      <h2 class="h2 mb-4">The four hurdles every solar deduction has to clear</h2>
+      <p class="body-large text-secondary mb-4">The way the white paper version of this discussion is usually framed — and the way most pitches treat it — focuses entirely on material participation. That's only one of four independent legal tests an investor's deal has to clear. Each one is dispositive on its own, meaning a deal can lose by failing any single hurdle.</p>
+      <p class="body-large text-secondary mb-6">In <em>Olsen</em>, the Tax Court ruled against the taxpayer on all four:</p>
+    </div>
+    <div class="wide-content mt-2">
+      <div class="hurdle-step"><div class="hurdle-num">1</div><div><h3 class="h4 mb-2">Was there a real § 162 trade or business?</h3><p>Owning an LLC that owns equipment does not, by itself, create a trade or business. <em>Higgins v. Commissioner</em>, 312 U.S. 212 (1941).</p></div></div>
+      <div class="hurdle-step"><div class="hurdle-num">2</div><div><h3 class="h4 mb-2">Was there a profit motive independent of tax savings?</h3><p>A transaction whose only path to profit runs through tax credits is vulnerable on this ground. <em>Nickeson v. Commissioner</em>, 962 F.2d 973 (10th Cir. 1992).</p></div></div>
+      <div class="hurdle-step"><div class="hurdle-num">3</div><div><h3 class="h4 mb-2">Was the property actually placed in service?</h3><p>Property has to be operating and producing income (or held out to do so in a real, multi-party transaction) — a sale-and-leaseback to a promoter affiliate is not enough. <em>Cooper v. Commissioner</em>, 88 T.C. 84 (1987).</p></div></div>
+      <div class="hurdle-step"><div class="hurdle-num">4</div><div><h3 class="h4 mb-2">Did the investor materially participate?</h3><p>Under § 469 and Treas. Reg. § 1.469-5T, only one of seven specific tests will do — and investor-level hours don't count.</p></div></div>
+      <p class="prose-content text-secondary mt-4 mx-auto">Each is discussed in turn below.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== HURDLE 1 ============== -->
+<section class="minor" id="hurdle-1">
+  <div class="container-page">
+    <div class="prose-content">
+      <h3 class="h3 mb-3">Hurdle 1: Was there a real § 162 trade or business?</h3>
+      <p class="mb-4">The Supreme Court's framework comes from <em>Commissioner v. Groetzinger</em>, 480 U.S. 23 (1987): an activity is a trade or business if (1) the taxpayer is involved with continuity and regularity, and (2) the primary purpose is to produce income.</p>
+      <p class="mb-3">Two earlier Supreme Court cases set the outer limits of what does <em>not</em> qualify:</p>
+      <ul class="list-disc pl-6 space-y-2 mb-4">
+        <li><strong>Higgins v. Commissioner</strong>, 312 U.S. 212 (1941) — the taxpayer ran a full back office to manage his family's investments. The Court held that managing one's own investments, no matter how much time or staff is involved, is not a § 162 trade or business.</li>
+        <li><strong>Deputy v. du Pont</strong>, 308 U.S. 488 (1940) — distinguished business expenses from investment expenses and held that managing one's own estate generally does not rise to the level of a § 162 trade or business.</li>
+      </ul>
+      <p class="mb-4">In a solar syndicate where the promoter handles procurement, installation, customer acquisition, operations, and maintenance — and the investor's role is to provide capital and receive reports — the structure looks much more like the <em>Higgins</em> facts than the <em>Groetzinger</em> facts. In <em>Olsen</em>, the Tax Court found that signing pre-drafted lease documents, writing checks, and emailing the promoter "plainly does not rise to the level of a trade or business." (<em>Olsen</em>, T.C. Memo. 2021-41 at 27–28.)</p>
+      <p>A § 212 "production of income" activity is a related but distinct category. § 212 expenses are still subject to § 469's passive activity limitations and were further limited by § 67(g)'s suspension of miscellaneous itemized deductions through 2025. The cleanest comparison: a triple-net lease is § 212 territory; an actively managed rental business with operational responsibility is § 162 territory. Most solar syndicate structures, despite the labeling, look more like the former.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== HURDLE 2 ============== -->
+<section class="minor" id="hurdle-2">
+  <div class="container-page">
+    <div class="prose-content">
+      <h3 class="h3 mb-3">Hurdle 2: Was there a profit motive independent of tax savings?</h3>
+      <p class="mb-4">The hobby-loss rules under § 183 — and the broader sham-transaction doctrine — require that the activity have a real profit motive <em>independent</em> of the tax benefits. A transaction whose only path to profit runs through tax credits is vulnerable.</p>
+      <p class="mb-3">The Tenth Circuit in <em>Olsen</em> applied the <em>Nickeson</em> five-factor test to find that the taxpayer there lacked a profit motive:</p>
+      <ol class="list-decimal pl-6 space-y-2 mb-4">
+        <li>The marketing materials focused on expected tax benefits.</li>
+        <li>The taxpayer paid a grossly inflated price without negotiating.</li>
+        <li>The taxpayer didn't ask the seller about potential profitability.</li>
+        <li>The taxpayer lacked control over the activities of the venture.</li>
+        <li>The taxpayer had no expertise, and his only "advisors" were the promoters.</li>
+      </ol>
+      <p>A separate Ninth Circuit case, <em>Sacks v. Commissioner</em>, 69 F.3d 982 (9th Cir. 1995), is sometimes cited by promoters for the proposition that an activity isn't a sham just because the only profit comes from a tax credit. The holding is real but narrower than promoters represent. The taxpayer in <em>Sacks</em> had at least some non-tax economic substance, and the court explicitly held that a profit motive cannot arise <em>solely</em> from a desire for a tax benefit. The Tenth Circuit in <em>Olsen</em> distinguished <em>Sacks</em> on this basis.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== HURDLE 3 ============== -->
+<section class="minor" id="hurdle-3">
+  <div class="container-page">
+    <div class="prose-content">
+      <h3 class="h3 mb-3">Hurdle 3: Was the property actually placed in service?</h3>
+      <p class="mb-4">The investment tax credit under §§ 48 and 48E only attaches when the qualifying property is "placed in service." Under <em>Cooper v. Commissioner</em>, 88 T.C. 84 (1987), property held for leasing in a profit-motivated venture is placed in service when it is first held out for lease — but <em>Cooper</em> required a genuine multi-party transaction, not a sale-and-leaseback between an investor and the promoter.</p>
+      <p class="mb-3">In <em>Olsen</em>, the Tax Court held the lenses were never placed in service for three reasons:</p>
+      <ul class="list-disc pl-6 space-y-2 mb-4">
+        <li>The transaction was a sale-and-leaseback between the investor and the promoter, not a "genuine multiple party transaction."</li>
+        <li>The lenses were never held out for lease to anyone other than the promoter's affiliates.</li>
+        <li>The lenses were never operating; the project never made it past R&D after years of nominal "investment."</li>
+      </ul>
+      <p>Many syndicate structures present substantively the same pattern: the investor's LLC purchases equipment, the same equipment is leased back to a promoter affiliate the same day, and the project either never produces revenue or produces only nominal contingent rent that depends on the project actually working.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== HURDLE 4 ============== -->
+<section class="minor" id="hurdle-4">
+  <div class="container-page">
+    <div class="prose-content">
+      <h3 class="h3 mb-3">Hurdle 4: Did the investor materially participate?</h3>
+      <p class="mb-4">This is the hurdle most pitches focus on, and it's the one most investors think they understand. They generally don't.</p>
+      <p class="mb-3">Under § 469 and Treas. Reg. § 1.469-5T(a), an investor materially participates only if they meet at least one of seven tests:</p>
+      <ol class="list-decimal pl-6 space-y-2 mb-4">
+        <li>More than 500 hours during the year.</li>
+        <li>Their participation is substantially all of the participation in the activity.</li>
+        <li>More than 100 hours during the year, and not less than the participation of any other individual.</li>
+        <li>Significant participation in the activity (more than 100 hours), with aggregate significant participation in all such activities exceeding 500 hours.</li>
+        <li>Material participation for any 5 of the prior 10 tax years.</li>
+        <li>Personal service activity material participation for any 3 prior tax years (limited to certain professions).</li>
+        <li>Facts-and-circumstances regular, continuous, and substantial participation, plus more than 100 hours during the year.</li>
+      </ol>
+      <p class="mb-4">Promoters typically point to test #3 — 100 hours plus more than any other individual. In a deal where a third-party manager runs operations full-time, this test is essentially impossible to meet. The manager's hours are the relevant comparator.</p>
+      <p class="mb-3">The tests are also subject to a critical qualifier under Treas. Reg. § 1.469-5T(f)(2)(ii)(A): work done by an individual <em>in their capacity as an investor</em> doesn't count toward material participation unless the individual is "directly involved in the day-to-day management or operations of the activity." Investor-level work is defined to include:</p>
+      <ul class="list-disc pl-6 space-y-2 mb-4">
+        <li>Studying and reviewing financial statements or reports on operations.</li>
+        <li>Preparing summaries or analyses of finances or operations for the individual's own use.</li>
+        <li>Monitoring the finances or operations of the activity in a non-managerial capacity.</li>
+      </ul>
+      <p class="mb-4">This is exactly what most syndicate investors do. They review reports the promoter sends them, they get on quarterly calls, they sign annual documents. Under the regulation, those hours don't count.</p>
+      <p class="text-secondary">The interactive Material Participation Self-Test below walks through your specific facts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TOOL 3 — MATERIAL PARTICIPATION ============== -->
+<section class="major anchor-offset" id="tool-mat-part">
+  <div class="container-page">
+    <div class="wide-content">
+      <h2 class="h2 mb-2">Material Participation Self-Test</h2>
+      <p class="body-large text-secondary mb-6">Walk through how Treas. Reg. § 1.469-5T strips out investor-level hours, then check which of the seven tests your remaining qualifying hours could plausibly satisfy.</p>
+      <div class="tool-card">
+        <span class="tool-label">Interactive · Tool 3 of 7</span>
+        <div id="mp-step1" class="mt-4">
+          <h3 class="h4 mb-3">Step 1 — Total hours</h3>
+          <label class="form-label" for="mp-hours">How many hours did you spend on this solar investment in the last 12 months?</label>
+          <input id="mp-hours" type="number" class="form-input mb-5" min="0" step="1" placeholder="e.g., 150">
+          <p class="text-sm text-secondary mb-3">Approximately, what fraction of those hours fell into each category? The fractions should add up to 100%.</p>
+          <div id="mp-sliders" class="space-y-3"></div>
+          <p class="caption mt-2">Sum: <span id="mp-sum">0</span>%</p>
+          <div class="mt-5">
+            <button class="btn-primary" onclick="mpStep2()">Next →</button>
+          </div>
+        </div>
+        <div id="mp-step2" class="mt-4 hidden">
+          <h3 class="h4 mb-3">Step 2 — Other participants</h3>
+          <label class="form-label" for="mp-others">How many hours did the project's manager (or anyone else working on the project) put in over the same period?</label>
+          <input id="mp-others" type="number" class="form-input mb-2" min="0" step="1" placeholder="e.g., 1800">
+          <p class="caption mb-5">If you don't know exactly, estimate. The project manager almost certainly works full-time on this — that's typically 1,800+ hours per year.</p>
+          <div class="flex gap-3">
+            <button class="btn-secondary" onclick="mpBack()">← Back</button>
+            <button class="btn-primary" onclick="mpEvaluate()">See my results</button>
+          </div>
+        </div>
+        <div id="mp-output" class="mt-6 hidden"></div>
+        <p class="caption mt-6">This tool applies the seven material participation tests to the inputs you provided. The actual analysis depends on the substance of your activities, not just the number of hours, and on whether your documentation would withstand examination. Outputs are illustrative and do not constitute professional advice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TOOL 4 — FOUR HURDLES WALKTHROUGH ============== -->
+<section class="major anchor-offset" id="tool-walkthrough">
+  <div class="container-page">
+    <div class="wide-content">
+      <h2 class="h2 mb-2">Four Hurdles Walkthrough</h2>
+      <p class="body-large text-secondary mb-6">Answer 2–3 questions per hurdle. After each one, you'll see whether your inputs align with deals the courts have found defensible — or with deals that have lost.</p>
+      <div class="tool-card">
+        <span class="tool-label">Interactive · Tool 4 of 7</span>
+        <div id="fh-stage" class="mt-4"></div>
+        <div id="fh-progress" class="mt-6 grid grid-cols-4 gap-2"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CASE STUDIES ============== -->
+<section class="major" id="case-studies">
+  <div class="container-page">
+    <div class="prose-content">
+      <h2 class="h2 mb-4">What the courts have actually held</h2>
+      <p class="body-large text-secondary mb-6">Five Tax Court decisions are the practical reference points for any analysis of these structures. The first three are not solar cases — they're the broader passive-activity decisions every solar case relies on. The last two are direct solar cases.</p>
+    </div>
+    <div class="wide-content space-y-6 mt-4">
+      <article class="card">
+        <p class="caption mb-1">T.C. Memo. 1993-359</p>
+        <h3 class="h3 mb-3">Toups v. Commissioner</h3>
+        <p class="mb-3"><strong>Facts:</strong> A working engineer invested in a vacation cottage at Callaway Gardens in Georgia. The cottage was managed and marketed by Callaway Gardens under a rental management agreement. The taxpayer claimed 341 hours of activity related to the cottage — providing funds, preparing budgets, reviewing reports, and arranging the rental management.</p>
+        <p class="mb-3"><strong>Holding:</strong> The Tax Court held that all 341 hours were investor-level activity. The taxpayer was not involved in day-to-day operations. Losses were passive. The court noted that even an annual ownership meeting wouldn't have changed the analysis.</p>
+        <p><strong>Lesson:</strong> A third-party manager who actually runs day-to-day operations can foreclose material participation no matter how many hours the investor logs.</p>
+      </article>
+      <article class="card">
+        <p class="caption mb-1">T.C. Memo. 2015-24</p>
+        <h3 class="h3 mb-3">Kline v. Commissioner</h3>
+        <p class="mb-3"><strong>Facts:</strong> A pilot bought two yachts and contracted with a management company for marketing, customer payments, cleaning, and maintenance. Unlike the <em>Toups</em> taxpayer, Kline took on the bulk of marketing himself — to fellow pilots, where he had connections — and personally captained charters with friends who became customers.</p>
+        <p class="mb-3"><strong>Holding:</strong> The Tax Court held Kline materially participated. His marketing and day-to-day operational hours counted because he was directly involved in operations, not just oversight.</p>
+        <p><strong>Lesson:</strong> It's possible to have a third-party manager and still materially participate, but the investor has to actually do operational work, not just direct it.</p>
+      </article>
+      <article class="card">
+        <p class="caption mb-1">T.C. Memo. 2014-65</p>
+        <h3 class="h3 mb-3">Tolin v. Commissioner</h3>
+        <p class="mb-3"><strong>Facts:</strong> A taxpayer launched a thoroughbred breeding business in Louisiana to breed his champion racehorse. He claimed 850–900 hours per year. The IRS argued the hours were investor-level and the activity was passive.</p>
+        <p class="mb-3"><strong>Holding:</strong> The Tax Court held Tolin materially participated. Decisive facts: he personally promoted the horse to breeders, made multiple phone calls per day to interested parties, traveled extensively to promote in person, moved the horse between farms when he wasn't satisfied with care, and worked 12-hour days during promotional periods. The Court found his activity "exceeded what a normal horse owner and breeder would do."</p>
+        <p><strong>Lesson:</strong> Investor-level activity transforms into material participation when the investor demonstrably performs operational work that a non-owner manager would otherwise have to do.</p>
+      </article>
+      <article class="card" style="border-left: 4px solid var(--risk-high);">
+        <p class="caption mb-1">T.C. Memo. 2021-41 (aff'd 10th Cir. 2022)</p>
+        <h3 class="h3 mb-3">Olsen v. Commissioner</h3>
+        <p class="mb-3"><strong>Facts:</strong> The most directly on-point published decision. Preston Olsen, a Utah law firm partner, bought "solar lenses" from a promoter's affiliated entities between 2009 and 2014. The lenses were supposed to be components of a concentrated solar power system. Olsen formed an LLC to purchase the lenses, then immediately leased them back to one of the promoter's affiliates, who would pay $150 per lens per year in rent — but only if the system produced electricity. It never did. Olsen claimed depreciation deductions and § 48 energy credits that zeroed out his federal income tax in those years.</p>
+        <p class="mb-2"><strong>Holding:</strong> The Tax Court ruled against Olsen on four independent grounds:</p>
+        <ul class="list-disc pl-6 space-y-1 mb-3">
+          <li>No § 162 trade or business: the LLC had no bank account, books, employees, business plan, or customers.</li>
+          <li>No profit motive: Olsen never visited the site, couldn't identify which lenses were "his," and had no expertise.</li>
+          <li>Lenses never placed in service: the sale-and-leaseback wasn't a genuine multi-party transaction.</li>
+          <li>Passive activity: even if the first three were satisfied, Olsen didn't materially participate.</li>
+        </ul>
+        <p class="mb-3">The Tenth Circuit affirmed. The federal district court overseeing the underlying enforcement action against the promoter issued a permanent injunction. More than 200 other investor cases were held pending the <em>Olsen</em> outcome.</p>
+        <p><strong>Lesson:</strong> The structural pattern in <em>Olsen</em> — investor LLC, sale-leaseback, contingent rent, third-party operations, minimal investor involvement — is a fact pattern the courts have already addressed, repeatedly, with consistent results.</p>
+      </article>
+      <article class="card">
+        <p class="caption mb-1">T.C. Memo. 2018-76</p>
+        <h3 class="h3 mb-3">Golan v. Commissioner</h3>
+        <p class="mb-3"><strong>Facts:</strong> A taxpayer purchased existing solar panels, claimed bonus depreciation and the energy credit, and offset active income. The IRS challenged the deductions and credits, but the IRS's notice of deficiency raised the wrong issues — § 179 expensing rather than § 469 passive activity rules — and didn't carry its burden of proof on the new issue under Tax Court Rule 142(a).</p>
+        <p class="mb-3"><strong>Holding:</strong> Golan won. But the win was procedural, not a substantive vindication of the structure.</p>
+        <p><strong>Lesson:</strong> Practitioners reading <em>Golan</em> generally treat it as a reminder that documentation matters and that the IRS's procedural posture matters — not as a roadmap for surviving an audit.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TOOL 5 — COMPARE TO OLSEN ============== -->
+<section class="major anchor-offset" id="tool-olsen">
+  <div class="container-page">
+    <div class="wide-content">
+      <h2 class="h2 mb-2">Compare your deal to Olsen</h2>
+      <p class="body-large text-secondary mb-6">Twelve facts that drove the <em>Olsen</em> decision. Mark whether each one is also true of your deal.</p>
+      <div class="tool-card">
+        <span class="tool-label">Interactive · Tool 5 of 7</span>
+        <div id="ol-rows" class="mt-4 space-y-2"></div>
+        <div class="mt-5 flex gap-3">
+          <button class="btn-primary" onclick="olsenEvaluate()">See my comparison</button>
+          <button class="btn-secondary" onclick="olsenReset()">Start over</button>
+        </div>
+        <div id="ol-output" class="mt-6 hidden"></div>
+        <p class="caption mt-6"><em>Olsen v. Commissioner</em>, T.C. Memo. 2021-41 (aff'd 10th Cir. 2022) is one published case. Your deal's outcome depends on its full set of facts, not just on overlap with <em>Olsen</em>. This comparison is illustrative.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== HIDDEN RISKS ============== -->
+<section class="major" id="hidden-risks">
+  <div class="container-page">
+    <div class="prose-content">
+      <h2 class="h2 mb-4">The risks the pitch deck didn't cover</h2>
+      <p class="body-large text-secondary mb-6">Even setting aside the four hurdles, syndicate structures carry risks that don't usually appear in promotional materials. These matter for any investor weighing a deal — and for any investor who's already in one.</p>
+
+      <h3 class="h3 mb-3 mt-8">5-year ITC recapture clock</h3>
+      <p class="mb-3">The investment tax credit is not earned all at once. It vests over five years from the date the property is placed in service. If the property is sold, ceases operations, or is otherwise disposed of within that window, the credit is recaptured on the following schedule under § 50(a):</p>
+      <div class="overflow-x-auto mb-4">
+        <table class="w-full text-sm border border-border-default rounded">
+          <thead><tr class="bg-page"><th class="text-left p-3 border-b border-border-default">Time elapsed since placed in service</th><th class="text-left p-3 border-b border-border-default">Recapture percentage</th></tr></thead>
+          <tbody>
+            <tr><td class="p-3 border-b border-border-default">Less than 1 year</td><td class="p-3 border-b border-border-default font-semibold" style="color:var(--risk-high)">100%</td></tr>
+            <tr><td class="p-3 border-b border-border-default">1 to less than 2 years</td><td class="p-3 border-b border-border-default font-semibold" style="color:var(--risk-modhigh)">80%</td></tr>
+            <tr><td class="p-3 border-b border-border-default">2 to less than 3 years</td><td class="p-3 border-b border-border-default font-semibold" style="color:var(--risk-mod)">60%</td></tr>
+            <tr><td class="p-3 border-b border-border-default">3 to less than 4 years</td><td class="p-3 border-b border-border-default font-semibold" style="color:var(--risk-modlow)">40%</td></tr>
+            <tr><td class="p-3 border-b border-border-default">4 to less than 5 years</td><td class="p-3 border-b border-border-default font-semibold" style="color:var(--risk-low)">20%</td></tr>
+            <tr><td class="p-3">5+ years</td><td class="p-3 font-semibold" style="color:var(--risk-clear)">0%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mb-4">Recapture events for a syndicate investor include: selling the LLC interest, the project ceasing operations, the equipment being moved out of qualified use, and certain partnership restructurings. Reg. § 1.47-6 governs partnership-level recapture; a partner can be hit with recapture if their share of the partnership's profits is reduced during the recapture period, even without an outright sale.</p>
+      <p class="mb-2">In a deal where the project never operates as advertised — or where the promoter shuts down within five years — recapture compounds with the disallowance.</p>
+
+      <h3 class="h3 mb-3 mt-8">§ 49 vs. § 465 at-risk — two different regimes</h3>
+      <p class="mb-3">There are two at-risk regimes under the Code, and they have different rules. Most pitches conflate them.</p>
+      <p class="mb-3"><strong>§ 49 at-risk</strong> governs how much of the project basis is eligible for the ITC. Under § 49, up to 80% of qualifying basis can be financed with qualified nonrecourse debt (or up to ~75% for level-payment loans) as long as the debt comes from a federal/state/local government agency or a lender regularly engaged in the business of lending. Most well-structured deals can satisfy this.</p>
+      <p class="mb-3"><strong>§ 465 at-risk</strong> governs how much of an investor's allocable losses can actually be <em>deducted</em>. Under § 465, an individual is at-risk only to the extent of cash or property contributed plus recourse debt for which they are personally liable. Nonrecourse debt — including the qualified nonrecourse debt that satisfies § 49 — generally does NOT increase the individual's § 465 at-risk amount for solar equipment (the qualified nonrecourse exception in § 465(b)(6) applies to real-property activities, not equipment).</p>
+      <p>The result: an investor can be told "your deal is 80% financed, you only need 20% cash," and still find that the depreciation deductions in excess of their cash investment are suspended at the partner level, awaiting either offsetting income or additional at-risk capital. Form 6198 is the reporting mechanism.</p>
+
+      <h3 class="h3 mb-3 mt-8">Bonus depreciation and the post-OBBBA depreciation profile</h3>
+      <p class="mb-3">The One Big Beautiful Bill Act, signed July 4, 2025, made changes to the depreciation profile of solar equipment that pre-OBBBA pitch decks don't reflect.</p>
+      <p class="mb-3">Pre-OBBBA, energy property was classified as 5-year MACRS under § 168(e)(3)(B)(vi) — a critical depreciation accelerator. <strong>OBBBA repealed that classification for energy property where construction began after December 31, 2024.</strong> Such property now depreciates under its underlying class life under standard MACRS, which is generally 7-year MACRS or longer for solar equipment.</p>
+      <p>OBBBA also restored 100% bonus depreciation for property acquired and placed in service after January 19, 2025. The interaction between the bonus depreciation restoration and the elimination of 5-year MACRS classification for solar specifically is technical — investors with a deal that started construction in 2024 versus 2025 are looking at materially different depreciation profiles, and pitch decks created during the IRA window may not reflect the current rules.</p>
+
+      <h3 class="h3 mb-3 mt-8">Accuracy-related and gross valuation misstatement penalties</h3>
+      <p class="mb-3">If the IRS disallows credits and deductions on audit, the deficiency is generally subject to a 20% accuracy-related penalty under § 6662 for negligence or substantial understatement of tax.</p>
+      <p>If the deal involved equipment purchased at a price more than 200% of its correct value (or claimed an amount more than 150% of correct value), the penalty escalates to 40% under § 6662(h) for a "gross valuation misstatement." This is the same penalty regime the IRS applied across the board in syndicated conservation easement cases. The reasonable-cause defense under § 6664(c) is available against the 20% penalty in many circumstances; for the 40% gross valuation misstatement penalty, the defense is significantly narrower.</p>
+
+      <h3 class="h3 mb-3 mt-8">Reportable transactions and Form 8886</h3>
+      <p class="mb-3">The IRS designates certain transaction types as "listed transactions" that must be disclosed by every participant on Form 8886. Failure to disclose triggers § 6707A penalties of $100,000 per individual or $200,000 per entity per year of non-disclosure — separate from any underlying tax adjustment.</p>
+      <p>Solar syndicate transactions of the type discussed on this page have not been designated as listed transactions as of the publication date of this resource. They share structural features with syndicated conservation easement transactions, which the IRS designated as listed transactions in Notice 2017-10, but the IRS has not taken that step here. If listing did occur in the future, current investors would face retroactive disclosure obligations. The takeaway for investors weighing a deal today: the disclosure exposure is something to discuss with a tax advisor before signing.</p>
+
+      <h3 class="h3 mb-3 mt-8">Promoter audits and material advisor obligations</h3>
+      <p class="mb-3">Promoters of abusive tax shelters face civil penalties under § 6700 of 50% of gross income derived from the promotion — including ongoing management and maintenance fees, not just upfront sales (per <em>Davison v. Commissioner</em>, T.C. Memo. 2020-58). Material advisors face their own disclosure and list-maintenance requirements under §§ 6111 and 6112, with separate penalties under § 6707 for failures.</p>
+      <p class="mb-3">When a promoter audit progresses to the point of an injunction or guilty plea, several things happen that affect the underlying investors:</p>
+      <ul class="list-disc pl-6 space-y-2 mb-3">
+        <li>The IRS subpoenas the promoter's investor list under §§ 6111 / 6112.</li>
+        <li>Each investor on that list becomes a known IRS target.</li>
+        <li>The promoter typically can no longer assist investors with ongoing compliance — leaving investors without the operational support that was part of the original pitch.</li>
+      </ul>
+      <p>For investors, the practical implication is that "the promoter said it's fine" provides no audit protection at all.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TOOL 7 — AUDIT EXPOSURE ESTIMATOR (FEATURE-FLAGGED OFF) ============== -->
+<section class="major anchor-offset" id="tool-exposure" style="display:none;">
+  <div class="container-page">
+    <div class="wide-content">
+      <h2 class="h2 mb-2">Audit Exposure Estimator</h2>
+      <p class="body-large text-secondary mb-6">Estimate the rough magnitude of exposure if your federal positions were disallowed and the accuracy-related penalty applied. Output is a range with heavy caveats — not an assessment.</p>
+      <div class="tool-card">
+        <span class="tool-label">Interactive · Tool 7 of 7</span>
+        <p class="caption" style="background:#FFF7E6; padding:10px 14px; border-radius:4px; border:1px solid #E0A93D;">⚠️ Pending review by Nathan Sosa before publication. This tool is built but feature-flagged off until methodology signoff.</p>
+        <div id="ae-form" class="mt-4">
+          <h3 class="h4 mb-3">Step 1 — Tax years</h3>
+          <p class="text-sm text-secondary mb-2">Select all years you claimed solar-related credits or deductions:</p>
+          <div id="ae-years" class="flex flex-wrap gap-2 mb-5"></div>
+          <div id="ae-year-inputs" class="space-y-3 mb-5"></div>
+          <h3 class="h4 mb-3 mt-6">Step 2 — Tax rate context</h3>
+          <label class="form-label" for="ae-rate">Approximate federal marginal rate in those years</label>
+          <select id="ae-rate" class="form-select mb-5">
+            <option value="">Select rate</option>
+            <option value="0.24">24%</option>
+            <option value="0.32">32%</option>
+            <option value="0.35">35%</option>
+            <option value="0.37">37%</option>
+          </select>
+          <h3 class="h4 mb-3 mt-6">Step 3 — State and valuation</h3>
+          <label class="form-label" for="ae-state">State of residence</label>
+          <select id="ae-state" class="form-select mb-5"></select>
+          <label class="form-label" for="ae-valuation">Was the equipment purchased at a price you negotiated based on independent valuation?</label>
+          <select id="ae-valuation" class="form-select mb-5">
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            <option value="unsure">Not sure</option>
+          </select>
+          <button class="btn-primary" onclick="aeCalc()">Estimate exposure</button>
+        </div>
+        <div id="ae-output" class="mt-6 hidden"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== OBBBA CONTEXT ============== -->
+<section class="major" id="obbba">
+  <div class="container-page">
+    <div class="prose-content">
+      <h2 class="h2 mb-4">Why solar promotions are intensifying right now</h2>
+      <p class="mb-4">The One Big Beautiful Bill Act (Pub. L. 119-21, signed July 4, 2025) created a hard cliff for the solar credit. For wind and solar facilities, the § 48E Clean Electricity Investment Credit terminates for property placed in service after December 31, 2027 — <em>unless</em> construction began on or before July 4, 2026, in which case the four-year continuity safe harbor applies.</p>
+      <p class="mb-4">That window, combined with the President's July 7, 2025 Executive Order directing Treasury to "strictly enforce" the termination and prevent "circumvention" of the beginning-of-construction rules, has compressed the runway for new solar projects substantially. IRS Notice 2025-42, issued September 2025, tightened the BOC rules in line with the Executive Order.</p>
+      <p class="mb-4">For investors, the practical consequence is that solar promoters know the credit window is closing. The pace and intensity of promotions in 2025 and 2026 reflects that pressure. From an investor's perspective, time pressure is a structural risk: it's the mechanism by which due diligence gets short-circuited and red flags get explained away.</p>
+      <p>If a promoter is creating urgency around a year-end deadline or "last chance" framing, that urgency exists because of the OBBBA cliff — and the urgency is exactly why a careful review of the structure is more important right now, not less.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== STATE MAP INTRO + TOOL 6 ============== -->
+<section class="major anchor-offset" id="tool-states">
+  <div class="container-page">
+    <div class="prose-content">
+      <h2 class="h2 mb-4">What this means in your state</h2>
+      <p class="body-large text-secondary mb-2">A federal disallowance of solar syndicate credits and deductions doesn't stay federal. Most states with an income tax start their calculation from federal AGI or federal taxable income, which means a federal change generally flows through to state. The magnitude of the state-level exposure depends on the state's income tax rate, its conformity to federal bonus depreciation, and a handful of state-specific quirks.</p>
+      <p class="text-secondary mb-6">The map below groups every state into one of four archetypes. Hover or tap a state for a quick read; click for full detail.</p>
+    </div>
+    <div class="wide-content">
+      <div class="tool-card">
+        <span class="tool-label">Interactive · Tool 6 of 7</span>
+        <div id="map-mobile" class="md:hidden mt-4">
+          <label class="form-label" for="map-select">Select your state</label>
+          <select id="map-select" class="form-select"></select>
+        </div>
+        <div id="map-desktop" class="hidden md:block mt-4">
+          <div id="state-grid" class="state-grid" role="list" aria-label="US states by tax archetype"></div>
+        </div>
+        <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+          <div><span class="legend-swatch" style="background:#A52323"></span>High-tax, conforming</div>
+          <div><span class="legend-swatch" style="background:#D9742B"></span>High-tax, decoupled</div>
+          <div><span class="legend-swatch" style="background:#5A9367"></span>No income tax</div>
+          <div><span class="legend-swatch" style="background:#C9A227"></span>Low/moderate</div>
+        </div>
+        <div id="state-detail" class="mt-6"></div>
+        <p class="caption mt-6">State tax law varies and changes frequently. This map provides high-level guidance only and reflects state law as of the page's last review date. Specific state-level tax exposure depends on the investor's facts and should be reviewed with a tax professional licensed in the relevant state.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== RED FLAGS ============== -->
+<section class="major" id="red-flags">
+  <div class="container-page">
+    <div class="prose-content">
+      <h2 class="h2 mb-4">Ten red flags from cases that have already been decided</h2>
+      <p class="body-large text-secondary mb-6">The factors below are drawn from the published opinions in <em>Olsen</em>, <em>Toups</em>, and the <em>Nickeson</em> line of cases. They're not the only indicators of a problematic structure, but they're the ones courts have repeatedly cited. None of them alone is dispositive. Several together describe a deal that closely resembles structures the courts have already ruled on.</p>
+      <ol class="list-decimal pl-6 space-y-3 mb-6">
+        <li><strong>The LLC was set up by the promoter, using the promoter's documents.</strong> <span class="citation">This was the structural pattern in <em>Olsen</em>.</span></li>
+        <li><strong>The purchase price for the equipment was significantly higher than its market value.</strong> <span class="citation"><em>Nickeson</em> identified inflated, non-negotiated pricing as a profit-motive red flag.</span></li>
+        <li><strong>The lease back to the promoter (or a promoter affiliate) was signed the same day or shortly after the purchase.</strong> <span class="citation">Under <em>Cooper</em>, this is the absence of a "genuine multi-party transaction."</span></li>
+        <li><strong>The promoter handles procurement, installation, end-user contracts, operations, and maintenance.</strong> <span class="citation"><em>Toups</em> and <em>Olsen</em> both turned on this fact.</span></li>
+        <li><strong>Income from the project is contingent on the project working — and the project isn't working yet.</strong> <span class="citation">Olsen received zero income through every audit year because the project never operated.</span></li>
+        <li><strong>The investor's time on the activity consists of phone calls, emails, signing documents, and reading reports.</strong> <span class="citation">Reg. § 1.469-5T(f)(2)(ii) defines this as investor-level activity.</span></li>
+        <li><strong>The investor has not visited the project site, or has visited only once or twice.</strong> <span class="citation">Compare <em>Tolin</em>, where the taxpayer's near-constant on-site presence was decisive.</span></li>
+        <li><strong>The marketing materials emphasize "tax-free" or "100% offset" of active income.</strong> <span class="citation"><em>Nickeson</em> identified marketing focus on tax benefits as a profit-motive red flag.</span></li>
+        <li><strong>The promoter referred the investor to a specific CPA who has prepared returns for many other investors in the same program.</strong> <span class="citation">This was the <em>Olsen</em> pattern. Return preparers in this position have their own § 6694 preparer-penalty exposure.</span></li>
+        <li><strong>The investor is being told they must commit before the end of the tax year, or before some imminent deadline.</strong> <span class="citation">Time pressure prevents due diligence and is a structural feature of these promotions.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TOOL 2 — RED FLAG SCORECARD ============== -->
+<section class="minor anchor-offset" id="tool-redflags">
+  <div class="container-page">
+    <div class="wide-content">
+      <h2 class="h2 mb-2">Red Flag Scorecard</h2>
+      <p class="body-large text-secondary mb-6">Check the items that match your deal. The scorecard maps your inputs to factors that have been cited in published Tax Court and Court of Appeals decisions.</p>
+      <div class="tool-card">
+        <span class="tool-label">Interactive · Tool 2 of 7</span>
+        <div id="rf-flags" class="mt-4 space-y-2"></div>
+        <p class="mt-4">Flags checked: <strong id="rf-count">0</strong> of 10</p>
+        <div class="mt-4 flex gap-3">
+          <button class="btn-primary" onclick="rfEvaluate()">See my results</button>
+          <button class="btn-secondary" onclick="rfReset()">Start over</button>
+        </div>
+        <div id="rf-output" class="mt-6 hidden"></div>
+        <p class="caption mt-6">This tool maps your inputs to factors cited in published decisions. It does not predict any particular IRS or court outcome for your specific situation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== DEFENSIBLE INVESTMENTS ============== -->
+<section class="major" id="defensible">
+  <div class="container-page">
+    <div class="prose-content">
+      <h2 class="h2 mb-4">What a defensible solar investment actually looks like</h2>
+      <p class="body-large text-secondary mb-4">Hall CPA is not anti-solar. Solar is a real industry, and well-structured solar investments produce real economic returns alongside legitimate tax benefits. This page is about distinguishing structures that survive scrutiny from structures that don't.</p>
+      <p class="body-large text-secondary mb-6">A defensible solar investment generally falls into one of four categories:</p>
+      <h3 class="h4 mb-2 mt-6">Real operating business with materially-participating owners</h3>
+      <p class="mb-4">The investor (or their employees) handles procurement, site selection, customer acquisition, ongoing operations, and maintenance. The business has employees, books, a real office. <em>Tolin v. Commissioner</em> is the analogue: the taxpayer didn't just own the asset, he ran the business.</p>
+      <h3 class="h4 mb-2 mt-6">Properly structured tax equity partnerships</h3>
+      <p class="mb-4">Sophisticated tax equity transactions exist where a corporate or institutional investor takes the credits in exchange for capital contributions, with the developer continuing to operate the project. These are routinely closed by tax equity practitioners and survive examination because they have genuine economic substance, real allocation of operational responsibility, and arm's-length pricing. They're also generally not the structures pitched to high-income individuals as "100 hours a year and you're done."</p>
+      <h3 class="h4 mb-2 mt-6">Direct ownership of solar by an operating business</h3>
+      <p class="mb-4">A business with employees and real operations buys solar equipment to power its own facilities (or to generate sellable power as part of its operations). The credit and depreciation flow through the business; the owners get the benefit through their interest in the business. Material participation isn't an issue because the underlying business has genuine operations.</p>
+      <h3 class="h4 mb-2 mt-6">Passive investor accepting passive treatment</h3>
+      <p class="mb-4">The cleanest answer for many high-income investors is to invest in a solar project and accept that the credits and losses are passive — using them only to offset passive income from other passive activities. This is legally bulletproof, requires far less involvement from the investor, but produces a smaller absolute tax benefit than the active-treatment pitches promise. For investors without meaningful passive income, the deal often doesn't pencil.</p>
+      <p>The pattern this page warns against is the one where (a), (b), or (c) is misrepresented as something it isn't — and where individual investors are told they can claim active treatment despite having no operational role.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== ABOUT HALL CPA ============== -->
+<section class="major" id="about">
+  <div class="container-page">
+    <div class="prose-content">
+      <h2 class="h2 mb-6">About Hall CPA and Nathan Sosa</h2>
+      <div class="flex flex-col md:flex-row gap-6 items-start">
+        <div class="flex-shrink-0">
+          <div style="width:160px; height:160px; border-radius:50%; background:linear-gradient(135deg, #1A3A52, #C8A862); display:flex; align-items:center; justify-content:center; color:#fff; font-size:48px; font-weight:700;">NS</div>
+          <p class="caption mt-2 text-center">[Headshot placeholder]</p>
+        </div>
+        <div class="flex-1">
+          <p class="mb-4"><strong>Nathan Sosa, CPA, MST</strong>, is the Manager of both the National Tax Department and the Audit Defense Division at Hall CPA. He specializes in technical tax issues including Qualified Opportunity Zone structuring, partnership matters, and § 469 issues across the real estate industry and the small business sector. Nathan also provides professional guidance to other tax professionals on complex strategies and compliance matters.</p>
+          <p class="mb-4"><strong>Hall CPA, PLLC</strong> offers tax planning, preparation, and outsourced accounting services across all 50 states, with a focus on real estate investments and complex tax planning for high-income individuals and businesses. The firm's audit defense practice handles representation before the IRS in examinations, appeals, and Tax Court proceedings.</p>
+          <p class="mb-4">The white paper underlying this page — <em>Tax Implications of Investing in Solar Syndicates and the Application of the Passive Activity Loss Rules</em> — was written by Nathan in October 2025. The web version of this resource was developed in collaboration with Hall CPA's communications team and reflects updates following the One Big Beautiful Bill Act and current IRS enforcement posture.</p>
+          <p>
+            <a href="#" class="text-accent font-semibold underline">LinkedIn — Nathan Sosa</a>
+            <span class="mx-2 text-muted">·</span>
+            <a href="#" class="text-accent font-semibold underline">Hall CPA primary site</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PRIMARY LEAD CAPTURE ============== -->
+<section class="major anchor-offset" id="lead-capture">
+  <div class="container-page">
+    <div class="wide-content">
+      <h2 class="h2 mb-2">Get a private review of your situation</h2>
+      <p class="body-large text-secondary mb-8">If anything on this page describes a deal you're being pitched — or one you've already entered — a 30-minute confidential call with Hall CPA can help you understand your options. There is no charge for the initial consultation.</p>
+      <div class="grid md:grid-cols-2 gap-5 mb-8">
+        <button type="button" class="card text-left transition hover:border-accent" onclick="setSourceCta('review')" id="cta-review">
+          <h3 class="h4 mb-2">I'm being pitched a solar deal</h3>
+          <p class="text-secondary mb-3">Get a structural review of the deal before you sign. We'll walk through the four hurdles using your specific facts.</p>
+          <span class="text-accent font-semibold">Schedule a 30-minute review →</span>
+        </button>
+        <button type="button" class="card text-left transition hover:border-accent" onclick="setSourceCta('exposure')" id="cta-exposure">
+          <h3 class="h4 mb-2">I've already invested</h3>
+          <p class="text-secondary mb-3">Understand your audit exposure and what to do next. We handle representation through examination, appeals, and Tax Court if needed.</p>
+          <span class="text-accent font-semibold">Schedule an exposure assessment →</span>
+        </button>
+      </div>
+      <div class="card">
+        <form id="primary-form" onsubmit="submitPrimary(event)" novalidate>
+          <input type="hidden" name="source_cta" id="form-source-cta" value="review">
+          <input type="hidden" name="tool_completions" id="form-tool-completions" value="">
+          <input type="hidden" name="concern_level" id="form-concern-level" value="">
+          <!-- Honeypot -->
+          <input type="text" name="website" style="position:absolute;left:-10000px;" tabindex="-1" autocomplete="off">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label for="f-name" class="form-label">Full name *</label>
+              <input id="f-name" name="name" type="text" required minlength="2" class="form-input">
+            </div>
+            <div>
+              <label for="f-email" class="form-label">Email *</label>
+              <input id="f-email" name="email" type="email" required class="form-input">
+            </div>
+            <div>
+              <label for="f-phone" class="form-label">Phone *</label>
+              <input id="f-phone" name="phone" type="tel" required class="form-input" placeholder="(555) 555-5555">
+            </div>
+            <div>
+              <label for="f-state" class="form-label">State of residence *</label>
+              <select id="f-state" name="state" required class="form-select"><option value="">Select your state</option></select>
+            </div>
+            <div class="md:col-span-2">
+              <label for="f-deal" class="form-label">Approximate deal size *</label>
+              <select id="f-deal" name="deal_size" required class="form-select">
+                <option value="">Select a range</option>
+                <option>Less than $50,000</option>
+                <option>$50,000 – $250,000</option>
+                <option>$250,000 – $1,000,000</option>
+                <option>$1,000,000 – $5,000,000</option>
+                <option>More than $5,000,000</option>
+                <option>Prefer not to say</option>
+              </select>
+            </div>
+            <div class="md:col-span-2">
+              <label for="f-msg" class="form-label">What's on your mind? <span class="text-muted font-normal">(optional)</span></label>
+              <textarea id="f-msg" name="message" maxlength="500" rows="4" class="form-textarea"></textarea>
+              <p class="caption mt-1"><span id="f-count">0</span>/500</p>
+            </div>
+          </div>
+          <p class="caption mt-4">By submitting, you agree to our <a href="#" class="underline">privacy policy</a> and to be contacted about your submission.</p>
+          <button type="submit" class="btn-primary mt-5">Send my request →</button>
+          <div id="form-status" class="mt-4"></div>
+        </form>
+      </div>
+      <p class="caption mt-4 text-center">Someone from Hall CPA will reach out within one business day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SECONDARY LEAD CAPTURE — WHITE PAPER ============== -->
+<section class="major" id="whitepaper">
+  <div class="container-page">
+    <div class="prose-content">
+      <h3 class="h3 mb-3">Or download the underlying white paper</h3>
+      <p class="mb-5">The full 17-page white paper from Nathan Sosa, <em>Tax Implications of Investing in Solar Syndicates</em>, is available below. It covers the case law in greater technical depth and is suitable for sharing with your existing tax professional.</p>
+      <form id="wp-form" onsubmit="submitWhitepaper(event)" class="card flex flex-col sm:flex-row gap-3">
+        <input id="wp-email" name="email" type="email" required class="form-input flex-1" placeholder="Email address">
+        <button type="submit" class="btn-primary">Send me the white paper</button>
+      </form>
+      <div id="wp-status" class="mt-3"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============== FOOTER ============== -->
+<footer style="background: var(--bg-card); border-top: 1px solid var(--border-default); margin-top: 64px;">
+  <div class="container-page py-12">
+    <div class="prose-content">
+      <p class="caption mb-4">This page is published by Hall CPA, PLLC for educational and informational purposes only. Nothing on this page constitutes legal, tax, or accounting advice for any specific situation, and no professional relationship is created by reading or interacting with this page. Tax law is complex and depends heavily on the specific facts of any individual situation. Before making decisions that affect your tax liability, consult with a qualified tax professional who can review your specific facts.</p>
+      <p class="caption mb-4">Court decisions and IRS guidance discussed on this page reflect law in effect as of the publication date. Tax law changes; this page will be updated periodically but may not reflect the most recent developments. Page last reviewed: May 8, 2026.</p>
+      <p class="caption mb-6">Cases and statutes cited on this page can be reviewed in their original form through Tax Notes, the U.S. Tax Court website, the Internal Revenue Code at law.cornell.edu, and the IRS website.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8 mt-8 pt-8 border-t border-border-default">
+      <div>
+        <p class="font-semibold mb-2">Hall CPA, PLLC</p>
+        <p class="caption">[Address]<br>[Phone]<br><a href="#" class="underline">www.hallcpa.com</a></p>
+      </div>
+      <div>
+        <p class="font-semibold mb-2">Related resources</p>
+        <ul class="caption space-y-1">
+          <li><a href="#" class="underline">White paper — Tax Implications of Investing in Solar Syndicates (PDF)</a></li>
+          <li><a href="#" class="underline">Hall CPA — Audit Defense services</a></li>
+          <li><a href="#" class="underline">Hall CPA — Insights</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-semibold mb-2">Legal</p>
+        <ul class="caption space-y-1">
+          <li><a href="#" class="underline">Privacy policy</a></li>
+          <li><a href="#" class="underline">Terms of use</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="caption mt-8">© 2026 Hall CPA, PLLC. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// ============== STATE DATA & CONFIG ==============
+window.FEATURE_AUDIT_ESTIMATOR = false; // Pending Nathan signoff per 07_open_items_for_nathan.md
+
+const STATE_DATA = {"_meta":{"archetypes":{"1":{"label":"High-tax, federal-conforming","color":"#A52323","description":"Significant individual income tax that conforms broadly to federal AGI / federal taxable income. A federal disallowance generally flows through to state, and state-level exposure is meaningful."},"2":{"label":"High-tax, decoupled depreciation","color":"#D9742B","description":"Significant individual income tax conforming to federal AGI but decoupling from bonus depreciation. State-level effect of a federal depreciation clawback is partial because accelerated depreciation was never available at state level."},"3":{"label":"No individual income tax","color":"#5A9367","description":"No individual income tax on solar deal income. State-level income tax exposure on a federal disallowance is zero. Property tax and sales tax exposure on the underlying equipment may still apply."},"4":{"label":"Low/moderate tax, federal-conforming","color":"#C9A227","description":"Low to moderate individual income tax rates that conform broadly to federal. State-level exposure exists but is smaller in absolute dollars than archetype 1."}}},"states":{"AL":{"name":"Alabama","archetype":4,"rate":5.0,"note":"","factor":0.13,"detail":"Alabama conforms broadly to federal AGI as the starting point for state income tax, and conforms to federal bonus depreciation. The top marginal rate of 5% means state-level exposure on a federal disallowance is moderate."},"AK":{"name":"Alaska","archetype":3,"rate":0,"note":"No individual income tax","factor":0,"detail":"Alaska has no individual income tax. A federal disallowance has no state income tax consequence. Property tax and sales tax exposure on the underlying equipment may still apply at the local level."},"AZ":{"name":"Arizona","archetype":2,"rate":2.5,"note":"Partial bonus depreciation conformity","factor":0.07,"detail":"Arizona's flat 2.5% rate is among the lowest. Partial conformity to federal bonus depreciation (allows it for assets with class life of 10 years or less). Arizona has a residential solar credit but it does not apply to commercial syndicate-style deals."},"AR":{"name":"Arkansas","archetype":4,"rate":4.4,"note":"Decouples from bonus depreciation","factor":0.11,"detail":"Arkansas conforms to federal AGI but decouples from federal bonus depreciation. Top marginal rate of 4.4% means moderate state-level exposure on a federal disallowance."},"CA":{"name":"California","archetype":2,"rate":13.3,"note":"FTB 3801 used for state PAL; bonus depreciation decoupled","factor":0.32,"detail":"California has one of the highest combined federal-state exposures despite decoupling from bonus depreciation. Top rate of 13.3% is the highest in the U.S. California uses FTB 3801 for state passive activity loss tracking, mostly mirroring federal Form 8582 but without the § 469(c)(7) real estate professional exception. Hasn't conformed to federal bonus depreciation since 2002."},"CO":{"name":"Colorado","archetype":4,"rate":4.4,"note":"","factor":0.11,"detail":"Colorado has a flat 4.4% individual income tax rate and conforms to federal bonus depreciation. State conformity to federal AGI means a federal disallowance flows through to state."},"CT":{"name":"Connecticut","archetype":1,"rate":6.99,"note":"Decouples from bonus depreciation","factor":0.18,"detail":"Connecticut conforms to federal AGI as the starting point but historically decouples from federal bonus depreciation, requiring its own depreciation schedule. Top marginal rate of 6.99% means meaningful state-level exposure."},"DE":{"name":"Delaware","archetype":2,"rate":6.6,"note":"Decouples from federal bonus depreciation","factor":0.17,"detail":"Delaware decouples from federal bonus depreciation. The state's gross receipts tax structure also creates additional complexity for any equipment-based business. Top marginal rate of 6.6%."},"FL":{"name":"Florida","archetype":3,"rate":0,"note":"No individual income tax","factor":0,"detail":"Florida has no individual income tax. A federal disallowance has no state income tax consequence. Florida has a corporate income tax that conforms to federal but only applies to C corporations."},"GA":{"name":"Georgia","archetype":4,"rate":5.39,"note":"Fixed-date conformity; decouples from bonus depreciation","factor":0.13,"detail":"Georgia is a fixed-date conformity state (currently conformed to federal IRC as of December 31, 2024) and decouples from federal bonus depreciation. Flat 5.39% rate."},"HI":{"name":"Hawaii","archetype":1,"rate":11.0,"note":"High rate; decouples from bonus depreciation; has own solar credit","factor":0.27,"detail":"Hawaii has the second-highest top marginal individual income tax rate (11%) and decouples from federal bonus depreciation. State-level exposure on a federal disallowance is significant. Hawaii also has its own state solar tax credit."},"ID":{"name":"Idaho","archetype":4,"rate":5.3,"note":"","factor":0.13,"detail":"Idaho conforms to federal AGI and to federal bonus depreciation. Flat 5.3% individual income tax rate."},"IL":{"name":"Illinois","archetype":2,"rate":4.95,"note":"Decoupled from bonus depreciation under late-2025 legislation","factor":0.12,"detail":"Illinois passed legislation in late 2025 explicitly decoupling from federal bonus depreciation following OBBBA. Flat 4.95% individual income tax rate; conforms to federal AGI as the starting point."},"IN":{"name":"Indiana","archetype":4,"rate":3.0,"note":"Decouples from bonus depreciation","factor":0.08,"detail":"Indiana has a flat 3% individual income tax rate (one of the lowest with income tax) and decouples from federal bonus depreciation. State exposure is small in absolute terms."},"IA":{"name":"Iowa","archetype":4,"rate":3.8,"note":"Partial bonus depreciation conformity","factor":0.10,"detail":"Iowa moved to a flat 3.8% rate in 2025. Partial conformity to federal bonus depreciation. State-level exposure is moderate."},"KS":{"name":"Kansas","archetype":4,"rate":5.7,"note":"","factor":0.14,"detail":"Kansas conforms to federal AGI and to federal bonus depreciation. Top marginal rate of 5.7%."},"KY":{"name":"Kentucky","archetype":4,"rate":4.0,"note":"Decouples from bonus depreciation","factor":0.10,"detail":"Kentucky has a flat 4% rate and decouples from federal bonus depreciation. State exposure is moderate."},"LA":{"name":"Louisiana","archetype":4,"rate":3.0,"note":"","factor":0.08,"detail":"Louisiana moved to a flat 3% rate in 2025 and conforms to federal bonus depreciation. State-level exposure is small."},"ME":{"name":"Maine","archetype":1,"rate":7.15,"note":"Decouples from bonus depreciation","factor":0.18,"detail":"Maine conforms to federal AGI but decouples from federal bonus depreciation. Top marginal rate of 7.15% means meaningful state-level exposure."},"MD":{"name":"Maryland","archetype":1,"rate":5.75,"note":"Conformity is automatic only below revenue impact threshold","factor":0.14,"detail":"Maryland conforms to federal AGI as a starting point, but Maryland's statute requires legislative adoption of any IRC change with state revenue impact greater than $5 million. Decouples from federal bonus depreciation. Top marginal individual rate of 5.75% (plus local add-on taxes)."},"MA":{"name":"Massachusetts","archetype":1,"rate":9.0,"note":"Decouples from bonus depreciation; 4% surtax above $1M","factor":0.22,"detail":"Massachusetts has a 5% flat rate plus a 4% 'millionaire's tax' surtax on income over approximately $1 million, bringing the top effective rate to 9%. Decouples from federal bonus depreciation."},"MI":{"name":"Michigan","archetype":2,"rate":4.25,"note":"Decouples from bonus depreciation","factor":0.11,"detail":"Michigan has a flat 4.25% rate. Decouples from federal bonus depreciation. State-level exposure is moderate; depreciation effect is muted because state never followed federal bonus depreciation."},"MN":{"name":"Minnesota","archetype":1,"rate":9.85,"note":"Decouples from bonus depreciation","factor":0.24,"detail":"Minnesota has one of the higher top marginal rates (9.85%) and decouples from federal bonus depreciation. Conformity to federal AGI means a federal disallowance flows through and creates significant state-level exposure."},"MS":{"name":"Mississippi","archetype":4,"rate":4.4,"note":"","factor":0.11,"detail":"Mississippi has a flat 4.4% individual income tax rate and conforms to federal bonus depreciation."},"MO":{"name":"Missouri","archetype":4,"rate":4.7,"note":"","factor":0.12,"detail":"Missouri has a top marginal rate of 4.7% and conforms to federal bonus depreciation. State-level exposure is moderate."},"MT":{"name":"Montana","archetype":4,"rate":5.9,"note":"","factor":0.15,"detail":"Montana has a top rate of 5.9% and conforms to federal bonus depreciation. No general sales tax."},"NE":{"name":"Nebraska","archetype":4,"rate":5.84,"note":"","factor":0.14,"detail":"Nebraska has a top rate of 5.84% and conforms to federal bonus depreciation."},"NV":{"name":"Nevada","archetype":3,"rate":0,"note":"No individual income tax","factor":0,"detail":"Nevada has no individual income tax. A federal disallowance has no state income tax consequence. Commerce Tax may apply to businesses with Nevada gross revenue over $4 million."},"NH":{"name":"New Hampshire","archetype":3,"rate":0,"note":"No individual income tax (interest/dividends tax phasing out)","factor":0,"detail":"New Hampshire has no individual income tax on wages or business income. The limited interest and dividends tax has been phasing out and effectively reaches zero in 2027."},"NJ":{"name":"New Jersey","archetype":1,"rate":10.75,"note":"Decouples from bonus depreciation; high top rate","factor":0.26,"detail":"New Jersey has a top marginal rate of 10.75% and decouples from federal bonus depreciation. Conformity to federal AGI means a federal disallowance flows through and creates significant state-level exposure."},"NM":{"name":"New Mexico","archetype":4,"rate":5.9,"note":"","factor":0.15,"detail":"New Mexico has a top rate of 5.9% and conforms to federal bonus depreciation. State has its own commercial solar incentives that operate independently of the federal § 48E ITC."},"NY":{"name":"New York","archetype":1,"rate":10.9,"note":"High top rate; conforms to federal bonus depreciation","factor":0.27,"detail":"New York has a top marginal rate of 10.9% and broadly conforms to federal AGI. Unlike California, New York generally conforms to federal bonus depreciation. Investors here face the largest possible state pickup. NYC residents face an additional ~3.876% NYC personal income tax, pushing combined effective top rates above 14.7%."},"NC":{"name":"North Carolina","archetype":4,"rate":4.5,"note":"Fixed-date conformity; partial decouple from bonus depreciation","factor":0.11,"detail":"North Carolina is a fixed-date conformity state (currently conformed to federal IRC as of January 1, 2023). Partially decouples from federal bonus depreciation. Flat top rate of 4.5%."},"ND":{"name":"North Dakota","archetype":4,"rate":2.5,"note":"","factor":0.06,"detail":"North Dakota has one of the lowest top marginal rates (2.5%) and conforms to federal bonus depreciation. State-level exposure is small."},"OH":{"name":"Ohio","archetype":4,"rate":3.5,"note":"Decouples from bonus depreciation","factor":0.09,"detail":"Ohio has a top rate of 3.5% (with flattening proposals pending). Decouples from federal bonus depreciation."},"OK":{"name":"Oklahoma","archetype":4,"rate":4.75,"note":"","factor":0.12,"detail":"Oklahoma has a top rate of 4.75% and conforms to federal bonus depreciation."},"OR":{"name":"Oregon","archetype":1,"rate":9.9,"note":"High top rate; conforms to bonus depreciation; decouple legislation pending","factor":0.25,"detail":"Oregon has a top marginal rate of 9.9% and currently conforms to federal bonus depreciation, though decoupling legislation has been under consideration. State-level exposure is significant. No general sales tax."},"PA":{"name":"Pennsylvania","archetype":2,"rate":3.07,"note":"Decouples from bonus depreciation; flat 3.07%","factor":0.08,"detail":"Pennsylvania has a flat 3.07% individual income tax rate and decouples from federal bonus depreciation. PA also has unusual treatment of pass-through losses for individuals (no general carryforward rule), which affects how disallowed deductions interact with state liability."},"RI":{"name":"Rhode Island","archetype":4,"rate":5.99,"note":"Decouples from bonus depreciation","factor":0.15,"detail":"Rhode Island has a top rate of 5.99% and decouples from federal bonus depreciation."},"SC":{"name":"South Carolina","archetype":4,"rate":6.2,"note":"Decouples from bonus depreciation","factor":0.16,"detail":"South Carolina has a top rate of 6.2% and decouples from federal bonus depreciation. SC has its own state solar tax credit (separate from the federal ITC)."},"SD":{"name":"South Dakota","archetype":3,"rate":0,"note":"No individual income tax","factor":0,"detail":"South Dakota has no individual income tax. A federal disallowance has no state income tax consequence. South Dakota also has no corporate income tax."},"TN":{"name":"Tennessee","archetype":3,"rate":0,"note":"No individual income tax","factor":0,"detail":"Tennessee has no individual income tax (the prior Hall Tax on interest and dividends was fully repealed in 2021)."},"TX":{"name":"Texas","archetype":3,"rate":0,"note":"No individual income tax; Franchise Tax may apply to entities","factor":0,"detail":"Texas has no individual income tax. Franchise Tax on businesses with revenue above the no-tax-due threshold ($2.47M for 2025) may apply to syndicate-owning entities, but the individual investor is generally not directly exposed."},"UT":{"name":"Utah","archetype":4,"rate":4.55,"note":"","factor":0.11,"detail":"Utah has a flat 4.55% rate and conforms to federal bonus depreciation."},"VT":{"name":"Vermont","archetype":1,"rate":8.75,"note":"High top rate; decouples from bonus depreciation","factor":0.22,"detail":"Vermont has a top marginal rate of 8.75% and decouples from federal bonus depreciation."},"VA":{"name":"Virginia","archetype":1,"rate":5.75,"note":"Conformity paused through 2027; decouples from bonus depreciation","factor":0.14,"detail":"Virginia has a top marginal rate of 5.75% and decouples from federal bonus depreciation. Virginia's conformity statute is currently paused through January 1, 2027 if revenue impact exceeds $15.9 million."},"WA":{"name":"Washington","archetype":3,"rate":0,"note":"No individual income tax (capital gains tax above $250K)","factor":0,"detail":"Washington has no individual income tax on wages or business income. Washington does have a 7% capital gains tax on long-term gains over approximately $250,000 per individual. For solar syndicate income (generally ordinary income), Washington's tax exposure is zero."},"WV":{"name":"West Virginia","archetype":4,"rate":5.12,"note":"","factor":0.13,"detail":"West Virginia has a top rate of 5.12% (recently reduced) and conforms to federal bonus depreciation."},"WI":{"name":"Wisconsin","archetype":1,"rate":7.65,"note":"Caps bonus depreciation at $25,000 per asset","factor":0.19,"detail":"Wisconsin has a top rate of 7.65% and partially conforms to federal bonus depreciation, capping the deduction at $25,000 per asset. State-level exposure is meaningful, especially for high-cost solar equipment."},"WY":{"name":"Wyoming","archetype":3,"rate":0,"note":"No individual income tax","factor":0,"detail":"Wyoming has no individual income tax. A federal disallowance has no state income tax consequence."},"DC":{"name":"District of Columbia","archetype":1,"rate":10.75,"note":"High top rate; decouples from bonus depreciation","factor":0.27,"detail":"DC has a top marginal rate of 10.75% (matching New Jersey) and decouples from federal bonus depreciation. Combined federal-DC exposure is significant."}}};
+
+// ============== ANALYTICS HOOK (placeholder) ==============
+function trackEvent(name, props) {
+  // TODO: wire to Plausible/Fathom: window.plausible && window.plausible(name, {props});
+  if (window.console) console.log('[event]', name, props || {});
+}
+
+// ============== TOOL 1 — RECAPTURE CLOCK ==============
+function recaptureCalc() {
+  const dateInput = document.getElementById('rc-date').value;
+  const creditInput = document.getElementById('rc-credit').value;
+  const out = document.getElementById('rc-output');
+  if (!dateInput) {
+    out.classList.remove('hidden');
+    out.innerHTML = '<div class="p-4 rounded border border-risk-high text-risk-high">Please enter a place-in-service date.</div>';
+    return;
+  }
+  trackEvent('tool_started_recapture');
+  const [y, m] = dateInput.split('-').map(Number);
+  const placed = new Date(y, m - 1, 1);
+  const today = new Date();
+  const elapsedMs = today - placed;
+  const elapsedYears = elapsedMs / (1000 * 60 * 60 * 24 * 365.25);
+  let pct = 0;
+  if (elapsedYears < 0) { pct = 100; }
+  else if (elapsedYears < 1) pct = 100;
+  else if (elapsedYears < 2) pct = 80;
+  else if (elapsedYears < 3) pct = 60;
+  else if (elapsedYears < 4) pct = 40;
+  else if (elapsedYears < 5) pct = 20;
+  else pct = 0;
+  const credit = creditInput ? parseFloat(creditInput) : null;
+  const dollarExposure = credit ? credit * pct / 100 : null;
+  const yearsRemaining = Math.max(0, 5 - elapsedYears);
+  const yWhole = Math.floor(yearsRemaining);
+  const mWhole = Math.floor((yearsRemaining - yWhole) * 12);
+  const markerPct = Math.min(100, Math.max(0, (elapsedYears / 5) * 100));
+
+  const fmt = n => '$' + Math.round(n).toLocaleString();
+  const headline = pct > 0
+    ? `If your solar project ceased operations today, <strong>${pct}%</strong> of your investment tax credit would be recaptured.`
+    : `Your investment tax credit is fully vested. Recapture risk from project disposition is no longer a concern under § 50(a).`;
+
+  const dollarBlock = credit
+    ? `<p class="body-large mt-3">Estimated recapture exposure today: <strong>${fmt(dollarExposure)}</strong>, plus interest from the original credit year.</p>`
+    : '';
+
+  const remaining = pct > 0
+    ? `You have <strong>${yWhole} years and ${mWhole} months</strong> remaining in the 5-year recapture window.`
+    : `You are past the 5-year recapture window.`;
+
+  out.classList.remove('hidden');
+  out.innerHTML = `
+    <div class="fade-in">
+      <div class="relative mb-2">
+        <div class="timeline-bar">
+          <div class="timeline-seg" style="background:var(--risk-high)">Yr 1 · 100%</div>
+          <div class="timeline-seg" style="background:var(--risk-modhigh)">Yr 2 · 80%</div>
+          <div class="timeline-seg" style="background:var(--risk-mod)">Yr 3 · 60%</div>
+          <div class="timeline-seg" style="background:var(--risk-modlow)">Yr 4 · 40%</div>
+          <div class="timeline-seg" style="background:var(--risk-low)">Yr 5 · 20%</div>
+        </div>
+        <div class="timeline-marker" style="left:${markerPct}%"></div>
+      </div>
+      <p class="caption mb-6 mt-8">Vertical marker shows your current position. Beyond year 5: fully vested (0% recapture).</p>
+      <p class="body-large">${headline}</p>
+      ${dollarBlock}
+      <p class="mt-3">${remaining}</p>
+      <p class="mt-4 text-secondary">The 5-year recapture clock under IRC § 50(a) starts when the property is placed in service. If the property is sold, the project ceases operations, the equipment is disposed of, or your interest in the underlying partnership is materially reduced during this window, the credit is recaptured on the schedule shown above. Recapture is in addition to any disallowance from a § 469 challenge.</p>
+      <div class="mt-6 p-4 rounded" style="background:#F4F1EA; border-left:4px solid var(--accent);">
+        <p class="font-semibold mb-1">Concerned about recapture exposure on a deal you're already in?</p>
+        <a href="#lead-capture" class="text-accent font-semibold underline">Schedule an assessment →</a>
+      </div>
+    </div>
+  `;
+  trackEvent('tool_completed_recapture', { pct });
+}
+function recaptureReset() {
+  document.getElementById('rc-date').value = '';
+  document.getElementById('rc-credit').value = '';
+  document.getElementById('rc-output').classList.add('hidden');
+}
+
+// ============== TOOL 2 — RED FLAG SCORECARD ==============
+const RED_FLAGS = [
+  { label: "The LLC was set up by the promoter, using the promoter's documents.", auth: "Compare the structural pattern in <em>Olsen v. Commissioner</em>, T.C. Memo. 2021-41.", priority: 5 },
+  { label: "The purchase price for the equipment was significantly higher than its market value (or you didn't independently verify market value before purchasing).", auth: "<em>Nickeson v. Commissioner</em>, 962 F.2d 973, identifies inflated, non-negotiated pricing as a profit-motive red flag.", priority: 7 },
+  { label: "The lease back to the promoter (or a promoter affiliate) was signed the same day or shortly after the purchase.", auth: "Under <em>Cooper v. Commissioner</em>, 88 T.C. 84, sale-and-leaseback to a promoter affiliate is not a 'genuine multi-party transaction.'", priority: 2 },
+  { label: "The promoter handles procurement, installation, end-user contracts, operations, and maintenance — you don't.", auth: "Both <em>Toups v. Commissioner</em>, T.C. Memo. 1993-359, and <em>Olsen</em> turned on this fact.", priority: 3 },
+  { label: "Your income from the project is contingent on the project working — and the project isn't operating yet, or has had operational problems.", auth: "In <em>Olsen</em>, the taxpayer received zero income through every audit year because the project never operated as designed.", priority: 1 },
+  { label: "Your time on the activity is mostly phone calls, emails, signing documents, and reading reports the promoter sends you.", auth: "Treas. Reg. § 1.469-5T(f)(2)(ii) defines this as investor-level activity that doesn't count toward material participation.", priority: 4 },
+  { label: "You haven't visited the project site, or have visited only once or twice.", auth: "Compare <em>Tolin v. Commissioner</em>, T.C. Memo. 2014-65, where the taxpayer's near-constant on-site presence was decisive.", priority: 6 },
+  { label: "The marketing materials emphasized 'tax-free' returns or '100% offset' of active income.", auth: "<em>Nickeson</em> identified marketing focus on tax benefits as a profit-motive red flag.", priority: 8 },
+  { label: "The promoter referred you to a specific CPA who has prepared returns for many other investors in the same program.", auth: "This was the <em>Olsen</em> pattern. Return preparers in this position have their own § 6694 preparer-penalty exposure.", priority: 9 },
+  { label: "You were told you had to commit before the end of the tax year, or before some imminent deadline.", auth: "Time pressure is a structural feature of these promotions and prevents due diligence.", priority: 10 },
+];
+
+function rfInit() {
+  const wrap = document.getElementById('rf-flags');
+  if (!wrap) return;
+  wrap.innerHTML = RED_FLAGS.map((f, i) => `
+    <label class="checkbox-row">
+      <input type="checkbox" class="rf-cb" data-idx="${i}" onchange="rfCount()">
+      <span><strong>${i+1}.</strong> ${f.label}<br><span class="caption">${f.auth}</span></span>
+    </label>
+  `).join('');
+}
+function rfCount() {
+  const checked = document.querySelectorAll('.rf-cb:checked').length;
+  document.getElementById('rf-count').textContent = checked;
+}
+function rfEvaluate() {
+  const checkedIdx = Array.from(document.querySelectorAll('.rf-cb:checked')).map(c => parseInt(c.dataset.idx));
+  const count = checkedIdx.length;
+  trackEvent('tool_completed_redflags', { count });
+  let level, headline, body, cta;
+  if (count <= 2) {
+    level = 'low concern';
+    headline = `<strong>Low concern.</strong> Based on your inputs, the structural patterns courts have flagged in published decisions are largely absent from your deal.`;
+    body = "This doesn't mean your deal is risk-free — the four hurdles discussed above (trade or business, profit motive, placed in service, material participation) still apply, and a clean checklist on these factors doesn't guarantee any particular tax outcome. But the specific structural problems courts have repeatedly identified are not, based on what you've checked, present in your deal.";
+    cta = 'Want a second opinion on the deal anyway? <a href="#lead-capture" class="text-accent font-semibold underline">Schedule a 30-minute review →</a>';
+  } else if (count <= 5) {
+    level = 'moderate concern';
+    const sortedTop = checkedIdx.map(i => RED_FLAGS[i]).sort((a,b) => a.priority - b.priority)[0];
+    headline = `<strong>Moderate concern.</strong> Your inputs match ${count} of the ten structural patterns courts have flagged in published decisions.`;
+    body = `The factors you've checked are individually serious. The factor on <em>${sortedTop.label.replace(/\.$/,'').toLowerCase()}</em> is one that courts have weighted heavily. A review with a tax professional who has audit defense experience is worth doing before you sign or take any further action.`;
+    cta = 'Get a structured review of your specific facts. <a href="#lead-capture" class="text-accent font-semibold underline">Schedule a 30-minute review →</a>';
+  } else if (count <= 8) {
+    level = 'high concern';
+    headline = `<strong>High concern.</strong> Your inputs match ${count} of the ten structural patterns courts have flagged in published decisions. Several of these factors were dispositive in cases the IRS won.`;
+    body = "The combination of factors you've checked describes a structure that closely resembles the deals at issue in <em>Olsen v. Commissioner</em> and related cases. If you have not yet committed capital, a thorough review by an independent tax professional is strongly advised. If you have already committed, an audit exposure assessment is worth conducting before the IRS opens an examination.";
+    cta = 'Schedule a confidential conversation about your options. <a href="#lead-capture" class="text-accent font-semibold underline">Schedule a 30-minute review →</a>';
+  } else {
+    level = 'very high concern';
+    headline = `<strong>Very high concern.</strong> Your inputs match ${count} of the ten structural patterns courts have flagged in published decisions. The deal as you've described it closely resembles the structures in <em>Olsen</em> and the related cases discussed on this page.`;
+    body = "The combination of factors you've checked describes a structure substantively indistinguishable from those that have lost in the Tax Court. The specific factors that have driven adverse holdings — sale-leaseback to promoter affiliate, no genuine multi-party transaction, contingent income that never materializes, third-party operational control, investor-level participation only — are present in your deal as you've described it. The right next step is a private conversation with a CPA experienced in tax controversy.";
+    cta = 'We work with investors in exactly this position. <a href="#lead-capture" class="text-accent font-semibold underline">Schedule a confidential assessment →</a>';
+  }
+  trackEvent('tool_concern_level_' + level.replace(/ /g, '_'));
+  document.getElementById('form-concern-level').value = level;
+  const concernColor = count <= 2 ? 'var(--risk-clear)' : count <= 5 ? 'var(--risk-mod)' : count <= 8 ? 'var(--risk-modhigh)' : 'var(--risk-high)';
+  const flagList = checkedIdx.length ? '<div class="mt-4"><p class="font-semibold mb-2">Flags you checked:</p><ul class="space-y-2 text-sm">' +
+    checkedIdx.map(i => `<li><strong>Flag ${i+1}.</strong> ${RED_FLAGS[i].label}<br><span class="caption">${RED_FLAGS[i].auth}</span></li>`).join('') + '</ul></div>' : '';
+  const out = document.getElementById('rf-output');
+  out.classList.remove('hidden');
+  out.innerHTML = `
+    <div class="fade-in p-5 rounded" style="border-left:4px solid ${concernColor}; background:#FBFAF6;">
+      <p class="body-large mb-3">${headline}</p>
+      <p class="mb-2">${body}</p>
+      ${flagList}
+      <div class="mt-5 p-4 rounded" style="background:#fff; border:1px solid var(--border-default);">
+        <p>${cta}</p>
+      </div>
+    </div>
+  `;
+  out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+function rfReset() {
+  document.querySelectorAll('.rf-cb').forEach(c => c.checked = false);
+  rfCount();
+  document.getElementById('rf-output').classList.add('hidden');
+}
+
+// ============== TOOL 3 — MATERIAL PARTICIPATION ==============
+const MP_CATEGORIES = [
+  { key: 'reports', label: 'Reviewing financial reports the promoter sent you', investor: true },
+  { key: 'phone', label: 'Phone calls and emails with the promoter', investor: true },
+  { key: 'signing', label: 'Signing documents', investor: true },
+  { key: 'monitor', label: 'Monitoring the project\'s progress in a non-managerial capacity', investor: true },
+  { key: 'ops', label: 'Direct involvement in day-to-day operations', investor: false, helper: 'e.g., personally negotiating with end customers, hiring or firing personnel, making operational decisions, on-site work' },
+  { key: 'other', label: 'Other', investor: false },
+];
+function mpInit() {
+  const wrap = document.getElementById('mp-sliders');
+  if (!wrap) return;
+  wrap.innerHTML = MP_CATEGORIES.map((c, i) => `
+    <div>
+      <div class="flex justify-between items-center text-sm">
+        <label for="mp-${c.key}" class="flex-1 pr-2">${c.label}${c.helper ? `<br><span class="caption">${c.helper}</span>` : ''}</label>
+        <span class="font-semibold w-12 text-right" id="mp-${c.key}-val">0%</span>
+      </div>
+      <input id="mp-${c.key}" type="range" class="w-full mp-slider" min="0" max="100" value="0" data-key="${c.key}">
+    </div>
+  `).join('');
+  document.querySelectorAll('.mp-slider').forEach(s => {
+    s.addEventListener('input', () => {
+      document.getElementById('mp-' + s.dataset.key + '-val').textContent = s.value + '%';
+      let sum = 0;
+      document.querySelectorAll('.mp-slider').forEach(x => sum += parseInt(x.value));
+      document.getElementById('mp-sum').textContent = sum;
+    });
+  });
+}
+function mpStep2() {
+  const total = parseFloat(document.getElementById('mp-hours').value) || 0;
+  let sum = 0;
+  document.querySelectorAll('.mp-slider').forEach(x => sum += parseInt(x.value));
+  if (!total || total <= 0) { alert('Please enter your total hours.'); return; }
+  if (sum < 95 || sum > 105) { alert('Slider percentages should sum to about 100%. Currently: ' + sum + '%'); return; }
+  document.getElementById('mp-step1').classList.add('hidden');
+  document.getElementById('mp-step2').classList.remove('hidden');
+}
+function mpBack() {
+  document.getElementById('mp-step2').classList.add('hidden');
+  document.getElementById('mp-step1').classList.remove('hidden');
+}
+function mpEvaluate() {
+  const total = parseFloat(document.getElementById('mp-hours').value) || 0;
+  const others = parseFloat(document.getElementById('mp-others').value) || 0;
+  const pct = {};
+  document.querySelectorAll('.mp-slider').forEach(s => pct[s.dataset.key] = parseInt(s.value));
+  const investorPct = pct.reports + pct.phone + pct.signing + pct.monitor;
+  const investorHours = Math.round(total * investorPct / 100);
+  const opsHours = Math.round(total * pct.ops / 100);
+  const otherHours = Math.round(total * pct.other / 100);
+  const qualifying = opsHours + otherHours;
+  trackEvent('tool_completed_matpart', { qualifying });
+
+  const test1 = qualifying > 500;
+  const test3 = qualifying > 100 && qualifying > others;
+  const t1html = test1
+    ? `<p class="mb-2"><strong>Test 1 (more than 500 hours): Possibly cleared.</strong> Your ${qualifying} qualifying hours exceed the 500-hour threshold. This is the strongest of the seven tests.</p>`
+    : `<p class="mb-2"><strong>Test 1 (more than 500 hours): Not cleared.</strong> This test requires more than 500 qualifying hours; you have ${qualifying}.</p>`;
+  let t3html;
+  if (test3) {
+    t3html = `<p class="mb-2"><strong>Test 3 (more than 100 hours and more than any other individual): Possibly cleared.</strong> Your qualifying hours exceed 100 and exceed the ${others} hours you reported for the project's manager.</p>`;
+  } else if (qualifying > 100) {
+    t3html = `<p class="mb-2"><strong>Test 3: Not cleared.</strong> Your qualifying hours exceed 100, but the project's manager (at ${others} hours) put in more time. Test 3 requires participation greater than any other individual.</p>`;
+  } else {
+    t3html = `<p class="mb-2"><strong>Test 3: Not cleared.</strong> This test requires more than 100 qualifying hours; you have ${qualifying}.</p>`;
+  }
+  const t7html = `<p class="mb-2"><strong>Test 7 (facts and circumstances):</strong> This test depends on the full facts of your involvement, not just hour counts. It requires more than 100 qualifying hours plus a finding that your participation is regular, continuous, and substantial. With ${qualifying} qualifying hours, the threshold question is whether your activity rises to that level — which generally requires showing operational decision-making, not oversight.</p>`;
+  const cleared = test1 || test3;
+  const headline = cleared
+    ? `<strong>Based on your inputs, you may have a basis for claiming material participation${test1 ? ' under Test 1' : ' under Test 3'}.</strong> Whether the IRS or a court would accept that determination depends on documentation and the underlying facts.`
+    : `<strong>Based on your inputs, your deal does not appear to clear the material participation threshold under any of the seven tests.</strong> The credit and depreciation would be passive under § 469.`;
+  const cta = cleared
+    ? 'Get a review of whether your documentation supports the position. <a href="#lead-capture" class="text-accent font-semibold underline">Schedule a 30-minute review →</a>'
+    : 'Understand your options if the credits and deductions are passive. <a href="#lead-capture" class="text-accent font-semibold underline">Schedule a 30-minute review →</a>';
+  const out = document.getElementById('mp-output');
+  out.classList.remove('hidden');
+  out.innerHTML = `
+    <div class="fade-in p-5 rounded" style="border-left:4px solid ${cleared ? 'var(--risk-clear)' : 'var(--risk-modhigh)'}; background:#FBFAF6;">
+      <h3 class="h4 mb-3">Hours comparison</h3>
+      <p class="mb-2">You entered <strong>${total}</strong> hours of activity on this investment.</p>
+      <p class="mb-3">Under Treas. Reg. § 1.469-5T(f)(2)(ii)(A), work done in your capacity as an investor doesn't count toward material participation unless you're directly involved in day-to-day management or operations. After removing investor-level activity:</p>
+      <div class="p-4 rounded mb-4" style="background:#fff; border:1px solid var(--border-default); font-family:monospace;">
+        <p>${total} hours entered total</p>
+        <p style="color:var(--risk-high)">− ${investorHours} hours investor-level (reports, calls, signing, non-managerial monitoring)</p>
+        <p style="font-weight:700;">= ${qualifying} hours potentially qualifying</p>
+      </div>
+      <h3 class="h4 mb-3 mt-4">Test-by-test analysis</h3>
+      ${t1html}${t3html}${t7html}
+      <h3 class="h4 mb-3 mt-4">Bottom line</h3>
+      <p class="body-large mb-3">${headline}</p>
+      <p class="caption mb-4">Material participation hours have to be documented. Tax courts have rejected after-the-fact "ballpark guesstimates" (<em>Carlstedt v. Commissioner</em>, T.C. Memo. 1997-331). Contemporaneous calendar entries, time logs, or other reasonable documentation is required.</p>
+      <div class="mt-5 p-4 rounded" style="background:#fff; border:1px solid var(--border-default);"><p>${cta}</p></div>
+    </div>
+  `;
+  out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// ============== TOOL 4 — FOUR HURDLES WALKTHROUGH ==============
+const FH_QUESTIONS = [
+  {
+    title: 'Hurdle 1 — Trade or Business',
+    questions: [
+      { q: 'Does your activity have employees, a business plan, books and records, and a real operational presence beyond just owning the LLC?', opts: [['Yes', 2], ['Partially', 1], ['No', 0]] },
+      { q: 'Are you involved with the activity in a way that could be described as continuous and regular — not just episodic oversight?', opts: [['Yes', 2], ['Partially', 1], ['No', 0]] },
+      { q: 'Is the activity organized to actually produce income (electricity sales, equipment leasing to genuine third parties, etc.) rather than primarily to generate tax benefits?', opts: [['Yes', 2], ['Partially', 1], ['No', 0]] },
+    ],
+    failExplanation: "Owning an entity that owns equipment isn't itself a § 162 trade or business. The Tax Court in <em>Olsen</em> found that signing pre-drafted documents, writing checks, and emailing the promoter \"plainly does not rise to the level of a trade or business.\""
+  },
+  {
+    title: 'Hurdle 2 — Profit Motive',
+    questions: [
+      { q: 'Was the marketing or pitch primarily focused on tax benefits, or on the underlying economic returns of the project?', opts: [['Economic returns', 2], ['Both equally', 1], ['Tax benefits', 0]] },
+      { q: 'Did you negotiate the price you paid for the equipment, or compare it to fair market value?', opts: [['Yes', 2], ['No', 0]] },
+      { q: 'If the tax credits and depreciation didn\'t exist, would the deal still be economically attractive on its own?', opts: [['Yes', 2], ['Unsure', 1], ['No', 0]] },
+    ],
+    failExplanation: "<em>Nickeson</em>'s five-factor test treats marketing focus on tax benefits, inflated non-negotiated pricing, and lack of standalone profit potential as red flags on profit motive."
+  },
+  {
+    title: 'Hurdle 3 — Placed in Service',
+    questions: [
+      { q: 'Has the equipment in your deal been operating and producing electricity (or being held out for genuine third-party rental)?', opts: [['Yes, fully operational', 3], ['Partially', 1], ['Not yet operational', 0]] },
+      { q: 'Was the equipment leased back to the promoter or a promoter-affiliated entity at or near the time of purchase?', opts: [['No', 2], ['Not sure', 1], ['Yes', 0]] },
+      { q: 'Is the income you receive from the project contingent on the project actually working?', opts: [['No — fixed payments', 2], ['N/A', 1], ['Yes — contingent', 0]] },
+    ],
+    failExplanation: "<em>Cooper v. Commissioner</em> requires a genuine multi-party transaction. A same-day sale-leaseback to a promoter affiliate — combined with contingent rent that depends on a non-operational project — was dispositive in <em>Olsen</em>."
+  },
+  {
+    title: 'Hurdle 4 — Material Participation',
+    questions: [
+      { q: 'Approximately how many hours per year do you personally spend on the activity?', opts: [['More than 500', 3], ['100 to 500', 2], ['50 to 100', 1], ['Less than 50', 0]] },
+      { q: 'Of those hours, what fraction is direct involvement in day-to-day operations versus reviewing reports, signing documents, or monitoring at a high level?', opts: [['Mostly day-to-day operations', 2], ['Mix', 1], ['Mostly oversight/monitoring', 0]] },
+      { q: 'Does anyone else (a manager, the promoter, an operator) work more hours on the activity than you do?', opts: [['No', 2], ['Don\'t know', 1], ['Yes', 0]] },
+    ],
+    failExplanation: "Treas. Reg. § 1.469-5T(f)(2)(ii) excludes investor-level hours; a third-party manager who works more hours than the investor forecloses Test 3 on its own."
+  }
+];
+
+let fhState = { idx: 0, scores: [], answers: [] };
+function fhInit() {
+  if (!document.getElementById('fh-stage')) return;
+  fhState = { idx: 0, scores: [], answers: [] };
+  fhRender();
+  fhProgress();
+}
+function fhProgress() {
+  const wrap = document.getElementById('fh-progress');
+  if (!wrap) return;
+  wrap.innerHTML = FH_QUESTIONS.map((h, i) => {
+    let bg = '#E2E0DA';
+    if (i < fhState.scores.length) bg = fhState.scores[i] >= 4 ? 'var(--risk-clear)' : 'var(--risk-modhigh)';
+    if (i === fhState.idx) bg = 'var(--accent)';
+    const label = i < fhState.scores.length ? (fhState.scores[i] >= 4 ? '✓' : '✗') : (i+1);
+    return `<div class="text-center p-2 rounded" style="background:${bg}; color:#fff; font-weight:700; font-size:14px;">Hurdle ${i+1} ${i < fhState.scores.length ? label : ''}</div>`;
+  }).join('');
+}
+function fhRender() {
+  const stage = document.getElementById('fh-stage');
+  if (fhState.idx >= FH_QUESTIONS.length) { fhSummary(); return; }
+  const h = FH_QUESTIONS[fhState.idx];
+  stage.innerHTML = `
+    <h3 class="h3 mb-4">${h.title}</h3>
+    <form id="fh-form" class="space-y-4">
+      ${h.questions.map((q, qi) => `
+        <div>
+          <p class="mb-2 font-medium">${qi+1}. ${q.q}</p>
+          <div class="flex flex-wrap gap-2">
+            ${q.opts.map(([label, val]) => `
+              <label class="checkbox-row" style="flex: 1 1 auto; min-width:140px;">
+                <input type="radio" name="fh-q${qi}" value="${val}" required>
+                <span>${label}</span>
+              </label>
+            `).join('')}
+          </div>
+        </div>
+      `).join('')}
+    </form>
+    <button class="btn-primary mt-5" onclick="fhSubmitHurdle()">Continue →</button>
+  `;
+}
+function fhSubmitHurdle() {
+  const h = FH_QUESTIONS[fhState.idx];
+  let total = 0; let answered = 0;
+  for (let i = 0; i < h.questions.length; i++) {
+    const sel = document.querySelector(`input[name="fh-q${i}"]:checked`);
+    if (sel) { total += parseInt(sel.value); answered++; }
+  }
+  if (answered < h.questions.length) { alert('Please answer all questions.'); return; }
+  fhState.scores.push(total);
+  const cleared = total >= 4;
+  const stage = document.getElementById('fh-stage');
+  stage.innerHTML = `
+    <div class="fade-in p-5 rounded" style="border-left:4px solid ${cleared ? 'var(--risk-clear)' : 'var(--risk-modhigh)'}; background:#FBFAF6;">
+      <p class="body-large mb-3"><strong>${h.title} — ${cleared ? 'looks promising.' : 'concern.'}</strong></p>
+      <p>${cleared
+        ? 'Based on your answers, your deal has the elements that courts have generally found supportive of this hurdle. This isn\'t a final determination — the actual analysis requires reviewing your documentation — but the structural pattern you\'ve described is consistent with deals that have cleared this test.'
+        : 'Based on your answers, your deal has the structural pattern that courts have found problematic on this hurdle. ' + h.failExplanation
+      }</p>
+      <button class="btn-primary mt-5" onclick="fhNext()">${fhState.idx < FH_QUESTIONS.length - 1 ? 'Next hurdle →' : 'See summary →'}</button>
+    </div>
+  `;
+  fhProgress();
+}
+function fhNext() { fhState.idx++; fhRender(); fhProgress(); }
+function fhSummary() {
+  const cleared = fhState.scores.filter(s => s >= 4).length;
+  const failedNames = FH_QUESTIONS.filter((_, i) => fhState.scores[i] < 4).map(h => h.title.replace(/Hurdle \d+ — /, ''));
+  let headline;
+  if (cleared === 4) headline = 'Your deal appears structurally consistent with the patterns courts have found defensible. The substance still has to match the structure — documentation, ongoing facts — but the elements are present in your description.';
+  else if (cleared === 3) headline = `Your deal clears most of the structural tests but raises concerns at one. Each of the four hurdles is independent, and a deal can lose by failing any one of them. The ${failedNames[0]} hurdle is where attention is most warranted.`;
+  else if (cleared === 2) headline = `Your deal raises concerns at multiple hurdles. ${failedNames.join(' and ')} are each independent grounds on which the deal could be challenged. A structured review of your facts is worth doing before you sign or take further action.`;
+  else if (cleared === 1) headline = 'Your deal raises concerns at three of the four hurdles. The structural pattern you\'ve described aligns with deals that have lost in published cases.';
+  else headline = 'Your deal raises concerns at all four hurdles. The structural pattern you\'ve described closely resembles the deals at issue in <em>Olsen v. Commissioner</em> and the related cases discussed on this page.';
+  const ctaText = cleared >= 3
+    ? 'Get a structured review of your specific facts. <a href="#lead-capture" class="text-accent font-semibold underline">Schedule a 30-minute review →</a>'
+    : cleared >= 1
+    ? 'Schedule a confidential conversation about your options. <a href="#lead-capture" class="text-accent font-semibold underline">Schedule a 30-minute review →</a>'
+    : 'We work with investors in exactly this position. <a href="#lead-capture" class="text-accent font-semibold underline">Schedule a confidential assessment →</a>';
+  trackEvent('tool_completed_walkthrough', { cleared });
+  document.getElementById('fh-stage').innerHTML = `
+    <div class="fade-in">
+      <h3 class="h3 mb-4">Summary</h3>
+      <ul class="space-y-2 mb-5">
+        ${FH_QUESTIONS.map((h, i) => `<li class="flex justify-between p-3 rounded" style="background:${fhState.scores[i] >= 4 ? '#EAF4EE' : '#FCEFEA'};"><span>${h.title}</span><span class="font-bold" style="color:${fhState.scores[i] >= 4 ? 'var(--risk-clear)' : 'var(--risk-high)'}">${fhState.scores[i] >= 4 ? '✓ cleared' : '✗ concern'}</span></li>`).join('')}
+      </ul>
+      <p class="body-large mb-4">${headline}</p>
+      <div class="mt-5 p-4 rounded" style="background:#fff; border:1px solid var(--border-default);"><p>${ctaText}</p></div>
+      <button class="btn-secondary mt-4" onclick="fhInit()">Start over</button>
+    </div>
+  `;
+  fhProgress();
+}
+
+// ============== TOOL 5 — COMPARE TO OLSEN ==============
+const OLSEN_FACTS = [
+  "Investor formed an LLC on the promoter's advice, using the promoter's documents.",
+  "Investor's LLC purchased equipment from a promoter-affiliated entity.",
+  "Equipment was leased back to a promoter-affiliated entity.",
+  "Lease specified rent contingent on the project actually producing income.",
+  "Project never produced income during the years the investor claimed deductions and credits.",
+  "Investor never visited the project site, or visited only briefly.",
+  "Investor could not identify which specific units of equipment were 'his.'",
+  "Investor's annual time on the activity consisted mostly of signing documents, writing checks, and email correspondence.",
+  "Investor had no expertise in the underlying technology.",
+  "Investor's only 'advisors' on the deal were the promoters themselves.",
+  "Investor used a CPA referred by the promoter who had prepared returns for many other investors in the same program.",
+  "Project's purchase price for the equipment was significantly above any independent valuation."
+];
+function olsenInit() {
+  const wrap = document.getElementById('ol-rows');
+  if (!wrap) return;
+  wrap.innerHTML = OLSEN_FACTS.map((f, i) => `
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 p-3 rounded" style="background:#fff; border:1px solid var(--border-default);">
+      <div class="md:col-span-2"><strong>${i+1}.</strong> ${f}</div>
+      <div class="flex gap-2 text-sm">
+        ${['Yes','No','Not sure'].map(v => `<label style="flex:1;" class="checkbox-row"><input type="radio" name="ol-${i}" value="${v}"><span>${v}</span></label>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+function olsenEvaluate() {
+  let yes = 0, unsure = 0;
+  const matched = [];
+  OLSEN_FACTS.forEach((f, i) => {
+    const sel = document.querySelector(`input[name="ol-${i}"]:checked`);
+    if (sel) {
+      if (sel.value === 'Yes') { yes++; matched.push(f); }
+      if (sel.value === 'Not sure') unsure++;
+    }
+  });
+  trackEvent('tool_completed_olsen', { yes });
+  let level, body;
+  if (yes <= 3) { level = 'Limited overlap'; body = "The structural pattern you've described diverges from <em>Olsen</em> on most factors. This doesn't mean your deal is risk-free, but the specific pattern at issue in <em>Olsen</em> is not the pattern you've described."; }
+  else if (yes <= 6) { level = 'Partial overlap'; body = "Several of the factors that drove the <em>Olsen</em> outcome are also present in your deal."; }
+  else if (yes <= 9) { level = 'Substantial overlap'; body = "Your deal matches <em>Olsen</em> on most of the factors that drove the adverse outcome."; }
+  else { level = 'Near-complete overlap'; body = "Your deal substantively replicates the structure at issue in <em>Olsen v. Commissioner</em>."; }
+  const concernColor = yes <= 3 ? 'var(--risk-clear)' : yes <= 6 ? 'var(--risk-mod)' : yes <= 9 ? 'var(--risk-modhigh)' : 'var(--risk-high)';
+  const ctaText = yes >= 7 ? 'Schedule a confidential conversation. <a href="#lead-capture" class="text-accent font-semibold underline">Schedule a review →</a>' : 'Want a second opinion? <a href="#lead-capture" class="text-accent font-semibold underline">Schedule a 30-minute review →</a>';
+  const matchedList = matched.length ? '<ul class="list-disc pl-6 mt-3 space-y-1 text-sm">' + matched.map(m => `<li>${m}</li>`).join('') + '</ul>' : '';
+  const out = document.getElementById('ol-output');
+  out.classList.remove('hidden');
+  out.innerHTML = `
+    <div class="fade-in p-5 rounded" style="border-left:4px solid ${concernColor}; background:#FBFAF6;">
+      <p class="body-large mb-3">Your deal matches the <em>Olsen</em> facts on <strong>${yes} of 12</strong> factors. (${unsure} marked unsure.)</p>
+      <p class="body-large mb-3"><strong>${level} with Olsen.</strong></p>
+      <p class="mb-3">${body}</p>
+      ${matchedList}
+      <div class="mt-5 p-4 rounded" style="background:#fff; border:1px solid var(--border-default);"><p>${ctaText}</p></div>
+    </div>
+  `;
+}
+function olsenReset() {
+  document.querySelectorAll('input[name^="ol-"]').forEach(r => r.checked = false);
+  document.getElementById('ol-output').classList.add('hidden');
+}
+
+// ============== TOOL 6 — STATE TILE MAP ==============
+// Tile grid layout (13 cols × 8 rows). '.' = empty. Approximates US geography.
+const TILE_GRID = [
+  ['', '', '', '', '', '', '', '', '', '', '', '', 'ME'],
+  ['AK','', '', '', '', '', '', '', '', '', 'VT', 'NH', ''],
+  ['', '', 'WA','ID','MT','ND','MN','WI','MI','', 'NY', 'MA', ''],
+  ['', '', 'OR','NV','WY','SD','IA','IL','IN','OH','PA','NJ','CT'],
+  ['', '', 'CA','UT','CO','NE','MO','KY','WV','VA','MD','DE','RI'],
+  ['', '', '',  'AZ','NM','KS','AR','TN','NC','SC','DC','', ''],
+  ['', '', '',  '',  '',  'OK','LA','MS','AL','GA','', '', ''],
+  ['HI','', '', '',  '',  'TX','', '', '', 'FL','', '', '']
+];
+function archColor(arch) {
+  return ({1:'#A52323',2:'#D9742B',3:'#5A9367',4:'#C9A227'})[arch] || '#9CA3AF';
+}
+function mapInit() {
+  const grid = document.getElementById('state-grid');
+  if (!grid) return;
+  let html = '';
+  TILE_GRID.forEach(row => {
+    row.forEach(code => {
+      if (!code) { html += '<div class="state-empty"></div>'; }
+      else {
+        const s = STATE_DATA.states[code];
+        if (!s) { html += '<div class="state-empty"></div>'; return; }
+        html += `<button type="button" class="state-tile" data-code="${code}" style="background:${archColor(s.archetype)}" title="${s.name} — ${STATE_DATA._meta.archetypes[s.archetype].label}${s.rate ? ', ' + s.rate + '%' : ''}" aria-label="${s.name}: ${STATE_DATA._meta.archetypes[s.archetype].label}, top rate ${s.rate}%">${code}</button>`;
+      }
+    });
+  });
+  grid.innerHTML = html;
+  grid.querySelectorAll('.state-tile').forEach(t => {
+    t.addEventListener('click', () => mapShowDetail(t.dataset.code, t));
+  });
+  // Mobile select
+  const sel = document.getElementById('map-select');
+  if (sel) {
+    let opts = '<option value="">Choose a state…</option>';
+    Object.entries(STATE_DATA.states).sort((a,b) => a[1].name.localeCompare(b[1].name)).forEach(([code, s]) => {
+      opts += `<option value="${code}">${s.name}</option>`;
+    });
+    sel.innerHTML = opts;
+    sel.addEventListener('change', () => { if (sel.value) mapShowDetail(sel.value); });
+  }
+}
+function mapShowDetail(code, tileEl) {
+  const s = STATE_DATA.states[code];
+  if (!s) return;
+  trackEvent('state_clicked_' + code);
+  document.querySelectorAll('.state-tile').forEach(t => t.classList.remove('selected'));
+  if (tileEl) tileEl.classList.add('selected');
+  const arch = STATE_DATA._meta.archetypes[s.archetype];
+  const det = document.getElementById('state-detail');
+  det.innerHTML = `
+    <div class="fade-in p-5 rounded" style="border:1px solid var(--border-default); background:#fff;">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="legend-swatch" style="background:${archColor(s.archetype)}; width:20px; height:20px;"></span>
+        <h3 class="h3 m-0">${s.name}</h3>
+      </div>
+      <p class="caption mb-3">${arch.label} · Top marginal rate: ${s.rate}%${s.note ? ' · ' + s.note : ''}</p>
+      <p class="mb-4">${s.detail}</p>
+      <div class="p-4 rounded" style="background:#F4F1EA; border-left:4px solid var(--accent);">
+        <p>Investors in ${s.name} can schedule a confidential review here. <a href="#lead-capture" class="text-accent font-semibold underline">Schedule →</a></p>
+      </div>
+    </div>
+  `;
+}
+
+// ============== TOOL 7 — AUDIT EXPOSURE ESTIMATOR ==============
+function aeInit() {
+  if (!window.FEATURE_AUDIT_ESTIMATOR) return;
+  document.getElementById('tool-exposure').style.display = '';
+  const yearsWrap = document.getElementById('ae-years');
+  yearsWrap.innerHTML = [2019,2020,2021,2022,2023,2024,2025].map(y =>
+    `<label class="checkbox-row" style="flex:0 1 auto;"><input type="checkbox" class="ae-year" value="${y}" onchange="aeYears()"><span>${y}</span></label>`
+  ).join('');
+  const stateSel = document.getElementById('ae-state');
+  let opts = '<option value="">Select state</option>';
+  Object.entries(STATE_DATA.states).sort((a,b) => a[1].name.localeCompare(b[1].name)).forEach(([code, s]) => {
+    opts += `<option value="${code}">${s.name}</option>`;
+  });
+  stateSel.innerHTML = opts;
+}
+function aeYears() {
+  const years = Array.from(document.querySelectorAll('.ae-year:checked')).map(c => c.value);
+  const wrap = document.getElementById('ae-year-inputs');
+  wrap.innerHTML = years.map(y => `
+    <div class="p-3 rounded" style="background:#FBF9F4; border:1px solid var(--border-default);">
+      <p class="font-semibold mb-2">Tax year ${y}</p>
+      <div class="grid md:grid-cols-2 gap-3">
+        <div><label class="form-label" for="ae-cred-${y}">Credits claimed ($)</label><input id="ae-cred-${y}" type="number" min="0" step="1000" class="form-input"></div>
+        <div><label class="form-label" for="ae-ded-${y}">Deductions claimed ($)</label><input id="ae-ded-${y}" type="number" min="0" step="1000" class="form-input"></div>
+      </div>
+    </div>
+  `).join('');
+}
+function aeCalc() {
+  const years = Array.from(document.querySelectorAll('.ae-year:checked')).map(c => c.value);
+  const rate = parseFloat(document.getElementById('ae-rate').value);
+  const stateCode = document.getElementById('ae-state').value;
+  const valuation = document.getElementById('ae-valuation').value;
+  if (!years.length || !rate || !stateCode || !valuation) { alert('Please complete all steps.'); return; }
+  const stateFactor = STATE_DATA.states[stateCode].factor;
+  const stateName = STATE_DATA.states[stateCode].name;
+  const penaltyRate = valuation === 'no' ? 0.40 : 0.20;
+  const irsRate = 0.08;
+  const currentYear = new Date().getFullYear();
+  let fedTax = 0, stateTax = 0, penalty = 0, interest = 0;
+  years.forEach(y => {
+    const cred = parseFloat(document.getElementById('ae-cred-' + y).value) || 0;
+    const ded = parseFloat(document.getElementById('ae-ded-' + y).value) || 0;
+    const fedY = (ded * rate) + cred;
+    fedTax += fedY;
+    stateTax += fedY * stateFactor;
+    penalty += fedY * penaltyRate;
+    interest += fedY * irsRate * (currentYear - parseInt(y));
+  });
+  const total = fedTax + stateTax + penalty + interest;
+  const low = Math.round(total * 0.85);
+  const high = Math.round(total * 1.15);
+  const fmt = n => '$' + Math.round(n).toLocaleString();
+  trackEvent('tool_completed_exposure', { total: Math.round(total) });
+  const out = document.getElementById('ae-output');
+  out.classList.remove('hidden');
+  out.innerHTML = `
+    <div class="fade-in p-5 rounded" style="border-left:4px solid var(--risk-high); background:#FBFAF6;">
+      <div class="p-4 rounded mb-4" style="background:#FFF7E6; border:1px solid #E0A93D;">
+        <p class="font-semibold mb-1">This is an estimate, not an assessment.</p>
+        <p class="caption">Actual tax exposure depends on facts this tool cannot evaluate: positions taken on your returns, the IRS's case-specific arguments, your documentation, available defenses (reasonable cause, statute of limitations, procedural issues), and the precise interest calculation under § 6601. State pickup varies materially by state and year. The penalty determination depends on facts a CPA must review. Talk to a CPA who can review your actual returns and facts.</p>
+      </div>
+      <p class="body-large mb-4">Estimated total exposure if these positions were disallowed and the ${Math.round(penaltyRate*100)}% accuracy-related penalty applied: <strong>${fmt(low)} – ${fmt(high)}</strong></p>
+      <div class="p-4 rounded mb-4" style="background:#fff; border:1px solid var(--border-default); font-family:monospace; font-size:14px;">
+        <p>Estimated Federal Back Tax:&nbsp;&nbsp;&nbsp;&nbsp;${fmt(fedTax)}</p>
+        <p>Estimated State Back Tax (${stateName}):&nbsp;${fmt(stateTax)}</p>
+        <p>Accuracy Penalty (${Math.round(penaltyRate*100)}%):&nbsp;&nbsp;&nbsp;&nbsp;${fmt(penalty)}</p>
+        <p>Interest (estimated):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${fmt(interest)}</p>
+        <p style="border-top:1px solid var(--border-default); padding-top:6px; margin-top:6px; font-weight:700;">Estimated Total Exposure:&nbsp;&nbsp;${fmt(total)}</p>
+      </div>
+      <p class="caption mb-2"><strong>Federal back tax</strong> is calculated as (disallowed deductions × your marginal rate) + (disallowed credits × 100%). Credits reduce tax dollar-for-dollar.</p>
+      <p class="caption mb-2"><strong>State back tax</strong> assumes ${stateName} would follow the federal disallowance.</p>
+      <p class="caption mb-2"><strong>Accuracy penalty</strong> of ${Math.round(penaltyRate*100)}% applies under § 6662. The 40% rate applies in cases involving gross valuation misstatements.</p>
+      <p class="caption mb-4"><strong>Interest</strong> accrues from the original due date at the IRS underpayment rate (~8%/yr). Simple interest used; understates compounding.</p>
+      <div class="p-4 rounded" style="background:#fff; border:1px solid var(--border-default);">
+        <p>This is the kind of analysis Hall CPA does for investors in your position. <a href="#lead-capture" class="text-accent font-semibold underline">Schedule a confidential conversation →</a></p>
+      </div>
+    </div>
+  `;
+}
+
+// ============== FORMS & STATE SELECTORS ==============
+function setSourceCta(value) {
+  document.getElementById('form-source-cta').value = value;
+  document.getElementById('cta-' + (value === 'review' ? 'review' : 'exposure')).style.borderColor = 'var(--accent)';
+  document.getElementById('cta-' + (value === 'review' ? 'exposure' : 'review')).style.borderColor = 'var(--border-default)';
+  document.getElementById('lead-capture').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.getElementById('f-name').focus();
+}
+function populateStateSelects() {
+  const stateSel = document.getElementById('f-state');
+  if (!stateSel) return;
+  let opts = '<option value="">Select your state</option>';
+  Object.entries(STATE_DATA.states).sort((a,b) => a[1].name.localeCompare(b[1].name)).forEach(([code, s]) => {
+    opts += `<option value="${code}">${s.name}</option>`;
+  });
+  stateSel.innerHTML = opts;
+}
+function submitPrimary(e) {
+  e.preventDefault();
+  const status = document.getElementById('form-status');
+  const data = new FormData(e.target);
+  // Honeypot
+  if (data.get('website')) { status.innerHTML = '<p class="text-risk-high">Submission blocked.</p>'; return; }
+  // TODO: replace with real Formspree endpoint, e.g.:
+  // fetch('https://formspree.io/f/FORMSPREE_ID_HERE', { method: 'POST', body: data, headers: {'Accept': 'application/json'} })
+  trackEvent('form_submitted_primary', Object.fromEntries(data));
+  status.innerHTML = `
+    <div class="fade-in p-4 rounded" style="background:#EAF4EE; border:1px solid var(--risk-clear);">
+      <p class="font-semibold mb-1">Submission received.</p>
+      <p>Someone from Hall CPA will reach out within one business day. <a href="#" class="underline">Or grab a slot directly →</a> <span class="caption">[TODO: wire Calendly URL]</span></p>
+    </div>
+  `;
+  e.target.reset();
+}
+function submitWhitepaper(e) {
+  e.preventDefault();
+  const email = document.getElementById('wp-email').value;
+  if (!email) return;
+  trackEvent('form_submitted_whitepaper', { email });
+  // TODO: replace with real Formspree/email endpoint for white paper delivery
+  document.getElementById('wp-status').innerHTML = `
+    <div class="fade-in p-4 rounded" style="background:#EAF4EE; border:1px solid var(--risk-clear);">
+      <p>Your white paper is on the way. Check your email in the next few minutes.</p>
+    </div>
+  `;
+  e.target.reset();
+}
+
+// ============== SCROLL DEPTH TRACKING ==============
+let scrollDepthFired = {};
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY + window.innerHeight) / document.body.scrollHeight * 100;
+  [25, 50, 75, 100].forEach(thresh => {
+    if (pct >= thresh && !scrollDepthFired[thresh]) {
+      scrollDepthFired[thresh] = true;
+      trackEvent('scroll_depth_' + thresh);
+    }
+  });
+}, { passive: true });
+
+// ============== INIT ==============
+document.addEventListener('DOMContentLoaded', () => {
+  rfInit();
+  mpInit();
+  fhInit();
+  olsenInit();
+  mapInit();
+  aeInit();
+  populateStateSelects();
+  // Char count for textarea
+  const msg = document.getElementById('f-msg');
+  if (msg) msg.addEventListener('input', () => { document.getElementById('f-count').textContent = msg.value.length; });
+  // Set max date for recapture to current month
+  const rcDate = document.getElementById('rc-date');
+  if (rcDate) {
+    const now = new Date();
+    rcDate.max = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
+  }
+  // CTA pre-select for hero buttons
+  document.querySelectorAll('[data-cta]').forEach(b => {
+    b.addEventListener('click', () => {
+      document.getElementById('form-source-cta').value = b.dataset.cta;
+    });
+  });
+});
+</script>
+</body>
+</html>
