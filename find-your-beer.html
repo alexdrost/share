@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Your Beer — Dog &amp; Pony Show Brewing</title>
+<style>
+  /* ============================================================
+     CONFIG — THE OWNER EDITS ONE LINE BELOW (in the <script> at
+     the bottom). Everything else is automatic.
+     ============================================================ */
+
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Archivo:wght@400;500;600&display=swap');
+
+  :root {
+    --ink: #2b2118;
+    --ink-soft: #6b5d4d;
+    --cream: #f5efe3;
+    --paper: #fbf7ee;
+    --amber: #c8741f;
+    --amber-deep: #9c5410;
+    --foam: #fff;
+    --line: #e3d8c4;
+    --shadow: rgba(43, 33, 24, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Archivo', sans-serif;
+    background: var(--cream);
+    background-image: radial-gradient(circle at 20% 10%, rgba(200,116,31,0.06), transparent 40%),
+                      radial-gradient(circle at 85% 90%, rgba(156,84,16,0.05), transparent 45%);
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 18px;
+    line-height: 1.5;
+  }
+
+  .app {
+    width: 100%;
+    max-width: 460px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    box-shadow: 0 18px 50px var(--shadow);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .topbar {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 20px 26px 18px;
+    text-align: center;
+  }
+  .topbar .kicker {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    font-weight: 600;
+  }
+  .topbar h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 1.1;
+    margin-top: 4px;
+  }
+
+  .stage { padding: 28px 26px 30px; }
+
+  .progress {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 24px;
+  }
+  .pip {
+    height: 4px;
+    flex: 1;
+    border-radius: 2px;
+    background: var(--line);
+    transition: background 0.3s;
+  }
+  .pip.on { background: var(--amber); }
+
+  .q-label {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--amber-deep);
+    font-weight: 600;
+  }
+  .q-text {
+    font-family: 'Fraunces', serif;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 8px 0 22px;
+    color: var(--ink);
+  }
+
+  .opts { display: flex; flex-direction: column; gap: 11px; }
+  .opt {
+    text-align: left;
+    background: var(--foam);
+    border: 1.5px solid var(--line);
+    border-radius: 13px;
+    padding: 16px 18px;
+    font-family: 'Archivo', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+    cursor: pointer;
+    transition: transform 0.12s, border-color 0.15s, background 0.15s;
+  }
+  .opt:hover { border-color: var(--amber); background: #fffdf8; transform: translateY(-1px); }
+  .opt:active { transform: translateY(0); }
+  .opt .sub { display: block; font-size: 13px; font-weight: 400; color: var(--ink-soft); margin-top: 2px; }
+
+  /* Result */
+  .result { text-align: center; animation: rise 0.5s ease; }
+  @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .result .lead {
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--amber-deep); font-weight: 600;
+  }
+  .result .beer {
+    font-family: 'Fraunces', serif;
+    font-size: 34px; font-weight: 600; line-height: 1.05;
+    margin: 8px 0 4px; color: var(--ink);
+  }
+  .result .style-tag {
+    display: inline-block; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.04em; color: var(--amber-deep);
+    background: rgba(200,116,31,0.12); border-radius: 20px;
+    padding: 4px 13px; margin-bottom: 16px;
+  }
+  .result .why {
+    font-size: 16px; color: var(--ink-soft); line-height: 1.55;
+    max-width: 320px; margin: 0 auto 8px;
+  }
+  .result .alt {
+    font-size: 14px; color: var(--ink-soft); margin-top: 18px;
+    padding-top: 16px; border-top: 1px solid var(--line);
+  }
+  .result .alt strong { color: var(--ink); font-weight: 600; }
+
+  .restart {
+    margin-top: 24px; background: var(--ink); color: var(--cream);
+    border: none; border-radius: 12px; padding: 14px 22px;
+    font-family: 'Archivo', sans-serif; font-size: 15px; font-weight: 600;
+    cursor: pointer; transition: background 0.15s;
+  }
+  .restart:hover { background: #1d1610; }
+
+  .note {
+    font-size: 12px; color: var(--ink-soft); text-align: center;
+    padding: 0 26px 20px; line-height: 1.5;
+  }
+
+  .loading, .error {
+    text-align: center; padding: 30px 10px; color: var(--ink-soft);
+  }
+  .error { color: var(--amber-deep); }
+  .spinner {
+    width: 28px; height: 28px; border: 3px solid var(--line);
+    border-top-color: var(--amber); border-radius: 50%;
+    margin: 0 auto 14px; animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+  <div class="app">
+    <div class="topbar">
+      <div class="kicker">Dog &amp; Pony Show Brewing</div>
+      <h1>Find your beer</h1>
+    </div>
+    <div id="stage" class="stage">
+      <div class="loading">
+        <div class="spinner"></div>
+        Pouring the list…
+      </div>
+    </div>
+    <div class="note" id="note"></div>
+  </div>
+
+<script>
+/* ============================================================================
+   STEP 1 — THE OWNER PASTES THEIR PUBLISHED-SHEET CSV LINK HERE.
+   In Google Sheets:  File → Share → Publish to web → (pick the tab) → CSV → Publish.
+   Copy that link and paste it between the quotes below.
+   Leave it as "" to run on the built-in demo list.
+   ============================================================================ */
+const SHEET_CSV_URL = "";
+
+/* ----------------------------------------------------------------------------
+   THE QUESTIONS.  Each answer carries scores that steer toward a bucket.
+   You normally never need to touch these.
+   ---------------------------------------------------------------------------- */
+const QUESTIONS = [
+  {
+    label: "Question 1 of 3",
+    text: "What are you in the mood for?",
+    options: [
+      { text: "Light & crisp", sub: "Easy-drinking, refreshing", weights: { lager: 3, pale: 1 } },
+      { text: "Full & rich", sub: "Bigger, more to chew on", weights: { dark: 3, specialty: 1 } },
+      { text: "Somewhere in the middle", sub: "Balanced, not too heavy", weights: { pale: 3, lager: 1, hoppy: 1 } },
+    ],
+  },
+  {
+    label: "Question 2 of 3",
+    text: "How do you feel about hoppy, bitter beers like IPAs?",
+    options: [
+      { text: "Love them", sub: "Bring on the hops", weights: { hoppy: 3 } },
+      { text: "Not for me", sub: "I'll pass on bitter", weights: { lager: 2, dark: 1, fruity: 1 } },
+      { text: "Somewhere in between", sub: "A little is fine", weights: { pale: 2, hoppy: 1 } },
+    ],
+  },
+  {
+    label: "Question 3 of 3",
+    text: "Want a reliable favorite, or something new?",
+    options: [
+      { text: "Safe & tasty", sub: "Give me a crowd-pleaser", weights: { _safe: true } },
+      { text: "Surprise me", sub: "Show me something different", weights: { specialty: 3, fruity: 2, dark: 1, _adventurous: true } },
+      { text: "Show me both", sub: "A pick and a wildcard", weights: { _adventurous: true } },
+    ],
+  },
+];
+
+/* Friendly descriptor per bucket, used in the result line. */
+const BUCKET_BLURB = {
+  lager:     "light, crisp, and our easiest drinking",
+  hoppy:     "bold, hop-forward, and aromatic",
+  pale:      "balanced and approachable — a great all-rounder",
+  dark:      "rich, malty, and full of roasty depth",
+  fruity:    "bright, fruity, and a little different",
+  specialty: "one of our more adventurous pours",
+};
+
+/* Fallback order if a chosen bucket has nothing on tap. */
+const FALLBACK = {
+  lager:     ["pale", "hoppy", "fruity", "dark", "specialty"],
+  hoppy:     ["pale", "lager", "specialty", "dark", "fruity"],
+  pale:      ["lager", "hoppy", "fruity", "dark", "specialty"],
+  dark:      ["specialty", "pale", "hoppy", "lager", "fruity"],
+  fruity:    ["pale", "lager", "specialty", "hoppy", "dark"],
+  specialty: ["dark", "hoppy", "pale", "fruity", "lager"],
+};
+
+/* Built-in demo beers so the app works before the sheet is connected.
+   Columns mirror the Google Sheet: name, bucket, on_tap (Y/N), blurb (optional), featured (optional). */
+const DEMO_BEERS = [
+  { name: "KLAGER",  bucket: "lager",     on_tap: "Y", blurb: "", featured: "Y" },
+  { name: "PILS",    bucket: "lager",     on_tap: "Y", blurb: "", featured: "" },
+  { name: "Cheetah", bucket: "hoppy",     on_tap: "Y", blurb: "Our flagship hazy IPA", featured: "Y" },
+  { name: "OPA",     bucket: "pale",      on_tap: "Y", blurb: "", featured: "Y" },
+  { name: "Night Shift Stout", bucket: "dark", on_tap: "Y", blurb: "", featured: "" },
+  { name: "Sun Sip Sour",      bucket: "fruity", on_tap: "Y", blurb: "Raspberry kettle sour", featured: "" },
+  { name: "Barrel No. 7 Barleywine", bucket: "specialty", on_tap: "Y", blurb: "Bourbon-barrel aged, sip slow", featured: "" },
+];
+
+/* ----------------------------------------------------------------------------
+   ENGINE — no edits needed below here.
+   ---------------------------------------------------------------------------- */
+let BEERS = [];
+let answers = [];
+let step = 0;
+
+const stage = document.getElementById('stage');
+const note = document.getElementById('note');
+
+function parseCSV(text) {
+  const lines = text.trim().split(/\r?\n/);
+  if (!lines.length) return [];
+  const split = (line) => {
+    const out = []; let cur = ""; let q = false;
+    for (let i = 0; i < line.length; i++) {
+      const c = line[i];
+      if (c === '"') { if (q && line[i+1] === '"') { cur += '"'; i++; } else q = !q; }
+      else if (c === ',' && !q) { out.push(cur); cur = ""; }
+      else cur += c;
+    }
+    out.push(cur);
+    return out.map(s => s.trim());
+  };
+  const headers = split(lines[0]).map(h => h.toLowerCase().replace(/\s+/g, '_'));
+  return lines.slice(1).map(line => {
+    const cells = split(line);
+    const row = {};
+    headers.forEach((h, i) => row[h] = cells[i] || "");
+    return row;
+  });
+}
+
+function normalizeBeers(rows) {
+  return rows
+    .filter(r => (r.name || r.beer || r.beer_name || "").length)
+    .map(r => ({
+      name: r.name || r.beer || r.beer_name,
+      bucket: (r.bucket || r.style_bucket || "").toLowerCase().trim(),
+      on_tap: (r.on_tap || r.on_tap_ || r.available || r.ontap || "Y").trim().toUpperCase(),
+      blurb: r.blurb || r.description || r.note || "",
+      featured: (r.featured || r.flagship || "").trim().toUpperCase(),
+    }));
+}
+
+function onTap(b) { return b.on_tap === "Y" || b.on_tap === "YES" || b.on_tap === "TRUE" || b.on_tap === "1"; }
+
+async function loadBeers() {
+  if (!SHEET_CSV_URL) {
+    BEERS = normalizeBeers(DEMO_BEERS);
+    note.textContent = "Demo list — connect a Google Sheet to go live.";
+    return startQuiz();
+  }
+  try {
+    const res = await fetch(SHEET_CSV_URL);
+    if (!res.ok) throw new Error("fetch failed");
+    const csv = await res.text();
+    BEERS = normalizeBeers(parseCSV(csv));
+    if (!BEERS.length) throw new Error("no beers");
+    note.textContent = "";
+    startQuiz();
+  } catch (e) {
+    BEERS = normalizeBeers(DEMO_BEERS);
+    note.textContent = "Couldn't reach the live list — showing a sample. Check the sheet link.";
+    startQuiz();
+  }
+}
+
+function startQuiz() {
+  answers = []; step = 0;
+  renderQuestion();
+}
+
+function renderProgress() {
+  let pips = "";
+  for (let i = 0; i < QUESTIONS.length; i++) pips += `<div class="pip ${i <= step ? 'on' : ''}"></div>`;
+  return `<div class="progress">${pips}</div>`;
+}
+
+function renderQuestion() {
+  const q = QUESTIONS[step];
+  let html = renderProgress();
+  html += `<div class="q-label">${q.label}</div><div class="q-text">${q.text}</div><div class="opts">`;
+  q.options.forEach((o, i) => {
+    html += `<button class="opt" data-i="${i}"><span>${o.text}</span><span class="sub">${o.sub}</span></button>`;
+  });
+  html += `</div>`;
+  stage.innerHTML = html;
+  stage.querySelectorAll('.opt').forEach(btn => {
+    btn.addEventListener('click', () => choose(parseInt(btn.dataset.i)));
+  });
+}
+
+function choose(i) {
+  answers.push(QUESTIONS[step].options[i].weights);
+  step++;
+  if (step < QUESTIONS.length) renderQuestion();
+  else showResult();
+}
+
+function tally() {
+  const scores = {};
+  let safe = false, adventurous = false;
+  answers.forEach(w => {
+    for (const k in w) {
+      if (k === '_safe') { safe = true; continue; }
+      if (k === '_adventurous') { adventurous = true; continue; }
+      scores[k] = (scores[k] || 0) + w[k];
+    }
+  });
+  return { scores, safe, adventurous };
+}
+
+function pickFromBucket(bucket, opts = {}) {
+  let pool = BEERS.filter(b => b.bucket === bucket && onTap(b));
+  if (!pool.length) return null;
+  // Safe paths prefer the flagship/featured beers; adventurous paths prefer non-featured.
+  if (opts.safe) {
+    const feat = pool.filter(b => b.featured === "Y");
+    if (feat.length) pool = feat;
+  } else if (opts.adventurous) {
+    const non = pool.filter(b => b.featured !== "Y");
+    if (non.length) pool = non;
+  }
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+function resolve(primary, opts) {
+  let pick = pickFromBucket(primary, opts);
+  if (pick) return { pick, bucket: primary };
+  for (const fb of (FALLBACK[primary] || [])) {
+    pick = pickFromBucket(fb, opts);
+    if (pick) return { pick, bucket: fb };
+  }
+  // Absolute last resort: anything on tap.
+  const any = BEERS.filter(onTap);
+  if (any.length) { const p = any[Math.floor(Math.random()*any.length)]; return { pick: p, bucket: p.bucket }; }
+  return null;
+}
+
+function showResult() {
+  const { scores, safe, adventurous } = tally();
+  const ranked = Object.keys(scores).sort((a, b) => scores[b] - scores[a]);
+  const primary = ranked[0] || "pale";
+
+  const main = resolve(primary, { safe, adventurous });
+
+  if (!main) {
+    stage.innerHTML = renderProgress() +
+      `<div class="error">Looks like the taps are between pours right now — ask a bartender and they'll point you to something great.</div>` +
+      `<div style="text-align:center"><button class="restart" id="again">Start over</button></div>`;
+    document.getElementById('again').addEventListener('click', startQuiz);
+    return;
+  }
+
+  const blurb = main.pick.blurb && main.pick.blurb.length
+    ? main.pick.blurb
+    : `It's ${BUCKET_BLURB[main.bucket] || "a great pick"}.`;
+
+  // Wildcard for "show me both": a different on-tap beer from a different bucket.
+  let altHtml = "";
+  if (adventurous && !safe) {
+    const others = BEERS.filter(b => onTap(b) && b.name !== main.pick.name);
+    if (others.length) {
+      const wild = others[Math.floor(Math.random() * others.length)];
+      altHtml = `<div class="alt">Feeling bold? Also try <strong>${wild.name}</strong>.</div>`;
+    }
+  }
+
+  stage.innerHTML = `
+    <div class="result">
+      <div class="lead">We think you'll like</div>
+      <div class="beer">${main.pick.name}</div>
+      <div class="style-tag">${labelFor(main.bucket)}</div>
+      <div class="why">${blurb}</div>
+      ${altHtml}
+      <button class="restart" id="again">Try again</button>
+    </div>`;
+  document.getElementById('again').addEventListener('click', startQuiz);
+}
+
+function labelFor(bucket) {
+  const map = { lager: "Lager", hoppy: "Hoppy / IPA", pale: "Pale ale", dark: "Dark & roasty", fruity: "Fruity / sour", specialty: "Specialty" };
+  return map[bucket] || "On tap now";
+}
+
+loadBeers();
+</script>
+</body>
+</html>
