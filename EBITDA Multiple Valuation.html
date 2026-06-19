@@ -33,7 +33,7 @@
 
   .masthead{border-bottom:1px solid var(--line);padding:20px 0 18px;position:sticky;top:0;z-index:50;background:rgba(12,20,29,.88);backdrop-filter:blur(10px)}
   .masthead .wrap{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
-  .brandmark{font-family:var(--mono);font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .brandmark{font-family:var(--mono);font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600;text-decoration:none;cursor:pointer}
   .brandmark span{color:var(--ink-dim)}
   nav{display:flex;gap:4px;flex-wrap:wrap}
   nav a{font-family:var(--mono);font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-dim);text-decoration:none;padding:7px 12px;border-radius:6px;transition:.18s}
@@ -195,7 +195,7 @@
   .disclaim{color:var(--ink-faint);max-width:78ch;line-height:1.65;font-family:var(--sans);font-size:13.5px}
   /* ---------- hover & interaction polish ---------- */
   .brandmark{transition:color .18s}
-  .brandmark:hover{color:#5cb0e6;cursor:default}
+  .brandmark:hover{color:#5cb0e6}
   .formula-stage{transition:border-color .25s,transform .25s}
   .formula-stage:hover{border-color:var(--accent);transform:translateY(-2px)}
   .mult-out{cursor:default}
@@ -234,15 +234,15 @@
 </style>
 </head>
 <body>
+<span id="top" aria-hidden="true"></span>
 
 <div class="masthead">
   <div class="wrap">
-    <div class="brandmark">EBITDA Multiple <span>/ Valuation Mechanics</span></div>
+    <a href="#top" class="brandmark">EBITDA Multiple <span>/ Valuation Mechanics</span></a>
     <nav>
-      <a href="#formula">The math</a>
       <a href="#calc">Calculator</a>
       <a href="#dcf">Growth horizon</a>
-      <a href="#disruption">Disruption</a>
+      <a href="#disruption">AI disruption</a>
       <a href="#timing">Market timing</a>
     </nav>
   </div>
