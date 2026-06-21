@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Berkley Pepper Co. — Concepts & Elements</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Sans:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,600&family=Space+Grotesk:wght@300;400;500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400;500;600&family=Archivo:wght@400;500;600;700;800;900&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+
+/* ===== MASTER MODE TOGGLE ===== */
+.master-bar{position:fixed;top:0;left:0;right:0;z-index:11000;height:56px;background:#060504;border-bottom:1px solid rgba(184,114,42,.22);display:flex;align-items:center;padding:0 22px;gap:18px}
+.master-bar .mb-brand{font-family:'DM Sans';font-weight:600;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#D4922E;white-space:nowrap}
+.master-bar .mb-brand span{color:rgba(237,230,216,.4)}
+.master-toggle{display:flex;gap:0;margin-left:8px;border:1px solid rgba(184,114,42,.3);border-radius:100px;overflow:hidden}
+.master-toggle button{background:transparent;border:none;color:rgba(237,230,216,.6);font-family:'DM Sans';font-weight:600;font-size:.74rem;letter-spacing:.04em;padding:9px 22px;cursor:pointer;transition:.2s}
+.master-toggle button.on{background:#B8722A;color:#0a0907}
+.master-bar .mb-hint{margin-left:auto;font-family:'DM Sans';font-size:.7rem;font-weight:300;color:rgba(237,230,216,.45)}
+@media(max-width:680px){.master-bar .mb-hint{display:none}}
+.mode{display:none}
+.mode.live{display:block}
+/* offset the two inner sub-navs so they sit BELOW the master bar (was top:0 / top:62px) */
+#mode-concepts .shell-bar{top:56px}
+#mode-concepts .frame-wrap{top:calc(56px + 60px)}
+#mode-elements .topbar{top:56px}
+#mode-elements .layout{padding-top:calc(56px + 62px)}
+#mode-elements .sidenav{top:calc(56px + 62px);height:calc(100vh - 56px - 62px)}
+
+/* ===== concept gallery CSS ===== */
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#1a1a1a;color:#fff;overflow-x:hidden}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+/* ============ GALLERY SHELL ============ */
+.shell-bar{position:fixed;top:0;left:0;right:0;z-index:9999;background:rgba(12,11,10,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.08);height:60px;display:flex;align-items:center;padding:0 20px;gap:8px}
+.shell-brand{font-family:'DM Sans';font-weight:600;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#B8722A;margin-right:auto;white-space:nowrap}
+.shell-brand span{color:rgba(255,255,255,.4)}
+.shell-tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.shell-tabs::-webkit-scrollbar{display:none}
+.shell-tab{flex:none;background:transparent;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.6);font-family:'DM Sans';font-size:.68rem;font-weight:500;letter-spacing:.04em;padding:7px 13px;border-radius:100px;cursor:pointer;transition:all .25s;white-space:nowrap}
+.shell-tab:hover{border-color:rgba(255,255,255,0.35);color:#fff}
+.shell-tab.active{background:#B8722A;border-color:#B8722A;color:#0c0b0a;font-weight:600}
+.shell-tab b{font-weight:700;margin-right:5px}
+.frame-wrap{position:fixed;top:60px;left:0;right:0;bottom:0;overflow-y:auto;overflow-x:hidden}
+.concept{display:none;min-height:100%}
+.concept.live{display:block}
+.note{max-width:760px;margin:0 auto;padding:26px 28px;background:rgba(184,114,42,.06);border-bottom:1px solid rgba(184,114,42,.18)}
+.note h4{font-family:'DM Sans';font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:#B8722A;margin-bottom:9px;font-weight:600}
+.note p{font-family:'DM Sans';font-size:.9rem;line-height:1.6;color:rgba(255,255,255,.72);font-weight:300}
+.note p b{color:rgba(255,255,255,.95);font-weight:600}
+
+/* ===== C1 THE RESERVE ===== */
+#c1{--bg:#0A0907;--c2:#131009;--c3:#1A1510;--cu:#B8722A;--cul:#D4922E;--cr:#EDE6D8;--crd:rgba(237,230,216,.54);background:var(--bg);color:var(--cr);font-family:'DM Sans'}
+#c1 .grain{position:absolute;inset:0;pointer-events:none;opacity:.03;z-index:1;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+#c1 .h{position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:90px 24px;overflow:hidden}
+#c1 .h .rule{width:1px;height:54px;background:linear-gradient(var(--cu),transparent);margin-bottom:30px}
+#c1 .eb{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--cul);margin-bottom:26px}
+#c1 .h1{font-family:'Cormorant Garamond';font-weight:600;font-size:clamp(3rem,8vw,6.2rem);line-height:.98;letter-spacing:-.01em}
+#c1 .h1 i{font-style:italic;color:var(--cul);font-weight:500}
+#c1 .sub{max-width:520px;margin:30px auto 0;font-weight:300;font-size:1.04rem;line-height:1.7;color:var(--crd)}
+#c1 .cta{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap;justify-content:center}
+#c1 .btn{font-family:'DM Sans';font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;padding:15px 30px;border-radius:2px;cursor:pointer;font-weight:500;transition:.3s;text-decoration:none;display:inline-block}
+#c1 .btn-p{background:var(--cu);color:#0a0907;border:1px solid var(--cu)}
+#c1 .btn-p:hover{background:var(--cul);border-color:var(--cul)}
+#c1 .btn-g{background:transparent;color:var(--cr);border:1px solid rgba(237,230,216,.22)}
+#c1 .btn-g:hover{border-color:var(--cu)}
+#c1 .shape{position:absolute;border:1px solid rgba(184,114,42,.16);z-index:0}
+#c1 .s1{width:240px;height:240px;border-radius:50%;top:14%;left:8%;animation:c1f 16s ease-in-out infinite}
+#c1 .s2{width:120px;height:120px;top:60%;right:12%;transform:rotate(45deg);animation:c1f 12s ease-in-out infinite reverse}
+#c1 .s3{width:8px;height:8px;border-radius:50%;background:var(--cu);border:none;top:30%;right:24%;animation:c1f 9s ease-in-out infinite}
+@keyframes c1f{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-26px) rotate(var(--r,0deg))}}
+#c1 .strip{background:var(--c2);border-top:1px solid rgba(184,114,42,.14);border-bottom:1px solid rgba(184,114,42,.14);display:flex;justify-content:center;flex-wrap:wrap;gap:0;position:relative;z-index:2}
+#c1 .strip span{padding:22px 34px;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--crd);position:relative}
+#c1 .strip span:not(:last-child)::after{content:'';position:absolute;right:0;top:30%;height:40%;width:1px;background:rgba(184,114,42,.3)}
+#c1 .sec{position:relative;z-index:2;padding:96px 24px;max-width:1140px;margin:0 auto}
+#c1 .sh{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--cul);margin-bottom:18px}
+#c1 .st{font-family:'Cormorant Garamond';font-weight:600;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.05;margin-bottom:14px}
+#c1 .story{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center}
+#c1 .story p{font-weight:300;line-height:1.8;color:var(--crd);margin-bottom:18px;font-size:1.02rem}
+#c1 .story p i{font-style:italic;color:var(--cr)}
+#c1 .qcard{background:var(--c3);border:1px solid rgba(184,114,42,.18);border-radius:3px;padding:46px 40px}
+#c1 .qcard .q{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;font-size:2rem;line-height:1.2;color:var(--cul);margin-bottom:22px}
+#c1 .qcard p{font-size:.94rem;color:var(--crd);line-height:1.7;font-weight:300}
+#c1 .qcard .tag{margin-top:26px;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cu)}
+#c1 .secd{background:var(--c2)}
+#c1 .tabs{display:flex;gap:8px;margin-bottom:36px}
+#c1 .tab{background:transparent;border:1px solid rgba(184,114,42,.25);color:var(--crd);padding:11px 22px;border-radius:2px;font-family:'DM Sans';font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:.25s}
+#c1 .tab.on{background:var(--cu);color:#0a0907;border-color:var(--cu);font-weight:600}
+#c1 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+#c1 .card{background:var(--card,rgba(184,114,42,.05));border:1px solid rgba(184,114,42,.16);border-radius:3px;padding:28px 26px;transition:.3s}
+#c1 .card:hover{border-color:rgba(184,114,42,.4);transform:translateY(-3px)}
+#c1 .card .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+#c1 .badge{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+#c1 .badge.in{color:#7DBF8E}#c1 .badge.seasonal{color:var(--cul)}
+#c1 .pips{display:flex;gap:4px}
+#c1 .pip{width:20px;height:3px;background:rgba(184,114,42,.2)}
+#c1 .pip.f{background:var(--cu)}
+#c1 .card h3{font-family:'Cormorant Garamond';font-weight:600;font-size:1.5rem;margin-bottom:10px;line-height:1.1}
+#c1 .card .nt{font-size:.9rem;color:var(--crd);line-height:1.6;font-weight:300;margin-bottom:16px}
+#c1 .card .ing{font-size:.74rem;color:rgba(237,230,216,.4);line-height:1.5;border-top:1px solid rgba(184,114,42,.14);padding-top:14px}
+#c1 .collab{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+#c1 .collab p{font-weight:300;line-height:1.8;color:var(--crd);font-size:1.02rem;margin-bottom:20px}
+#c1 .ccard{background:var(--c3);border:1px solid rgba(184,114,42,.2);border-radius:3px;padding:48px 40px;text-align:center}
+#c1 .ccard .em{font-size:2.4rem;margin-bottom:20px}
+#c1 .ccard h3{font-family:'Cormorant Garamond';font-size:2rem;font-weight:600;margin-bottom:8px}
+#c1 .ccard .tag{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cu);margin-top:16px}
+#c1 .ccard a{color:var(--cul);text-decoration:none;border-bottom:1px solid rgba(212,146,46,.4)}
+#c1 .find{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+#c1 .fcard{border:1px solid rgba(184,114,42,.16);border-radius:3px;padding:34px 28px}
+#c1 .fcard .num{font-family:'Cormorant Garamond';font-size:2.4rem;color:var(--cu);font-weight:600;margin-bottom:14px}
+#c1 .fcard h3{font-family:'Cormorant Garamond';font-size:1.4rem;margin-bottom:10px}
+#c1 .fcard p{font-size:.9rem;color:var(--crd);line-height:1.6;font-weight:300}
+#c1 .signup{text-align:center;max-width:620px;margin:0 auto}
+#c1 .perks{display:flex;justify-content:center;gap:26px;flex-wrap:wrap;margin:26px 0 30px}
+#c1 .perks span{font-size:.74rem;letter-spacing:.06em;color:var(--crd)}
+#c1 .perks span::before{content:'·';color:var(--cu);margin-right:8px}
+#c1 .form{display:flex;gap:10px;max-width:440px;margin:0 auto}
+#c1 .form input{flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(184,114,42,.25);color:var(--cr);padding:15px 18px;border-radius:2px;font-family:'DM Sans';font-size:.9rem}
+#c1 .form input:focus{outline:none;border-color:var(--cu)}
+#c1 .closing{text-align:center;padding:110px 24px}
+#c1 .closing .h1{margin-bottom:34px}
+#c1 .ft{background:#070604;border-top:1px solid rgba(184,114,42,.14);padding:34px 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;max-width:1140px;margin:0 auto;font-size:.78rem;color:var(--crd)}
+#c1 .ft b{color:var(--cul);font-weight:500}
+@media(max-width:820px){#c1 .story,#c1 .collab{grid-template-columns:1fr}#c1 .grid,#c1 .find{grid-template-columns:1fr}}
+
+/* ===== C2 THE PROVISION — warm larder / apothecary ===== */
+#c2{--paper:#E8DFCB;--paper2:#DDD2B8;--ink:#23201A;--ink2:#4A4538;--rust:#9C3B1B;--rust2:#C24E27;--olive:#5C5A38;--gold:#A07823;background:var(--paper);color:var(--ink);font-family:'Spectral',serif}
+#c2 .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+#c2 .mast{border-bottom:3px double var(--ink);padding:26px 0;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px}
+#c2 .mast .nm{font-family:'Libre Caslon Text';font-weight:700;font-size:1.2rem;letter-spacing:.02em}
+#c2 .mast .est{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink2)}
+#c2 .hero{padding:80px 0 70px;text-align:center;border-bottom:1px solid rgba(35,32,26,.2);position:relative}
+#c2 .hero .kick{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--rust);margin-bottom:24px}
+#c2 .hero h1{font-family:'Libre Caslon Text';font-weight:700;font-size:clamp(2.6rem,7vw,5rem);line-height:1.02;letter-spacing:-.01em}
+#c2 .hero h1 em{font-style:italic;color:var(--rust)}
+#c2 .hero .lead{max-width:540px;margin:26px auto 0;font-size:1.08rem;line-height:1.7;color:var(--ink2)}
+#c2 .seal{width:96px;height:96px;border:1.5px solid var(--rust);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;margin:36px auto 0;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);line-height:1.5;font-family:'Spectral'}
+#c2 .hero .acts{margin-top:34px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+#c2 .lk{font-family:'Spectral';font-size:.84rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--rust);padding-bottom:3px;transition:.2s}
+#c2 .lk:hover{color:var(--rust)}
+#c2 .ribbon{background:var(--ink);color:var(--paper);display:flex;justify-content:center;flex-wrap:wrap}
+#c2 .ribbon span{padding:16px 26px;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-family:'Spectral'}
+#c2 .ribbon span+span{border-left:1px solid rgba(232,223,203,.2)}
+#c2 .blk{padding:74px 0;border-bottom:1px solid rgba(35,32,26,.18)}
+#c2 .ov{font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--rust);margin-bottom:14px}
+#c2 .ttl{font-family:'Libre Caslon Text';font-weight:700;font-size:clamp(2rem,4.6vw,3rem);line-height:1.08;margin-bottom:26px}
+#c2 .story2{display:grid;grid-template-columns:1.3fr 1fr;gap:54px}
+#c2 .story2 .col p{font-size:1.04rem;line-height:1.85;color:var(--ink2);margin-bottom:18px;text-indent:0}
+#c2 .story2 .col p:first-of-type::first-letter{font-family:'Libre Caslon Text';font-size:3.4rem;float:left;line-height:.8;padding:6px 10px 0 0;color:var(--rust)}
+#c2 .aside{background:var(--paper2);border:1px solid rgba(35,32,26,.2);padding:34px 30px}
+#c2 .aside .q{font-family:'Libre Caslon Text';font-style:italic;font-size:1.5rem;line-height:1.3;margin-bottom:18px}
+#c2 .aside p{font-size:.92rem;line-height:1.7;color:var(--ink2)}
+#c2 .aside .tag{margin-top:20px;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rust)}
+#c2 .ledger{display:grid;grid-template-columns:1fr 1fr;gap:0 50px;margin-top:10px}
+#c2 .tabs2{display:flex;gap:0;margin-bottom:8px;border-bottom:1px solid rgba(35,32,26,.3)}
+#c2 .tab2{background:none;border:none;font-family:'Spectral';font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;padding:12px 18px;cursor:pointer;color:var(--ink2);border-bottom:2px solid transparent;margin-bottom:-1px}
+#c2 .tab2.on{color:var(--rust);border-bottom-color:var(--rust);font-weight:600}
+#c2 .item{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:baseline;padding:20px 0;border-bottom:1px dotted rgba(35,32,26,.3)}
+#c2 .item .idx{font-family:'Libre Caslon Text';font-size:.84rem;color:var(--gold);width:24px}
+#c2 .item .main h3{font-family:'Libre Caslon Text';font-weight:700;font-size:1.28rem;display:inline}
+#c2 .item .main .st{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;margin-left:10px;vertical-align:middle}
+#c2 .item .st.in{color:var(--olive)}#c2 .item .st.seasonal{color:var(--gold)}
+#c2 .item .main .nt{font-size:.9rem;color:var(--ink2);margin-top:5px;line-height:1.5}
+#c2 .item .main .ing{font-size:.74rem;color:rgba(35,32,26,.5);margin-top:7px;font-style:italic}
+#c2 .item .heat{font-family:'Spectral';font-size:.78rem;letter-spacing:.1em;color:var(--rust);white-space:nowrap;text-align:right}
+#c2 .item .heat .dot{color:rgba(156,59,27,.25)}
+#c2 .collab2{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+#c2 .collab2 p{font-size:1.04rem;line-height:1.8;color:var(--ink2);margin-bottom:18px}
+#c2 .collab2 a{color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(156,59,27,.4)}
+#c2 .label{background:var(--paper2);border:1px solid var(--ink);padding:40px 34px;text-align:center;position:relative}
+#c2 .label::before{content:'';position:absolute;inset:7px;border:1px solid rgba(35,32,26,.3)}
+#c2 .label .in2{position:relative}
+#c2 .label .sm{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--rust)}
+#c2 .label h3{font-family:'Libre Caslon Text';font-weight:700;font-size:1.9rem;margin:12px 0 6px}
+#c2 .label .desc{font-size:.82rem;font-style:italic;color:var(--ink2)}
+#c2 .findrow{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+#c2 .findrow .f h3{font-family:'Libre Caslon Text';font-weight:700;font-size:1.3rem;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--rust)}
+#c2 .findrow .f p{font-size:.92rem;line-height:1.65;color:var(--ink2)}
+#c2 .sgn{text-align:center;max-width:560px;margin:0 auto}
+#c2 .sgn .f2{display:flex;gap:0;margin-top:26px;border:1px solid var(--ink)}
+#c2 .sgn input{flex:1;border:none;background:var(--paper);padding:15px 18px;font-family:'Spectral';font-size:.94rem;color:var(--ink)}
+#c2 .sgn input:focus{outline:none;background:#fff}
+#c2 .sgn button{background:var(--ink);color:var(--paper);border:none;padding:0 26px;font-family:'Spectral';font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+#c2 .foot{background:var(--ink);color:var(--paper);padding:30px 0}
+#c2 .foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.78rem;letter-spacing:.06em}
+#c2 .foot a{color:var(--rust2);text-decoration:none}
+@media(max-width:820px){#c2 .story2,#c2 .collab2,#c2 .ledger{grid-template-columns:1fr}#c2 .findrow{grid-template-columns:1fr;gap:24px}}
+
+/* ===== C3 THE BACKYARD — botanical / seed-packet ===== */
+#c3{--soil:#1E1B14;--soil2:#262219;--cream:#F2ECDD;--cream2:#E4DAC2;--leaf:#6E7A45;--leaf2:#8B9656;--copper:#C06B2E;--copper2:#E08A3E;--dim:rgba(242,236,221,.55);background:var(--soil);color:var(--cream);font-family:'DM Sans'}
+#c3 .bg{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;background-image:radial-gradient(circle at 20% 20%,rgba(110,122,69,.12),transparent 40%),radial-gradient(circle at 80% 70%,rgba(192,107,46,.1),transparent 45%)}
+#c3 .wrap{max-width:1120px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+#c3 .nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-bottom:1px solid rgba(242,236,221,.12)}
+#c3 .nav .lg{font-family:'Fraunces';font-weight:600;font-size:1.15rem}
+#c3 .nav .lg b{color:var(--leaf2);font-weight:600}
+#c3 .nav .mn{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+#c3 .hero{padding:90px 0 80px;position:relative}
+#c3 .hgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+#c3 .hero .eb{font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--leaf2);margin-bottom:22px;display:flex;align-items:center;gap:12px}
+#c3 .hero .eb::before{content:'';width:30px;height:1px;background:var(--leaf2)}
+#c3 .hero h1{font-family:'Fraunces';font-weight:600;font-size:clamp(2.8rem,6.5vw,5rem);line-height:1;letter-spacing:-.02em}
+#c3 .hero h1 em{font-style:italic;color:var(--copper2);font-weight:500}
+#c3 .hero .lead{margin-top:26px;font-size:1.06rem;line-height:1.7;color:var(--dim);max-width:460px;font-weight:300}
+#c3 .hero .acts{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+#c3 .b{font-family:'DM Sans';font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;padding:14px 26px;border-radius:100px;cursor:pointer;text-decoration:none;transition:.25s}
+#c3 .bp{background:var(--copper);color:#1e1b14}#c3 .bp:hover{background:var(--copper2)}
+#c3 .bg2{background:transparent;color:var(--cream);border:1px solid rgba(242,236,221,.25)}#c3 .bg2:hover{border-color:var(--leaf2)}
+/* seed packet illustration */
+#c3 .packet{border:1.5px solid var(--copper);border-radius:4px;padding:0;overflow:hidden;background:var(--soil2);transform:rotate(-2deg);box-shadow:0 30px 60px rgba(0,0,0,.4)}
+#c3 .packet .pk-top{background:var(--leaf);padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+#c3 .packet .pk-top .t{font-family:'Fraunces';font-weight:600;font-size:1.05rem;color:#1e1b14}
+#c3 .packet .pk-top .n{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(30,27,20,.7)}
+#c3 .packet .pk-body{padding:30px 24px;text-align:center}
+#c3 .pepper-ill{width:120px;height:140px;margin:0 auto}
+#c3 .packet .pk-cap{font-family:'Fraunces';font-style:italic;font-size:1.3rem;margin-top:14px;color:var(--copper2)}
+#c3 .packet .pk-meta{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:8px}
+#c3 .packet .pk-foot{border-top:1px dashed rgba(242,236,221,.25);padding:14px 24px;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);text-align:center}
+#c3 .strip3{display:flex;justify-content:center;flex-wrap:wrap;gap:0;border-top:1px solid rgba(242,236,221,.12);border-bottom:1px solid rgba(242,236,221,.12)}
+#c3 .strip3 span{padding:18px 30px;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);display:flex;align-items:center;gap:10px}
+#c3 .strip3 span::before{content:'❉';color:var(--leaf2);font-size:.8rem}
+#c3 .sec3{padding:84px 0;position:relative}
+#c3 .ov3{font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--leaf2);margin-bottom:14px;display:flex;align-items:center;gap:12px}
+#c3 .ov3::before{content:'';width:24px;height:1px;background:var(--leaf2)}
+#c3 .ttl3{font-family:'Fraunces';font-weight:600;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05;letter-spacing:-.01em;margin-bottom:24px}
+#c3 .story3{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+#c3 .story3 p{font-size:1.04rem;line-height:1.85;color:var(--dim);margin-bottom:18px;font-weight:300}
+#c3 .story3 p em{font-style:italic;color:var(--cream)}
+#c3 .grow{background:var(--soil2);border:1px solid rgba(192,107,46,.3);border-radius:6px;padding:40px 34px;position:relative}
+#c3 .grow .q{font-family:'Fraunces';font-style:italic;font-weight:500;font-size:1.7rem;line-height:1.25;color:var(--copper2);margin-bottom:18px}
+#c3 .grow p{font-size:.92rem;line-height:1.7;color:var(--dim)}
+#c3 .grow .tag{margin-top:22px;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--leaf2)}
+#c3 .secalt{background:var(--soil2)}
+#c3 .tabs3{display:flex;gap:10px;margin:28px 0 36px}
+#c3 .tab3{background:transparent;border:1px solid rgba(242,236,221,.2);color:var(--dim);padding:11px 22px;border-radius:100px;font-family:'DM Sans';font-size:.74rem;letter-spacing:.04em;cursor:pointer;font-weight:500;transition:.25s}
+#c3 .tab3.on{background:var(--leaf);border-color:var(--leaf);color:#1e1b14;font-weight:600}
+#c3 .beds{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+#c3 .bed{background:var(--soil);border:1px solid rgba(242,236,221,.1);border-radius:6px;padding:26px 24px;transition:.3s;position:relative;overflow:hidden}
+#c3 .bed::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--copper);opacity:.6}
+#c3 .bed:hover{border-color:rgba(192,107,46,.4);transform:translateY(-3px)}
+#c3 .bed .bt{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+#c3 .bed .stt{font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;font-weight:600;padding:4px 9px;border-radius:100px}
+#c3 .bed .stt.in{color:var(--leaf2);background:rgba(139,150,86,.12)}
+#c3 .bed .stt.seasonal{color:var(--copper2);background:rgba(192,107,46,.12)}
+#c3 .bed h3{font-family:'Fraunces';font-weight:600;font-size:1.4rem;line-height:1.1;margin-bottom:10px}
+#c3 .bed .heat3{display:flex;gap:3px;margin-bottom:12px}
+#c3 .bed .lf{width:14px;height:14px;color:rgba(242,236,221,.18)}
+#c3 .bed .lf.on{color:var(--copper)}
+#c3 .bed .nt{font-size:.88rem;color:var(--dim);line-height:1.6;font-weight:300;margin-bottom:14px}
+#c3 .bed .ing{font-size:.72rem;color:rgba(242,236,221,.4);line-height:1.5;border-top:1px solid rgba(242,236,221,.1);padding-top:12px}
+#c3 .collab3{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+#c3 .collab3 p{font-size:1.04rem;line-height:1.8;color:var(--dim);margin-bottom:18px;font-weight:300}
+#c3 .collab3 a{color:var(--copper2);text-decoration:none;border-bottom:1px solid rgba(224,138,62,.4)}
+#c3 .cc3{background:var(--soil);border:1px solid rgba(192,107,46,.3);border-radius:6px;padding:44px 36px;text-align:center}
+#c3 .cc3 .em{font-size:2.2rem;margin-bottom:18px}
+#c3 .cc3 h3{font-family:'Fraunces';font-weight:600;font-size:1.8rem;margin-bottom:6px}
+#c3 .cc3 .tag{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--leaf2);margin-top:14px}
+#c3 .find3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+#c3 .fc3{border:1px solid rgba(242,236,221,.12);border-radius:6px;padding:30px 26px}
+#c3 .fc3 h3{font-family:'Fraunces';font-weight:600;font-size:1.3rem;margin-bottom:10px;color:var(--copper2)}
+#c3 .fc3 p{font-size:.9rem;line-height:1.65;color:var(--dim);font-weight:300}
+#c3 .sgn3{text-align:center;max-width:580px;margin:0 auto}
+#c3 .f3{display:flex;gap:10px;margin-top:28px;max-width:440px;margin-left:auto;margin-right:auto}
+#c3 .f3 input{flex:1;background:var(--soil2);border:1px solid rgba(242,236,221,.2);color:var(--cream);padding:15px 18px;border-radius:100px;font-family:'DM Sans';font-size:.9rem}
+#c3 .f3 input:focus{outline:none;border-color:var(--copper)}
+#c3 .ft3{padding:34px 0;border-top:1px solid rgba(242,236,221,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.78rem;color:var(--dim)}
+#c3 .ft3 b{color:var(--copper2);font-weight:500}
+@media(max-width:820px){#c3 .hgrid,#c3 .story3,#c3 .collab3{grid-template-columns:1fr}#c3 .beds,#c3 .find3{grid-template-columns:1fr}#c3 .nav .mn{display:none}}
+
+/* ===== C4 THE INDEX — editorial menu / spec sheet ===== */
+#c4{--bg:#12100D;--bg2:#181510;--paper:#F4EFE6;--ink:#1a1714;--copper:#C8732B;--copperL:#E59A4A;--dim:rgba(244,239,230,.5);--line:rgba(244,239,230,.14);background:var(--bg);color:var(--paper);font-family:'DM Sans'}
+#c4 .wrap{max-width:980px;margin:0 auto;padding:0 30px}
+#c4 .topbar{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}
+#c4 .topbar .lg{font-family:'DM Sans';font-weight:600;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase}
+#c4 .topbar .lg b{color:var(--copperL)}
+#c4 .topbar .mt{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+#c4 .hero4{padding:100px 0 70px;border-bottom:1px solid var(--line)}
+#c4 .hero4 .row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+#c4 .hero4 .ix{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--copperL);margin-bottom:30px}
+#c4 .hero4 h1{font-family:'Fraunces';font-weight:400;font-size:clamp(3rem,9vw,7rem);line-height:.92;letter-spacing:-.025em;max-width:780px}
+#c4 .hero4 h1 em{font-style:italic;color:var(--copperL)}
+#c4 .hero4 .meta{text-align:right;font-size:.78rem;line-height:1.9;color:var(--dim);white-space:nowrap}
+#c4 .hero4 .meta b{color:var(--paper);font-weight:500}
+#c4 .hero4 .lead{margin-top:40px;max-width:560px;font-size:1.1rem;line-height:1.7;color:var(--dim);font-weight:300}
+#c4 .hero4 .acts{margin-top:32px;display:flex;gap:28px}
+#c4 .ln{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--paper);text-decoration:none;border-bottom:1px solid var(--copper);padding-bottom:4px;transition:.2s;font-weight:500}
+#c4 .ln:hover{color:var(--copperL)}
+#c4 .block4{padding:80px 0;border-bottom:1px solid var(--line)}
+#c4 .secnum{display:flex;align-items:baseline;gap:18px;margin-bottom:40px}
+#c4 .secnum .n{font-family:'Fraunces';font-size:1rem;color:var(--copper)}
+#c4 .secnum .t{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--dim)}
+#c4 .secnum .ln2{flex:1;height:1px;background:var(--line)}
+#c4 .story4{display:grid;grid-template-columns:1fr 1.3fr;gap:60px}
+#c4 .story4 h2{font-family:'Fraunces';font-weight:400;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.05;letter-spacing:-.01em}
+#c4 .story4 h2 em{font-style:italic;color:var(--copperL)}
+#c4 .story4 .body p{font-size:1.04rem;line-height:1.85;color:var(--dim);margin-bottom:18px;font-weight:300}
+#c4 .story4 .body p em{font-style:italic;color:var(--paper)}
+#c4 .story4 .pull{margin-top:24px;padding-top:22px;border-top:1px solid var(--line);font-family:'Fraunces';font-style:italic;font-size:1.4rem;color:var(--copperL);line-height:1.3}
+/* the menu/index table */
+#c4 .filt{display:flex;gap:24px;margin-bottom:8px}
+#c4 .filt button{background:none;border:none;font-family:'DM Sans';font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);cursor:pointer;padding:0 0 6px;border-bottom:2px solid transparent}
+#c4 .filt button.on{color:var(--copperL);border-bottom-color:var(--copper)}
+#c4 .menu .hd{display:grid;grid-template-columns:38px 1fr 90px 130px;gap:20px;padding:14px 0;border-bottom:1px solid var(--line);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+#c4 .menu .li{display:grid;grid-template-columns:38px 1fr 90px 130px;gap:20px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline;transition:.2s;cursor:default}
+#c4 .menu .li:hover{background:rgba(200,115,43,.05)}
+#c4 .menu .li .no{font-family:'Fraunces';font-size:.9rem;color:var(--copper)}
+#c4 .menu .li h3{font-family:'Fraunces';font-weight:500;font-size:1.45rem;line-height:1.1;margin-bottom:6px}
+#c4 .menu .li .ing{font-size:.8rem;color:var(--dim);line-height:1.5;font-weight:300}
+#c4 .menu .li .nt{font-size:.74rem;color:rgba(244,239,230,.38);margin-top:6px;font-style:italic}
+#c4 .menu .li .heat{font-family:'JetBrains Mono';font-size:.74rem;color:var(--copperL);letter-spacing:.05em}
+#c4 .menu .li .heat .e{color:rgba(244,239,230,.18)}
+#c4 .menu .li .st{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;font-weight:600}
+#c4 .menu .li .st.in{color:#83C195}#c4 .menu .li .st.seasonal{color:var(--copperL)}
+#c4 .collab4{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:center}
+#c4 .collab4 h2{font-family:'Fraunces';font-weight:400;font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:20px}
+#c4 .collab4 p{font-size:1.04rem;line-height:1.8;color:var(--dim);margin-bottom:18px;font-weight:300}
+#c4 .collab4 a{color:var(--copperL);text-decoration:none;border-bottom:1px solid rgba(229,154,74,.4)}
+#c4 .spec{border:1px solid var(--line);padding:32px 30px}
+#c4 .spec .sl{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:6px}
+#c4 .spec .sv{font-family:'Fraunces';font-size:1.5rem;margin-bottom:20px}
+#c4 .spec .rowx{display:flex;justify-content:space-between;padding:11px 0;border-top:1px solid var(--line);font-size:.82rem}
+#c4 .spec .rowx span:first-child{color:var(--dim)}
+#c4 .find4{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+#c4 .find4 .f{padding:0 30px;border-left:1px solid var(--line)}
+#c4 .find4 .f:first-child{padding-left:0;border-left:none}
+#c4 .find4 .f .fn{font-family:'JetBrains Mono';font-size:.72rem;color:var(--copper);margin-bottom:14px}
+#c4 .find4 .f h3{font-family:'Fraunces';font-weight:500;font-size:1.3rem;margin-bottom:10px}
+#c4 .find4 .f p{font-size:.88rem;line-height:1.6;color:var(--dim);font-weight:300}
+#c4 .sgn4{max-width:640px}
+#c4 .sgn4 h2{font-family:'Fraunces';font-weight:400;font-size:clamp(2rem,5vw,3rem);line-height:1.05;margin-bottom:16px}
+#c4 .sgn4 h2 em{font-style:italic;color:var(--copperL)}
+#c4 .sgn4 p{color:var(--dim);font-weight:300;line-height:1.7;margin-bottom:26px}
+#c4 .f4{display:flex;gap:0;max-width:460px;border-bottom:1px solid var(--copper)}
+#c4 .f4 input{flex:1;background:none;border:none;color:var(--paper);padding:14px 0;font-family:'DM Sans';font-size:1rem}
+#c4 .f4 input:focus{outline:none}
+#c4 .f4 button{background:none;border:none;color:var(--copperL);font-family:'DM Sans';font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-weight:600;padding:0 4px}
+#c4 .ft4{padding:34px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.76rem;color:var(--dim);letter-spacing:.04em}
+#c4 .ft4 b{color:var(--copperL);font-weight:500}
+@media(max-width:760px){#c4 .story4,#c4 .collab4{grid-template-columns:1fr;gap:34px}#c4 .find4{grid-template-columns:1fr;gap:30px}#c4 .find4 .f{padding:0;border-left:none}#c4 .hero4 .meta{text-align:left}#c4 .menu .hd,#c4 .menu .li{grid-template-columns:28px 1fr;gap:10px}#c4 .menu .hd .h-h,#c4 .menu .hd .h-s,#c4 .menu .li .heat,#c4 .menu .li .stwrap{grid-column:2}#c4 .menu .li .heat{margin-top:8px}}
+
+/* ===== C5 THE PRESS — magazine feature / discovery story ===== */
+#c5{--bg:#13110E;--bg2:#1C1813;--paper:#EFE9DC;--dim:rgba(239,233,220,.52);--red:#B33A22;--redL:#D85A38;--gold:#C99A4E;--line:rgba(239,233,220,.16);background:var(--bg);color:var(--paper);font-family:'Spectral'}
+#c5 .wrap{max-width:1120px;margin:0 auto;padding:0 30px}
+#c5 .wrapn{max-width:760px;margin:0 auto;padding:0 30px}
+#c5 .masthead{text-align:center;padding:30px 0 22px;border-bottom:2px solid var(--paper)}
+#c5 .masthead .iss{font-family:'DM Sans';font-size:.64rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);margin-bottom:12px}
+#c5 .masthead .nm{font-family:'Fraunces';font-weight:900;font-size:clamp(1.6rem,4vw,2.4rem);letter-spacing:.02em;line-height:1}
+#c5 .masthead .sub{font-family:'DM Sans';font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-top:10px}
+#c5 .feature{padding:70px 0 60px;text-align:center;border-bottom:1px solid var(--line)}
+#c5 .feature .cat{font-family:'DM Sans';font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--redL);margin-bottom:26px}
+#c5 .feature h1{font-family:'Fraunces';font-weight:400;font-size:clamp(2.6rem,7.5vw,5.6rem);line-height:1;letter-spacing:-.02em;max-width:900px;margin:0 auto}
+#c5 .feature h1 em{font-style:italic;color:var(--gold)}
+#c5 .feature .dek{font-family:'Spectral';font-style:italic;font-size:1.3rem;line-height:1.5;color:var(--dim);max-width:600px;margin:28px auto 0}
+#c5 .feature .byline{font-family:'DM Sans';font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-top:30px}
+#c5 .feature .byline b{color:var(--paper);font-weight:600}
+#c5 .lede{padding:64px 0;border-bottom:1px solid var(--line)}
+#c5 .lede .col2{columns:2;column-gap:50px;font-size:1.06rem;line-height:1.85;color:var(--paper)}
+#c5 .lede .col2 p{margin-bottom:18px;break-inside:avoid}
+#c5 .lede .col2 p:first-child::first-letter{font-family:'Fraunces';font-weight:600;font-size:4.2rem;float:left;line-height:.78;padding:4px 12px 0 0;color:var(--red)}
+#c5 .lede .col2 em{font-style:italic;color:var(--gold)}
+#c5 .pq{font-family:'Fraunces';font-style:italic;font-weight:500;font-size:clamp(1.8rem,4.4vw,2.8rem);line-height:1.25;text-align:center;color:var(--gold);max-width:820px;margin:0 auto;padding:60px 0;border-bottom:1px solid var(--line)}
+#c5 .sect{padding:64px 0;border-bottom:1px solid var(--line)}
+#c5 .kicker{font-family:'DM Sans';font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--redL);margin-bottom:14px;display:flex;align-items:center;gap:12px}
+#c5 .kicker::after{content:'';flex:1;height:1px;background:var(--line)}
+#c5 .h2{font-family:'Fraunces';font-weight:400;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05;margin-bottom:8px}
+#c5 .h2 em{font-style:italic;color:var(--gold)}
+#c5 .deck2{font-family:'Spectral';font-style:italic;color:var(--dim);font-size:1.1rem;margin-bottom:32px}
+#c5 .tabs5{display:flex;gap:22px;margin-bottom:6px;border-bottom:1px solid var(--line)}
+#c5 .tab5{background:none;border:none;font-family:'DM Sans';font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);padding:0 0 12px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+#c5 .tab5.on{color:var(--redL);border-bottom-color:var(--red);font-weight:600}
+#c5 .catalog{columns:2;column-gap:50px;margin-top:30px}
+#c5 .entry{break-inside:avoid;padding:18px 0;border-bottom:1px solid var(--line);margin-bottom:0}
+#c5 .entry .eh{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+#c5 .entry h3{font-family:'Fraunces';font-weight:500;font-size:1.35rem;line-height:1.15}
+#c5 .entry .hx{font-family:'DM Sans';font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;color:var(--gold)}
+#c5 .entry .hx .e{color:rgba(239,233,220,.2)}
+#c5 .entry .st{font-family:'DM Sans';font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-left:8px}
+#c5 .entry .st.in{color:#83C195}#c5 .entry .st.seasonal{color:var(--gold)}
+#c5 .entry .nt{font-size:.92rem;line-height:1.55;color:var(--dim);margin-top:6px}
+#c5 .entry .ing{font-size:.76rem;font-style:italic;color:rgba(239,233,220,.42);margin-top:6px}
+#c5 .collab5{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+#c5 .collab5 p{font-size:1.04rem;line-height:1.8;color:var(--dim);margin-bottom:16px}
+#c5 .collab5 a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,154,78,.4)}
+#c5 .sidebar{border:1px solid var(--line);border-top:3px solid var(--red);padding:32px 30px;background:var(--bg2)}
+#c5 .sidebar .sl{font-family:'DM Sans';font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--redL);margin-bottom:14px}
+#c5 .sidebar h3{font-family:'Fraunces';font-size:1.7rem;margin-bottom:10px}
+#c5 .sidebar p{font-size:.9rem;line-height:1.6;color:var(--dim)}
+#c5 .sidebar .tag{margin-top:18px;font-family:'DM Sans';font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+#c5 .find5{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+#c5 .find5 .f h3{font-family:'Fraunces';font-weight:500;font-size:1.3rem;margin-bottom:8px;padding-bottom:10px;border-bottom:1px solid var(--red)}
+#c5 .find5 .f p{font-size:.9rem;line-height:1.6;color:var(--dim)}
+#c5 .sgn5{text-align:center;max-width:580px;margin:0 auto}
+#c5 .f5{display:flex;gap:0;margin-top:26px;border:1px solid var(--paper)}
+#c5 .f5 input{flex:1;background:none;border:none;color:var(--paper);padding:15px 18px;font-family:'Spectral';font-size:.98rem}
+#c5 .f5 input:focus{outline:none}
+#c5 .f5 button{background:var(--paper);color:var(--bg);border:none;padding:0 26px;font-family:'DM Sans';font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;font-weight:600}
+#c5 .ft5{text-align:center;padding:40px 0}
+#c5 .ft5 .nm{font-family:'Fraunces';font-weight:900;font-size:1.3rem;letter-spacing:.02em}
+#c5 .ft5 .meta{font-family:'DM Sans';font-size:.72rem;letter-spacing:.06em;color:var(--dim);margin-top:12px}
+#c5 .ft5 b{color:var(--gold);font-weight:500}
+@media(max-width:760px){#c5 .lede .col2,#c5 .catalog{columns:1}#c5 .collab5{grid-template-columns:1fr}#c5 .find5{grid-template-columns:1fr;gap:24px}}
+
+/* ===== C6 THE SPECIMEN — small-batch lab / formulary ===== */
+#c6{--bg:#0C0E0D;--bg2:#111413;--panel:#141817;--paper:#E6EBE7;--dim:rgba(230,235,231,.5);--amber:#C77B33;--amberL:#E89A47;--acid:#9FB04A;--line:rgba(230,235,231,.12);background:#0C0E0D;color:var(--paper);font-family:'Space Grotesk'}
+#c6{--bg2:#111413}
+#c6 .wrap{max-width:1080px;margin:0 auto;padding:0 30px}
+#c6 .bar6{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--line);font-family:'JetBrains Mono'}
+#c6 .bar6 .lg{font-size:.78rem;letter-spacing:.06em;font-weight:600}
+#c6 .bar6 .lg b{color:var(--amberL)}
+#c6 .bar6 .mt{font-size:.66rem;letter-spacing:.06em;color:var(--dim)}
+#c6 .hero6{padding:90px 0;position:relative;border-bottom:1px solid var(--line)}
+#c6 .hero6 .tag6{font-family:'JetBrains Mono';font-size:.7rem;letter-spacing:.1em;color:var(--acid);margin-bottom:24px}
+#c6 .hero6 h1{font-family:'Space Grotesk';font-weight:500;font-size:clamp(2.6rem,7vw,5.4rem);line-height:1;letter-spacing:-.03em}
+#c6 .hero6 h1 b{color:var(--amberL);font-weight:700}
+#c6 .hero6 .lead{margin-top:28px;max-width:520px;font-size:1.05rem;line-height:1.7;color:var(--dim);font-weight:300}
+#c6 .hero6 .specrow{display:flex;gap:0;margin-top:44px;border:1px solid var(--line)}
+#c6 .hero6 .specrow .sc{flex:1;padding:18px 22px;border-left:1px solid var(--line);font-family:'JetBrains Mono'}
+#c6 .hero6 .specrow .sc:first-child{border-left:none}
+#c6 .hero6 .specrow .sc .k{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+#c6 .hero6 .specrow .sc .v{font-size:1.5rem;color:var(--amberL);margin-top:6px;font-weight:500}
+#c6 .hero6 .acts{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+#c6 .bb{font-family:'JetBrains Mono';font-size:.74rem;letter-spacing:.04em;padding:13px 24px;cursor:pointer;text-decoration:none;transition:.2s;border:1px solid}
+#c6 .bbp{background:var(--amber);color:#0c0e0d;border-color:var(--amber)}#c6 .bbp:hover{background:var(--amberL);border-color:var(--amberL)}
+#c6 .bbg{background:none;color:var(--paper);border-color:var(--line)}#c6 .bbg:hover{border-color:var(--acid)}
+#c6 .sec6{padding:78px 0;border-bottom:1px solid var(--line)}
+#c6 .lbl6{font-family:'JetBrains Mono';font-size:.66rem;letter-spacing:.08em;color:var(--acid);margin-bottom:16px}
+#c6 .lbl6::before{content:'// '}
+#c6 .ttl6{font-family:'Space Grotesk';font-weight:500;font-size:clamp(1.9rem,4.6vw,3rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:24px}
+#c6 .ttl6 b{color:var(--amberL);font-weight:700}
+#c6 .story6{display:grid;grid-template-columns:1fr 1fr;gap:54px}
+#c6 .story6 p{font-size:1.02rem;line-height:1.85;color:var(--dim);margin-bottom:18px;font-weight:300}
+#c6 .story6 p b{color:var(--paper);font-weight:500}
+#c6 .note6{background:var(--panel);border:1px solid var(--line);border-left:2px solid var(--amber);padding:30px 28px;font-family:'JetBrains Mono'}
+#c6 .note6 .q{font-size:1.2rem;line-height:1.4;color:var(--amberL);margin-bottom:18px}
+#c6 .note6 p{font-size:.84rem;line-height:1.7;color:var(--dim);font-family:'Space Grotesk';font-weight:300}
+#c6 .note6 .tag{margin-top:18px;font-size:.62rem;letter-spacing:.08em;color:var(--acid)}
+#c6 .filt6{display:flex;gap:10px;margin-bottom:28px;font-family:'JetBrains Mono'}
+#c6 .filt6 button{background:none;border:1px solid var(--line);color:var(--dim);font-family:'JetBrains Mono';font-size:.68rem;letter-spacing:.04em;padding:9px 18px;cursor:pointer;transition:.2s}
+#c6 .filt6 button.on{background:var(--acid);border-color:var(--acid);color:#0c0e0d;font-weight:600}
+#c6 .specimens{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+#c6 .sp{background:var(--panel);border:1px solid var(--line);padding:22px 20px;transition:.25s;position:relative}
+#c6 .sp:hover{border-color:rgba(199,123,51,.5)}
+#c6 .sp .sphd{display:flex;justify-content:space-between;align-items:flex-start;font-family:'JetBrains Mono';margin-bottom:14px}
+#c6 .sp .id{font-size:.64rem;letter-spacing:.06em;color:var(--amber)}
+#c6 .sp .st{font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+#c6 .sp .st.in{color:var(--acid)}#c6 .sp .st.seasonal{color:var(--amberL)}
+#c6 .sp h3{font-family:'Space Grotesk';font-weight:600;font-size:1.2rem;line-height:1.12;margin-bottom:14px}
+#c6 .sp .scale{font-family:'JetBrains Mono';font-size:.64rem;color:var(--dim);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+#c6 .sp .bars{display:flex;gap:2px}
+#c6 .sp .bars i{width:14px;height:6px;background:rgba(230,235,231,.14);display:block}
+#c6 .sp .bars i.f{background:var(--amber)}
+#c6 .sp .ing{font-size:.74rem;line-height:1.55;color:var(--dim);font-weight:300;border-top:1px solid var(--line);padding-top:12px}
+#c6 .sp .nt{font-size:.72rem;color:rgba(230,235,231,.4);margin-top:8px;line-height:1.5}
+#c6 .collab6{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+#c6 .collab6 p{font-size:1.02rem;line-height:1.8;color:var(--dim);margin-bottom:16px;font-weight:300}
+#c6 .collab6 a{color:var(--amberL);text-decoration:none;border-bottom:1px solid rgba(232,154,71,.4)}
+#c6 .formula{background:var(--panel);border:1px solid var(--line);padding:30px 28px;font-family:'JetBrains Mono'}
+#c6 .formula .fl{font-size:.62rem;letter-spacing:.08em;color:var(--acid);margin-bottom:8px}
+#c6 .formula .fn{font-family:'Space Grotesk';font-size:1.5rem;font-weight:600;margin-bottom:18px}
+#c6 .formula .fr{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid var(--line);font-size:.76rem}
+#c6 .formula .fr span:first-child{color:var(--dim)}
+#c6 .find6{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+#c6 .fc6{background:var(--panel);border:1px solid var(--line);padding:26px 24px}
+#c6 .fc6 .fn{font-family:'JetBrains Mono';font-size:.66rem;color:var(--amber);margin-bottom:12px}
+#c6 .fc6 h3{font-family:'Space Grotesk';font-weight:600;font-size:1.2rem;margin-bottom:10px}
+#c6 .fc6 p{font-size:.86rem;line-height:1.6;color:var(--dim);font-weight:300}
+#c6 .sgn6{max-width:600px}
+#c6 .f6{display:flex;gap:0;margin-top:24px;border:1px solid var(--line)}
+#c6 .f6 input{flex:1;background:var(--panel);border:none;color:var(--paper);padding:15px 18px;font-family:'JetBrains Mono';font-size:.86rem}
+#c6 .f6 input:focus{outline:none}
+#c6 .f6 button{background:var(--amber);color:#0c0e0d;border:none;padding:0 24px;font-family:'JetBrains Mono';font-size:.7rem;letter-spacing:.04em;cursor:pointer;font-weight:600}
+#c6 .ft6{padding:30px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:'JetBrains Mono';font-size:.7rem;color:var(--dim)}
+#c6 .ft6 b{color:var(--amberL)}
+@media(max-width:820px){#c6 .story6,#c6 .collab6{grid-template-columns:1fr}#c6 .specimens,#c6 .find6{grid-template-columns:1fr}#c6 .hero6 .specrow{flex-wrap:wrap}#c6 .hero6 .specrow .sc{min-width:50%;border-top:1px solid var(--line)}}
+
+/* ===== C7 THE TAPROOM — collab-forward / craft social ===== */
+#c7{--bg:#181210;--bg2:#211814;--paper:#F0E7DC;--dim:rgba(240,231,220,.56);--amber:#D08A2E;--amberL:#EBA947;--rust:#A8431F;--cream:#E8D9BE;--line:rgba(240,231,220,.14);background:var(--bg);color:var(--paper);font-family:'DM Sans'}
+#c7 .wrap{max-width:1140px;margin:0 auto;padding:0 30px}
+#c7 .nav7{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+#c7 .nav7 .lg{font-family:'Archivo';font-weight:800;font-size:1.1rem;letter-spacing:-.01em;text-transform:uppercase}
+#c7 .nav7 .lg b{color:var(--amberL)}
+#c7 .nav7 .mn{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+#c7 .hero7{padding:70px 0 80px;text-align:center;position:relative;overflow:hidden}
+#c7 .hero7 .tap{font-family:'Archivo';font-weight:800;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--amberL);margin-bottom:26px}
+#c7 .hero7 h1{font-family:'Archivo';font-weight:900;font-size:clamp(3rem,9vw,6.8rem);line-height:.9;letter-spacing:-.03em;text-transform:uppercase}
+#c7 .hero7 h1 span{display:block;color:var(--amber);-webkit-text-stroke:1px var(--amber);color:transparent}
+#c7 .hero7 .lead{max-width:540px;margin:30px auto 0;font-size:1.08rem;line-height:1.7;color:var(--dim);font-weight:300}
+#c7 .hero7 .acts{margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+#c7 .b7{font-family:'Archivo';font-weight:700;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;padding:15px 28px;cursor:pointer;text-decoration:none;transition:.2s;border-radius:3px}
+#c7 .b7p{background:var(--amber);color:#181210}#c7 .b7p:hover{background:var(--amberL)}
+#c7 .b7g{background:none;color:var(--paper);border:1px solid var(--line)}#c7 .b7g:hover{border-color:var(--amber)}
+#c7 .marq{background:var(--rust);overflow:hidden;white-space:nowrap;padding:13px 0}
+#c7 .marq .track{display:inline-block;animation:c7m 26s linear infinite;font-family:'Archivo';font-weight:700;font-size:.84rem;letter-spacing:.1em;text-transform:uppercase}
+#c7 .marq .track span{margin:0 26px;color:var(--cream)}
+#c7 .marq .track span b{color:#181210}
+@keyframes c7m{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* collab spotlight first */
+#c7 .spotlight{background:var(--bg2);padding:80px 0;border-bottom:1px solid var(--line)}
+#c7 .spotlight .sg{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+#c7 .lbl7{font-family:'Archivo';font-weight:700;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amberL);margin-bottom:16px}
+#c7 .h7{font-family:'Archivo';font-weight:800;font-size:clamp(2rem,5vw,3.2rem);line-height:1;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:22px}
+#c7 .spotlight p{font-size:1.04rem;line-height:1.8;color:var(--dim);margin-bottom:18px;font-weight:300}
+#c7 .spotlight a{color:var(--amberL);text-decoration:none;border-bottom:1px solid rgba(235,169,71,.4)}
+#c7 .tapcard{background:linear-gradient(150deg,var(--bg) 0%,#241a12 100%);border:1px solid rgba(208,138,46,.35);border-radius:6px;padding:0;overflow:hidden}
+#c7 .tapcard .tt{background:var(--amber);color:#181210;padding:14px 26px;font-family:'Archivo';font-weight:800;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;display:flex;justify-content:space-between}
+#c7 .tapcard .body{padding:34px 30px;text-align:center}
+#c7 .tapcard .glyph{font-size:2.6rem;margin-bottom:16px}
+#c7 .tapcard h3{font-family:'Archivo';font-weight:900;font-size:2rem;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:10px}
+#c7 .tapcard .ing{font-size:.84rem;color:var(--dim);line-height:1.6;font-weight:300}
+#c7 .tapcard .foot{border-top:1px solid var(--line);padding:16px;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amberL);text-align:center}
+#c7 .sec7{padding:78px 0;border-bottom:1px solid var(--line)}
+#c7 .story7{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+#c7 .story7 p{font-size:1.04rem;line-height:1.85;color:var(--dim);margin-bottom:18px;font-weight:300}
+#c7 .story7 p b{color:var(--paper);font-weight:500}
+#c7 .qc7{background:var(--bg2);border-radius:6px;padding:40px 34px;border-left:3px solid var(--amber)}
+#c7 .qc7 .q{font-family:'Archivo';font-weight:800;font-size:1.7rem;line-height:1.15;text-transform:uppercase;color:var(--amberL);margin-bottom:16px;letter-spacing:-.01em}
+#c7 .qc7 p{font-size:.92rem;line-height:1.7;color:var(--dim);font-weight:300}
+#c7 .qc7 .tag{margin-top:18px;font-family:'Archivo';font-weight:700;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber)}
+#c7 .tabs7{display:flex;gap:10px;margin:28px 0 34px}
+#c7 .tab7{background:none;border:1px solid var(--line);color:var(--dim);font-family:'Archivo';font-weight:600;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:11px 22px;border-radius:3px;cursor:pointer;transition:.2s}
+#c7 .tab7.on{background:var(--amber);border-color:var(--amber);color:#181210}
+#c7 .taps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+#c7 .tapr{background:var(--bg2);border:1px solid var(--line);border-radius:6px;padding:24px 22px;transition:.25s}
+#c7 .tapr:hover{border-color:rgba(208,138,46,.45);transform:translateY(-2px)}
+#c7 .tapr .th{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+#c7 .tapr .num7{font-family:'Archivo';font-weight:900;font-size:1.1rem;color:rgba(208,138,46,.4)}
+#c7 .tapr .st{font-family:'Archivo';font-weight:700;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:3px}
+#c7 .tapr .st.in{color:#7FBF8E;background:rgba(127,191,142,.12)}
+#c7 .tapr .st.seasonal{color:var(--amberL);background:rgba(235,169,71,.12)}
+#c7 .tapr h3{font-family:'Archivo';font-weight:800;font-size:1.3rem;text-transform:uppercase;letter-spacing:-.01em;line-height:1.05;margin-bottom:12px}
+#c7 .tapr .gauge{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+#c7 .tapr .gauge .gb{display:flex;gap:3px}
+#c7 .tapr .gauge .gb i{width:16px;height:7px;border-radius:2px;background:rgba(240,231,220,.15);display:block}
+#c7 .tapr .gauge .gb i.f{background:var(--amber)}
+#c7 .tapr .gauge .gl{font-family:'Archivo';font-weight:700;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+#c7 .tapr .nt{font-size:.86rem;line-height:1.55;color:var(--dim);font-weight:300;margin-bottom:12px}
+#c7 .tapr .ing{font-size:.72rem;color:rgba(240,231,220,.42);line-height:1.5;border-top:1px solid var(--line);padding-top:11px}
+#c7 .find7{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+#c7 .fc7{background:var(--bg2);border-radius:6px;padding:30px 26px;border-top:3px solid var(--amber)}
+#c7 .fc7 h3{font-family:'Archivo';font-weight:800;font-size:1.2rem;text-transform:uppercase;margin-bottom:10px}
+#c7 .fc7 p{font-size:.9rem;line-height:1.6;color:var(--dim);font-weight:300}
+#c7 .sgn7{text-align:center;max-width:600px;margin:0 auto}
+#c7 .f7{display:flex;gap:10px;margin-top:26px;max-width:440px;margin-left:auto;margin-right:auto}
+#c7 .f7 input{flex:1;background:var(--bg2);border:1px solid var(--line);color:var(--paper);padding:15px 18px;border-radius:3px;font-family:'DM Sans';font-size:.9rem}
+#c7 .f7 input:focus{outline:none;border-color:var(--amber)}
+#c7 .ft7{padding:34px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.78rem;color:var(--dim)}
+#c7 .ft7 b{color:var(--amberL);font-weight:600}
+@media(max-width:820px){#c7 .spotlight .sg,#c7 .story7{grid-template-columns:1fr}#c7 .taps,#c7 .find7{grid-template-columns:1fr}#c7 .nav7 .mn{display:none}}
+
+/* ===== element library CSS ===== */
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#0A0907;color:#EDE6D8;-webkit-font-smoothing:antialiased}
+:focus-visible{outline:2px solid #D4922E;outline-offset:3px}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+:root{
+--black:#0A0907;--char:#131009;--char2:#1A1510;--char3:#221C14;
+--copper:#B8722A;--copperL:#D4922E;--cream:#EDE6D8;--dim:rgba(237,230,216,.54);--faint:rgba(237,230,216,.12);
+--cardbg:rgba(184,114,42,.05);--cardbdr:rgba(184,114,42,.18);
+}
+
+/* ===== CATALOG CHROME ===== */
+.topbar{position:fixed;top:0;left:0;right:0;height:62px;z-index:1000;background:rgba(10,9,7,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--faint);display:flex;align-items:center;padding:0 26px;gap:20px}
+.topbar .bn{font-weight:600;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--copperL)}
+.topbar .bn span{color:var(--dim)}
+.topbar .hint{margin-left:auto;font-size:.72rem;color:var(--dim);font-weight:300}
+.layout{display:grid;grid-template-columns:230px 1fr;padding-top:62px;min-height:100vh}
+.sidenav{position:sticky;top:62px;height:calc(100vh - 62px);overflow-y:auto;border-right:1px solid var(--faint);padding:28px 0;background:#080705}
+.sidenav h5{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);padding:0 26px;margin:22px 0 10px}
+.sidenav h5:first-child{margin-top:0}
+.sidenav a{display:block;padding:8px 26px;font-size:.82rem;color:var(--dim);text-decoration:none;border-left:2px solid transparent;transition:.2s}
+.sidenav a:hover{color:var(--cream);border-left-color:var(--copper);background:rgba(184,114,42,.05)}
+.main{padding:0 0 120px}
+.cat{padding:54px 40px 0;max-width:1180px}
+.cat-h{display:flex;align-items:baseline;gap:16px;margin-bottom:8px;border-bottom:1px solid var(--faint);padding-bottom:18px}
+.cat-h .nm{font-family:'Cormorant Garamond';font-weight:600;font-size:2.1rem}
+.cat-h .ct{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-left:auto}
+.cat-intro{font-size:.92rem;color:var(--dim);font-weight:300;line-height:1.6;margin:18px 0 34px;max-width:760px}
+.swatch{margin-bottom:40px}
+.swatch-lbl{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.swatch-lbl .tag{font-family:'JetBrains Mono';font-size:.66rem;letter-spacing:.04em;color:var(--copperL);background:rgba(184,114,42,.1);border:1px solid var(--cardbdr);padding:4px 10px;border-radius:4px}
+.swatch-lbl .desc{font-size:.82rem;color:var(--dim);font-weight:300}
+.frame{border:1px solid var(--faint);border-radius:10px;overflow:hidden;background:var(--black);position:relative}
+.frame.pad{padding:0}
+/* small reusable bits used across demos */
+.pips{display:inline-flex;gap:4px;vertical-align:middle}
+.pip{width:20px;height:3px;background:rgba(184,114,42,.2);display:block}
+.pip.f{background:var(--copper)}
+.btn{font-family:'DM Sans';font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:500;padding:14px 28px;border-radius:2px;cursor:pointer;border:1px solid var(--copper);background:var(--copper);color:#0a0907;text-decoration:none;display:inline-block;transition:.25s}
+.btn:hover{background:var(--copperL);border-color:var(--copperL)}
+.btn.ghost{background:transparent;color:var(--cream);border-color:rgba(237,230,216,.22)}
+.btn.ghost:hover{border-color:var(--copper)}
+
+/* ============ ELEMENT DEMOS ============ */
+
+/* --- HEAT INDICATORS (5 styles) --- */
+.heatdemo{display:flex;flex-wrap:wrap;gap:14px;padding:34px}
+.heatcell{flex:1;min-width:180px;background:var(--char);border:1px solid var(--cardbdr);border-radius:8px;padding:24px 22px}
+.heatcell .hn{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:16px}
+.heatcell .hrow{display:flex;align-items:center;gap:10px}
+/* a: pips */
+.hi-pip{display:flex;gap:4px}.hi-pip i{width:22px;height:3px;background:rgba(184,114,42,.2);display:block}.hi-pip i.f{background:var(--copper)}
+/* b: peppers */
+.hi-pep{font-size:1rem;letter-spacing:3px}.hi-pep .on{filter:none;opacity:1}.hi-pep .off{opacity:.22;filter:grayscale(1)}
+/* c: bars */
+.hi-bar{display:flex;gap:3px}.hi-bar i{width:30px;height:8px;border-radius:2px;background:rgba(184,114,42,.18);display:block}.hi-bar i.f{background:linear-gradient(90deg,var(--copper),var(--copperL))}
+/* d: numeric mono */
+.hi-num{font-family:'JetBrains Mono';font-size:.92rem;color:var(--copperL)}.hi-num b{color:var(--cream)}.hi-num .e{color:rgba(237,230,216,.2)}
+/* e: gauge meter */
+.hi-gauge{width:100%;height:7px;background:rgba(184,114,42,.16);border-radius:100px;overflow:hidden;position:relative}.hi-gauge i{display:block;height:100%;background:linear-gradient(90deg,#C99A4E,var(--copper),#A8431F);border-radius:100px}
+.hi-lab{font-size:.66rem;color:var(--dim);margin-top:8px;letter-spacing:.06em}
+
+/* --- STATUS BADGES --- */
+.badgedemo{display:flex;flex-wrap:wrap;gap:14px;padding:34px}
+.bdg{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:6px 13px;border-radius:100px;display:inline-flex;align-items:center;gap:7px}
+.bdg::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor}
+.bdg.in{color:#7DBF8E;background:rgba(125,191,142,.1);border:1px solid rgba(125,191,142,.3)}
+.bdg.out{color:var(--dim);background:rgba(237,230,216,.05);border:1px solid var(--faint)}
+.bdg.seasonal{color:var(--copperL);background:rgba(212,146,46,.1);border:1px solid rgba(212,146,46,.3)}
+.bdg.low{color:#E0A33E;background:rgba(224,163,62,.1);border:1px solid rgba(224,163,62,.3)}
+.bdg.new{color:#C97FB0;background:rgba(201,127,176,.1);border:1px solid rgba(201,127,176,.3)}
+.bdg-sq{border-radius:3px}
+.bdg-pl{background:none!important;border:none!important;padding:6px 0}
+
+/* --- HERO VARIANTS --- */
+.hv{padding:0}
+/* split hero */
+.hero-split{display:grid;grid-template-columns:1.1fr .9fr;min-height:440px}
+.hero-split .l{padding:60px 50px;display:flex;flex-direction:column;justify-content:center}
+.hero-split .r{background:linear-gradient(150deg,var(--char2),var(--char));display:flex;align-items:center;justify-content:center;border-left:1px solid var(--faint);position:relative;overflow:hidden}
+.hero-split .eb{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--copperL);margin-bottom:20px}
+.hero-split h1{font-family:'Cormorant Garamond';font-weight:600;font-size:clamp(2.4rem,4.5vw,3.6rem);line-height:1.02}
+.hero-split h1 i{font-style:italic;color:var(--copperL)}
+.hero-split p{color:var(--dim);font-weight:300;line-height:1.7;margin:20px 0 28px;max-width:400px}
+.hero-split .bottlemock{width:130px;height:300px;background:linear-gradient(170deg,#2a2018,#15110b);border:1px solid var(--cardbdr);border-radius:14px 14px 8px 8px;position:relative;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.hero-split .bottlemock::before{content:'';position:absolute;top:-16px;left:50%;transform:translateX(-50%);width:44px;height:22px;background:#1a140d;border:1px solid var(--cardbdr);border-radius:4px}
+.hero-split .bottlemock .lbl{position:absolute;inset:auto 14px 30px;top:90px;border:1px solid var(--copper);border-radius:4px;padding:14px 8px;text-align:center;background:rgba(184,114,42,.06)}
+.hero-split .bottlemock .lbl .bt{font-family:'Cormorant Garamond';font-size:1rem;color:var(--copperL);line-height:1}
+.hero-split .bottlemock .lbl .bs{font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:6px}
+/* centered minimal hero */
+.hero-min{text-align:center;padding:80px 40px;position:relative;overflow:hidden}
+.hero-min .mark{font-family:'Cormorant Garamond';font-size:2rem;color:var(--copper);margin-bottom:18px}
+.hero-min h1{font-family:'Cormorant Garamond';font-weight:600;font-size:clamp(2.6rem,5vw,4.4rem);line-height:1}
+.hero-min h1 i{font-style:italic;color:var(--copperL)}
+.hero-min .rule{width:60px;height:1px;background:var(--copper);margin:26px auto}
+.hero-min p{color:var(--dim);font-weight:300;max-width:420px;margin:0 auto;line-height:1.7}
+/* type-stack hero (archivo bold) */
+.hero-stack{padding:64px 50px;background:var(--char)}
+.hero-stack .tap{font-family:'Archivo';font-weight:700;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--copperL);margin-bottom:20px}
+.hero-stack h1{font-family:'Archivo';font-weight:900;font-size:clamp(2.6rem,6vw,5rem);line-height:.92;text-transform:uppercase;letter-spacing:-.02em}
+.hero-stack h1 span{display:block;color:transparent;-webkit-text-stroke:1px var(--copper)}
+.hero-stack p{color:var(--dim);font-weight:300;max-width:440px;margin:24px 0 0;line-height:1.7}
+
+/* --- LINEUP CARD VARIANTS --- */
+.cardrow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:34px}
+/* classic */
+.lc-classic{background:var(--cardbg);border:1px solid var(--cardbdr);border-radius:4px;padding:26px 24px}
+.lc-classic .t{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.lc-classic h3{font-family:'Cormorant Garamond';font-weight:600;font-size:1.5rem;margin-bottom:8px}
+.lc-classic .nt{font-size:.88rem;color:var(--dim);font-weight:300;line-height:1.6;margin-bottom:14px}
+.lc-classic .ing{font-size:.72rem;color:rgba(237,230,216,.4);line-height:1.5;border-top:1px solid var(--faint);padding-top:12px}
+/* horizontal list row */
+.lc-list{display:flex;flex-direction:column}
+.lc-listrow{display:grid;grid-template-columns:auto 1fr auto auto;gap:18px;align-items:center;padding:18px 4px;border-bottom:1px solid var(--faint)}
+.lc-listrow .nm{font-family:'Cormorant Garamond';font-weight:600;font-size:1.3rem}
+.lc-listrow .ig{font-size:.78rem;color:var(--dim);font-weight:300}
+.lc-listrow .hl{font-family:'JetBrains Mono';font-size:.72rem;color:var(--copperL);white-space:nowrap}
+/* image-led card */
+.lc-img{background:var(--char2);border:1px solid var(--cardbdr);border-radius:8px;overflow:hidden}
+.lc-img .ph{height:140px;background:linear-gradient(135deg,#2a1f14,#16110b);display:flex;align-items:center;justify-content:center;position:relative;border-bottom:1px solid var(--faint)}
+.lc-img .ph .ic{font-size:2rem;opacity:.5}
+.lc-img .ph .ph-tag{position:absolute;top:10px;right:10px;font-family:'JetBrains Mono';font-size:.56rem;letter-spacing:.08em;color:var(--dim);background:rgba(10,9,7,.7);padding:3px 8px;border-radius:4px}
+.lc-img .bd{padding:20px 22px}
+.lc-img h3{font-family:'Cormorant Garamond';font-weight:600;font-size:1.4rem;margin-bottom:8px}
+.lc-img .nt{font-size:.84rem;color:var(--dim);font-weight:300;line-height:1.55}
+
+/* --- STORY VARIANTS --- */
+.story-quote{padding:60px 50px;text-align:center}
+.story-quote .q{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;font-size:clamp(1.8rem,3.6vw,2.8rem);line-height:1.3;color:var(--copperL);max-width:780px;margin:0 auto}
+.story-quote .by{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-top:26px}
+.story-time{padding:50px}
+.story-time .step{display:grid;grid-template-columns:120px 1fr;gap:26px;padding:22px 0;border-top:1px solid var(--faint)}
+.story-time .step .yr{font-family:'Cormorant Garamond';font-size:1.5rem;color:var(--copper)}
+.story-time .step h4{font-size:1rem;font-weight:600;margin-bottom:6px}
+.story-time .step p{font-size:.88rem;color:var(--dim);font-weight:300;line-height:1.6}
+
+/* --- FIND US / MAP CARD --- */
+.findcard{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0}
+.findcard .info{padding:44px 40px}
+.findcard .info h3{font-family:'Cormorant Garamond';font-weight:600;font-size:1.9rem;margin-bottom:6px}
+.findcard .info .addr{color:var(--dim);font-weight:300;line-height:1.7;margin-bottom:18px}
+.findcard .info .hrs{font-size:.82rem;color:var(--dim);font-weight:300;line-height:1.9;border-top:1px solid var(--faint);padding-top:16px}
+.findcard .info .hrs b{color:var(--cream);font-weight:500}
+.findcard .mapfaux{background:var(--char2);border-left:1px solid var(--faint);position:relative;min-height:280px;overflow:hidden}
+.findcard .mapfaux .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(184,114,42,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(184,114,42,.08) 1px,transparent 1px);background-size:38px 38px}
+.findcard .mapfaux .road{position:absolute;background:rgba(237,230,216,.08)}
+.findcard .mapfaux .r1{top:46%;left:0;right:0;height:10px}
+.findcard .mapfaux .r2{top:0;bottom:0;left:40%;width:10px}
+.findcard .mapfaux .pin{position:absolute;top:46%;left:40%;transform:translate(-50%,-100%);color:var(--copper);font-size:1.8rem;filter:drop-shadow(0 4px 6px rgba(0,0,0,.5))}
+.findcard .mapfaux .pinlbl{position:absolute;top:calc(46% + 14px);left:40%;transform:translateX(-50%);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--copperL);background:rgba(10,9,7,.8);padding:3px 9px;border-radius:4px;white-space:nowrap}
+
+/* --- SIGNUP VARIANTS --- */
+.su-inline{padding:50px;display:flex;gap:30px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.su-inline .tx h3{font-family:'Cormorant Garamond';font-weight:600;font-size:1.9rem;margin-bottom:6px}
+.su-inline .tx p{color:var(--dim);font-weight:300}
+.su-inline form{display:flex;gap:10px}
+.su-inline input{background:rgba(255,255,255,.04);border:1px solid var(--cardbdr);color:var(--cream);padding:14px 18px;border-radius:2px;font-family:'DM Sans';font-size:.9rem;min-width:240px}
+.su-inline input:focus{outline:none;border-color:var(--copper)}
+.su-stack{padding:54px 50px;text-align:center}
+.su-stack h3{font-family:'Cormorant Garamond';font-weight:600;font-size:2.2rem;margin-bottom:10px}
+.su-stack .perks{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin:18px 0 26px}
+.su-stack .perks span{font-size:.74rem;color:var(--dim)}.su-stack .perks span::before{content:'·';color:var(--copper);margin-right:8px}
+.su-stack form{display:flex;gap:10px;max-width:420px;margin:0 auto}
+.su-stack input{flex:1;background:rgba(255,255,255,.04);border:1px solid var(--cardbdr);color:var(--cream);padding:14px 18px;border-radius:2px;font-family:'DM Sans';font-size:.9rem}
+.su-stack input:focus{outline:none;border-color:var(--copper)}
+
+/* --- EXTRAS --- */
+/* QR / market card */
+.qrcard{padding:40px;display:flex;justify-content:center}
+.qrcard .card{width:340px;background:linear-gradient(160deg,var(--char2),var(--black));border:1px solid var(--cardbdr);border-radius:14px;padding:32px 30px;text-align:center;box-shadow:0 30px 60px rgba(0,0,0,.4)}
+.qrcard .mark{font-family:'Cormorant Garamond';font-weight:600;font-size:1.5rem;color:var(--copperL);margin-bottom:4px}
+.qrcard .sub{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-bottom:24px}
+.qrcard .qr{width:150px;height:150px;margin:0 auto 22px;border-radius:8px;background:#0a0907;border:1px solid var(--cardbdr);display:grid;grid-template-columns:repeat(7,1fr);grid-template-rows:repeat(7,1fr);gap:3px;padding:14px}
+.qrcard .qr i{background:var(--copperL);border-radius:1px}
+.qrcard .qr i.o{background:transparent}
+.qrcard .cta{font-size:.9rem;color:var(--cream);font-weight:500;margin-bottom:4px}
+.qrcard .h{font-size:.78rem;color:var(--dim);font-weight:300}
+/* pairing guide */
+.pairing{padding:44px 50px}
+.pairing .prow{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:18px 0;border-top:1px solid var(--faint);align-items:center}
+.pairing .prow .sauce{font-family:'Cormorant Garamond';font-weight:600;font-size:1.3rem;color:var(--copperL)}
+.pairing .prow .with{font-size:.9rem;color:var(--dim);font-weight:300;line-height:1.6}
+.pairing .prow .with b{color:var(--cream);font-weight:500}
+/* FAQ accordion */
+.faq{padding:40px 50px}
+.faq details{border-bottom:1px solid var(--faint);padding:4px 0}
+.faq summary{cursor:pointer;padding:18px 0;font-size:1.05rem;font-weight:500;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:var(--copper);font-size:1.4rem;font-weight:300;transition:.2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 20px;color:var(--dim);font-weight:300;line-height:1.7;font-size:.92rem;max-width:680px}
+/* press / as seen in */
+.press{padding:40px 50px;text-align:center}
+.press .lbl{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:24px}
+.press .logos{display:flex;justify-content:center;gap:44px;flex-wrap:wrap;align-items:center}
+.press .logos .pl{font-family:'Cormorant Garamond';font-weight:600;font-size:1.3rem;color:var(--dim);opacity:.7;transition:.2s}
+.press .logos .pl:hover{opacity:1;color:var(--copperL)}
+.press .logos .pl.sans{font-family:'Archivo';font-weight:800;text-transform:uppercase;font-size:1rem;letter-spacing:.02em}
+/* event schedule */
+.sched{padding:44px 50px}
+.sched .ev{display:grid;grid-template-columns:90px 1fr auto;gap:22px;align-items:center;padding:18px 0;border-top:1px solid var(--faint)}
+.sched .ev .date{text-align:center;border:1px solid var(--cardbdr);border-radius:6px;padding:8px 0;background:var(--cardbg)}
+.sched .ev .date .mo{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--copper)}
+.sched .ev .date .dy{font-family:'Cormorant Garamond';font-size:1.6rem;line-height:1}
+.sched .ev .what h4{font-size:1.05rem;font-weight:600;margin-bottom:4px}
+.sched .ev .what p{font-size:.84rem;color:var(--dim);font-weight:300}
+.sched .ev .tm{font-family:'JetBrains Mono';font-size:.76rem;color:var(--copperL)}
+/* nav bar variants */
+.navdemo{padding:0}
+.nav-v{display:flex;align-items:center;justify-content:space-between;padding:20px 36px;border-bottom:1px solid var(--faint)}
+.nav-v .lg{font-family:'Cormorant Garamond';font-weight:600;font-size:1.2rem}
+.nav-v .lg b{color:var(--copperL)}
+.nav-v .links{display:flex;gap:26px}
+.nav-v .links a{font-size:.8rem;color:var(--dim);text-decoration:none;letter-spacing:.04em;transition:.2s}
+.nav-v .links a:hover{color:var(--copperL)}
+.nav-v.center{flex-direction:column;gap:14px}
+.nav-v.center .links{gap:30px}
+
+@media(max-width:900px){
+.layout{grid-template-columns:1fr}.sidenav{display:none}
+.hero-split,.findcard,.cardrow{grid-template-columns:1fr}
+.cardrow{grid-template-columns:1fr}
+}
+
+</style>
+</head>
+<body>
+<div class="master-bar">
+<div class="mb-brand">Berkley Pepper Co. <span>· for James</span></div>
+<div class="master-toggle">
+<button id="mt-concepts" class="on" onclick="showMode('concepts')">7 Concepts</button>
+<button id="mt-elements" onclick="showMode('elements')">Element Library</button>
+</div>
+<div class="mb-hint">Pick a direction, then mix in parts</div>
+</div>
+
+<div class="mode live" id="mode-concepts">
+<div class="shell-bar">
+<div class="shell-brand">Concept Directions <span>· click between the seven</span></div>
+<div class="shell-tabs"><button class="shell-tab active" onclick="showConcept(0)"><b>01</b>The Reserve</button><button class="shell-tab" onclick="showConcept(1)"><b>02</b>The Provision</button><button class="shell-tab" onclick="showConcept(2)"><b>03</b>The Backyard</button><button class="shell-tab" onclick="showConcept(3)"><b>04</b>The Index</button><button class="shell-tab" onclick="showConcept(4)"><b>05</b>The Press</button><button class="shell-tab" onclick="showConcept(5)"><b>06</b>The Specimen</button><button class="shell-tab" onclick="showConcept(6)"><b>07</b>The Taproom</button></div>
+</div>
+<div class="frame-wrap"><div class="concept live" id="panel0">
+<div class="note"><h4>Concept 01 — The Reserve · Cigar lounge meets urban loft</h4><p>The approved V2 direction, fully realized — copper on matte black, Cormorant Garamond + DM Sans, grain texture, floating geometry. This is the anchor: the look the brand brief already landed on. Use it to react against the others.</p></div>
+<div id="c1">
+<div class="grain"></div>
+<section class="h">
+<div class="shape s1"></div><div class="shape s2" style="--r:45deg"></div><div class="shape s3"></div>
+<div class="rule"></div>
+<div class="eb">Small-Batch Hot Sauce · Berkley, Michigan</div>
+<h1 class="h1">Bold Flavor.<br><i>Balanced Heat.</i></h1>
+<p class="sub">Handcrafted sauces built to enhance your food, not challenge your ego. Grown in the backyard. Bottled with intention.</p>
+<div class="cta"><a class="btn btn-p" href="#c1sauces">Explore the Lineup</a><a class="btn btn-g" href="#c1list">Join the List</a></div>
+</section>
+<div class="strip"><span>Small Batch Only</span><span>Berkley, Michigan</span><span>Backyard Grown</span><span>Flavor-First</span></div>
+<section class="sec" id="c1story">
+<div class="story"><div>
+<div class="sh">The Origin</div><h2 class="st">It started with one plant on a whim.</h2>
+<p>James picked up a scorpion pepper plant while buying spring flowers. Unlike the flowers, it actually produced something useful — a massive harvest with nowhere to go but the kitchen.</p>
+<p>After weeks of experimenting, the first sauce was born: <i>Scorpion and the Frog.</i> Friends loved it. Samples got passed around. People started asking where they could buy it.</p>
+<p>What started as a backyard accident became a growing local brand — built on a simple belief: hot sauce should make your food taste better, not just burn you.</p>
+</div>
+<div class="qcard"><div class="q">"Built for Flavor, Not Fear."</div><p>Many of the superhot peppers in the lineup are still grown directly in James' backyard. Every batch is made in small quantities — because quality doesn't scale the way shortcuts do.</p><div class="tag">Berkley, Michigan</div></div>
+</div></section>
+<section class="sec secd" id="c1sauces">
+<div class="sh">The Lineup</div><h2 class="st">Nine core sauces. Three seasonal.</h2>
+<div class="tabs" style="margin-top:30px"><button class="tab on" onclick="c1tab(this,'core')">Core Lineup</button><button class="tab" onclick="c1tab(this,'seasonal')">Seasonal Releases</button></div>
+<div class="grid" id="c1grid"><div class="card" data-t="core">
+<div class="top"><span class="badge in">In Stock</span><div class="pips"><span class="pip f"></span><span class="pip f"></span><span class="pip f"></span><span class="pip f"></span><span class="pip f"></span></div></div>
+<h3>Scorpion and the Frog</h3><p class="nt">The original. The first sauce James ever made.</p><div class="ing">Scorpion peppers · red bell · sun-dried tomato · roasted garlic · pineapple</div></div><div class="card" data-t="core">
+<div class="top"><span class="badge in">In Stock</span><div class="pips"><span class="pip f"></span><span class="pip f"></span><span class="pip f"></span><span class="pip"></span><span class="pip"></span></div></div>
+<h3>Bombay Blaze</h3><p class="nt">Indian-inspired. Wings, lamb, grilled chicken, rice.</p><div class="ing">Indian red chilis · ginger · curry · aromatic spice</div></div><div class="card" data-t="core">
+<div class="top"><span class="badge in">In Stock</span><div class="pips"><span class="pip f"></span><span class="pip f"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div></div>
+<h3>Cowboy Kick</h3><p class="nt">Thick, relish-style. Everyday.</p><div class="ing">Jalapeño · serrano · organic cane sugar</div></div><div class="card" data-t="core">
+<div class="top"><span class="badge in">In Stock</span><div class="pips"><span class="pip f"></span><span class="pip f"></span><span class="pip f"></span><span class="pip"></span><span class="pip"></span></div></div>
+<h3>El Arbol Inferno</h3><p class="nt">Taco sauce, elevated. Thicker body.</p><div class="ing">Arbol chili · tomato purée · spice blend</div></div><div class="card" data-t="core">
+<div class="top"><span class="badge in">In Stock</span><div class="pips"><span class="pip f"></span><span class="pip f"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div></div>
+<h3>Red Smoking Jacket</h3><p class="nt">All-day. Breakfast through BBQ.</p><div class="ing">Smoked cayenne · roasted red pepper · roasted garlic · roasted onion</div></div><div class="card" data-t="core">
+<div class="top"><span class="badge in">In Stock</span><div class="pips"><span class="pip f"></span><span class="pip f"></span><span class="pip f"></span><span class="pip f"></span><span class="pip"></span></div></div>
+<h3>Smokin' Stout</h3><p class="nt">Dog and Pony Show Brewing collab. At the taproom.</p><div class="ing">Stout syrup · smoked ghost · chipotle · black garlic · roasted veg</div></div><div class="card" data-t="core">
+<div class="top"><span class="badge in">In Stock</span><div class="pips"><span class="pip f"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div></div>
+<h3>Italian Heat</h3><p class="nt">Classic Italian-American. Hoagies, pizza, grinders.</p><div class="ing">Pepperoncini · red wine vinegar · oregano</div></div><div class="card" data-t="core">
+<div class="top"><span class="badge in">In Stock</span><div class="pips"><span class="pip f"></span><span class="pip f"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div></div>
+<h3>Dilly Diablo</h3><p class="nt">Dill + heat. Eggs, sandwiches, Bloody Marys.</p><div class="ing">Dill pickle base · jalapeño · serrano</div></div><div class="card" data-t="core">
+<div class="top"><span class="badge in">In Stock</span><div class="pips"><span class="pip f"></span><span class="pip f"></span><span class="pip f"></span><span class="pip f"></span><span class="pip"></span></div></div>
+<h3>'072 Island Sauce</h3><p class="nt">Nods to Berkley's 48072. Chicken, rice, seafood.</p><div class="ing">Orange habanero · jerk spice · coconut</div></div><div class="card" data-t="seasonal">
+<div class="top"><span class="badge seasonal">Seasonal</span><div class="pips"><span class="pip f"></span><span class="pip f"></span><span class="pip f"></span><span class="pip"></span><span class="pip"></span></div></div>
+<h3>Smoked Peach</h3><p class="nt">Fish tacos, fried rice, seafood.</p><div class="ing">Smoked peach · orange habanero</div></div><div class="card" data-t="seasonal">
+<div class="top"><span class="badge seasonal">Seasonal</span><div class="pips"><span class="pip f"></span><span class="pip f"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div></div>
+<h3>Ruth's Rhuby Red</h3><p class="nt">A family name.</p><div class="ing">Rhubarb · strawberry · habanero · leek</div></div><div class="card" data-t="seasonal">
+<div class="top"><span class="badge seasonal">Seasonal</span><div class="pips"><span class="pip f"></span><span class="pip f"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></div></div>
+<h3>Green with Envy</h3><p class="nt">The second sauce ever made. Smoky verde.</p><div class="ing">Roasted tomatillo · onion · garlic · smoked jalapeño · serrano · cilantro</div></div></div>
+</section>
+<section class="sec" id="c1collab">
+<div class="collab"><div>
+<div class="sh">The Collaboration</div><h2 class="st">Smokin' Stout</h2>
+<p>Two local small businesses doing exactly what they love — and pushing each other further. A reduced stout-beer syrup meets smoked ghost peppers, black garlic, and roasted vegetables.</p>
+<p>Made with <a href="https://dogandponyshowbrewing.com" target="_blank" rel="noopener" style="color:var(--cul);text-decoration:none;border-bottom:1px solid rgba(212,146,46,.4)">Dog and Pony Show Brewing</a> in Oak Park. Available at the taproom.</p>
+</div>
+<div class="ccard"><div class="em">🌶 + 🍺</div><h3>Smokin' Stout</h3><div class="tag">Available at the Taproom</div></div>
+</div></section>
+<section class="sec secd" id="c1find">
+<div class="sh">Find Us</div><h2 class="st">Where to get your hands on a bottle.</h2>
+<div class="find" style="margin-top:36px">
+<div class="fcard"><div class="num">01</div><h3>Farmers Markets</h3><p>Catch the table at local Metro Detroit markets. Follow along on Instagram for dates.</p></div>
+<div class="fcard"><div class="num">02</div><h3>Dog &amp; Pony Show Brewing</h3><p>14661 W 11 Mile Rd, Oak Park, MI. Home of the Smokin' Stout collab.</p></div>
+<div class="fcard"><div class="num">03</div><h3>Direct from James</h3><p>DM on Instagram to ask about current stock and pickup.</p></div>
+</div></section>
+<section class="sec" id="c1list">
+<div class="signup">
+<div class="sh">The Mailing List</div><h2 class="st">First in line for the next batch.</h2>
+<div class="perks"><span>New Batch Alerts</span><span>Seasonal Drops</span><span>Events &amp; Markets</span><span>Future Merch</span></div>
+<form class="form" onsubmit="c1sub(event)"><input type="email" placeholder="your@email.com" required aria-label="Email"><button class="btn btn-p" type="submit" id="c1btn">Join the List</button></form>
+</div></section>
+<section class="closing"><h1 class="h1">Heat you can taste <i>the story in.</i></h1><a class="btn btn-p" href="https://instagram.com/berkleypepperco" target="_blank" rel="noopener">Follow on Instagram</a></section>
+<footer class="ft"><div>Berkley Pepper Company</div><div>© 2026 · Berkley, Michigan</div><div><b>@berkleypepperco</b></div></footer>
+</div></div><div class="concept" id="panel1">
+<div class="note"><h4>Concept 02 — The Provision · Apothecary larder</h4><p>Warm paper instead of black. Treats the sauces like provisions on a shop ledger — letterpress serif, a wax-seal stamp, drop caps, a dotted price-list lineup. Heritage and craft without tipping into farmhouse-rustic.</p></div>
+<div id="c2">
+<div class="wrap"><div class="mast"><div class="nm">Berkley Pepper Co.</div><div class="est">Est. in a Backyard · Berkley, MI 48072</div></div></div>
+<div class="wrap"><section class="hero">
+<div class="kick">Small-Batch Michigan Hot Sauce</div>
+<h1>Crafted to enhance food,<br><em>not overpower it.</em></h1>
+<p class="lead">Grown in the backyard. Cooked in small batches. Bottled by hand. The kind of sauce you reach for every day, not just to prove a point.</p>
+<div class="seal">Small<br>Batch<br>Only</div>
+<div class="acts"><a class="lk" href="#c2sauces">The Sauces</a><a class="lk" href="#c2list">Get on the List</a></div>
+</section></div>
+<div class="ribbon"><span>Backyard Grown</span><span>Flavor-First</span><span>Made in Berkley</span><span>No Shortcuts</span></div>
+<div class="wrap"><section class="blk"><div class="story2">
+<div class="col"><div class="ov">The Origin</div><h2 class="ttl">One pepper plant, bought on a whim.</h2>
+<p>James picked up a scorpion pepper plant while buying spring flowers. Unlike the flowers, it produced something useful — a harvest with nowhere to go but the kitchen. After weeks of experimenting, the first sauce was born: Scorpion and the Frog.</p>
+<p>Friends loved it. Samples got passed around. People started asking where they could buy it. What started as a backyard accident became a local brand built on a simple belief — hot sauce should make your food taste better, not just burn you.</p></div>
+<aside class="aside"><div class="q">"Built for flavor, not fear."</div><p>Many of the superhot peppers are still grown directly in James' backyard. Every batch is small — because quality doesn't scale the way shortcuts do.</p><div class="tag">Berkley, Michigan</div></aside>
+</div></section></div>
+<div class="wrap"><section class="blk" id="c2sauces">
+<div class="ov">The Lineup</div><h2 class="ttl">The provisions.</h2>
+<div class="tabs2"><button class="tab2 on" onclick="c2tab(this,'core')">Core · Nine</button><button class="tab2" onclick="c2tab(this,'seasonal')">Seasonal · Three</button></div>
+<div id="c2list-grid"><div class="item" data-t="core">
+<div class="idx">01</div>
+<div class="main"><h3>Scorpion and the Frog</h3><span class="st in">In Stock</span><div class="nt">The original. The first sauce James ever made.</div><div class="ing">Scorpion peppers · red bell · sun-dried tomato · roasted garlic · pineapple</div></div>
+<div class="heat"><span>▲▲▲▲▲</span><span class="dot"></span></div></div><div class="item" data-t="core">
+<div class="idx">02</div>
+<div class="main"><h3>Bombay Blaze</h3><span class="st in">In Stock</span><div class="nt">Indian-inspired. Wings, lamb, grilled chicken, rice.</div><div class="ing">Indian red chilis · ginger · curry · aromatic spice</div></div>
+<div class="heat"><span>▲▲▲</span><span class="dot">△△</span></div></div><div class="item" data-t="core">
+<div class="idx">03</div>
+<div class="main"><h3>Cowboy Kick</h3><span class="st in">In Stock</span><div class="nt">Thick, relish-style. Everyday.</div><div class="ing">Jalapeño · serrano · organic cane sugar</div></div>
+<div class="heat"><span>▲▲</span><span class="dot">△△△</span></div></div><div class="item" data-t="core">
+<div class="idx">04</div>
+<div class="main"><h3>El Arbol Inferno</h3><span class="st in">In Stock</span><div class="nt">Taco sauce, elevated. Thicker body.</div><div class="ing">Arbol chili · tomato purée · spice blend</div></div>
+<div class="heat"><span>▲▲▲</span><span class="dot">△△</span></div></div><div class="item" data-t="core">
+<div class="idx">05</div>
+<div class="main"><h3>Red Smoking Jacket</h3><span class="st in">In Stock</span><div class="nt">All-day. Breakfast through BBQ.</div><div class="ing">Smoked cayenne · roasted red pepper · roasted garlic · roasted onion</div></div>
+<div class="heat"><span>▲▲</span><span class="dot">△△△</span></div></div><div class="item" data-t="core">
+<div class="idx">06</div>
+<div class="main"><h3>Smokin' Stout</h3><span class="st in">In Stock</span><div class="nt">Dog and Pony Show Brewing collab. At the taproom.</div><div class="ing">Stout syrup · smoked ghost · chipotle · black garlic · roasted veg</div></div>
+<div class="heat"><span>▲▲▲▲</span><span class="dot">△</span></div></div><div class="item" data-t="core">
+<div class="idx">07</div>
+<div class="main"><h3>Italian Heat</h3><span class="st in">In Stock</span><div class="nt">Classic Italian-American. Hoagies, pizza, grinders.</div><div class="ing">Pepperoncini · red wine vinegar · oregano</div></div>
+<div class="heat"><span>▲</span><span class="dot">△△△△</span></div></div><div class="item" data-t="core">
+<div class="idx">08</div>
+<div class="main"><h3>Dilly Diablo</h3><span class="st in">In Stock</span><div class="nt">Dill + heat. Eggs, sandwiches, Bloody Marys.</div><div class="ing">Dill pickle base · jalapeño · serrano</div></div>
+<div class="heat"><span>▲▲</span><span class="dot">△△△</span></div></div><div class="item" data-t="core">
+<div class="idx">09</div>
+<div class="main"><h3>'072 Island Sauce</h3><span class="st in">In Stock</span><div class="nt">Nods to Berkley's 48072. Chicken, rice, seafood.</div><div class="ing">Orange habanero · jerk spice · coconut</div></div>
+<div class="heat"><span>▲▲▲▲</span><span class="dot">△</span></div></div><div class="item" data-t="seasonal">
+<div class="idx">01</div>
+<div class="main"><h3>Smoked Peach</h3><span class="st seasonal">Seasonal</span><div class="nt">Fish tacos, fried rice, seafood.</div><div class="ing">Smoked peach · orange habanero</div></div>
+<div class="heat"><span>▲▲▲</span><span class="dot">△△</span></div></div><div class="item" data-t="seasonal">
+<div class="idx">02</div>
+<div class="main"><h3>Ruth's Rhuby Red</h3><span class="st seasonal">Seasonal</span><div class="nt">A family name.</div><div class="ing">Rhubarb · strawberry · habanero · leek</div></div>
+<div class="heat"><span>▲▲</span><span class="dot">△△△</span></div></div><div class="item" data-t="seasonal">
+<div class="idx">03</div>
+<div class="main"><h3>Green with Envy</h3><span class="st seasonal">Seasonal</span><div class="nt">The second sauce ever made. Smoky verde.</div><div class="ing">Roasted tomatillo · onion · garlic · smoked jalapeño · serrano · cilantro</div></div>
+<div class="heat"><span>▲▲</span><span class="dot">△△△</span></div></div></div>
+</section></div>
+<div class="wrap"><section class="blk" id="c2collab"><div class="collab2">
+<div><div class="ov">The Collaboration</div><h2 class="ttl">Smokin' Stout</h2>
+<p>Two local small businesses doing exactly what they love — and pushing each other further. Reduced stout-beer syrup, smoked ghost peppers, black garlic, roasted vegetables.</p>
+<p>Brewed in partnership with <a href="https://dogandponyshowbrewing.com" target="_blank" rel="noopener">Dog and Pony Show Brewing</a>, Oak Park. Available at the taproom.</p></div>
+<div class="label"><div class="in2"><div class="sm">Limited Collaboration</div><h3>Smokin' Stout</h3><div class="desc">stout syrup · smoked ghost · black garlic</div></div></div>
+</div></section></div>
+<div class="wrap"><section class="blk" id="c2find">
+<div class="ov">Find Us</div><h2 class="ttl">Where the bottles turn up.</h2>
+<div class="findrow"><div class="f"><h3>Farmers Markets</h3><p>Find the table at local Metro Detroit markets. Dates posted on Instagram.</p></div>
+<div class="f"><h3>Dog &amp; Pony Show</h3><p>14661 W 11 Mile Rd, Oak Park, MI. Home of the Smokin' Stout collab.</p></div>
+<div class="f"><h3>Direct from James</h3><p>DM on Instagram to ask about current stock and pickup.</p></div></div>
+</section></div>
+<div class="wrap"><section class="blk" id="c2list" style="border-bottom:none">
+<div class="sgn"><div class="ov" style="text-align:center">The Mailing List</div><h2 class="ttl">First word on the next batch.</h2>
+<p style="color:var(--ink2);line-height:1.7">New batch alerts · seasonal drops · events &amp; markets · future merch.</p>
+<form class="f2" onsubmit="c2sub(event)"><input type="email" placeholder="your@email.com" required aria-label="Email"><button type="submit" id="c2btn">Sign Up</button></form></div>
+</section></div>
+<footer class="foot"><div class="wrap"><div>Berkley Pepper Co. — Berkley, Michigan</div><div>© 2026</div><div><a href="https://instagram.com/berkleypepperco" target="_blank" rel="noopener">@berkleypepperco</a></div></div></footer>
+</div></div><div class="concept" id="panel2">
+<div class="note"><h4>Concept 03 — The Backyard · Botanical seed-packet</h4><p>Leans all the way into the hand-grown origin. Garden greens and copper, a hand-drawn pepper on a seed packet, sauces planted in 'beds.' The most personal and the most clearly Made-by-James of the set.</p></div>
+<div id="c3">
+<div class="bg"></div>
+<div class="wrap"><nav class="nav"><div class="lg">Berkley <b>Pepper Co.</b></div><div class="mn">Grown · Cooked · Bottled in Berkley, MI</div></nav></div>
+<div class="wrap"><section class="hero"><div class="hgrid">
+<div><div class="eb">Backyard-Grown Hot Sauce</div>
+<h1>From the<br>garden,<br><em>not the lab.</em></h1>
+<p class="lead">It starts with peppers James grows himself in a Berkley backyard. Small harvests, small batches, and sauces built to make your food taste better — not just burn.</p>
+<div class="acts"><a class="b bp" href="#c3sauces">See What's Growing</a><a class="b bg2" href="#c3list">Join the List</a></div></div>
+<div class="packet"><div class="pk-top"><div class="t">Scorpion &amp; the Frog</div><div class="n">No. 001</div></div>
+<div class="pk-body"><svg class="pepper-ill" viewBox="0 0 100 120" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--copper2)">
+<path d="M50 18 C 50 10 56 6 62 8" stroke="var(--leaf2)" stroke-width="3" stroke-linecap="round"/>
+<path d="M50 18 C 44 14 38 16 36 22" stroke="var(--leaf2)" stroke-width="3" stroke-linecap="round" fill="none"/>
+<path d="M50 20 C 30 24 26 50 34 78 C 40 100 48 110 54 110 C 64 110 74 92 74 66 C 74 40 66 24 50 20 Z" fill="rgba(192,107,46,.15)"/>
+<path d="M48 34 C 44 44 46 60 50 72" stroke="rgba(242,236,221,.3)" stroke-width="1.5" fill="none"/>
+</svg><div class="pk-cap">The Original</div><div class="pk-meta">Scorpion · Heat 5 of 5</div></div>
+<div class="pk-foot">Sown on a whim · Harvested with intent</div></div>
+</div></section></div>
+<div class="strip3"><span>Small Batch Only</span><span>Backyard Grown</span><span>Berkley, Michigan</span><span>Flavor-First</span></div>
+<div class="wrap"><section class="sec3"><div class="story3">
+<div><div class="ov3">The Origin</div><h2 class="ttl3">It began with one plant, bought on a whim.</h2>
+<p>James picked up a scorpion pepper plant while buying spring flowers. Unlike the flowers, it produced something useful — a massive harvest with nowhere to go but the kitchen. After weeks of experimenting, the first sauce was born: <em>Scorpion and the Frog.</em></p>
+<p>Friends loved it. Samples got passed around. People started asking where they could buy it. A backyard accident became a local brand — built on the belief that hot sauce should make food taste better, not just burn.</p></div>
+<div class="grow"><div class="q">"Built for flavor, not fear."</div><p>Many of the superhot peppers are still grown directly in James' backyard. Every batch is small — because quality doesn't scale the way shortcuts do.</p><div class="tag">Berkley, Michigan</div></div>
+</div></section></div>
+<div class="secalt"><div class="wrap"><section class="sec3" id="c3sauces">
+<div class="ov3">The Lineup</div><h2 class="ttl3">Nine core sauces. Three seasonal.</h2>
+<div class="tabs3"><button class="tab3 on" onclick="c3tab(this,'core')">Core Lineup</button><button class="tab3" onclick="c3tab(this,'seasonal')">Seasonal</button></div>
+<div class="beds" id="c3grid"><div class="bed" data-t="core">
+<div class="bt"><div class="heat3"><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg></div><span class="stt in">In Stock</span></div>
+<h3>Scorpion and the Frog</h3><p class="nt">The original. The first sauce James ever made.</p><div class="ing">Scorpion peppers · red bell · sun-dried tomato · roasted garlic · pineapple</div></div><div class="bed" data-t="core">
+<div class="bt"><div class="heat3"><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg></div><span class="stt in">In Stock</span></div>
+<h3>Bombay Blaze</h3><p class="nt">Indian-inspired. Wings, lamb, grilled chicken, rice.</p><div class="ing">Indian red chilis · ginger · curry · aromatic spice</div></div><div class="bed" data-t="core">
+<div class="bt"><div class="heat3"><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg></div><span class="stt in">In Stock</span></div>
+<h3>Cowboy Kick</h3><p class="nt">Thick, relish-style. Everyday.</p><div class="ing">Jalapeño · serrano · organic cane sugar</div></div><div class="bed" data-t="core">
+<div class="bt"><div class="heat3"><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg></div><span class="stt in">In Stock</span></div>
+<h3>El Arbol Inferno</h3><p class="nt">Taco sauce, elevated. Thicker body.</p><div class="ing">Arbol chili · tomato purée · spice blend</div></div><div class="bed" data-t="core">
+<div class="bt"><div class="heat3"><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg></div><span class="stt in">In Stock</span></div>
+<h3>Red Smoking Jacket</h3><p class="nt">All-day. Breakfast through BBQ.</p><div class="ing">Smoked cayenne · roasted red pepper · roasted garlic · roasted onion</div></div><div class="bed" data-t="core">
+<div class="bt"><div class="heat3"><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg></div><span class="stt in">In Stock</span></div>
+<h3>Smokin' Stout</h3><p class="nt">Dog and Pony Show Brewing collab. At the taproom.</p><div class="ing">Stout syrup · smoked ghost · chipotle · black garlic · roasted veg</div></div><div class="bed" data-t="core">
+<div class="bt"><div class="heat3"><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg></div><span class="stt in">In Stock</span></div>
+<h3>Italian Heat</h3><p class="nt">Classic Italian-American. Hoagies, pizza, grinders.</p><div class="ing">Pepperoncini · red wine vinegar · oregano</div></div><div class="bed" data-t="core">
+<div class="bt"><div class="heat3"><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg></div><span class="stt in">In Stock</span></div>
+<h3>Dilly Diablo</h3><p class="nt">Dill + heat. Eggs, sandwiches, Bloody Marys.</p><div class="ing">Dill pickle base · jalapeño · serrano</div></div><div class="bed" data-t="core">
+<div class="bt"><div class="heat3"><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg></div><span class="stt in">In Stock</span></div>
+<h3>'072 Island Sauce</h3><p class="nt">Nods to Berkley's 48072. Chicken, rice, seafood.</p><div class="ing">Orange habanero · jerk spice · coconut</div></div><div class="bed" data-t="seasonal">
+<div class="bt"><div class="heat3"><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg></div><span class="stt seasonal">Seasonal</span></div>
+<h3>Smoked Peach</h3><p class="nt">Fish tacos, fried rice, seafood.</p><div class="ing">Smoked peach · orange habanero</div></div><div class="bed" data-t="seasonal">
+<div class="bt"><div class="heat3"><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg></div><span class="stt seasonal">Seasonal</span></div>
+<h3>Ruth's Rhuby Red</h3><p class="nt">A family name.</p><div class="ing">Rhubarb · strawberry · habanero · leek</div></div><div class="bed" data-t="seasonal">
+<div class="bt"><div class="heat3"><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf on" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg><svg class="lf" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 6 5 9 5 14a7 7 0 0 0 14 0c0-5-3-8-7-12z"/></svg></div><span class="stt seasonal">Seasonal</span></div>
+<h3>Green with Envy</h3><p class="nt">The second sauce ever made. Smoky verde.</p><div class="ing">Roasted tomatillo · onion · garlic · smoked jalapeño · serrano · cilantro</div></div></div>
+</section></div></div>
+<div class="wrap"><section class="sec3" id="c3collab"><div class="collab3">
+<div><div class="ov3">The Collaboration</div><h2 class="ttl3">Smokin' Stout</h2>
+<p>Two local small businesses doing exactly what they love — and pushing each other further. Reduced stout-beer syrup, smoked ghost peppers, black garlic, and roasted vegetables.</p>
+<p>Made with <a href="https://dogandponyshowbrewing.com" target="_blank" rel="noopener">Dog and Pony Show Brewing</a> in Oak Park. Available at the taproom.</p></div>
+<div class="cc3"><div class="em">🌶 + 🍺</div><h3>Smokin' Stout</h3><div class="tag">Available at the Taproom</div></div>
+</div></section></div>
+<div class="secalt"><div class="wrap"><section class="sec3" id="c3find">
+<div class="ov3">Find Us</div><h2 class="ttl3">Where to get a bottle.</h2>
+<div class="find3" style="margin-top:30px">
+<div class="fc3"><h3>Farmers Markets</h3><p>Catch the table at local Metro Detroit markets. Dates posted on Instagram.</p></div>
+<div class="fc3"><h3>Dog &amp; Pony Show</h3><p>14661 W 11 Mile Rd, Oak Park, MI. Home of the Smokin' Stout collab.</p></div>
+<div class="fc3"><h3>Direct from James</h3><p>DM on Instagram to ask about current stock and pickup.</p></div></div>
+</section></div></div>
+<div class="wrap"><section class="sec3" id="c3list"><div class="sgn3">
+<div class="ov3" style="justify-content:center">The Mailing List</div><h2 class="ttl3">First in line for the next harvest.</h2>
+<p style="color:var(--dim);line-height:1.7;font-weight:300">New batch alerts · seasonal drops · events &amp; markets · future merch.</p>
+<form class="f3" onsubmit="c3sub(event)"><input type="email" placeholder="your@email.com" required aria-label="Email"><button class="b bp" type="submit" id="c3btn">Join</button></form>
+</div></section></div>
+<div class="wrap"><footer class="ft3"><div>Berkley Pepper Co. — Berkley, Michigan</div><div>© 2026</div><div><b>@berkleypepperco</b></div></footer></div>
+</div></div><div class="concept" id="panel3">
+<div class="note"><h4>Concept 04 — The Index · Editorial tasting menu</h4><p>Confident restraint. The lineup becomes a typographic index — heat as data, sauces as numbered entries in a catalog. Quiet, premium, lets the names and the heat scale do the work. The risk here is being too cool; the spec-sheet structure keeps it grounded.</p></div>
+<div id="c4">
+<div class="wrap"><div class="topbar"><div class="lg">Berkley Pepper <b>Co.</b></div><div class="mt">Index No. 48072 · Berkley, MI</div></div></div>
+<div class="wrap"><section class="hero4">
+<div class="ix">The Catalog · Small-Batch Michigan Hot Sauce</div>
+<div class="row"><h1>Bold flavor,<br>measured <em>heat.</em></h1>
+<div class="meta">Nine core sauces<br><b>Three</b> seasonal<br>One <b>collaboration</b><br>Zero shortcuts</div></div>
+<p class="lead">Each sauce is built to enhance food, not overpower it — indexed here by heat, ingredient, and intent. Grown in a backyard, bottled in small batches.</p>
+<div class="acts"><a class="ln" href="#c4sauces">Read the Index</a><a class="ln" href="#c4list">Join the List</a></div>
+</section></div>
+<div class="wrap"><section class="block4"><div class="secnum"><span class="n">§ 01</span><span class="t">Origin</span><span class="ln2"></span></div>
+<div class="story4"><div><h2>It began with one plant, bought <em>on a whim.</em></h2><div class="pull">"Built for flavor, not fear."</div></div>
+<div class="body"><p>James picked up a scorpion pepper plant while buying spring flowers. Unlike the flowers, it produced something useful — a massive harvest with nowhere to go but the kitchen. After weeks of experimenting, the first sauce was born: <em>Scorpion and the Frog.</em></p>
+<p>Friends loved it. Samples got passed around. People started asking where they could buy it. A backyard accident became a local brand — built on the belief that hot sauce should make food taste better, not just burn. Many of the superhot peppers are still grown directly in James' backyard.</p></div></div>
+</section></div>
+<div class="wrap"><section class="block4" id="c4sauces"><div class="secnum"><span class="n">§ 02</span><span class="t">The Lineup</span><span class="ln2"></span></div>
+<div class="filt"><button class="on" onclick="c4tab(this,'core')">Core / 9</button><button onclick="c4tab(this,'seasonal')">Seasonal / 3</button></div>
+<div class="menu"><div class="hd"><span></span><span>Sauce &amp; Build</span><span class="h-h">Heat</span><span class="h-s">Status</span></div>
+<div id="c4menu"><div class="li" data-t="core">
+<div class="no">01</div>
+<div><h3>Scorpion and the Frog</h3><div class="ing">Scorpion peppers · red bell · sun-dried tomato · roasted garlic · pineapple</div><div class="nt">The original. The first sauce James ever made.</div></div>
+<div class="heat"><span>■■■■■</span><span class="e"></span> 5/5</div>
+<div class="stwrap"><span class="st in">In Stock</span></div></div><div class="li" data-t="core">
+<div class="no">02</div>
+<div><h3>Bombay Blaze</h3><div class="ing">Indian red chilis · ginger · curry · aromatic spice</div><div class="nt">Indian-inspired. Wings, lamb, grilled chicken, rice.</div></div>
+<div class="heat"><span>■■■</span><span class="e">■■</span> 3/5</div>
+<div class="stwrap"><span class="st in">In Stock</span></div></div><div class="li" data-t="core">
+<div class="no">03</div>
+<div><h3>Cowboy Kick</h3><div class="ing">Jalapeño · serrano · organic cane sugar</div><div class="nt">Thick, relish-style. Everyday.</div></div>
+<div class="heat"><span>■■</span><span class="e">■■■</span> 2/5</div>
+<div class="stwrap"><span class="st in">In Stock</span></div></div><div class="li" data-t="core">
+<div class="no">04</div>
+<div><h3>El Arbol Inferno</h3><div class="ing">Arbol chili · tomato purée · spice blend</div><div class="nt">Taco sauce, elevated. Thicker body.</div></div>
+<div class="heat"><span>■■■</span><span class="e">■■</span> 3/5</div>
+<div class="stwrap"><span class="st in">In Stock</span></div></div><div class="li" data-t="core">
+<div class="no">05</div>
+<div><h3>Red Smoking Jacket</h3><div class="ing">Smoked cayenne · roasted red pepper · roasted garlic · roasted onion</div><div class="nt">All-day. Breakfast through BBQ.</div></div>
+<div class="heat"><span>■■</span><span class="e">■■■</span> 2/5</div>
+<div class="stwrap"><span class="st in">In Stock</span></div></div><div class="li" data-t="core">
+<div class="no">06</div>
+<div><h3>Smokin' Stout</h3><div class="ing">Stout syrup · smoked ghost · chipotle · black garlic · roasted veg</div><div class="nt">Dog and Pony Show Brewing collab. At the taproom.</div></div>
+<div class="heat"><span>■■■■</span><span class="e">■</span> 4/5</div>
+<div class="stwrap"><span class="st in">In Stock</span></div></div><div class="li" data-t="core">
+<div class="no">07</div>
+<div><h3>Italian Heat</h3><div class="ing">Pepperoncini · red wine vinegar · oregano</div><div class="nt">Classic Italian-American. Hoagies, pizza, grinders.</div></div>
+<div class="heat"><span>■</span><span class="e">■■■■</span> 1/5</div>
+<div class="stwrap"><span class="st in">In Stock</span></div></div><div class="li" data-t="core">
+<div class="no">08</div>
+<div><h3>Dilly Diablo</h3><div class="ing">Dill pickle base · jalapeño · serrano</div><div class="nt">Dill + heat. Eggs, sandwiches, Bloody Marys.</div></div>
+<div class="heat"><span>■■</span><span class="e">■■■</span> 2/5</div>
+<div class="stwrap"><span class="st in">In Stock</span></div></div><div class="li" data-t="core">
+<div class="no">09</div>
+<div><h3>'072 Island Sauce</h3><div class="ing">Orange habanero · jerk spice · coconut</div><div class="nt">Nods to Berkley's 48072. Chicken, rice, seafood.</div></div>
+<div class="heat"><span>■■■■</span><span class="e">■</span> 4/5</div>
+<div class="stwrap"><span class="st in">In Stock</span></div></div><div class="li" data-t="seasonal">
+<div class="no">01</div>
+<div><h3>Smoked Peach</h3><div class="ing">Smoked peach · orange habanero</div><div class="nt">Fish tacos, fried rice, seafood.</div></div>
+<div class="heat"><span>■■■</span><span class="e">■■</span> 3/5</div>
+<div class="stwrap"><span class="st seasonal">Seasonal</span></div></div><div class="li" data-t="seasonal">
+<div class="no">02</div>
+<div><h3>Ruth's Rhuby Red</h3><div class="ing">Rhubarb · strawberry · habanero · leek</div><div class="nt">A family name.</div></div>
+<div class="heat"><span>■■</span><span class="e">■■■</span> 2/5</div>
+<div class="stwrap"><span class="st seasonal">Seasonal</span></div></div><div class="li" data-t="seasonal">
+<div class="no">03</div>
+<div><h3>Green with Envy</h3><div class="ing">Roasted tomatillo · onion · garlic · smoked jalapeño · serrano · cilantro</div><div class="nt">The second sauce ever made. Smoky verde.</div></div>
+<div class="heat"><span>■■</span><span class="e">■■■</span> 2/5</div>
+<div class="stwrap"><span class="st seasonal">Seasonal</span></div></div></div></div>
+</section></div>
+<div class="wrap"><section class="block4" id="c4collab"><div class="secnum"><span class="n">§ 03</span><span class="t">Collaboration</span><span class="ln2"></span></div>
+<div class="collab4"><div><h2>Smokin' Stout</h2>
+<p>Two local small businesses doing exactly what they love — and pushing each other further. Reduced stout-beer syrup, smoked ghost peppers, black garlic, and roasted vegetables.</p>
+<p>Made with <a href="https://dogandponyshowbrewing.com" target="_blank" rel="noopener">Dog and Pony Show Brewing</a> in Oak Park. Available at the taproom.</p></div>
+<div class="spec"><div class="sl">Collab Spec</div><div class="sv">Smokin' Stout</div>
+<div class="rowx"><span>Heat</span><span>4 / 5</span></div>
+<div class="rowx"><span>Base</span><span>Stout syrup</span></div>
+<div class="rowx"><span>Peppers</span><span>Smoked ghost · chipotle</span></div>
+<div class="rowx"><span>Find it</span><span>The taproom</span></div></div>
+</div></section></div>
+<div class="wrap"><section class="block4" id="c4find"><div class="secnum"><span class="n">§ 04</span><span class="t">Find Us</span><span class="ln2"></span></div>
+<div class="find4">
+<div class="f"><div class="fn">01</div><h3>Farmers Markets</h3><p>Catch the table at local Metro Detroit markets. Dates on Instagram.</p></div>
+<div class="f"><div class="fn">02</div><h3>Dog &amp; Pony Show</h3><p>14661 W 11 Mile Rd, Oak Park, MI. Home of the collab.</p></div>
+<div class="f"><div class="fn">03</div><h3>Direct from James</h3><p>DM on Instagram for current stock and pickup.</p></div></div>
+</section></div>
+<div class="wrap"><section class="block4" id="c4list"><div class="sgn4">
+<h2>Get the next entry <em>before it's listed.</em></h2>
+<p>New batch alerts, seasonal drops, events &amp; markets, future merch — sent only when there's something worth saying.</p>
+<form class="f4" onsubmit="c4sub(event)"><input type="email" placeholder="your@email.com" required aria-label="Email"><button type="submit" id="c4btn">Join →</button></form>
+</div></section></div>
+<div class="wrap"><footer class="ft4"><div>Berkley Pepper Co. — Berkley, Michigan</div><div>© 2026</div><div><b>@berkleypepperco</b></div></footer></div>
+</div></div><div class="concept" id="panel4">
+<div class="note"><h4>Concept 05 — The Press · Magazine feature</h4><p>Plays straight to the site's real job — legitimacy. Frames the brand as a discovery story: a masthead, a feature headline, a two-column lede with a drop cap, a pull quote. Reads like a local-paper profile someone clipped and kept.</p></div>
+<div id="c5">
+<div class="wrap"><div class="masthead"><div class="iss">No. 48072 · Berkley, Michigan · Vol. 1</div><div class="nm">The Berkley Pepper Dispatch</div><div class="sub">A Backyard Hot Sauce Story</div></div></div>
+<div class="wrap"><section class="feature">
+<div class="cat">The Discovery Issue</div>
+<h1>The best hot sauce in town <em>isn't sold in any store.</em></h1>
+<p class="dek">How a single pepper plant, bought on a whim beside the spring flowers, turned a Berkley backyard into a small-batch obsession.</p>
+<div class="byline">Made &amp; bottled by <b>James</b> · Berkley, MI</div>
+</section></div>
+<div class="wrapn"><section class="lede"><div class="col2">
+<p>James picked up a scorpion pepper plant while buying spring flowers. Unlike the flowers, it produced something useful — a massive harvest with nowhere to go but the kitchen.</p>
+<p>After weeks of experimenting and modifying recipes to fit his own palate, the first sauce was born: <em>Scorpion and the Frog.</em> Friends and family loved it. Samples got passed around. People started asking where they could buy it.</p>
+<p>What started as a backyard accident became a growing local brand — built on a simple belief: hot sauce should make your food taste better, not just burn you. Many of the superhot peppers in the lineup are still grown directly in James' backyard, and every batch is made in small quantities.</p>
+</div></section></div>
+<div class="wrapn"><div class="pq">"Built for flavor, not fear."</div></div>
+<div class="wrap"><section class="sect" id="c5sauces">
+<div class="kicker">The Catalog</div><h2 class="h2">Nine core sauces, <em>three seasonal.</em></h2>
+<div class="deck2">Indexed by heat and intent — from a whisper of pepperoncini to a full scorpion roar.</div>
+<div class="tabs5"><button class="tab5 on" onclick="c5tab(this,'core')">Core Lineup</button><button class="tab5" onclick="c5tab(this,'seasonal')">Seasonal Releases</button></div>
+<div class="catalog" id="c5cat"><div class="entry" data-t="core">
+<div class="eh"><h3>Scorpion and the Frog<span class="st in">In Stock</span></h3><div class="hx"><span>●●●●●</span><span class="e"></span></div></div>
+<div class="nt">The original. The first sauce James ever made.</div><div class="ing">Scorpion peppers · red bell · sun-dried tomato · roasted garlic · pineapple</div></div><div class="entry" data-t="core">
+<div class="eh"><h3>Bombay Blaze<span class="st in">In Stock</span></h3><div class="hx"><span>●●●</span><span class="e">●●</span></div></div>
+<div class="nt">Indian-inspired. Wings, lamb, grilled chicken, rice.</div><div class="ing">Indian red chilis · ginger · curry · aromatic spice</div></div><div class="entry" data-t="core">
+<div class="eh"><h3>Cowboy Kick<span class="st in">In Stock</span></h3><div class="hx"><span>●●</span><span class="e">●●●</span></div></div>
+<div class="nt">Thick, relish-style. Everyday.</div><div class="ing">Jalapeño · serrano · organic cane sugar</div></div><div class="entry" data-t="core">
+<div class="eh"><h3>El Arbol Inferno<span class="st in">In Stock</span></h3><div class="hx"><span>●●●</span><span class="e">●●</span></div></div>
+<div class="nt">Taco sauce, elevated. Thicker body.</div><div class="ing">Arbol chili · tomato purée · spice blend</div></div><div class="entry" data-t="core">
+<div class="eh"><h3>Red Smoking Jacket<span class="st in">In Stock</span></h3><div class="hx"><span>●●</span><span class="e">●●●</span></div></div>
+<div class="nt">All-day. Breakfast through BBQ.</div><div class="ing">Smoked cayenne · roasted red pepper · roasted garlic · roasted onion</div></div><div class="entry" data-t="core">
+<div class="eh"><h3>Smokin' Stout<span class="st in">In Stock</span></h3><div class="hx"><span>●●●●</span><span class="e">●</span></div></div>
+<div class="nt">Dog and Pony Show Brewing collab. At the taproom.</div><div class="ing">Stout syrup · smoked ghost · chipotle · black garlic · roasted veg</div></div><div class="entry" data-t="core">
+<div class="eh"><h3>Italian Heat<span class="st in">In Stock</span></h3><div class="hx"><span>●</span><span class="e">●●●●</span></div></div>
+<div class="nt">Classic Italian-American. Hoagies, pizza, grinders.</div><div class="ing">Pepperoncini · red wine vinegar · oregano</div></div><div class="entry" data-t="core">
+<div class="eh"><h3>Dilly Diablo<span class="st in">In Stock</span></h3><div class="hx"><span>●●</span><span class="e">●●●</span></div></div>
+<div class="nt">Dill + heat. Eggs, sandwiches, Bloody Marys.</div><div class="ing">Dill pickle base · jalapeño · serrano</div></div><div class="entry" data-t="core">
+<div class="eh"><h3>'072 Island Sauce<span class="st in">In Stock</span></h3><div class="hx"><span>●●●●</span><span class="e">●</span></div></div>
+<div class="nt">Nods to Berkley's 48072. Chicken, rice, seafood.</div><div class="ing">Orange habanero · jerk spice · coconut</div></div><div class="entry" data-t="seasonal">
+<div class="eh"><h3>Smoked Peach<span class="st seasonal">Seasonal</span></h3><div class="hx"><span>●●●</span><span class="e">●●</span></div></div>
+<div class="nt">Fish tacos, fried rice, seafood.</div><div class="ing">Smoked peach · orange habanero</div></div><div class="entry" data-t="seasonal">
+<div class="eh"><h3>Ruth's Rhuby Red<span class="st seasonal">Seasonal</span></h3><div class="hx"><span>●●</span><span class="e">●●●</span></div></div>
+<div class="nt">A family name.</div><div class="ing">Rhubarb · strawberry · habanero · leek</div></div><div class="entry" data-t="seasonal">
+<div class="eh"><h3>Green with Envy<span class="st seasonal">Seasonal</span></h3><div class="hx"><span>●●</span><span class="e">●●●</span></div></div>
+<div class="nt">The second sauce ever made. Smoky verde.</div><div class="ing">Roasted tomatillo · onion · garlic · smoked jalapeño · serrano · cilantro</div></div></div>
+</section></div>
+<div class="wrap"><section class="sect" id="c5collab"><div class="kicker">The Collaboration</div>
+<div class="collab5"><div><h2 class="h2" style="margin-bottom:18px">Smokin' Stout</h2>
+<p>Two local small businesses doing exactly what they love — and pushing each other further. Reduced stout-beer syrup meets smoked ghost peppers, chipotle, black garlic, and roasted vegetables.</p>
+<p>Brewed in partnership with <a href="https://dogandponyshowbrewing.com" target="_blank" rel="noopener">Dog and Pony Show Brewing</a> of Oak Park. Available at the taproom.</p></div>
+<aside class="sidebar"><div class="sl">Field Notes</div><h3>Smokin' Stout</h3><p>Stout syrup · smoked ghost · chipotle · black garlic · roasted veg. Heat 4 of 5.</p><div class="tag">Find it at the taproom</div></aside>
+</div></section></div>
+<div class="wrap"><section class="sect" id="c5find"><div class="kicker">Where to Find It</div><h2 class="h2" style="margin-bottom:30px">No storefront. <em>Worth the hunt.</em></h2>
+<div class="find5">
+<div class="f"><h3>Farmers Markets</h3><p>Catch the table at local Metro Detroit markets. Dates posted on Instagram.</p></div>
+<div class="f"><h3>Dog &amp; Pony Show</h3><p>14661 W 11 Mile Rd, Oak Park, MI. Home of the Smokin' Stout collab.</p></div>
+<div class="f"><h3>Direct from James</h3><p>DM on Instagram to ask about current stock and pickup.</p></div></div>
+</section></div>
+<div class="wrap"><section class="sect" id="c5list"><div class="sgn5">
+<div class="kicker" style="justify-content:center">Subscribe</div><h2 class="h2">Get the next issue <em>first.</em></h2>
+<p style="color:var(--dim);margin-top:10px">New batch alerts, seasonal drops, events &amp; markets, future merch.</p>
+<form class="f5" onsubmit="c5sub(event)"><input type="email" placeholder="your@email.com" required aria-label="Email"><button type="submit" id="c5btn">Subscribe</button></form>
+</div></section></div>
+<div class="wrap"><footer class="ft5"><div class="nm">The Berkley Pepper Dispatch</div><div class="meta">© 2026 · Berkley, Michigan · <b>@berkleypepperco</b></div></footer></div>
+</div></div><div class="concept" id="panel5">
+<div class="note"><h4>Concept 06 — The Specimen · Small-batch formulary</h4><p>The furthest push. Cool lab-formulary language — each sauce a numbered, documented specimen with its formula and heat reading. Mono type, dark green-black, acid-lime accent. For if James wants 'precise obsessive maker' over 'warm and cozy.'</p></div>
+<div id="c6">
+<div class="wrap"><div class="bar6"><div class="lg">BERKLEY_PEPPER<b>.CO</b></div><div class="mt">LAT 42.50 · LON -83.18 · BERKLEY MI</div></div></div>
+<div class="wrap"><section class="hero6">
+<div class="tag6">[ SMALL-BATCH FORMULARY · EST. ONE BACKYARD ]</div>
+<h1>Flavor,<br>under <b>controlled</b><br>conditions.</h1>
+<p class="lead">Every sauce is a documented specimen — grown, tested, and refined in small batches until the heat serves the flavor instead of fighting it.</p>
+<div class="specrow"><div class="sc"><div class="k">Core Specimens</div><div class="v">09</div></div><div class="sc"><div class="k">Seasonal</div><div class="v">03</div></div><div class="sc"><div class="k">Collaborations</div><div class="v">01</div></div><div class="sc"><div class="k">Shortcuts</div><div class="v">00</div></div></div>
+<div class="acts"><a class="bb bbp" href="#c6sauces">View Specimens</a><a class="bb bbg" href="#c6list">Join the Log</a></div>
+</section></div>
+<div class="wrap"><section class="sec6"><div class="lbl6">origin</div><h2 class="ttl6">One plant. <b>One accident.</b> One brand.</h2>
+<div class="story6"><div>
+<p>James picked up a scorpion pepper plant while buying spring flowers. Unlike the flowers, it produced something useful — a harvest with nowhere to go but the kitchen. After weeks of experimenting, the first specimen was logged: <b>Scorpion and the Frog.</b></p>
+<p>Friends loved it. Samples got passed around. People started asking where they could buy it. The accident became a method — small batches, grown ingredients, and heat measured against flavor every time.</p></div>
+<div class="note6"><div class="q">"Built for flavor, not fear."</div><p>Many of the superhot peppers are still grown directly in James' backyard. Every batch is small — because quality doesn't scale the way shortcuts do.</p><div class="tag">// BERKLEY, MICHIGAN</div></div>
+</div></section></div>
+<div class="wrap"><section class="sec6" id="c6sauces"><div class="lbl6">the lineup</div><h2 class="ttl6">Documented <b>specimens.</b></h2>
+<div class="filt6"><button class="on" onclick="c6tab(this,'core')">CORE [9]</button><button onclick="c6tab(this,'seasonal')">SEASONAL [3]</button></div>
+<div class="specimens" id="c6grid"><div class="sp" data-t="core">
+<div class="sphd"><span class="id">SPEC-001</span><span class="st in">Active</span></div>
+<h3>Scorpion and the Frog</h3>
+<div class="scale"><span class="bars"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></span><span>SHU 5/5</span></div>
+<div class="ing">Scorpion peppers · red bell · sun-dried tomato · roasted garlic · pineapple</div><div class="nt">The original. The first sauce James ever made.</div></div><div class="sp" data-t="core">
+<div class="sphd"><span class="id">SPEC-002</span><span class="st in">Active</span></div>
+<h3>Bombay Blaze</h3>
+<div class="scale"><span class="bars"><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i></span><span>SHU 3/5</span></div>
+<div class="ing">Indian red chilis · ginger · curry · aromatic spice</div><div class="nt">Indian-inspired. Wings, lamb, grilled chicken, rice.</div></div><div class="sp" data-t="core">
+<div class="sphd"><span class="id">SPEC-003</span><span class="st in">Active</span></div>
+<h3>Cowboy Kick</h3>
+<div class="scale"><span class="bars"><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i></span><span>SHU 2/5</span></div>
+<div class="ing">Jalapeño · serrano · organic cane sugar</div><div class="nt">Thick, relish-style. Everyday.</div></div><div class="sp" data-t="core">
+<div class="sphd"><span class="id">SPEC-004</span><span class="st in">Active</span></div>
+<h3>El Arbol Inferno</h3>
+<div class="scale"><span class="bars"><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i></span><span>SHU 3/5</span></div>
+<div class="ing">Arbol chili · tomato purée · spice blend</div><div class="nt">Taco sauce, elevated. Thicker body.</div></div><div class="sp" data-t="core">
+<div class="sphd"><span class="id">SPEC-005</span><span class="st in">Active</span></div>
+<h3>Red Smoking Jacket</h3>
+<div class="scale"><span class="bars"><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i></span><span>SHU 2/5</span></div>
+<div class="ing">Smoked cayenne · roasted red pepper · roasted garlic · roasted onion</div><div class="nt">All-day. Breakfast through BBQ.</div></div><div class="sp" data-t="core">
+<div class="sphd"><span class="id">SPEC-006</span><span class="st in">Active</span></div>
+<h3>Smokin' Stout</h3>
+<div class="scale"><span class="bars"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i></span><span>SHU 4/5</span></div>
+<div class="ing">Stout syrup · smoked ghost · chipotle · black garlic · roasted veg</div><div class="nt">Dog and Pony Show Brewing collab. At the taproom.</div></div><div class="sp" data-t="core">
+<div class="sphd"><span class="id">SPEC-007</span><span class="st in">Active</span></div>
+<h3>Italian Heat</h3>
+<div class="scale"><span class="bars"><i class="f"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span>SHU 1/5</span></div>
+<div class="ing">Pepperoncini · red wine vinegar · oregano</div><div class="nt">Classic Italian-American. Hoagies, pizza, grinders.</div></div><div class="sp" data-t="core">
+<div class="sphd"><span class="id">SPEC-008</span><span class="st in">Active</span></div>
+<h3>Dilly Diablo</h3>
+<div class="scale"><span class="bars"><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i></span><span>SHU 2/5</span></div>
+<div class="ing">Dill pickle base · jalapeño · serrano</div><div class="nt">Dill + heat. Eggs, sandwiches, Bloody Marys.</div></div><div class="sp" data-t="core">
+<div class="sphd"><span class="id">SPEC-009</span><span class="st in">Active</span></div>
+<h3>'072 Island Sauce</h3>
+<div class="scale"><span class="bars"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i></span><span>SHU 4/5</span></div>
+<div class="ing">Orange habanero · jerk spice · coconut</div><div class="nt">Nods to Berkley's 48072. Chicken, rice, seafood.</div></div><div class="sp" data-t="seasonal">
+<div class="sphd"><span class="id">SPEC-010</span><span class="st seasonal">Seasonal</span></div>
+<h3>Smoked Peach</h3>
+<div class="scale"><span class="bars"><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i></span><span>SHU 3/5</span></div>
+<div class="ing">Smoked peach · orange habanero</div><div class="nt">Fish tacos, fried rice, seafood.</div></div><div class="sp" data-t="seasonal">
+<div class="sphd"><span class="id">SPEC-011</span><span class="st seasonal">Seasonal</span></div>
+<h3>Ruth's Rhuby Red</h3>
+<div class="scale"><span class="bars"><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i></span><span>SHU 2/5</span></div>
+<div class="ing">Rhubarb · strawberry · habanero · leek</div><div class="nt">A family name.</div></div><div class="sp" data-t="seasonal">
+<div class="sphd"><span class="id">SPEC-012</span><span class="st seasonal">Seasonal</span></div>
+<h3>Green with Envy</h3>
+<div class="scale"><span class="bars"><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i></span><span>SHU 2/5</span></div>
+<div class="ing">Roasted tomatillo · onion · garlic · smoked jalapeño · serrano · cilantro</div><div class="nt">The second sauce ever made. Smoky verde.</div></div></div>
+</section></div>
+<div class="wrap"><section class="sec6" id="c6collab"><div class="lbl6">collaboration</div>
+<div class="collab6"><div><h2 class="ttl6" style="margin-bottom:18px">Smokin' <b>Stout.</b></h2>
+<p>Two local small businesses doing exactly what they love — and pushing each other further. Reduced stout-beer syrup, smoked ghost peppers, black garlic, and roasted vegetables.</p>
+<p>Co-developed with <a href="https://dogandponyshowbrewing.com" target="_blank" rel="noopener">Dog and Pony Show Brewing</a>, Oak Park. Available at the taproom.</p></div>
+<div class="formula"><div class="fl">// SPEC-006</div><div class="fn">Smokin' Stout</div>
+<div class="fr"><span>HEAT</span><span>4 / 5</span></div><div class="fr"><span>BASE</span><span>Stout syrup</span></div>
+<div class="fr"><span>PEPPERS</span><span>Smoked ghost · chipotle</span></div><div class="fr"><span>LOCATION</span><span>The taproom</span></div></div>
+</div></section></div>
+<div class="wrap"><section class="sec6" id="c6find"><div class="lbl6">field locations</div><h2 class="ttl6">Where to <b>collect</b> a bottle.</h2>
+<div class="find6" style="margin-top:24px">
+<div class="fc6"><div class="fn">LOC-01</div><h3>Farmers Markets</h3><p>Local Metro Detroit markets. Dates logged on Instagram.</p></div>
+<div class="fc6"><div class="fn">LOC-02</div><h3>Dog &amp; Pony Show</h3><p>14661 W 11 Mile Rd, Oak Park, MI. Collab HQ.</p></div>
+<div class="fc6"><div class="fn">LOC-03</div><h3>Direct from James</h3><p>DM on Instagram for current stock and pickup.</p></div></div>
+</section></div>
+<div class="wrap"><section class="sec6" id="c6list"><div class="sgn6"><div class="lbl6">the log</div><h2 class="ttl6">Get new specimens <b>on release.</b></h2>
+<p style="color:var(--dim);font-weight:300;line-height:1.7">New batch alerts · seasonal drops · events &amp; markets · future merch.</p>
+<form class="f6" onsubmit="c6sub(event)"><input type="email" placeholder="your@email.com" required aria-label="Email"><button type="submit" id="c6btn">SUBSCRIBE</button></form>
+</div></section></div>
+<div class="wrap"><footer class="ft6"><div>BERKLEY_PEPPER.CO — BERKLEY, MICHIGAN</div><div>© 2026</div><div><b>@berkleypepperco</b></div></footer></div>
+</div></div><div class="concept" id="panel6">
+<div class="note"><h4>Concept 07 — The Taproom · Collab-forward craft</h4><p>Foregrounds the Dog & Pony Show partnership and the social, find-us-out-in-the-world energy. Bold Archivo display, a scrolling marquee, beer-and-pepper warmth. The most outgoing and event-driven of the seven.</p></div>
+<div id="c7">
+<div class="wrap"><nav class="nav7"><div class="lg">Berkley Pepper <b>Co.</b></div><div class="mn">Local Hot Sauce · Berkley, MI</div></nav></div>
+<div class="wrap"><section class="hero7">
+<div class="tap">🌶 + 🍺 · A Local Collaboration Story</div>
+<h1>Two locals.<span>One hot sauce.</span></h1>
+<p class="lead">Berkley Pepper Company grows the peppers. Dog and Pony Show Brewing brings the stout. Together they make something neither could alone — and that's just the start of the lineup.</p>
+<div class="acts"><a class="b7 b7p" href="#c7collab">Meet the Collab</a><a class="b7 b7g" href="#c7sauces">See the Lineup</a></div>
+</section></div>
+<div class="marq"><div class="track"><span>Small Batch <b>·</b></span><span>Backyard Grown <b>·</b></span><span>Flavor-First <b>·</b></span><span>Made in Berkley <b>·</b></span><span>Small Batch <b>·</b></span><span>Backyard Grown <b>·</b></span><span>Flavor-First <b>·</b></span><span>Made in Berkley <b>·</b></span></div></div>
+<section class="spotlight" id="c7collab"><div class="wrap"><div class="sg">
+<div><div class="lbl7">The Collaboration</div><h2 class="h7">Smokin' Stout</h2>
+<p>Two local small businesses doing exactly what they love — and pushing each other further. A reduced stout-beer syrup meets smoked ghost peppers, chipotle, black garlic, and roasted vegetables.</p>
+<p>Brewed with <a href="https://dogandponyshowbrewing.com" target="_blank" rel="noopener">Dog and Pony Show Brewing</a> — 14661 W 11 Mile Rd, Oak Park. Pour a pint, grab a bottle. Available at the taproom.</p></div>
+<div class="tapcard"><div class="tt"><span>Collab Batch</span><span>Heat 4/5</span></div>
+<div class="body"><div class="glyph">🌶 + 🍺</div><h3>Smokin' Stout</h3><div class="ing">Stout syrup · smoked ghost · chipotle · black garlic · roasted veg</div></div>
+<div class="foot">Available at the Taproom</div></div>
+</div></div></section>
+<div class="wrap"><section class="sec7" id="c7story"><div class="story7">
+<div><div class="lbl7">The Origin</div><h2 class="h7">It started in a backyard.</h2>
+<p>James picked up a scorpion pepper plant while buying spring flowers. Unlike the flowers, it produced something useful — a harvest with nowhere to go but the kitchen. After weeks of experimenting, the first sauce was born: <b>Scorpion and the Frog.</b></p>
+<p>Friends loved it. Samples got passed around. People started asking where they could buy it. A backyard accident became a local brand — built on the belief that hot sauce should make food taste better, not just burn.</p></div>
+<div class="qc7"><div class="q">Built for flavor, not fear.</div><p>Many of the superhot peppers are still grown directly in James' backyard. Every batch is small — because quality doesn't scale the way shortcuts do.</p><div class="tag">Berkley, Michigan</div></div>
+</div></section></div>
+<div class="wrap"><section class="sec7" id="c7sauces"><div class="lbl7">The Lineup</div><h2 class="h7">Nine on tap. Three seasonal.</h2>
+<div class="tabs7"><button class="tab7 on" onclick="c7tab(this,'core')">Core Lineup</button><button class="tab7" onclick="c7tab(this,'seasonal')">Seasonal</button></div>
+<div class="taps" id="c7grid"><div class="tapr" data-t="core">
+<div class="th"><span class="num7">01</span><span class="st in">On Tap</span></div>
+<h3>Scorpion and the Frog</h3>
+<div class="gauge"><span class="gb"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></span><span class="gl">5/5</span></div>
+<div class="nt">The original. The first sauce James ever made.</div><div class="ing">Scorpion peppers · red bell · sun-dried tomato · roasted garlic · pineapple</div></div><div class="tapr" data-t="core">
+<div class="th"><span class="num7">02</span><span class="st in">On Tap</span></div>
+<h3>Bombay Blaze</h3>
+<div class="gauge"><span class="gb"><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i></span><span class="gl">3/5</span></div>
+<div class="nt">Indian-inspired. Wings, lamb, grilled chicken, rice.</div><div class="ing">Indian red chilis · ginger · curry · aromatic spice</div></div><div class="tapr" data-t="core">
+<div class="th"><span class="num7">03</span><span class="st in">On Tap</span></div>
+<h3>Cowboy Kick</h3>
+<div class="gauge"><span class="gb"><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i></span><span class="gl">2/5</span></div>
+<div class="nt">Thick, relish-style. Everyday.</div><div class="ing">Jalapeño · serrano · organic cane sugar</div></div><div class="tapr" data-t="core">
+<div class="th"><span class="num7">04</span><span class="st in">On Tap</span></div>
+<h3>El Arbol Inferno</h3>
+<div class="gauge"><span class="gb"><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i></span><span class="gl">3/5</span></div>
+<div class="nt">Taco sauce, elevated. Thicker body.</div><div class="ing">Arbol chili · tomato purée · spice blend</div></div><div class="tapr" data-t="core">
+<div class="th"><span class="num7">05</span><span class="st in">On Tap</span></div>
+<h3>Red Smoking Jacket</h3>
+<div class="gauge"><span class="gb"><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i></span><span class="gl">2/5</span></div>
+<div class="nt">All-day. Breakfast through BBQ.</div><div class="ing">Smoked cayenne · roasted red pepper · roasted garlic · roasted onion</div></div><div class="tapr" data-t="core">
+<div class="th"><span class="num7">06</span><span class="st in">On Tap</span></div>
+<h3>Smokin' Stout</h3>
+<div class="gauge"><span class="gb"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i></span><span class="gl">4/5</span></div>
+<div class="nt">Dog and Pony Show Brewing collab. At the taproom.</div><div class="ing">Stout syrup · smoked ghost · chipotle · black garlic · roasted veg</div></div><div class="tapr" data-t="core">
+<div class="th"><span class="num7">07</span><span class="st in">On Tap</span></div>
+<h3>Italian Heat</h3>
+<div class="gauge"><span class="gb"><i class="f"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="gl">1/5</span></div>
+<div class="nt">Classic Italian-American. Hoagies, pizza, grinders.</div><div class="ing">Pepperoncini · red wine vinegar · oregano</div></div><div class="tapr" data-t="core">
+<div class="th"><span class="num7">08</span><span class="st in">On Tap</span></div>
+<h3>Dilly Diablo</h3>
+<div class="gauge"><span class="gb"><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i></span><span class="gl">2/5</span></div>
+<div class="nt">Dill + heat. Eggs, sandwiches, Bloody Marys.</div><div class="ing">Dill pickle base · jalapeño · serrano</div></div><div class="tapr" data-t="core">
+<div class="th"><span class="num7">09</span><span class="st in">On Tap</span></div>
+<h3>'072 Island Sauce</h3>
+<div class="gauge"><span class="gb"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i></span><span class="gl">4/5</span></div>
+<div class="nt">Nods to Berkley's 48072. Chicken, rice, seafood.</div><div class="ing">Orange habanero · jerk spice · coconut</div></div><div class="tapr" data-t="seasonal">
+<div class="th"><span class="num7">01</span><span class="st seasonal">Seasonal</span></div>
+<h3>Smoked Peach</h3>
+<div class="gauge"><span class="gb"><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i></span><span class="gl">3/5</span></div>
+<div class="nt">Fish tacos, fried rice, seafood.</div><div class="ing">Smoked peach · orange habanero</div></div><div class="tapr" data-t="seasonal">
+<div class="th"><span class="num7">02</span><span class="st seasonal">Seasonal</span></div>
+<h3>Ruth's Rhuby Red</h3>
+<div class="gauge"><span class="gb"><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i></span><span class="gl">2/5</span></div>
+<div class="nt">A family name.</div><div class="ing">Rhubarb · strawberry · habanero · leek</div></div><div class="tapr" data-t="seasonal">
+<div class="th"><span class="num7">03</span><span class="st seasonal">Seasonal</span></div>
+<h3>Green with Envy</h3>
+<div class="gauge"><span class="gb"><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i></span><span class="gl">2/5</span></div>
+<div class="nt">The second sauce ever made. Smoky verde.</div><div class="ing">Roasted tomatillo · onion · garlic · smoked jalapeño · serrano · cilantro</div></div></div>
+</section></div>
+<div class="wrap"><section class="sec7" id="c7find"><div class="lbl7">Find Us</div><h2 class="h7">Where to grab a bottle.</h2>
+<div class="find7" style="margin-top:28px">
+<div class="fc7"><h3>Farmers Markets</h3><p>Catch the table at local Metro Detroit markets. Dates posted on Instagram.</p></div>
+<div class="fc7"><h3>Dog &amp; Pony Show</h3><p>14661 W 11 Mile Rd, Oak Park, MI. Home of the Smokin' Stout collab.</p></div>
+<div class="fc7"><h3>Direct from James</h3><p>DM on Instagram to ask about current stock and pickup.</p></div></div>
+</section></div>
+<div class="wrap"><section class="sec7" id="c7list" style="border-bottom:none"><div class="sgn7">
+<div class="lbl7">The Mailing List</div><h2 class="h7">First round's on us.</h2>
+<p style="color:var(--dim);font-weight:300;line-height:1.7;margin-top:8px">New batch alerts · seasonal drops · events &amp; markets · future merch.</p>
+<form class="f7" onsubmit="c7sub(event)"><input type="email" placeholder="your@email.com" required aria-label="Email"><button class="b7 b7p" type="submit" id="c7btn">Join</button></form>
+</div></section></div>
+<div class="wrap"><footer class="ft7"><div>Berkley Pepper Co. — Berkley, Michigan</div><div>© 2026</div><div><b>@berkleypepperco</b></div></footer></div>
+</div></div></div>
+</div>
+
+<div class="mode" id="mode-elements">
+<div class="topbar"><span class="bn">Element Library <span>· mix &amp; match</span></span><span class="hint">Pick the pieces, then pair with a direction</span></div>
+<div class="layout"><nav class="sidenav"><h5>Structure</h5><a href="#nav">Navigation Bars</a><a href="#heroes">Hero Sections</a><h5>Lineup</h5><a href="#heat">Heat Indicators</a><a href="#badges">Status Badges</a><a href="#cards">Lineup Card Layouts</a><h5>Sections</h5><a href="#story">Story Treatments</a><a href="#find">Find-Us / Location Card</a><a href="#signup">Email Signup</a><h5>Extras</h5><a href="#extras">Extra Sections</a></nav><div class="main"><section class="cat" id="nav"><div class="cat-h"><span class="nm">Navigation Bars</span><span class="ct">2 styles</span></div><p class="cat-intro">Two header treatments. The brief's nav order — Story, Sauces, Collab, Find Us, Mailing List, Instagram — kept intact in both.</p><div class="swatch"><div class="swatch-lbl"><span class="tag">NAV-A</span><span class="desc">Standard left logo, right links. Works for every direction.</span></div><div class="frame"><div class="navdemo"><nav class="nav-v"><div class="lg">Berkley <b>Pepper Co.</b></div><div class="links"><a>Story</a><a>Sauces</a><a>Collab</a><a>Find Us</a><a>Mailing List</a></div></nav></div></div></div><div class="swatch"><div class="swatch-lbl"><span class="tag">NAV-B</span><span class="desc">Centered stack — more editorial, suits The Press / The Index directions.</span></div><div class="frame"><div class="navdemo"><nav class="nav-v center"><div class="lg">Berkley <b>Pepper Co.</b></div><div class="links"><a>Story</a><a>Sauces</a><a>Collab</a><a>Find Us</a><a>List</a><a>Instagram</a></div></nav></div></div></div></section><section class="cat" id="heroes"><div class="cat-h"><span class="nm">Hero Sections</span><span class="ct">3 layouts</span></div><p class="cat-intro">Three alternate hero treatments beyond the seven full pages — a photo-ready split, a no-imagery centered version, and a bold type-stack. All use the approved headline so you can compare structure, not copy.</p><div class="swatch"><div class="swatch-lbl"><span class="tag">HERO-A</span><span class="desc">Split layout with a bottle mock on the right. Good once real bottle photography exists — the mock is a stand-in. ⚠️ Placeholder bottle, not a real label.</span></div><div class="frame"><div class="hv"><div class="hero-split"><div class="l"><div class="eb">Small-Batch · Berkley, MI</div><h1>Bold Flavor.<br><i>Balanced Heat.</i></h1><p>Handcrafted sauces built to enhance your food, not challenge your ego.</p><div><a class="btn" href="#">Explore the Lineup</a></div></div><div class="r"><div class="bottlemock"><div class="lbl"><div class="bt">Scorpion<br>&amp; the Frog</div><div class="bs">Heat 5/5</div></div></div></div></div></div></div></div><div class="swatch"><div class="swatch-lbl"><span class="tag">HERO-B</span><span class="desc">Centered minimal — emblem, headline, rule. Quiet and confident, no imagery needed.</span></div><div class="frame"><div class="hv"><div class="hero-min"><div class="mark">❦</div><h1>Bold Flavor.<br><i>Balanced Heat.</i></h1><div class="rule"></div><p>Grown in the backyard. Bottled with intention. Berkley, Michigan.</p></div></div></div></div><div class="swatch"><div class="swatch-lbl"><span class="tag">HERO-C</span><span class="desc">Bold type-stack (Archivo) with an outlined second line. Matches The Taproom energy.</span></div><div class="frame"><div class="hv"><div class="hero-stack"><div class="tap">Small-Batch Hot Sauce</div><h1>Bold flavor.<span>Balanced heat.</span></h1><p>Grown in a Berkley backyard, bottled in small batches, built for everyday food.</p></div></div></div></div></section><section class="cat" id="heat"><div class="cat-h"><span class="nm">Heat Indicators</span><span class="ct">5 styles</span></div><p class="cat-intro">Five ways to show the 1–5 heat scale. The pip bars are what the current build uses; the others trade compactness for warmth or precision. Mix freely — e.g. pips on cards, the meter on a single featured sauce.</p><div class="swatch"><div class="swatch-lbl"><span class="tag">HEAT-A</span><span class="desc">Pip bars — the V2 default. Compact, reads at a glance.</span></div><div class="frame"><div class="heatdemo"><div class="heatcell"><div class="hn">Scorpion &amp; the Frog · 5</div><div class="hrow"><span class="hi-pip"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></span></div></div><div class="heatcell"><div class="hn">Bombay Blaze · 3</div><div class="hrow"><span class="hi-pip"><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i></span></div></div><div class="heatcell"><div class="hn">Italian Heat · 1</div><div class="hrow"><span class="hi-pip"><i class="f"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></div></div></div></div></div><div class="swatch"><div class="swatch-lbl"><span class="tag">HEAT-B</span><span class="desc">Literal peppers — warmer, more playful, leans into the product. Risk: edges toward the cartoon look the brief avoids, so kept muted.</span></div><div class="frame"><div class="heatdemo"><div class="heatcell"><div class="hn">Smokin' Stout · 4</div><div class="hrow"><span class="hi-pep"><span class="on">🌶</span><span class="on">🌶</span><span class="on">🌶</span><span class="on">🌶</span><span class="off">🌶</span></span></div></div><div class="heatcell"><div class="hn">Cowboy Kick · 2</div><div class="hrow"><span class="hi-pep"><span class="on">🌶</span><span class="on">🌶</span><span class="off">🌶</span><span class="off">🌶</span><span class="off">🌶</span></span></div></div><div class="heatcell"><div class="hn">'072 Island · 4</div><div class="hrow"><span class="hi-pep"><span class="on">🌶</span><span class="on">🌶</span><span class="on">🌶</span><span class="on">🌶</span><span class="off">🌶</span></span></div></div></div></div></div><div class="swatch"><div class="swatch-lbl"><span class="tag">HEAT-C</span><span class="desc">Gradient bars — cool-to-hot color ramp. More visual weight, good for an image-led card.</span></div><div class="frame"><div class="heatdemo"><div class="heatcell"><div class="hn">El Arbol Inferno · 3</div><div class="hrow"><span class="hi-bar"><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i></span></div></div><div class="heatcell"><div class="hn">Red Smoking Jacket · 2</div><div class="hrow"><span class="hi-bar"><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i></span></div></div><div class="heatcell"><div class="hn">Scorpion &amp; the Frog · 5</div><div class="hrow"><span class="hi-bar"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></span></div></div></div></div></div><div class="swatch"><div class="swatch-lbl"><span class="tag">HEAT-D</span><span class="desc">Mono numeric — the editorial/spec-sheet treatment. Quietest option.</span></div><div class="frame"><div class="heatdemo"><div class="heatcell"><div class="hn">Dilly Diablo</div><div class="hrow"><span class="hi-num"><b>■■</b><span class="e">■■■</span> 2/5</span></div></div><div class="heatcell"><div class="hn">Bombay Blaze</div><div class="hrow"><span class="hi-num"><b>■■■</b><span class="e">■■</span> 3/5</span></div></div><div class="heatcell"><div class="hn">Smokin' Stout</div><div class="hrow"><span class="hi-num"><b>■■■■</b><span class="e">■</span> 4/5</span></div></div></div></div></div><div class="swatch"><div class="swatch-lbl"><span class="tag">HEAT-E</span><span class="desc">Continuous meter — a single filled gauge. Best when heat is the headline spec.</span></div><div class="frame"><div class="heatdemo"><div class="heatcell"><div class="hn">Scorpion &amp; the Frog</div><div class="hi-gauge"><i style="width:100%"></i></div><div class="hi-lab">5 / 5 — Scorpion</div></div><div class="heatcell"><div class="hn">'072 Island Sauce</div><div class="hi-gauge"><i style="width:80%"></i></div><div class="hi-lab">4 / 5 — Habanero</div></div><div class="heatcell"><div class="hn">Italian Heat</div><div class="hi-gauge"><i style="width:20%"></i></div><div class="hi-lab">1 / 5 — Pepperoncini</div></div></div></div></div></section><section class="cat" id="badges"><div class="cat-h"><span class="nm">Status Badges</span><span class="ct">8 states</span></div><p class="cat-intro">The handoff specs three (In Stock / Out / Seasonal). Added two James might want for batch drops: Low Batch and New. Three shape treatments so they can match whichever direction wins.</p><div class="swatch"><div class="swatch-lbl"><span class="tag">BADGE</span><span class="desc">Status pills with a few extra states beyond the three in the handoff — 'Low Batch' and 'New' are useful for a small maker doing drops. Rounded, squared, and plain-dot variants shown.</span></div><div class="frame"><div class="badgedemo"><span class="bdg in">In Stock</span><span class="bdg out">Out of Stock</span><span class="bdg seasonal">Seasonal</span><span class="bdg low">Low Batch</span><span class="bdg new">New</span><span class="bdg in bdg-sq">In Stock</span><span class="bdg seasonal bdg-sq">Seasonal</span><span class="bdg in bdg-pl">● Available</span><span class="bdg out bdg-pl">● Sold Out</span></div></div></div></section><section class="cat" id="cards"><div class="cat-h"><span class="nm">Lineup Card Layouts</span><span class="ct">3 layouts</span></div><p class="cat-intro">Three ways to present sauces. The classic card is in the build now; the list row is denser; the image-led card is ready for real photography. All pull live sauce content.</p><div class="swatch"><div class="swatch-lbl"><span class="tag">CARD-A</span><span class="desc">Classic card — badge + pips + name + note + ingredients. The current build's approach.</span></div><div class="frame"><div class="cardrow"><div class="lc-classic"><div class="t"><span class="bdg in bdg-pl">● In Stock</span><span class="hi-pip"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></span></div><h3>Scorpion &amp; the Frog</h3><div class="nt">The original. The first sauce James ever made.</div><div class="ing">Scorpion · red bell · sun-dried tomato · roasted garlic · pineapple</div></div><div class="lc-classic"><div class="t"><span class="bdg in bdg-pl">● In Stock</span><span class="hi-pip"><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i></span></div><h3>Bombay Blaze</h3><div class="nt">Indian-inspired. Wings, lamb, grilled chicken, rice.</div><div class="ing">Indian red chilis · ginger · curry · aromatic spice</div></div><div class="lc-classic"><div class="t"><span class="bdg seasonal bdg-pl">● Seasonal</span><span class="hi-pip"><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i></span></div><h3>Ruth's Rhuby Red</h3><div class="nt">A family name. Smoky-sweet, gentle heat.</div><div class="ing">Rhubarb · strawberry · habanero · leek</div></div></div></div></div><div class="swatch"><div class="swatch-lbl"><span class="tag">CARD-B</span><span class="desc">Dense list row — fits the whole lineup in less space, scannable. Good for The Index direction or a long menu.</span></div><div class="frame"><div style="padding:34px"><div class="lc-list"><div class="lc-listrow"><span class="hi-pip"><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i></span><div><div class="nm">Red Smoking Jacket</div><div class="ig">Smoked cayenne · roasted red pepper · garlic</div></div><span class="bdg in bdg-pl">● In Stock</span><span class="hl">2/5</span></div><div class="lc-listrow"><span class="hi-pip"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i></span><div><div class="nm">Smokin' Stout</div><div class="ig">Stout syrup · smoked ghost · black garlic</div></div><span class="bdg in bdg-pl">● In Stock</span><span class="hl">4/5</span></div><div class="lc-listrow"><span class="hi-pip"><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i></span><div><div class="nm">Cowboy Kick</div><div class="ig">Jalapeño · serrano · organic cane sugar</div></div><span class="bdg in bdg-pl">● In Stock</span><span class="hl">2/5</span></div><div class="lc-listrow"><span class="hi-pip"><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i></span><div><div class="nm">Green with Envy</div><div class="ig">Roasted tomatillo · smoked jalapeño · cilantro</div></div><span class="bdg seasonal bdg-pl">● Seasonal</span><span class="hl">2/5</span></div></div></div></div></div><div class="swatch"><div class="swatch-lbl"><span class="tag">CARD-C</span><span class="desc">Image-led card — reserves a photo slot up top. ⚠️ Photos are placeholders (marked 'photo TBD') until bottle photography exists.</span></div><div class="frame"><div class="cardrow"><div class="lc-img"><div class="ph"><span class="ic">🌶</span><span class="ph-tag">photo TBD</span></div><div class="bd"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span class="bdg in bdg-pl">● In Stock</span><span class="hi-pip"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i></span></div><h3>'072 Island Sauce</h3><div class="nt">Nods to Berkley's 48072. Chicken, rice, seafood.</div></div></div><div class="lc-img"><div class="ph"><span class="ic">🌶</span><span class="ph-tag">photo TBD</span></div><div class="bd"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span class="bdg in bdg-pl">● In Stock</span><span class="hi-pip"><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i><i class=""></i></span></div><h3>Dilly Diablo</h3><div class="nt">Dill + heat. Eggs, sandwiches, Bloody Marys.</div></div></div><div class="lc-img"><div class="ph"><span class="ic">🌶</span><span class="ph-tag">photo TBD</span></div><div class="bd"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span class="bdg in bdg-pl">● In Stock</span><span class="hi-pip"><i class="f"></i><i class="f"></i><i class="f"></i><i class=""></i><i class=""></i></span></div><h3>El Arbol Inferno</h3><div class="nt">Taco sauce, elevated. Thicker body.</div></div></div></div></div></div></section><section class="cat" id="story"><div class="cat-h"><span class="nm">Story Treatments</span><span class="ct">2 styles</span></div><p class="cat-intro">Two alternates to the two-column story in the build: a big pull-quote band, and a milestone timeline. The timeline needs real dates from James before it ships.</p><div class="swatch"><div class="swatch-lbl"><span class="tag">STORY-A</span><span class="desc">Pull-quote band — drops the brand's line big between sections. Atmosphere with little text.</span></div><div class="frame"><div class="story-quote"><div class="q">"It started with one pepper plant, bought on a whim beside the spring flowers."</div><div class="by">The Berkley Pepper origin</div></div></div></div><div class="swatch"><div class="swatch-lbl"><span class="tag">STORY-B</span><span class="desc">Milestone timeline — turns the origin into a few dated beats. ⚠️ Years shown are illustrative; confirm real dates with James.</span></div><div class="frame"><div class="story-time"><div class="step"><div class="yr">Spring</div><div><h4>One plant, on a whim</h4><p>A scorpion pepper plant comes home alongside the spring flowers. It actually produces.</p></div></div><div class="step"><div class="yr">Summer</div><div><h4>Scorpion and the Frog</h4><p>Weeks of experimenting yield the first sauce. Friends and family can't get enough.</p></div></div><div class="step"><div class="yr">After</div><div><h4>Word gets out</h4><p>Samples circulate. People start asking where to buy it. A backyard accident becomes a brand.</p></div></div><div class="step"><div class="yr">Now</div><div><h4>Still backyard-grown</h4><p>Many superhots are still grown in James' backyard. Every batch stays small.</p></div></div></div></div></div></section><section class="cat" id="find"><div class="cat-h"><span class="nm">Find-Us / Location Card</span><span class="ct">1 style</span></div><p class="cat-intro">A location card for the taproom with a stylized map. Swap the CSS map for a real Google Maps embed at build time. Pulls the real Dog &amp; Pony address and hours.</p><div class="swatch"><div class="swatch-lbl"><span class="tag">FIND</span><span class="desc">Detail card with a stylized map block for the Dog &amp; Pony taproom — address and hours pulled from the handoff. The map is a CSS illustration, not a live embed (a real Google embed can swap in). Hours per handoff; ⚠️ confirm still current.</span></div><div class="frame"><div class="findcard"><div class="info"><h3>Dog &amp; Pony Show Brewing</h3><div class="addr">14661 W 11 Mile Rd, Ste 200<br>Oak Park, MI 48237<br>(248) 850-8910</div><div class="hrs"><b>Mon</b> Closed &nbsp; <b>Tue–Wed</b> 4–10pm<br><b>Thu</b> 4–11pm &nbsp; <b>Fri–Sat</b> 12–11pm<br><b>Sun</b> 12–8pm</div></div><div class="mapfaux"><div class="grid"></div><div class="road r1"></div><div class="road r2"></div><div class="pin">📍</div><div class="pinlbl">Find the Smokin' Stout here</div></div></div></div></div></section><section class="cat" id="signup"><div class="cat-h"><span class="nm">Email Signup</span><span class="ct">2 styles</span></div><p class="cat-intro">Two signup treatments — a compact inline bar and the full perks block. ⚠️ Neither is wired to a platform yet; both need Mailchimp/Klaviyo connected before launch.</p><div class="swatch"><div class="swatch-lbl"><span class="tag">SIGNUP-A</span><span class="desc">Inline bar — sits at the bottom of a section without taking a full block. Compact.</span></div><div class="frame"><div class="su-inline"><div class="tx"><h3>Join the list</h3><p>Batch alerts, seasonal drops, market dates.</p></div><form onsubmit="okSub(event)"><input type="email" placeholder="your@email.com" required aria-label="Email"><button class="btn" type="submit">Join</button></form></div></div></div><div class="swatch"><div class="swatch-lbl"><span class="tag">SIGNUP-B</span><span class="desc">Full centered block with perks — the current build's approach, shown for comparison.</span></div><div class="frame"><div class="su-stack"><h3>First in line for the next batch.</h3><div class="perks"><span>New Batch Alerts</span><span>Seasonal Drops</span><span>Events &amp; Markets</span><span>Future Merch</span></div><form onsubmit="okSub(event)"><input type="email" placeholder="your@email.com" required aria-label="Email"><button class="btn" type="submit">Join the List</button></form></div></div></div></section><section class="cat" id="extras"><div class="cat-h"><span class="nm">Extra Sections</span><span class="ct">5 new ideas</span></div><p class="cat-intro">Sections that weren't in any of the seven pages but fit the brand and its real needs: a printable market QR card, a pairing guide, an FAQ, a press strip, and an event schedule. Several depend on info only James can confirm — flagged inline.</p><div class="swatch"><div class="swatch-lbl"><span class="tag">EXTRA-QR</span><span class="desc">Farmers-market QR card — a printable table card linking to the site/Instagram. The handoff flags this as a possible 'want.' QR shown is decorative; real code generated at build.</span></div><div class="frame"><div class="qrcard"><div class="card"><div class="mark">Berkley Pepper Co.</div><div class="sub">Find us · Follow · Get on the list</div><div class="qr"><i class=""></i><i class=""></i><i class=""></i><i class="o"></i><i class=""></i><i class="o"></i><i class=""></i><i class=""></i><i class="o"></i><i class=""></i><i class="o"></i><i class="o"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class="o"></i><i class=""></i><i class=""></i><i class="o"></i><i class=""></i><i class="o"></i><i class="o"></i><i class=""></i><i class=""></i><i class="o"></i><i class=""></i><i class="o"></i><i class=""></i><i class="o"></i><i class=""></i><i class="o"></i><i class=""></i><i class=""></i><i class=""></i><i class="o"></i><i class=""></i><i class=""></i><i class="o"></i><i class="o"></i><i class=""></i><i class="o"></i><i class=""></i><i class=""></i><i class="o"></i><i class=""></i><i class=""></i><i class="o"></i><i class=""></i></div><div class="cta">Scan for the lineup &amp; markets</div><div class="h">@berkleypepperco</div></div></div></div></div><div class="swatch"><div class="swatch-lbl"><span class="tag">EXTRA-PAIR</span><span class="desc">Pairing / usage guide — turns the 'what to put it on' notes into a section. Reinforces flavor-first over heat-first. Real usage notes from the handoff.</span></div><div class="frame"><div class="pairing"><div class="prow"><div class="sauce">Bombay Blaze</div><div class="with">On <b>wings, lamb, grilled chicken,</b> rice, and roasted vegetables.</div></div><div class="prow"><div class="sauce">Dilly Diablo</div><div class="with">On <b>eggs, sandwiches, tuna salad,</b> and in a Bloody Mary.</div></div><div class="prow"><div class="sauce">Italian Heat</div><div class="with">On <b>hoagies, pizza, grinders,</b> and wraps.</div></div><div class="prow"><div class="sauce">'072 Island Sauce</div><div class="with">On <b>chicken, rice, seafood,</b> and grilled veg.</div></div></div></div></div><div class="swatch"><div class="swatch-lbl"><span class="tag">EXTRA-FAQ</span><span class="desc">FAQ accordion — answers the obvious questions (where to buy, shipping, heat). Pre-empts DMs. Native expand/collapse.</span></div><div class="frame"><div class="faq"><details open><summary>Where can I buy your sauce?</summary><p>At local Metro Detroit farmers markets, at Dog and Pony Show Brewing in Oak Park, or directly from James — DM on Instagram to ask about current stock. There's no online checkout yet.</p></details><details><summary>Do you ship?</summary><p>Not yet. The brand is pre–food-certification, so for now everything is local pickup and market sales. Join the mailing list to hear when that changes.</p></details><details><summary>How hot is the hottest one?</summary><p>Scorpion and the Frog sits at 5 of 5 — built on scorpion peppers. But every sauce is made flavor-first, so even the hot ones are meant to taste like something, not just burn.</p></details><details><summary>Are the peppers really backyard-grown?</summary><p>Many of the superhots are, yes — grown by James in his Berkley backyard. Every batch is made in small quantities.</p></details></div></div></div><div class="swatch"><div class="swatch-lbl"><span class="tag">EXTRA-PRESS</span><span class="desc">'As seen around town' strip — light social proof from real placements. ⚠️ Confirm Amici's is still current before featuring.</span></div><div class="frame"><div class="press"><div class="lbl">As seen around town</div><div class="logos"><span class="pl">Amici's Kitchen</span><span class="pl sans">Dog &amp; Pony Show</span><span class="pl">Local Markets</span></div><p style="font-size:.72rem;color:var(--dim);margin-top:20px;font-weight:300">⚠️ Placeholder partners — confirm which placements James wants featured (Amici's status unconfirmed in handoff).</p></div></div></div><div class="swatch"><div class="swatch-lbl"><span class="tag">EXTRA-SCHED</span><span class="desc">Event / market schedule — only worth including if James maintains dates. Placeholder rows shown.</span></div><div class="frame"><div class="sched"><div class="ev"><div class="date"><div class="mo">Sat</div><div class="dy">—</div></div><div class="what"><h4>Farmers Market</h4><p>Catch the table — location &amp; date posted on Instagram.</p></div><div class="tm">TBD</div></div><div class="ev"><div class="date"><div class="mo">Fri</div><div class="dy">—</div></div><div class="what"><h4>Taproom Pour</h4><p>Smokin' Stout at Dog &amp; Pony Show Brewing, Oak Park.</p></div><div class="tm">Eve</div></div><div class="ev"><div class="date"><div class="mo">Soon</div><div class="dy">—</div></div><div class="what"><h4>Seasonal Drop</h4><p>Next limited batch — join the list to get first word.</p></div><div class="tm">TBD</div></div><p style="font-size:.72rem;color:var(--dim);margin-top:22px;font-weight:300">⚠️ Dates are placeholders — this block only makes sense if James keeps a market/event schedule to feed it.</p></div></div></div></section></div></div>
+</div>
+
+<script>
+// master mode toggle
+function showMode(m){
+ document.getElementById('mode-concepts').classList.toggle('live',m==='concepts');
+ document.getElementById('mode-elements').classList.toggle('live',m==='elements');
+ document.getElementById('mt-concepts').classList.toggle('on',m==='concepts');
+ document.getElementById('mt-elements').classList.toggle('on',m==='elements');
+ window.scrollTo(0,0);
+}
+// ---- concepts: page switching ----
+function showConcept(i){
+ document.querySelectorAll('#mode-concepts .concept').forEach((c,k)=>c.classList.toggle('live',k===i));
+ document.querySelectorAll('#mode-concepts .shell-tab').forEach((t,k)=>t.classList.toggle('active',k===i));
+ var fw=document.querySelector('#mode-concepts .frame-wrap'); if(fw) fw.scrollTo(0,0);
+}
+function mkTab(gridId){
+ return function(btn,type){
+  btn.parentNode.querySelectorAll('button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('#'+gridId+' [data-t]').forEach(el=>{el.style.display=(el.dataset.t===type)?'':'none';});
+ };
+}
+const c1tab=mkTab('c1grid'),c2tab=mkTab('c2list-grid'),c3tab=mkTab('c3grid'),c4tab=mkTab('c4menu'),c5tab=mkTab('c5cat'),c6tab=mkTab('c6grid'),c7tab=mkTab('c7grid');
+function mkSub(btnId,okText){
+ return function(e){e.preventDefault();var b=document.getElementById(btnId);if(b){b.textContent=okText;b.style.opacity=.7;}var inp=e.target.querySelector('input');if(inp)inp.disabled=true;};
+}
+const c1sub=mkSub('c1btn','✓ On the list'),c2sub=mkSub('c2btn','✓ Done'),c3sub=mkSub('c3btn','✓'),c4sub=mkSub('c4btn','✓ Joined'),c5sub=mkSub('c5btn','✓ Subscribed'),c6sub=mkSub('c6btn','✓ LOGGED'),c7sub=mkSub('c7btn','✓ In');
+// ---- elements: signup demo ----
+function okSub(e){e.preventDefault();var b=e.target.querySelector('button');b.textContent='✓ On the list';b.style.opacity='.7';e.target.querySelector('input').disabled=true;}
+// default-hide seasonal items on load (concepts)
+window.addEventListener('DOMContentLoaded',function(){
+ ['c1grid','c2list-grid','c3grid','c4menu','c5cat','c6grid','c7grid'].forEach(function(g){
+  document.querySelectorAll('#'+g+' [data-t="seasonal"]').forEach(function(el){el.style.display='none';});
+ });
+});
+</script>
+</body>
+</html>
