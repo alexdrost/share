@@ -27,6 +27,16 @@
 #mode-elements .layout{padding-top:calc(56px + 62px)}
 #mode-elements .sidenav{top:calc(56px + 62px);height:calc(100vh - 56px - 62px)}
 
+
+/* theme toggle control in master bar */
+.theme-toggle{display:flex;gap:0;margin-left:14px;border:1px solid rgba(184,114,42,.3);border-radius:100px;overflow:hidden}
+.theme-toggle button{background:transparent;border:none;color:rgba(237,230,216,.6);font-family:'DM Sans';font-weight:600;font-size:.72rem;letter-spacing:.03em;padding:9px 16px;cursor:pointer;transition:.2s;white-space:nowrap}
+.theme-toggle button.on{background:#B8722A;color:#0a0907}
+body.theme-light .theme-toggle{border-color:rgba(156,90,30,.35)}
+body.theme-light .theme-toggle button{color:rgba(35,32,26,.55)}
+body.theme-light .theme-toggle button.on{background:#9C5A1E;color:#F2EAD9}
+@media(max-width:760px){.master-bar .mb-hint{display:none}}
+
 /* ===== concept gallery CSS ===== */
 
 *{margin:0;padding:0;box-sizing:border-box}
@@ -776,6 +786,106 @@ body{font-family:'DM Sans',sans-serif;background:#0A0907;color:#EDE6D8;-webkit-f
 .cardrow{grid-template-columns:1fr}
 }
 
+
+/* ================= LIGHT THEME ================= */
+body.theme-light{background:#E8DFCB}
+body.theme-light .master-bar{background:#F2EAD9;border-bottom-color:rgba(156,90,30,.3)}
+body.theme-light .master-bar .mb-brand{color:#9C5A1E}
+body.theme-light .master-bar .mb-brand span,
+body.theme-light .master-bar .mb-hint{color:rgba(35,32,26,.58)}
+body.theme-light .master-toggle{border-color:rgba(156,90,30,.35)}
+body.theme-light .master-toggle button{color:rgba(35,32,26,.58)}
+body.theme-light .master-toggle button.on{background:#9C5A1E;color:#F2EAD9}
+
+/* concept sub-bar (the 7-tabs strip) in light */
+body.theme-light #mode-concepts .shell-bar{background:rgba(242,234,217,.92);border-bottom-color:rgba(156,90,30,.2)}
+body.theme-light #mode-concepts .shell-brand{color:#9C5A1E}
+body.theme-light #mode-concepts .shell-brand span{color:rgba(35,32,26,.58)}
+body.theme-light #mode-concepts .shell-tab{border-color:rgba(35,32,26,.2);color:rgba(35,32,26,.58)}
+body.theme-light #mode-concepts .shell-tab:hover{border-color:rgba(35,32,26,.4);color:#23201A}
+body.theme-light #mode-concepts .shell-tab.active{background:#9C5A1E;border-color:#9C5A1E;color:#F2EAD9}
+body.theme-light #mode-concepts .note{background:rgba(156,90,30,.06);border-bottom-color:rgba(156,90,30,.18)}
+body.theme-light #mode-concepts .note h4{color:#9C5A1E}
+body.theme-light #mode-concepts .note p{color:#4A4538}
+body.theme-light #mode-concepts .note p b{color:#23201A}
+
+/* ---- per-concept palette flips ---- */
+body.theme-light #c1{--bg:#E8DFCB;--c2:#DFD4BC;--c3:#D4C7A9;--cr:#23201A;--crd:rgba(35,32,26,.58);}
+body.theme-light #c3{--soil:#E8DFCB;--soil2:#DFD4BC;--cream:#23201A;--cream2:#4A4538;--dim:rgba(35,32,26,.58);}
+body.theme-light #c4{--bg:#E8DFCB;--bg2:#DFD4BC;--paper:#23201A;--dim:rgba(35,32,26,.58);--line:rgba(35,32,26,.14);}
+body.theme-light #c5{--bg:#E8DFCB;--bg2:#DFD4BC;--paper:#23201A;--dim:rgba(35,32,26,.58);--line:rgba(35,32,26,.14);}
+body.theme-light #c6{--bg:#E8DFCB;--bg2:#DFD4BC;--panel:#DFD4BC;--paper:#23201A;--dim:rgba(35,32,26,.58);--line:rgba(35,32,26,.14);}
+body.theme-light #c7{--bg:#E8DFCB;--bg2:#DFD4BC;--paper:#23201A;--cream:#4A4538;--dim:rgba(35,32,26,.58);--line:rgba(35,32,26,.14);}
+
+
+/* hardcoded dark backgrounds in concept CSS that vars don't reach */
+body.theme-light #c1 .ft{background:#EFE6D3}            /* footer was #070604 */
+body.theme-light #c6{background:#E8DFCB}                  /* c6 sets body bg hardcoded #0C0E0D */
+body.theme-light #c6 .bar6,
+body.theme-light #c7 .marq{filter:none}
+body.theme-light #c2{filter:none}
+/* low-contrast text/badges on paper: ingredient lines (low-alpha cream) and green in-stock badge */
+body.theme-light #c1 .card .ing,
+body.theme-light #c3 .bed .ing,
+body.theme-light #c4 .menu .li .ing,
+body.theme-light #c5 .entry .ing,
+body.theme-light #c6 .sp .ing,
+body.theme-light #c7 .tapr .ing{color:rgba(35,32,26,.62)}
+body.theme-light #c1 .badge.in,
+body.theme-light #c3 .bed .stt.in,
+body.theme-light #c4 .menu .li .st.in,
+body.theme-light #c5 .entry .st.in,
+body.theme-light #c7 .tapr .st.in{color:#3E7A4E}
+body.theme-light #c1 .card .nt,
+body.theme-light #c1 .fcard p,
+body.theme-light #c1 .story p{color:#4A4538}
+
+
+/* ---- ELEMENT LIBRARY palette flip (variable-driven) ---- */
+body.theme-light #mode-elements{
+  --black:#E8DFCB;--char:#DFD4BC;--char2:#DFD4BC;--char3:#D4C7A9;
+  --copper:#9C5A1E;--copperL:#B06A22;--cream:#23201A;
+  --dim:rgba(35,32,26,.58);--faint:rgba(35,32,26,.14);
+  --cardbg:rgba(156,90,30,.06);--cardbdr:rgba(156,90,30,.22);
+  color:#23201A;
+}
+/* un-colored demo text (h1/logos that inherited the hardcoded light body color) -> ink */
+body.theme-light #mode-elements .main,
+body.theme-light #mode-elements .hero-stack h1,
+body.theme-light #mode-elements .hero-min h1,
+body.theme-light #mode-elements .hero-split h1,
+body.theme-light #mode-elements .nav-v .lg,
+body.theme-light #mode-elements .lc-classic h3,
+body.theme-light #mode-elements .lc-img h3,
+body.theme-light #mode-elements .lc-listrow .nm,
+body.theme-light #mode-elements .story-time .step h4,
+body.theme-light #mode-elements .findcard .info h3,
+body.theme-light #mode-elements .su-inline .tx h3,
+body.theme-light #mode-elements .su-stack h3,
+body.theme-light #mode-elements .pairing .prow,
+body.theme-light #mode-elements .faq summary,
+body.theme-light #mode-elements .sched .ev .what h4,
+body.theme-light #mode-elements .qrcard .cta{color:#23201A}
+body.theme-light #mode-elements .topbar{background:rgba(242,234,217,.92)}
+body.theme-light #mode-elements .topbar .bn{color:#9C5A1E}
+body.theme-light #mode-elements .topbar .bn span,
+body.theme-light #mode-elements .topbar .hint{color:rgba(35,32,26,.58)}
+body.theme-light #mode-elements .sidenav{background:#EFE6D3;border-right-color:rgba(35,32,26,.14)}
+body.theme-light #mode-elements .sidenav a{color:rgba(35,32,26,.58)}
+body.theme-light #mode-elements .sidenav a:hover{color:#23201A;background:rgba(156,90,30,.07)}
+body.theme-light #mode-elements .cat-h .nm{color:#23201A}
+body.theme-light #mode-elements .frame{background:#E8DFCB;border-color:rgba(35,32,26,.16)}
+body.theme-light #mode-elements .swatch-lbl .tag{background:rgba(156,90,30,.1);border-color:rgba(156,90,30,.22);color:#9C5A1E}
+/* element hero demos: the split-hero right panel + bottle were dark gradients; soften for paper */
+body.theme-light #mode-elements .hero-split .r{background:linear-gradient(150deg,#DFD4BC,#E8DFCB);border-left-color:rgba(35,32,26,.14)}
+body.theme-light #mode-elements .hero-stack{background:#DFD4BC}
+body.theme-light #mode-elements .lc-img .ph{background:linear-gradient(135deg,#DFD4BC,#E8DFCB)}
+body.theme-light #mode-elements .findcard .mapfaux{background:#DFD4BC}
+body.theme-light #mode-elements .qrcard .card{background:linear-gradient(160deg,#DFD4BC,#E8DFCB)}
+body.theme-light #mode-elements .qrcard .qr{background:#E8DFCB;border-color:rgba(156,90,30,.3)}
+body.theme-light #mode-elements .su-inline input,
+body.theme-light #mode-elements .su-stack input{background:rgba(255,255,255,.5)}
+
 </style>
 </head>
 <body>
@@ -784,6 +894,10 @@ body{font-family:'DM Sans',sans-serif;background:#0A0907;color:#EDE6D8;-webkit-f
 <div class="master-toggle">
 <button id="mt-concepts" class="on" onclick="showMode('concepts')">7 Concepts</button>
 <button id="mt-elements" onclick="showMode('elements')">Element Library</button>
+</div>
+<div class="theme-toggle">
+<button id="th-dark" class="on" onclick="setTheme('dark')">● Dark</button>
+<button id="th-light" onclick="setTheme('light')">○ Light</button>
 </div>
 <div class="mb-hint">Pick a direction, then mix in parts</div>
 </div>
@@ -1359,7 +1473,6 @@ body{font-family:'DM Sans',sans-serif;background:#0A0907;color:#EDE6D8;-webkit-f
 </div>
 
 <script>
-// master mode toggle
 function showMode(m){
  document.getElementById('mode-concepts').classList.toggle('live',m==='concepts');
  document.getElementById('mode-elements').classList.toggle('live',m==='elements');
@@ -1367,7 +1480,11 @@ function showMode(m){
  document.getElementById('mt-elements').classList.toggle('on',m==='elements');
  window.scrollTo(0,0);
 }
-// ---- concepts: page switching ----
+function setTheme(t){
+ document.body.classList.toggle('theme-light',t==='light');
+ document.getElementById('th-dark').classList.toggle('on',t==='dark');
+ document.getElementById('th-light').classList.toggle('on',t==='light');
+}
 function showConcept(i){
  document.querySelectorAll('#mode-concepts .concept').forEach((c,k)=>c.classList.toggle('live',k===i));
  document.querySelectorAll('#mode-concepts .shell-tab').forEach((t,k)=>t.classList.toggle('active',k===i));
@@ -1384,10 +1501,8 @@ const c1tab=mkTab('c1grid'),c2tab=mkTab('c2list-grid'),c3tab=mkTab('c3grid'),c4t
 function mkSub(btnId,okText){
  return function(e){e.preventDefault();var b=document.getElementById(btnId);if(b){b.textContent=okText;b.style.opacity=.7;}var inp=e.target.querySelector('input');if(inp)inp.disabled=true;};
 }
-const c1sub=mkSub('c1btn','✓ On the list'),c2sub=mkSub('c2btn','✓ Done'),c3sub=mkSub('c3btn','✓'),c4sub=mkSub('c4btn','✓ Joined'),c5sub=mkSub('c5btn','✓ Subscribed'),c6sub=mkSub('c6btn','✓ LOGGED'),c7sub=mkSub('c7btn','✓ In');
-// ---- elements: signup demo ----
-function okSub(e){e.preventDefault();var b=e.target.querySelector('button');b.textContent='✓ On the list';b.style.opacity='.7';e.target.querySelector('input').disabled=true;}
-// default-hide seasonal items on load (concepts)
+const c1sub=mkSub('c1btn','\u2713 On the list'),c2sub=mkSub('c2btn','\u2713 Done'),c3sub=mkSub('c3btn','\u2713'),c4sub=mkSub('c4btn','\u2713 Joined'),c5sub=mkSub('c5btn','\u2713 Subscribed'),c6sub=mkSub('c6btn','\u2713 LOGGED'),c7sub=mkSub('c7btn','\u2713 In');
+function okSub(e){e.preventDefault();var b=e.target.querySelector('button');b.textContent='\u2713 On the list';b.style.opacity='.7';e.target.querySelector('input').disabled=true;}
 window.addEventListener('DOMContentLoaded',function(){
  ['c1grid','c2list-grid','c3grid','c4menu','c5cat','c6grid','c7grid'].forEach(function(g){
   document.querySelectorAll('#'+g+' [data-t="seasonal"]').forEach(function(el){el.style.display='none';});
