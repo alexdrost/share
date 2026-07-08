@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How I Think We Get to $100M</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    /* Exact Hall CPA brand palette */
+    --teal:#2890B0;
+    --coral:#F85838;
+    --gold:#F8C038;
+    --mint:#58D098;
+    --navy:#102848;
+    --navy-deep:#001028;
+
+    --bg:#001028;          /* brand darkest navy as canvas */
+    --bg2:#071b34;
+    --teal-glow:#5cb6d4;
+    --ink:#eaf0f6;
+    --muted:#8ba3bd;
+    --line:rgba(140,180,210,0.14);
+    --card:rgba(140,180,210,0.05);
+    --mint-lite:#8fe6bd;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{
+    content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(56vw 56vw at 6% -10%, rgba(40,144,176,0.26), transparent 60%),
+      radial-gradient(48vw 48vw at 106% 4%, rgba(88,208,152,0.10), transparent 60%),
+      radial-gradient(64vw 64vw at 52% 120%, rgba(16,40,72,0.55), transparent 62%);
+  }
+  .wrap{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:0 26px}
+
+  .hero{min-height:96vh;display:flex;flex-direction:column;justify-content:center;padding:56px 0 40px}
+  .eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:22px;font-weight:500}
+  h1{font-family:'Fraunces',serif;font-weight:600;line-height:1.03;font-size:clamp(42px,7.4vw,76px);letter-spacing:-.02em;margin-bottom:26px}
+  h1 .accent{color:var(--teal-glow)}
+  .lede{font-size:clamp(18px,2.4vw,22px);color:#c7d3e0;max-width:60ch;font-weight:400}
+  .lede .wink{color:var(--teal-glow);font-style:italic}
+  .sig{margin-top:28px;font-size:14px;color:var(--muted);letter-spacing:.04em}
+
+  .vision-lead{font-size:clamp(18px,2.2vw,21px);color:var(--ink);max-width:62ch;margin-top:34px}
+  .vision-lead strong{color:#fff}
+  .pic-intro{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(20px,2.6vw,26px);color:var(--teal-glow);margin-top:30px;letter-spacing:-.01em}
+
+  /* ---- many tops ---- */
+  .stage{margin:20px 0 6px}
+  .field{position:relative;height:250px;display:flex;align-items:flex-end;justify-content:center;gap:clamp(12px,4vw,46px)}
+  /* wind streaks */
+  .wind{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .8s ease .3s}
+  .field.steady .wind{opacity:1}
+  .wind span{position:absolute;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,rgba(140,230,189,0.55),transparent);animation:gust linear infinite}
+  @keyframes gust{0%{transform:translateX(-120px);opacity:0}20%{opacity:1}80%{opacity:1}100%{transform:translateX(120px);opacity:0}}
+
+  .t{display:flex;flex-direction:column;align-items:center;transform-origin:50% 100%}
+  .t svg{width:clamp(42px,9vw,66px);height:auto;overflow:visible;display:block}
+  .t .body{transform-origin:50% 92%}
+  /* wobble (default) — varied timing, big tilt */
+  .t.f1{animation:wob1 1.25s ease-in-out infinite}
+  .t.f2{animation:wob2 1.6s ease-in-out infinite}
+  .t.f3{animation:wob1 1.45s ease-in-out infinite .18s}
+  .t.f4{animation:wob2 1.1s ease-in-out infinite .08s}
+  .t.f5{animation:wob1 1.85s ease-in-out infinite}
+  @keyframes wob1{0%,100%{transform:rotate(-12deg)}50%{transform:rotate(12deg)}}
+  @keyframes wob2{0%,100%{transform:rotate(10deg)}50%{transform:rotate(-14deg)}}
+  /* steadied — stay UPRIGHT, just a tiny gentle sway (balanced, not spinning) */
+  .field.steady .t.f1{animation:sway 4.2s ease-in-out infinite}
+  .field.steady .t.f2{animation:sway 4.8s ease-in-out infinite .2s}
+  .field.steady .t.f3{animation:sway 4.5s ease-in-out infinite .1s}
+  .field.steady .t.f4{animation:sway 5.0s ease-in-out infinite .3s}
+  .field.steady .t.f5{animation:sway 4.6s ease-in-out infinite .15s}
+  @keyframes sway{0%,100%{transform:rotate(-1.5deg)}50%{transform:rotate(1.5deg)}}
+
+  .stageui{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:24px}
+  .stagelabel{font-size:15.5px;color:var(--muted);text-align:center;min-height:22px;transition:color .4s;max-width:52ch}
+  .stagelabel b{color:var(--gold)}
+  .field.steady ~ .stageui .stagelabel b{color:var(--mint-lite)}
+  .steadybtn{appearance:none;border:1px solid var(--teal);background:rgba(40,144,176,0.22);color:#dcecf4;font-family:'Inter';font-size:14px;font-weight:600;letter-spacing:.03em;padding:11px 24px;border-radius:999px;cursor:pointer;transition:all .3s}
+  .steadybtn:hover{background:rgba(40,144,176,0.42);border-color:var(--teal-glow)}
+  .steadybtn.done{border-color:var(--mint);background:rgba(88,208,152,0.16);color:var(--mint-lite)}
+
+  .mantra{margin:30px auto 0;text-align:center;font-family:'Fraunces',serif;font-weight:600;font-size:clamp(21px,4.2vw,38px);letter-spacing:-.01em;line-height:1.28}
+  .mantra .a{color:var(--teal-glow)}.mantra .b{color:#bcd3e4}.mantra .c{color:var(--mint-lite)}
+  .mantra .dot{color:var(--muted);margin:0 .3em;font-weight:400}
+
+  section.block{padding:60px 0;border-top:1px solid var(--line)}
+  .kicker{font-family:'Fraunces',serif;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-glow);margin-bottom:16px;font-weight:600}
+  h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,4.6vw,42px);line-height:1.08;letter-spacing:-.015em;margin-bottom:22px}
+  h3{font-family:'Inter';font-weight:600;font-size:19px;color:#fff;margin:0 0 6px}
+  p{font-size:17.5px;color:#ccd7e4;margin-bottom:18px}
+  p.big{font-size:20px;color:var(--ink)}
+  strong{color:#fff;font-weight:600}em{color:#e2eaf2}
+
+  .prio{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:10px}
+  .prio li{display:grid;grid-template-columns:52px 1fr;gap:20px;align-items:start;padding:24px;border:1px solid var(--line);border-radius:16px;background:var(--card);position:relative;overflow:hidden;opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .prio li.in{opacity:1;transform:none}
+  .prio li::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(var(--teal),var(--mint));opacity:.9}
+  .pnum{font-family:'Fraunces',serif;font-size:30px;font-weight:600;color:var(--teal-glow);line-height:1}
+
+  .card{border:1px solid var(--line);background:var(--card);border-radius:18px;padding:28px 30px;margin:24px 0}
+  .card.green{border-color:rgba(88,208,152,0.32);background:rgba(88,208,152,0.06)}
+  .card.core{border-color:rgba(40,144,176,0.4);background:linear-gradient(180deg,rgba(40,144,176,0.16),rgba(16,40,72,0.10))}
+  .card .lbl{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-glow);font-weight:600;margin-bottom:12px}
+  .card.green .lbl{color:var(--mint-lite)}
+  .pull{font-family:'Fraunces',serif;font-size:clamp(20px,3vw,26px);line-height:1.35;color:#fff;font-weight:500;margin:6px 0}
+
+  ul.clean{list-style:none;display:flex;flex-direction:column;gap:14px;margin:8px 0 4px}
+  ul.clean li{padding-left:22px;position:relative;font-size:17.5px;color:#ccd7e4}
+  ul.clean li::before{content:'';position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:linear-gradient(120deg,var(--teal-glow),var(--mint))}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  .close{padding:66px 0 20px;border-top:1px solid var(--line);text-align:center}
+  .close .big{max-width:56ch;margin:0 auto 20px}
+  .close .note{margin-top:24px;font-size:15px;color:var(--muted);font-style:italic;max-width:52ch;margin-left:auto;margin-right:auto}
+
+  /* bottom recap graphic */
+  .endstage{padding:14px 0 70px}
+  .endfield{position:relative;height:150px;display:flex;align-items:flex-end;justify-content:center;gap:clamp(10px,3.4vw,34px)}
+  .endfield .t.f1{animation:sway 4.2s ease-in-out infinite}
+  .endfield .t.f2{animation:sway 4.8s ease-in-out infinite .2s}
+  .endfield .t.f3{animation:sway 4.5s ease-in-out infinite .1s}
+  .endfield .t.f4{animation:sway 5.0s ease-in-out infinite .3s}
+  .endfield .t.f5{animation:sway 4.6s ease-in-out infinite .15s}
+  .endfield .t svg{width:clamp(30px,6vw,46px)}
+
+  @media (max-width:560px){.field{gap:7px;height:190px}.endfield{gap:6px}}
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;scroll-behavior:auto}
+    .reveal,.prio li{opacity:1;transform:none}.t{transform:rotate(0)!important}.wind{opacity:0!important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="eyebrow">A few thoughts ahead of our strategy session</div>
+    <h1>How I think we<br>get to <span class="accent">$100M</span>.</h1>
+    <p class="lede">I've spent some time trying to organize my thoughts ahead of our Thursday session — reading back through the plans we've written and the conversations we've had. I thought it was worth sharing in advance with everyone, rather than reacting live in a room. <span class="wink">Plus, vibe coding is cool.</span></p>
+    <div class="sig">— Alex · shared with the leadership team</div>
+
+    <p class="vision-lead"><strong>First, the important part: I'm in on the vision.</strong> A financial operating system that helps clients gain clarity and confidence over their business and personal finances — built on trust and deep relationships — is exactly the right place to be pointed. I'm not questioning <em>where</em> we're going. I want to offer a thought on <em>how</em> we get there — and I think it might be a little different from how we're running now.</p>
+
+    <p class="pic-intro">Here's the picture I keep coming back to.</p>
+
+    <!-- MANY TOPS -->
+    <div class="stage">
+      <div class="field" id="field">
+        <div class="wind" id="wind"></div>
+        <div class="t f1"><svg viewBox="0 0 60 110"><defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop class="s0" offset="0" stop-color="#F8C038"/><stop class="s1" offset="1" stop-color="#d89a1e"/></linearGradient></defs><g class="body"><ellipse cx="30" cy="24" rx="24" ry="8" fill="url(#g1)"/><path d="M6 24 A24 8 0 0 0 54 24 L34 96 A5 3 0 0 1 26 96 Z" fill="url(#g1)"/><ellipse cx="30" cy="24" rx="24" ry="8" fill="#fff" opacity=".14"/></g></svg></div>
+        <div class="t f2"><svg viewBox="0 0 60 130"><defs><linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop class="s0" offset="0" stop-color="#FA6E4E"/><stop class="s1" offset="1" stop-color="#F85838"/></linearGradient></defs><g class="body"><ellipse cx="30" cy="26" rx="26" ry="9" fill="url(#g2)"/><path d="M4 26 A26 9 0 0 0 56 26 L34 116 A5 3 0 0 1 26 116 Z" fill="url(#g2)"/><ellipse cx="30" cy="26" rx="26" ry="9" fill="#fff" opacity=".14"/></g></svg></div>
+        <div class="t f3"><svg viewBox="0 0 60 100"><defs><linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop class="s0" offset="0" stop-color="#F8C038"/><stop class="s1" offset="1" stop-color="#d89a1e"/></linearGradient></defs><g class="body"><ellipse cx="30" cy="22" rx="22" ry="7" fill="url(#g3)"/><path d="M8 22 A22 7 0 0 0 52 22 L34 88 A5 3 0 0 1 26 88 Z" fill="url(#g3)"/><ellipse cx="30" cy="22" rx="22" ry="7" fill="#fff" opacity=".14"/></g></svg></div>
+        <div class="t f4"><svg viewBox="0 0 60 122"><defs><linearGradient id="g4" x1="0" y1="0" x2="0" y2="1"><stop class="s0" offset="0" stop-color="#FA6E4E"/><stop class="s1" offset="1" stop-color="#F85838"/></linearGradient></defs><g class="body"><ellipse cx="30" cy="25" rx="25" ry="8" fill="url(#g4)"/><path d="M5 25 A25 8 0 0 0 55 25 L34 108 A5 3 0 0 1 26 108 Z" fill="url(#g4)"/><ellipse cx="30" cy="25" rx="25" ry="8" fill="#fff" opacity=".14"/></g></svg></div>
+        <div class="t f5"><svg viewBox="0 0 60 114"><defs><linearGradient id="g5" x1="0" y1="0" x2="0" y2="1"><stop class="s0" offset="0" stop-color="#F8C038"/><stop class="s1" offset="1" stop-color="#d89a1e"/></linearGradient></defs><g class="body"><ellipse cx="30" cy="24" rx="23" ry="8" fill="url(#g5)"/><path d="M7 24 A23 8 0 0 0 53 24 L34 100 A5 3 0 0 1 26 100 Z" fill="url(#g5)"/><ellipse cx="30" cy="24" rx="23" ry="8" fill="#fff" opacity=".14"/></g></svg></div>
+      </div>
+      <div class="stageui">
+        <div class="stagelabel" id="slabel">We've got <b>a lot of tops spinning</b> — and fast isn't always how you get there.</div>
+        <button class="steadybtn" id="sbtn" onclick="steadyThem()">Steady them →</button>
+      </div>
+      <div class="mantra">
+        <span class="a">Slow is smooth</span><span class="dot">·</span><span class="b">smooth is steady</span><span class="dot">·</span><span class="c">steady is accurate</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- FRAME -->
+  <section class="block reveal">
+    <p>When everything's spinning that fast, all at once, it starts to wobble — I think we all feel it. The instinct is to spin faster. But spinning fast isn't always how you get where you're going. Sometimes the move is to steady what's already going, and get clear on what actually matters most.</p>
+    <div class="card green">
+      <div class="lbl">The whole idea in one line</div>
+      <p class="pull">If we slow down just enough to steady the pace, we get smoother. Smoother lets us be accurate — and accuracy is what lets us navigate the market dynamics shifting under all of us.</p>
+      <p style="margin-bottom:0"><strong>This is not slowing down instead of growing. It's the fastest real path to $100M.</strong> And slow and steady isn't forever — we steady the tops for one focused period, and then we pick up speed. The inertia builds. A top spinning true carries momentum a wobbling one never can. The stabilizing is the on-ramp, not the destination.</p>
+    </div>
+  </section>
+
+  <!-- COUNTER PROPOSAL -->
+  <section class="block">
+    <div class="kicker reveal">What I'd propose</div>
+    <h2 class="reveal">120–180 days to steady the ship.</h2>
+    <p class="reveal">One focused period with the primary goal of professionalizing and steadying the core business. Not instead of the vision — in service of it. Here's what that period is actually about, roughly in order of what matters most:</p>
+    <ol class="prio">
+      <li><div class="pnum">1</div><div><h3>Consistent governance and rhythm</h3><p style="margin:0">The single thing that would change the most is running the operating cadence we already designed — showing up to it, making decisions in it, and holding to them. We've written good plans before; where we struggle is follow-through. Rhythm is what turns smart conversations into governed execution.</p></div></li>
+      <li><div class="pnum">2</div><div><h3>Finish what we've started before we layer on more</h3><p style="margin:0">Integration, systems, hiring, several rollouts landing the same week. Before we open new fronts, let's close the open ones. Every new initiative we start before finishing the last is part of why the tops wobble.</p></div></li>
+      <li><div class="pnum">3</div><div><h3>The people layer</h3><p style="margin:0">We've said it ourselves more than once: talent is the root of most of what we're wrestling with. Development plans, clear ownership, and a steadier way to hire and grow people would relieve pressure across everything else.</p></div></li>
+      <li><div class="pnum">4</div><div><h3>Clearly defined, aligned data</h3><p style="margin:0">We need to trust our own numbers and agree on where they come from — enough data governance that when we decide something, we're all working from the same reliable picture. Right now that isn't fully true, and it makes every other decision shakier than it needs to be.</p></div></li>
+    </ol>
+
+    <div class="card core reveal">
+      <div class="lbl">The honest core of it</div>
+      <p style="margin-bottom:0">The biggest single unlock is concentrated leadership attention on the core for one focused stretch — and most of all from the founder / CEO / MP. The person at the top sets the pace of the whole firm; if the top of the org is moving fast between many things, everything under it wobbles with it. I think we need more of that attention pointed right at the center for this period. That's not a criticism — it's the opposite. The most valuable thing you can do for the vision right now is help us steady the base it has to stand on.</p>
+    </div>
+    <p class="reveal">I believe we get there through greater collaboration and alignment across the ELT and the broader leadership team — not one or two of us pushing. Once we steady the ship, we work as a leadership team to build on this vision and create shared ownership — worth more than any single plan.</p>
+
+    <h3 class="reveal" style="margin-top:34px">And where this discipline pays off</h3>
+    <p class="reveal">Steadying the base isn't just defense. It's what puts us in a stronger position for everything the vision needs later: <strong>better-aligned value</strong> across the firm, <strong>unlocked potential</strong> in the people and services we already have, <strong>better capital terms</strong> if and when the time comes to finance growth, and the room to set <strong>the right equity plan</strong> — one that rewards the team without creating drag on future growth. We make those big moves from strength, not from a wobble.</p>
+  </section>
+
+  <!-- EXCITED TO SHARPEN -->
+  <section class="block">
+    <div class="kicker reveal">The parts of the vision I'm most excited to sharpen</div>
+    <h2 class="reveal">None of this dims the vision.</h2>
+    <div class="reveal">
+      <h3>The service model — trust over speed</h3>
+      <ul class="clean">
+        <li>Frame what we do around <strong>trust and deepening relationships</strong> — helping clients gain clarity and confidence over their <strong>business and personal finances</strong>. That's the durable thing when AI commoditizes the compliance work.</li>
+        <li>A small but real one: <strong>"client," not "customer."</strong> It signals the relationship we actually want.</li>
+        <li>Weight <strong>quality and timeliness over "speed."</strong> Speed for its own sake is how mistakes happen; clients value trusting the work and knowing it'll be there when they need it.</li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <h3 style="margin-top:26px">Let's define the big terms</h3>
+      <p>"Proprietary AI" and "family office" are powerful ideas — but right now they're phrases more than plans. Let's define what we actually mean by each before we build on them.</p>
+    </div>
+    <div class="reveal">
+      <h3 style="margin-top:26px">On the bigger acquisition ambition</h3>
+      <p>I love the ambition of a repeatable acquisition engine, and it's a real conversation — <strong>when we're closer to $75M in revenue.</strong> At our current size I don't think we're a capital allocator yet; the business isn't cash-rich enough to run acquisitions like a fund, and systematizing that now would spread us thin. So I'd gently suggest it's not part of <em>this</em> plan — it's a <em>later</em> plan we're deliberately growing toward.</p>
+    </div>
+  </section>
+
+  <!-- CAPACITY + OPTIMISM -->
+  <section class="block">
+    <div class="kicker reveal">One more, and a close</div>
+    <div class="reveal">
+      <h3>On capacity and talent</h3>
+      <p>With Arianna coming on board, we're making a real investment in advisory leadership, and I'm glad we are. I'll just name gently that capacity and talent have been one of the harder, more important parts of the business — we've had some turnover, and that part of the business is being tested in a meaningful way right now. Worth going into this period with our eyes open on it, and treating it as one of the things a steadier rhythm is meant to protect.</p>
+    </div>
+    <div class="reveal">
+      <h3 style="margin-top:26px">Why I'm optimistic</h3>
+      <p>Here's what actually gives me confidence: <strong>the thinking the firm has already done is genuinely good.</strong> The work at the end of last year and again this spring was strong. We don't have a strategy problem — <strong>we have a follow-through problem, and that's fixable with focus and rhythm</strong> rather than more brilliance.</p>
+    </div>
+  </section>
+
+  <!-- CLOSE -->
+  <section class="close reveal">
+    <p class="big">So that's my whole point, really. Let's steady the tops. Let's get smooth. And from smooth, let's build real momentum — together — toward exactly the vision we all want.</p>
+    <div class="mantra">
+      <span class="a">Slow is smooth</span><span class="dot">·</span><span class="b">smooth is steady</span><span class="dot">·</span><span class="c">steady is accurate</span>
+    </div>
+    <p class="note">Shared in the spirit of trying to organize my thinking — genuinely open to anyone's reactions.</p>
+  </section>
+
+  <!-- BOTTOM RECAP GRAPHIC (steadied tops, no logo) -->
+  <div class="endstage reveal">
+    <div class="endfield">
+      <div class="t f1"><svg viewBox="0 0 60 110"><defs><linearGradient id="e1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fe6bd"/><stop offset="1" stop-color="#3fae7f"/></linearGradient></defs><g class="body"><ellipse cx="30" cy="24" rx="24" ry="8" fill="url(#e1)"/><path d="M6 24 A24 8 0 0 0 54 24 L34 96 A5 3 0 0 1 26 96 Z" fill="url(#e1)"/><ellipse cx="30" cy="24" rx="24" ry="8" fill="#fff" opacity=".14"/></g></svg></div>
+      <div class="t f2"><svg viewBox="0 0 60 130"><defs><linearGradient id="e2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5cb6d4"/><stop offset="1" stop-color="#2890B0"/></linearGradient></defs><g class="body"><ellipse cx="30" cy="26" rx="26" ry="9" fill="url(#e2)"/><path d="M4 26 A26 9 0 0 0 56 26 L34 116 A5 3 0 0 1 26 116 Z" fill="url(#e2)"/><ellipse cx="30" cy="26" rx="26" ry="9" fill="#fff" opacity=".14"/></g></svg></div>
+      <div class="t f3"><svg viewBox="0 0 60 100"><defs><linearGradient id="e3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fe6bd"/><stop offset="1" stop-color="#3fae7f"/></linearGradient></defs><g class="body"><ellipse cx="30" cy="22" rx="22" ry="7" fill="url(#e3)"/><path d="M8 22 A22 7 0 0 0 52 22 L34 88 A5 3 0 0 1 26 88 Z" fill="url(#e3)"/><ellipse cx="30" cy="22" rx="22" ry="7" fill="#fff" opacity=".14"/></g></svg></div>
+      <div class="t f4"><svg viewBox="0 0 60 122"><defs><linearGradient id="e4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5cb6d4"/><stop offset="1" stop-color="#2890B0"/></linearGradient></defs><g class="body"><ellipse cx="30" cy="25" rx="25" ry="8" fill="url(#e4)"/><path d="M5 25 A25 8 0 0 0 55 25 L34 108 A5 3 0 0 1 26 108 Z" fill="url(#e4)"/><ellipse cx="30" cy="25" rx="25" ry="8" fill="#fff" opacity=".14"/></g></svg></div>
+      <div class="t f5"><svg viewBox="0 0 60 114"><defs><linearGradient id="e5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fe6bd"/><stop offset="1" stop-color="#3fae7f"/></linearGradient></defs><g class="body"><ellipse cx="30" cy="24" rx="23" ry="8" fill="url(#e5)"/><path d="M7 24 A23 8 0 0 0 53 24 L34 100 A5 3 0 0 1 26 100 Z" fill="url(#e5)"/><ellipse cx="30" cy="24" rx="23" ry="8" fill="#fff" opacity=".14"/></g></svg></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.14});
+  document.querySelectorAll('.reveal,.prio li').forEach(el=>io.observe(el));
+
+  // build wind streaks once
+  (function(){
+    const wind=document.getElementById('wind');
+    for(let i=0;i<7;i++){
+      const s=document.createElement('span');
+      const w=40+Math.random()*90;
+      s.style.width=w+'px';
+      s.style.top=(12+Math.random()*72)+'%';
+      s.style.left=(6+Math.random()*70)+'%';
+      s.style.animationDuration=(2.4+Math.random()*2.2)+'s';
+      s.style.animationDelay=(Math.random()*2)+'s';
+      wind.appendChild(s);
+    }
+  })();
+
+  let steadied=false;
+  function recolor(green){
+    document.querySelectorAll('#field linearGradient').forEach(g=>{
+      const s=g.querySelectorAll('stop');
+      const id=g.id;
+      const isCoral = (id==='g2'||id==='g4');
+      if(green){
+        if(isCoral){s[0].setAttribute('stop-color','#5cb6d4');s[1].setAttribute('stop-color','#2890B0');}
+        else{s[0].setAttribute('stop-color','#8fe6bd');s[1].setAttribute('stop-color','#3fae7f');}
+      }else{
+        if(isCoral){s[0].setAttribute('stop-color','#FA6E4E');s[1].setAttribute('stop-color','#F85838');}
+        else{s[0].setAttribute('stop-color','#F8C038');s[1].setAttribute('stop-color','#d89a1e');}
+      }
+    });
+  }
+  function steadyThem(){
+    const field=document.getElementById('field');
+    const label=document.getElementById('slabel');
+    const btn=document.getElementById('sbtn');
+    steadied=!steadied;
+    if(steadied){
+      field.classList.add('steady');recolor(true);
+      label.innerHTML='Steadied — same tops, just balanced. Now they can <b>travel</b>.';
+      btn.textContent='Steady ✓';btn.classList.add('done');
+    }else{
+      field.classList.remove('steady');recolor(false);
+      label.innerHTML="We've got <b>a lot of tops spinning</b> — and fast isn't always how you get there.";
+      btn.textContent='Steady them →';btn.classList.remove('done');
+    }
+  }
+</script>
+</body>
+</html>
