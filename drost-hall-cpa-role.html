@@ -57,6 +57,7 @@ body{
   text-transform:uppercase;color:#7E93A8;margin:0 0 30px}
 .hero .lede{font-size:1.18rem;line-height:1.6;max-width:52ch;color:#D4DEE7;margin:0}
 .hero .lede strong{color:#fff;font-weight:600}
+.hero .lede.sub{margin-top:16px;font-size:1.02rem;color:#8FA5B8;max-width:50ch}
 
 /* ---------- STICKY RAIL ---------- */
 .rail{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.94);
@@ -77,18 +78,13 @@ body{
 /* ---------- SECTIONS ---------- */
 section{padding:74px 0}
 section.tint{background:#EAF1F4}
-.shead{margin:0 0 34px;max-width:64ch}
-.shead h2{font-family:var(--display);font-weight:700;letter-spacing:-.022em;
-  font-size:clamp(1.7rem,3.5vw,2.3rem);line-height:1.1;margin:0 0 14px;color:var(--navy)}
-.shead p{margin:0;color:var(--muted);font-size:1.05rem;max-width:60ch}
-.shead p + p{margin-top:12px}
-.whygrid{display:grid;grid-template-columns:.92fr 1.08fr;gap:60px;align-items:start}
-.whygrid h2{font-family:var(--display);font-weight:700;letter-spacing:-.025em;
-  font-size:clamp(1.8rem,3.7vw,2.6rem);line-height:1.06;margin:0;color:var(--navy)}
-.whybody p{margin:0 0 17px;font-size:1.05rem;line-height:1.66;color:var(--ink)}
-.whybody p:first-child{font-size:1.15rem;color:var(--navy);
-  border-left:3px solid var(--teal);padding-left:18px}
-.whybody p:last-child{margin-bottom:0}
+.shead{display:grid;grid-template-columns:1.04fr 1fr;gap:56px;align-items:end;
+  margin:0 0 36px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.shead h2{font-family:var(--display);font-weight:700;letter-spacing:-.024em;
+  font-size:clamp(1.75rem,3.7vw,2.45rem);line-height:1.08;margin:0;color:var(--navy)}
+.sh-note p{margin:0;color:var(--muted);font-size:1.04rem;line-height:1.62}
+.sh-note p + p{margin-top:12px}
+
 
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
@@ -140,7 +136,7 @@ section.tint{background:#EAF1F4}
   background:var(--teal)}
 
 /* ---------- OWNERSHIP ---------- */
-.ogrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.ogrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;align-items:start}
 .defs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
 .def{background:rgba(16,40,72,.04);border:1px dashed #C8D4DC;border-radius:3px;
   padding:15px 17px;transition:background .22s,border-color .22s}
@@ -233,8 +229,8 @@ footer{background:var(--navy-deep);color:#6F8397;padding:40px 0;
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 @media(max-width:900px){
+  .shead{grid-template-columns:1fr;gap:18px;align-items:start;padding-bottom:20px}
   .defs{grid-template-columns:1fr}
-  .whygrid{grid-template-columns:1fr;gap:22px}
   .vlayout{grid-template-columns:1fr;gap:26px}
   .bgrid{grid-template-columns:1fr;gap:28px}
   .pull{position:static}
@@ -290,12 +286,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <h1>Current role <em>&amp;</em> mandate</h1>
     <p class="meta">August 2026</p>
     <p class="lede">Two parts. <strong>How I work</strong>, which doesn't change much. And <strong>what I'm carrying between now and the end of the year</strong>, which does.</p>
+    <p class="lede sub">Written as principles rather than a task list. A task list written in March would have been wrong by May.</p>
   </div>
 </header>
 
 <div class="rail">
   <nav>
-    <a href="#why">Why this</a>
     <a href="#principles">How I work</a>
     <a href="#fit">Where I fit</a>
     <a href="#ownership">What I own</a>
@@ -307,28 +303,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <main>
 
-<section id="why">
-  <div class="wrap reveal">
-    <div class="whygrid">
-      <div>
-        <p class="eyebrow">Why this exists</p>
-        <h2>My role has moved faster than any document describing it.</h2>
-      </div>
-      <div class="whybody">
-        <p>Mostly that's a good thing. It moved in response to what the firm actually needed. But it left a fair question, and Lynette asked it directly last week: what is Alex responsible for, and when should I bring him in?</p>
-        <p>This is my answer. The first half is how I work and where I think I add value. The second half is what I'm carrying between now and year end, which gets rebuilt alongside the 2027 plan.</p>
-        <p>I wrote it as principles rather than a task list on purpose. A task list written in March would have been wrong by May.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section id="principles" class="tint">
   <div class="wrap reveal">
     <div class="shead">
-      <p class="eyebrow">How I work</p>
-      <h2>Eight things that shape how I handle almost anything</h2>
-      <p>These will tell you more about how I'll approach something than a list of responsibilities would.</p>
+      <div><p class="eyebrow">How I work</p>
+      <h2>Eight things that shape how I handle almost anything</h2></div>
+      <div class="sh-note"><p>These will tell you more about how I'll approach something than a list of responsibilities would.</p></div>
     </div>
     <div class="pgrid">
       <div class="pcard"><span class="mark" style="background:#2890B0"></span>
@@ -341,8 +322,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <h3>If it moves money, it's probably worth a conversation with me</h3>
         <p>That's a trigger for input, not a claim on the decision. The decision still belongs to whoever owns it.</p></div>
       <div class="pcard"><span class="mark" style="background:#58D098"></span>
-        <h3>I'll catch what gets dropped, and try to place it</h3>
-        <p>A lot of my job is getting things to the right owner. When there isn't one yet, I'll hold it and substitute until there is.</p></div>
+        <h3>I'll catch what gets dropped</h3>
+        <p>This is something I can be uniquely useful on, especially with Tooth &amp; Coin and anything on the corporate side. I'll get it to the right owner, and hold it myself when there isn't one yet.</p></div>
       <div class="pcard"><span class="mark" style="background:#2890B0"></span>
         <h3>Deliberate beats fast</h3>
         <p>A lot of what looks like a speed problem is really a clarity problem. Slow is smooth, smooth is steady, steady is accurate.</p></div>
@@ -354,7 +335,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <p>Professionalization and repeatable process. If we're going to do something more than once, I'd rather it be a process than a heroic effort.</p></div>
       <div class="pcard"><span class="mark" style="background:#58D098"></span>
         <h3>Write it down</h3>
-        <p>Decisions, assumptions, owners. It's how we stop re-deciding the same things.</p></div>
+        <p>Decisions, assumptions and who owns them, captured while they're still fresh. It keeps us from re-deciding the same things later, and it means the reasoning survives when the people in the room change.</p></div>
     </div>
   </div>
 </section>
@@ -362,9 +343,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <section id="fit">
   <div class="wrap reveal">
     <div class="shead">
-      <p class="eyebrow">Where I fit</p>
-      <h2>Three circles</h2>
-      <p>There's a version of this conversation that's about titles and reporting lines. I don't think that's the useful version. The useful one is about where three things overlap: what I'm good at, what the firm needs right now, and what I'd work on if nobody were watching.</p>
+      <div><p class="eyebrow">Where I fit</p>
+      <h2>Three circles</h2></div>
+      <div class="sh-note"><p>There's a version of this conversation that's about titles and reporting lines. I don't think that's the useful one. The useful one is about where three things overlap: what I'm good at, what the firm needs right now, and what I'd work on if nobody were watching.</p></div>
     </div>
 
     <div class="vlayout">
@@ -412,9 +393,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <section id="ownership" class="tint">
   <div class="wrap reveal">
     <div class="shead">
-      <p class="eyebrow">What I own</p>
-      <h2>Accountable and responsible are not the same thing</h2>
-      <p>Most of the confusion about my role sits in the gap between those two words, so it's worth separating them before the lists make sense.</p>
+      <div><p class="eyebrow">What I own</p>
+      <h2>Accountable and responsible are not the same thing</h2></div>
+      <div class="sh-note"><p>Most of the confusion about my role sits in the gap between those two words, so it's worth separating them before the lists make sense.</p></div>
     </div>
     <div class="defs">
       <div class="def"><b>Accountable</b><span>One name. That person tracks it and reports on it.</span></div>
@@ -440,8 +421,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <li>Compensation and equity design <span>· Brandon</span></li>
           <li>Tooth &amp; Coin operating model <span>· Lynette</span></li>
           <li>Capacity execution <span>· function leads</span></li>
-          <li>Talent process and pipeline <span>· Kaylin</span></li>
-          <li>Scorecard and culture architecture <span>· the ELT</span></li>
         </ul>
       </div>
     </div>
@@ -451,9 +430,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <section id="mandate">
   <div class="wrap reveal">
     <div class="shead">
-      <span class="badge"><b></b>Now through year end 2026 · revisited with the 2027 plan</span>
-      <h2>What I'm carrying</h2>
-      <p>Five things, in the order I'd put them. Each one has a lift attached, because capacity is the honest part of this conversation.</p>
+      <div><span class="badge"><b></b>Now through year end 2026 · revisited with the 2027 plan</span>
+      <h2>What I'm carrying</h2></div>
+      <div class="sh-note"><p>Five things, in the order I'd put them. Each one has a lift attached, because capacity is the honest part of this conversation.</p></div>
     </div>
 
     <div class="mitem">
@@ -531,9 +510,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <section id="bringme" class="tint">
   <div class="wrap reveal">
     <div class="shead">
-      <p class="eyebrow">Bring me in</p>
-      <h2>When it's worth pulling me into something</h2>
-      <p>Roughly in the order I'd rank them.</p>
+      <div><p class="eyebrow">Bring me in</p>
+      <h2>When it's worth pulling me into something</h2></div>
+      <div class="sh-note"><p>Roughly in the order I'd rank them. Earlier is always cheaper than later.</p></div>
     </div>
     <div class="bgrid">
       <ol class="blist">
@@ -557,9 +536,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <section id="plate">
   <div class="wrap reveal">
     <div class="shead">
-      <p class="eyebrow">On my plate</p>
-      <h2>What's actually in motion right now</h2>
-      <p>For context rather than credit.</p>
+      <div><p class="eyebrow">On my plate</p>
+      <h2>What's actually in motion right now</h2></div>
+      <div class="sh-note"><p>For context rather than credit. Some of it is close to done, most of it isn't.</p></div>
     </div>
 
     <div class="prow"><h3>Financial reporting rebuild</h3>
@@ -606,10 +585,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 const R = {
   core:{kick:"All three overlap",title:"Where I'm spending the rest of 2026",accent:"#2890B0",
     note:"This is the part that earns its place. I'm good at it, the firm needs it now, and I'd pick it up anyway.",
-    items:["Financial architecture applied to real decisions","Executive decision-making and governance","Transaction and integration economics","Compensation and equity design"]},
+    items:["Financial architecture applied to real decisions","Compensation and equity design","Cost control and spend management","Professionalizing how finance operates"]},
   ab:{kick:"Good at + needed",title:"The foundation",accent:"#7FA02E",
     note:"Nobody's dream work. It's what everything else sits on, and right now I'm the right person to carry it.",
-    items:["Close discipline and reconciliation","Spend controls and approval architecture","Procurement hygiene and contract visibility","Getting the data to a place we can trust"]},
+    items:["Close discipline and reconciliation","Procurement hygiene and contract visibility","Systems, tooling and data cleanup","Getting the numbers to a place we can trust"]},
   bc:{kick:"Needed + want to",title:"Where I'd like this to grow",accent:"#F85838",
     note:"A real opportunity for the firm and the part I'd raise my hand for. I'd want a partner on it rather than owning it alone.",
     items:["AI applied to how we deliver","AI applied to client experience","Longer, deeper client relationships","The economics that follow from both"]},
