@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drost + Hall CPA — Current Role &amp; Mandate</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='11' fill='%23001028'/%3E%3Cg fill='none' stroke-width='2.6'%3E%3Ccircle cx='25.5' cy='27' r='14' stroke='%232890B0'/%3E%3Ccircle cx='38.5' cy='27' r='14' stroke='%23F8C038'/%3E%3Ccircle cx='32' cy='38' r='14' stroke='%23F85838'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-deep:#001028;
+  --navy:#102848;
+  --teal:#2890B0;
+  --coral:#F85838;
+  --gold:#F8C038;
+  --mint:#58D098;
+  --paper:#F4F7F8;
+  --card:#FFFFFF;
+  --ink:#13202E;
+  --muted:#5D6E7C;
+  --line:#DCE4E9;
+  --display:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --body:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  --maxw:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:74px}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:17px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+.eyebrow{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--teal);margin:0 0 14px;
+}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;background:var(--navy-deep);color:#fff;overflow:hidden;
+  padding:76px 0 66px;border-bottom:3px solid var(--coral)}
+.hero svg.motif{position:absolute;right:-90px;top:-70px;width:560px;height:560px;
+  opacity:.13;pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.hero .eyebrow{color:var(--teal)}
+.hero h1{
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(2.7rem,7.4vw,4.7rem);line-height:.98;letter-spacing:-.035em;
+  margin:0 0 22px;max-width:14ch;
+}
+.hero h1 em{font-style:normal;color:var(--teal)}
+.hero .meta{font-family:var(--mono);font-size:.76rem;letter-spacing:.12em;
+  text-transform:uppercase;color:#7E93A8;margin:0 0 30px}
+.hero .lede{font-size:1.18rem;line-height:1.6;max-width:52ch;color:#D4DEE7;margin:0}
+.hero .lede strong{color:#fff;font-weight:600}
+
+/* ---------- STICKY RAIL ---------- */
+.rail{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.rail nav{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:flex;gap:4px;
+  overflow-x:auto;scrollbar-width:none}
+.rail nav::-webkit-scrollbar{display:none}
+.rail a{font-family:var(--mono);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;padding:17px 14px;white-space:nowrap;position:relative;
+  border-bottom:3px solid transparent;transition:color .2s,border-color .2s,background .2s}
+.rail a:hover{color:var(--navy);background:rgba(16,40,72,.05)}
+.rail a.on{color:var(--navy);font-weight:500;background:rgba(40,144,176,.13);
+  border-bottom-color:var(--teal)}
+.rail a.on:before{content:"";position:absolute;left:14px;top:12px;width:5px;height:5px;
+  border-radius:50%;background:var(--coral)}
+.rail a.on{padding-left:26px}
+
+/* ---------- SECTIONS ---------- */
+section{padding:74px 0}
+section.tint{background:#EAF1F4}
+.shead{margin:0 0 34px;max-width:64ch}
+.shead h2{font-family:var(--display);font-weight:700;letter-spacing:-.022em;
+  font-size:clamp(1.7rem,3.5vw,2.3rem);line-height:1.1;margin:0 0 14px;color:var(--navy)}
+.shead p{margin:0;color:var(--muted);font-size:1.05rem;max-width:60ch}
+.shead p + p{margin-top:12px}
+.whygrid{display:grid;grid-template-columns:.92fr 1.08fr;gap:60px;align-items:start}
+.whygrid h2{font-family:var(--display);font-weight:700;letter-spacing:-.025em;
+  font-size:clamp(1.8rem,3.7vw,2.6rem);line-height:1.06;margin:0;color:var(--navy)}
+.whybody p{margin:0 0 17px;font-size:1.05rem;line-height:1.66;color:var(--ink)}
+.whybody p:first-child{font-size:1.15rem;color:var(--navy);
+  border-left:3px solid var(--teal);padding-left:18px}
+.whybody p:last-child{margin-bottom:0}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- PRINCIPLES ---------- */
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:3px;
+  padding:24px 24px 22px;position:relative;transition:transform .25s,box-shadow .25s}
+.pcard:hover{transform:translateY(-3px);box-shadow:0 10px 26px -16px rgba(16,40,72,.4);
+  border-color:#BFD2DC}
+.pcard:hover .mark{width:46px}
+.pcard .mark{transition:width .28s ease}
+.pcard .mark{width:26px;height:3px;display:block;margin-bottom:16px;border-radius:2px}
+.pcard h3{font-family:var(--display);font-weight:600;font-size:1.06rem;line-height:1.32;
+  margin:0 0 9px;color:var(--navy);letter-spacing:-.012em}
+.pcard p{margin:0;font-size:.98rem;color:var(--muted);line-height:1.58}
+
+/* ---------- VENN ---------- */
+.vlayout{display:grid;grid-template-columns:1.02fr 1fr;gap:48px;align-items:center}
+.vstage{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:10px 10px 4px}
+.venn{width:100%;height:auto;display:block}
+.venn .base{mix-blend-mode:multiply}
+.venn .ring{fill:none;stroke-width:2.2}
+.venn .hit{fill:transparent;cursor:pointer;outline:none;transition:fill .22s ease}
+.venn .hit:hover{fill:rgba(16,40,72,.10)}
+.venn .hit:focus-visible{fill:rgba(16,40,72,.14)}
+.venn .hit.sel{fill:rgba(16,40,72,.24)}
+.venn text{font-family:var(--mono);font-size:11.5px;letter-spacing:.11em;
+  text-anchor:middle;pointer-events:none;font-weight:500}
+
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px}
+.chip{font-family:var(--mono);font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;
+  background:transparent;border:1px solid var(--line);border-radius:100px;
+  padding:7px 13px;cursor:pointer;color:var(--muted);transition:all .2s}
+.chip:hover{border-color:var(--teal);color:var(--navy)}
+.chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+@media(min-width:901px){.vpanel{height:508px;overflow-y:auto}}
+
+.vpanel{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--teal);
+  border-radius:3px;padding:30px 30px 28px;min-height:330px}
+.vpanel .kick{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--teal);margin:0 0 11px}
+.vpanel h3{font-family:var(--display);font-weight:700;font-size:1.42rem;line-height:1.18;
+  letter-spacing:-.02em;margin:0 0 14px;color:var(--navy)}
+.vpanel .note{margin:0 0 18px;color:var(--muted);font-size:1rem}
+.vpanel ul{margin:0;padding:0;list-style:none}
+.vpanel li{position:relative;padding-left:20px;margin-bottom:10px;font-size:.99rem;line-height:1.55}
+.vpanel li:before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;
+  background:var(--teal)}
+
+/* ---------- OWNERSHIP ---------- */
+.ogrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.defs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.def{background:rgba(16,40,72,.04);border:1px dashed #C8D4DC;border-radius:3px;
+  padding:15px 17px;transition:background .22s,border-color .22s}
+.def:hover{background:rgba(40,144,176,.10);border-color:var(--teal)}
+.def b{display:block;font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--navy);margin-bottom:6px}
+.def span{font-size:.9rem;color:var(--muted);line-height:1.5}
+.ocol{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:26px 24px;
+  border-top:4px solid var(--teal)}
+.ocol.mid{border-top-color:var(--gold)}
+.ocol.off{border-top-color:#B9C6CF;background:#F7FAFB}
+.ocol h3{font-family:var(--display);font-weight:700;font-size:1.08rem;margin:0 0 4px;color:var(--navy)}
+.ocol .sub{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 18px}
+.ocol ul{margin:0;padding:0;list-style:none}
+.ocol li{font-size:.96rem;line-height:1.5;padding:11px 12px 11px 14px;border-top:1px solid var(--line);
+  color:var(--ink);margin-left:-14px;margin-right:-12px;border-left:3px solid transparent;
+  transition:background .2s,border-left-color .2s,padding-left .2s}
+.ocol li:hover{background:rgba(40,144,176,.09);border-left-color:var(--teal);padding-left:18px}
+.ocol.mid li:hover{background:rgba(248,192,56,.16);border-left-color:var(--gold)}
+.ocol li:first-child{border-top:none}
+.ocol li span{color:var(--muted);font-size:.88rem}
+
+/* ---------- MANDATE ---------- */
+.badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);
+  font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--coral);
+  border:1px solid rgba(248,88,56,.35);background:rgba(248,88,56,.06);
+  padding:7px 14px;border-radius:100px;margin-bottom:18px}
+.badge b{width:6px;height:6px;border-radius:50%;background:var(--coral)}
+.mitem{background:var(--card);border:1px solid var(--line);border-radius:3px;
+  padding:26px 28px;margin-bottom:13px;display:grid;grid-template-columns:46px 1fr 150px;gap:24px}
+.mitem{transition:box-shadow .25s,border-color .25s}
+.mitem:hover{border-color:#BFD2DC;box-shadow:0 12px 30px -22px rgba(16,40,72,.55)}
+.mitem:hover .num{color:var(--teal)}
+.mitem .num{transition:color .25s;font-family:var(--display);font-weight:700;font-size:1.9rem;line-height:1;
+  color:var(--line);letter-spacing:-.04em}
+.mitem h3{font-family:var(--display);font-weight:600;font-size:1.14rem;line-height:1.3;
+  margin:0 0 12px;color:var(--navy);letter-spacing:-.012em}
+.mitem .tag{display:inline-block;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--navy);background:var(--gold);
+  padding:3px 9px;border-radius:2px;margin-left:9px;vertical-align:middle}
+.mitem dl{margin:0}
+.mitem dt{font-family:var(--mono);font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:4px}
+.mitem dd{margin:0 0 13px;font-size:.98rem;line-height:1.56;color:var(--ink)}
+.mitem dd:last-child{margin-bottom:0}
+.lift{padding-top:2px}
+.lift .lbl{font-family:var(--mono);font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:8px}
+.lift .bars{display:flex;gap:4px;margin-bottom:6px}
+.lift .bars i{height:5px;flex:1;background:var(--line);border-radius:1px}
+.lift .bars i.f{background:var(--teal)}
+.lift .val{font-family:var(--mono);font-size:.74rem;color:var(--navy);letter-spacing:.05em}
+.lift .blocked{font-family:var(--mono);font-size:.63rem;color:var(--coral);
+  letter-spacing:.06em;margin-top:6px;display:block}
+
+/* ---------- BRING ME IN ---------- */
+.bgrid{display:grid;grid-template-columns:1.35fr 1fr;gap:44px;align-items:start}
+.blist{counter-reset:b;margin:0;padding:0;list-style:none}
+.blist li{counter-increment:b;position:relative;padding:15px 0 15px 46px;
+  border-top:1px solid var(--line);font-size:1.02rem;line-height:1.5}
+.blist li:first-child{border-top:none}
+.blist li{transition:background .2s,padding-left .2s}
+.blist li:hover{background:rgba(40,144,176,.09);padding-left:52px}
+.blist li:hover:before{background:var(--navy);color:#fff;border-color:var(--navy)}
+.blist li:before{transition:background .2s,color .2s,border-color .2s}
+.blist li:before{content:counter(b);position:absolute;left:0;top:16px;
+  font-family:var(--mono);font-size:.72rem;color:var(--teal);
+  border:1px solid var(--line);width:26px;height:26px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center}
+.pull{background:var(--navy);color:#fff;border-radius:3px;padding:32px 30px;
+  position:sticky;top:96px}
+.pull .q{font-family:var(--display);font-weight:600;font-size:1.24rem;line-height:1.38;
+  letter-spacing:-.015em;margin:0 0 14px}
+.pull p{margin:0;color:#A9BDCD;font-size:.97rem;line-height:1.58}
+
+/* ---------- PLATE ---------- */
+.prow{background:var(--card);border:1px solid var(--line);border-radius:3px;
+  padding:20px 24px;margin-bottom:9px;display:grid;
+  grid-template-columns:210px 1fr 132px;gap:24px;align-items:center}
+.prow{transition:border-color .25s,transform .25s,box-shadow .25s}
+.prow:hover{border-color:var(--teal);transform:translateX(3px);
+  box-shadow:0 10px 24px -20px rgba(16,40,72,.5)}
+.prow h3{font-family:var(--display);font-weight:600;font-size:1rem;margin:0;color:var(--navy)}
+.prow p{margin:0;font-size:.95rem;color:var(--muted);line-height:1.5}
+.closer{margin-top:26px;font-size:1.02rem;color:var(--muted);font-style:italic;max-width:60ch}
+
+footer{background:var(--navy-deep);color:#6F8397;padding:40px 0;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+@media(max-width:900px){
+  .defs{grid-template-columns:1fr}
+  .whygrid{grid-template-columns:1fr;gap:22px}
+  .vlayout{grid-template-columns:1fr;gap:26px}
+  .bgrid{grid-template-columns:1fr;gap:28px}
+  .pull{position:static}
+  .ogrid{grid-template-columns:1fr}
+  .mitem{grid-template-columns:34px 1fr;gap:16px}
+  .mitem .lift{grid-column:2}
+  .prow{grid-template-columns:1fr;gap:10px}
+}
+@media(max-width:640px){
+  body{font-size:16px}
+  .wrap{padding:0 20px}
+  section{padding:54px 0}
+  .pgrid{grid-template-columns:1fr}
+  .hero{padding:56px 0 48px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+@media print{
+  .rail,.hero svg.motif,.chips{display:none}
+  body{background:#fff;font-size:11pt}
+  section{padding:18px 0;break-inside:avoid}
+  section.tint{background:#fff}
+  .hero{background:#fff;color:#000;border-bottom:2px solid #000;padding:0 0 18px}
+  .hero h1,.hero .lede,.hero .lede strong{color:#000}
+  .hero .meta{color:#555}
+  .pull{background:#fff;color:#000;border:1px solid #999}
+  .pull p{color:#444}
+  .reveal{opacity:1;transform:none}
+  .vpanel{min-height:0}
+  .printonly{display:block!important}
+  footer{background:#fff;color:#666}
+}
+.printonly{display:none}
+.printonly .pb{margin-bottom:18px}
+.printonly h4{font-family:var(--display);margin:0 0 4px;color:#000;font-size:1rem}
+.printonly p{margin:0 0 6px;color:#333;font-size:.95rem}
+.printonly ul{margin:0 0 10px 18px;padding:0}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="motif" viewBox="0 0 500 500" aria-hidden="true">
+    <g fill="none" stroke="#2890B0" stroke-width="2">
+      <circle cx="180" cy="195" r="130"/><circle cx="320" cy="195" r="130"/><circle cx="250" cy="316" r="130"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <p class="eyebrow">Drost + Hall CPA</p>
+    <h1>Current role <em>&amp;</em> mandate</h1>
+    <p class="meta">August 2026</p>
+    <p class="lede">Two parts. <strong>How I work</strong>, which doesn't change much. And <strong>what I'm carrying between now and the end of the year</strong>, which does.</p>
+  </div>
+</header>
+
+<div class="rail">
+  <nav>
+    <a href="#why">Why this</a>
+    <a href="#principles">How I work</a>
+    <a href="#fit">Where I fit</a>
+    <a href="#ownership">What I own</a>
+    <a href="#mandate">The mandate</a>
+    <a href="#bringme">Bring me in</a>
+    <a href="#plate">On my plate</a>
+  </nav>
+</div>
+
+<main>
+
+<section id="why">
+  <div class="wrap reveal">
+    <div class="whygrid">
+      <div>
+        <p class="eyebrow">Why this exists</p>
+        <h2>My role has moved faster than any document describing it.</h2>
+      </div>
+      <div class="whybody">
+        <p>Mostly that's a good thing. It moved in response to what the firm actually needed. But it left a fair question, and Lynette asked it directly last week: what is Alex responsible for, and when should I bring him in?</p>
+        <p>This is my answer. The first half is how I work and where I think I add value. The second half is what I'm carrying between now and year end, which gets rebuilt alongside the 2027 plan.</p>
+        <p>I wrote it as principles rather than a task list on purpose. A task list written in March would have been wrong by May.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="principles" class="tint">
+  <div class="wrap reveal">
+    <div class="shead">
+      <p class="eyebrow">How I work</p>
+      <h2>Eight things that shape how I handle almost anything</h2>
+      <p>These will tell you more about how I'll approach something than a list of responsibilities would.</p>
+    </div>
+    <div class="pgrid">
+      <div class="pcard"><span class="mark" style="background:#2890B0"></span>
+        <h3>I show up with an ownership mentality</h3>
+        <p>I don't really think about this in terms of scope. The question I ask is what it takes for something to work, not whether it happens to be mine.</p></div>
+      <div class="pcard"><span class="mark" style="background:#F8C038"></span>
+        <h3>I try to work on the business, not in it</h3>
+        <p>My goal is to build the systems and information that help other people make good decisions and run the business, rather than making those decisions for them.</p></div>
+      <div class="pcard"><span class="mark" style="background:#F85838"></span>
+        <h3>If it moves money, it's probably worth a conversation with me</h3>
+        <p>That's a trigger for input, not a claim on the decision. The decision still belongs to whoever owns it.</p></div>
+      <div class="pcard"><span class="mark" style="background:#58D098"></span>
+        <h3>I'll catch what gets dropped, and try to place it</h3>
+        <p>A lot of my job is getting things to the right owner. When there isn't one yet, I'll hold it and substitute until there is.</p></div>
+      <div class="pcard"><span class="mark" style="background:#2890B0"></span>
+        <h3>Deliberate beats fast</h3>
+        <p>A lot of what looks like a speed problem is really a clarity problem. Slow is smooth, smooth is steady, steady is accurate.</p></div>
+      <div class="pcard"><span class="mark" style="background:#F8C038"></span>
+        <h3>A sounding board for the leadership team</h3>
+        <p>Most of the value I add shows up in conversation, before a decision, rather than in a document after it.</p></div>
+      <div class="pcard"><span class="mark" style="background:#F85838"></span>
+        <h3>I try to systematize whatever I touch</h3>
+        <p>Professionalization and repeatable process. If we're going to do something more than once, I'd rather it be a process than a heroic effort.</p></div>
+      <div class="pcard"><span class="mark" style="background:#58D098"></span>
+        <h3>Write it down</h3>
+        <p>Decisions, assumptions, owners. It's how we stop re-deciding the same things.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="fit">
+  <div class="wrap reveal">
+    <div class="shead">
+      <p class="eyebrow">Where I fit</p>
+      <h2>Three circles</h2>
+      <p>There's a version of this conversation that's about titles and reporting lines. I don't think that's the useful version. The useful one is about where three things overlap: what I'm good at, what the firm needs right now, and what I'd work on if nobody were watching.</p>
+    </div>
+
+    <div class="vlayout">
+      <div>
+        <div class="chips" id="chips"></div>
+        <div class="vstage">
+          <svg class="venn" viewBox="42 55 416 400" role="img" aria-label="Venn diagram of capability, firm need, and personal interest">
+            <g class="base">
+              <circle cx="180" cy="195" r="130" fill="#2890B0" opacity=".22"/>
+              <circle cx="320" cy="195" r="130" fill="#F8C038" opacity=".24"/>
+              <circle cx="250" cy="316" r="130" fill="#F85838" opacity=".20"/>
+            </g>
+            <g>
+              <circle class="ring" cx="180" cy="195" r="130" stroke="#2890B0"/>
+              <circle class="ring" cx="320" cy="195" r="130" stroke="#C8940F"/>
+              <circle class="ring" cx="250" cy="316" r="130" stroke="#F85838"/>
+            </g>
+
+            <defs>
+              <clipPath id="cA"><circle cx="180" cy="195" r="130"/></clipPath>
+              <clipPath id="cB"><circle cx="320" cy="195" r="130"/></clipPath>
+              <clipPath id="cC"><circle cx="250" cy="316" r="130"/></clipPath>
+            </defs>
+
+            <circle class="hit" data-r="a" cx="180" cy="195" r="130" tabindex="0" role="button" aria-label="What I'm good at"/>
+            <circle class="hit" data-r="b" cx="320" cy="195" r="130" tabindex="0" role="button" aria-label="What the firm needs"/>
+            <circle class="hit" data-r="c" cx="250" cy="316" r="130" tabindex="0" role="button" aria-label="What I'd choose"/>
+            <circle class="hit" data-r="ab" cx="320" cy="195" r="130" clip-path="url(#cA)" tabindex="0" role="button" aria-label="The foundation"/>
+            <circle class="hit" data-r="ac" cx="250" cy="316" r="130" clip-path="url(#cA)" tabindex="0" role="button" aria-label="Quiet right now"/>
+            <circle class="hit" data-r="bc" cx="250" cy="316" r="130" clip-path="url(#cB)" tabindex="0" role="button" aria-label="Where I'd like this to grow"/>
+            <path class="hit" data-r="core" d="M 250 304.5 A 130 130 0 0 0 309.9 200.9 A 130 130 0 0 0 190.1 200.9 A 130 130 0 0 0 250 304.5 Z" tabindex="0" role="button" aria-label="The core"/>
+
+            <text x="118" y="158" fill="#1C6E88">WHAT I'M<tspan x="118" dy="15">GOOD AT</tspan></text>
+            <text x="382" y="158" fill="#8A6608">WHAT THE<tspan x="382" dy="15">FIRM NEEDS</tspan></text>
+            <text x="250" y="386" fill="#C43B1E">WHAT I'D<tspan x="250" dy="15">CHOOSE</tspan></text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="vpanel" id="vpanel" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section id="ownership" class="tint">
+  <div class="wrap reveal">
+    <div class="shead">
+      <p class="eyebrow">What I own</p>
+      <h2>Accountable and responsible are not the same thing</h2>
+      <p>Most of the confusion about my role sits in the gap between those two words, so it's worth separating them before the lists make sense.</p>
+    </div>
+    <div class="defs">
+      <div class="def"><b>Accountable</b><span>One name. That person tracks it and reports on it.</span></div>
+      <div class="def"><b>Responsible</b><span>Does the work. Usually more than one person.</span></div>
+      <div class="def"><b>Authority</b><span>Makes the call. Not always either of the above.</span></div>
+    </div>
+    <div class="ogrid">
+      <div class="ocol">
+        <h3>Accountable</h3>
+        <p class="sub">My name on it</p>
+        <ul>
+          <li>Financial forecast and reporting cadence</li>
+          <li>The 2027 planning process</li>
+          <li>Spend and procurement governance</li>
+          <li>The model tying revenue, capacity and hiring together</li>
+          <li>M&amp;A diligence and post-close economics</li>
+        </ul>
+      </div>
+      <div class="ocol mid">
+        <h3>Responsible</h3>
+        <p class="sub">I do the work, someone else's name on it</p>
+        <ul>
+          <li>Compensation and equity design <span>· Brandon</span></li>
+          <li>Tooth &amp; Coin operating model <span>· Lynette</span></li>
+          <li>Capacity execution <span>· function leads</span></li>
+          <li>Talent process and pipeline <span>· Kaylin</span></li>
+          <li>Scorecard and culture architecture <span>· the ELT</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mandate">
+  <div class="wrap reveal">
+    <div class="shead">
+      <span class="badge"><b></b>Now through year end 2026 · revisited with the 2027 plan</span>
+      <h2>What I'm carrying</h2>
+      <p>Five things, in the order I'd put them. Each one has a lift attached, because capacity is the honest part of this conversation.</p>
+    </div>
+
+    <div class="mitem">
+      <div class="num">1</div>
+      <div>
+        <h3>Spend and procurement under governance</h3>
+        <dl>
+          <dt>What it is</dt>
+          <dd>Finish the Ramp architecture, get contracts into one place with renewal notice, set approval tiers and spend programs, and map software champions and admins onto the org chart.</dd>
+          <dt>Where I want it by year end</dt>
+          <dd>No renewal catches us off guard. Every material contract has a name and a date attached to it.</dd>
+        </dl>
+      </div>
+      <div class="lift"><div class="lbl">Lift</div><div class="bars"><i class="f"></i><i class="f"></i><i></i></div><div class="val">Moderate</div></div>
+    </div>
+
+    <div class="mitem">
+      <div class="num">2</div>
+      <div>
+        <h3>Financial visibility the leadership team actually uses</h3>
+        <dl>
+          <dt>What it is</dt>
+          <dd>A monthly review after close, a thirteen month trailing view, and a six month rolling forecast that gets improved as we go rather than perfected first.</dd>
+          <dt>Where I want it by year end</dt>
+          <dd>Enough confidence in the numbers that we stop finding things out late, and a forecast people actually reference in the room.</dd>
+        </dl>
+      </div>
+      <div class="lift"><div class="lbl">Lift</div><div class="bars"><i class="f"></i><i class="f"></i><i class="f"></i></div><div class="val">Heavy</div></div>
+    </div>
+
+    <div class="mitem">
+      <div class="num">3</div>
+      <div>
+        <h3>A 2027 plan we can defend</h3>
+        <dl>
+          <dt>What it is</dt>
+          <dd>Driver based planning, with documented inputs from each service line lead on revenue, capacity and non-labor expense, stress tested against what talent can realistically hire.</dd>
+          <dt>Where I want it by year end</dt>
+          <dd>Clarity on the assumptions sitting behind the number, and a named person owning each input.</dd>
+        </dl>
+      </div>
+      <div class="lift"><div class="lbl">Lift</div><div class="bars"><i class="f"></i><i class="f"></i><i class="f"></i></div><div class="val">Heavy</div></div>
+    </div>
+
+    <div class="mitem">
+      <div class="num">4</div>
+      <div>
+        <h3>One model tying revenue, capacity and hiring together <span class="tag">Spans multiple functions</span></h3>
+        <dl>
+          <dt>What it is</dt>
+          <dd>Advisory and onboarding throughput in units and bodies, with cost as the translation into margin rather than the starting point. Revenue and capacity decoupled so each gives its own early warning.</dd>
+          <dt>Where I want it by year end</dt>
+          <dd>One model, one owner, reviewed on a cadence, and trusted enough to inform a hiring decision instead of explaining one after the fact.</dd>
+        </dl>
+      </div>
+      <div class="lift"><div class="lbl">Lift</div><div class="bars"><i class="f"></i><i class="f"></i><i></i></div><div class="val">Moderate</div></div>
+    </div>
+
+    <div class="mitem">
+      <div class="num">5</div>
+      <div>
+        <h3>Compensation and equity architecture</h3>
+        <dl>
+          <dt>What it is</dt>
+          <dd>The structure, modeling and options behind moving away from partner titles, along with the dilution and value creation math underneath it.</dd>
+          <dt>Where I want it by year end</dt>
+          <dd>Brandon has a framework he believes in and can communicate. It's a big lift and worth naming as one.</dd>
+        </dl>
+      </div>
+      <div class="lift"><div class="lbl">Lift</div><div class="bars"><i class="f"></i><i class="f"></i><i class="f"></i></div><div class="val">Heavy</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="bringme" class="tint">
+  <div class="wrap reveal">
+    <div class="shead">
+      <p class="eyebrow">Bring me in</p>
+      <h2>When it's worth pulling me into something</h2>
+      <p>Roughly in the order I'd rank them.</p>
+    </div>
+    <div class="bgrid">
+      <ol class="blist">
+        <li>A decision needs a model before it needs an opinion.</li>
+        <li>A hire is on the table, or a role is being created or redesigned.</li>
+        <li>Pricing is changing, or scope is changing in a way that affects pricing.</li>
+        <li>A number has to hold up in front of leadership, a partner or a lender.</li>
+        <li>A purchase, contract or renewal is material or multi-year.</li>
+        <li>Two functions disagree and there's no forum to sort it out.</li>
+        <li>Something on the Tooth &amp; Coin side touches finance, systems or the transaction.</li>
+        <li>You want a second brain on something hard, in confidence.</li>
+      </ol>
+      <div class="pull">
+        <p class="q">Earlier is cheaper.</p>
+        <p>Most of the times I've been useful, someone looped me in before the decision. Most of the times I haven't been, the decision was already made and I was being asked to bless it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="plate">
+  <div class="wrap reveal">
+    <div class="shead">
+      <p class="eyebrow">On my plate</p>
+      <h2>What's actually in motion right now</h2>
+      <p>For context rather than credit.</p>
+    </div>
+
+    <div class="prow"><h3>Financial reporting rebuild</h3>
+      <p>Revenue recognition framework and the accrual conversion underway. Monthly review cadence starting, first forecast session August 14.</p>
+      <div class="lift"><div class="bars"><i class="f"></i><i class="f"></i><i class="f"></i></div><div class="val">Heavy</div></div></div>
+
+    <div class="prow"><h3>Spend and procurement</h3>
+      <p>Ramp controls live: separation of duties, vendor approval workflow, around 200 stale cards retired. Contract repository and renewal alerts next.</p>
+      <div class="lift"><div class="bars"><i class="f"></i><i class="f"></i><i></i></div><div class="val">Moderate</div></div></div>
+
+    <div class="prow"><h3>Compensation and equity</h3>
+      <p>Framework design in progress alongside Brandon, with the communication strategy to follow.</p>
+      <div class="lift"><div class="bars"><i class="f"></i><i class="f"></i><i class="f"></i></div><div class="val">Heavy</div></div></div>
+
+    <div class="prow"><h3>2027 planning</h3>
+      <p>Process outline and kickoff ahead of October, with input owners named across the service lines.</p>
+      <div class="lift"><div class="bars"><i class="f"></i><i class="f"></i><i class="f"></i></div><div class="val">Heavy</div></div></div>
+
+    <div class="prow"><h3>Capacity modeling</h3>
+      <p>Architecture agreed: units and bodies, with cost as the translation. Revenue and capacity being decoupled, with the build sequenced next.</p>
+      <div class="lift"><div class="bars"><i class="f"></i><i class="f"></i><i></i></div><div class="val">Moderate</div></div></div>
+
+    <div class="prow"><h3>Tooth &amp; Coin integration</h3>
+      <p>Led the transaction. Finance integration ongoing, with reporting consolidation and systems work continuing.</p>
+      <div class="lift"><div class="bars"><i class="f"></i><i class="f"></i><i class="f"></i></div><div class="val">Heavy</div></div></div>
+
+    <div class="prow"><h3>AI cost governance</h3>
+      <p>Usage visibility, per-user caps and model guidelines in progress. Enterprise versus Teams structure decided on sixty days of data.</p>
+      <div class="lift"><div class="bars"><i class="f"></i><i></i><i></i></div><div class="val">Light</div></div></div>
+
+    <div class="prow"><h3>Strategic framing</h3>
+      <p>Growth roadmap analysis, the stabilization case for leadership, and supporting the Scaling Up rollout.</p>
+      <div class="lift"><div class="bars"><i class="f"></i><i class="f"></i><i></i></div><div class="val">Moderate</div></div></div>
+
+    <p class="closer">Some of this is finished, most of it isn't. I'd rather show it accurately than tidily.</p>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="wrap"><span>Drost + Hall CPA</span><span>Current role &amp; mandate · August 2026</span></div></footer>
+
+<script>
+const R = {
+  core:{kick:"All three overlap",title:"Where I'm spending the rest of 2026",accent:"#2890B0",
+    note:"This is the part that earns its place. I'm good at it, the firm needs it now, and I'd pick it up anyway.",
+    items:["Financial architecture applied to real decisions","Executive decision-making and governance","Transaction and integration economics","Compensation and equity design"]},
+  ab:{kick:"Good at + needed",title:"The foundation",accent:"#7FA02E",
+    note:"Nobody's dream work. It's what everything else sits on, and right now I'm the right person to carry it.",
+    items:["Close discipline and reconciliation","Spend controls and approval architecture","Procurement hygiene and contract visibility","Getting the data to a place we can trust"]},
+  bc:{kick:"Needed + want to",title:"Where I'd like this to grow",accent:"#F85838",
+    note:"A real opportunity for the firm and the part I'd raise my hand for. I'd want a partner on it rather than owning it alone.",
+    items:["AI applied to how we deliver","AI applied to client experience","Longer, deeper client relationships","The economics that follow from both"]},
+  ac:{kick:"Good at + want to",title:"Quiet right now",accent:"#B07000",
+    note:"It's in the role and it will matter again. It just isn't where the next few months are, and I think that's the right call.",
+    items:["Growth and corporate development","M&A as a repeatable capability","Service line and vertical expansion"]},
+  a:{kick:"Capability",title:"What I'm good at",accent:"#2890B0",
+    note:"",
+    items:["Financial architecture and FP&A","Business modeling: unit economics, pricing, scenarios","Transactions: diligence, valuation, structuring, integration","Compensation and equity design","Executive decision architecture and governance","Corporate experience from larger, more structured environments","An owner's mindset from two decades of running things","Technology and systems fluency"]},
+  b:{kick:"The need",title:"What the firm needs",accent:"#B07000",
+    note:"",
+    items:["FP&A rebuilt: rolling forecast, monthly cadence, a real 2027 budget","Cost and spend discipline","Capacity and talent economics","Compensation and equity architecture","Tooth & Coin integration finished rather than parked","Governance and operating rhythm","Data we can trust"]},
+  c:{kick:"Energy",title:"What I'd choose",accent:"#F85838",
+    note:"",
+    items:["AI applied to client experience and delivery","Longer, deeper client relationships and the economics behind them","Strategic growth across service lines","Systems and technology architecture","Partnering with leaders through hard calls"]}
+};
+const ORDER = ["core","ab","bc","ac","a","b","c"];
+const SHORT = {core:"The core",ab:"Foundation",bc:"Growth area",ac:"On hold",a:"Good at",b:"Needed",c:"Want to"};
+
+const panel = document.getElementById("vpanel");
+const chips = document.getElementById("chips");
+const hits = [...document.querySelectorAll(".venn .hit")];
+
+ORDER.forEach(k=>{
+  const btn=document.createElement("button");
+  btn.className="chip";btn.dataset.r=k;btn.textContent=SHORT[k];
+  btn.addEventListener("click",()=>select(k));
+  chips.appendChild(btn);
+});
+
+const dotStyle=document.createElement("style");
+document.head.appendChild(dotStyle);
+
+function select(k){
+  const d=R[k];
+  panel.style.borderLeftColor=d.accent;
+  dotStyle.textContent=".vpanel li:before{background:"+d.accent+"}";
+  panel.innerHTML =
+    '<p class="kick" style="color:'+d.accent+'">'+d.kick+'</p>'+
+    '<h3>'+d.title+'</h3>'+
+    (d.note?'<p class="note">'+d.note+'</p>':'')+
+    '<ul>'+d.items.map(i=>'<li>'+i+'</li>').join('')+'</ul>';
+  document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("on",c.dataset.r===k));
+  hits.forEach(h=>h.classList.toggle("sel",h.dataset.r===k));
+}
+
+hits.forEach(h=>{
+  h.addEventListener("click",()=>select(h.dataset.r));
+  h.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();select(h.dataset.r);}});
+});
+select("core");
+
+/* print fallback: expand every region */
+const pf=document.createElement("div");
+pf.className="printonly";
+pf.innerHTML=ORDER.map(k=>'<div class="pb"><h4>'+R[k].title+' <span style="font-weight:400;color:#777">('+R[k].kick+')</span></h4>'+(R[k].note?'<p>'+R[k].note+'</p>':'')+'<ul>'+R[k].items.map(i=>'<li>'+i+'</li>').join('')+'</ul></div>').join('');
+document.querySelector("#fit .vlayout").after(pf);
+
+/* reveals */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}}),{threshold:.08,rootMargin:"0px 0px -40px 0px"});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+/* nav active state */
+const links=[...document.querySelectorAll(".rail a")];
+const secs=links.map(a=>document.querySelector(a.getAttribute("href")));
+const nav=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      const id="#"+e.target.id;
+      links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")===id));
+    }
+  });
+},{rootMargin:"-30% 0px -60% 0px"});
+secs.forEach(s=>s&&nav.observe(s));
+</script>
+</body>
+</html>
