@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hall CPA · Proposal Builder (mockup)</title>
+<title>Proposal Builder (mockup)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <style>
@@ -108,6 +108,11 @@
 
   .preview h2 { font-family: 'Source Serif 4', Georgia, serif; font-size: 26px; line-height: 1.25; }
   .meta { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--muted); }
+  .slide { aspect-ratio: 16 / 9; width: 100%; border: 1px solid var(--line-strong); border-radius: 4px; background: #fff; box-shadow: 0 1px 3px rgba(21,35,59,.12); padding: 6% 7%; display: flex; flex-direction: column; gap: 4%; overflow: hidden; }
+  .slide .bar { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); border-bottom: 2px solid var(--accent); padding-bottom: 4px; }
+  .slide h3 { margin: 0; font-size: 17px; line-height: 1.2; font-weight: 600; color: var(--ink); }
+  .slide ul { margin: 0; padding-left: 18px; font-size: 12.5px; line-height: 1.45; display: flex; flex-direction: column; gap: 4px; }
+  .notes { font-size: 13px; color: var(--muted); border-top: 1px solid #EDF0F4; padding-top: 10px; }
   .doc { font-family: 'Source Serif 4', Georgia, serif; font-size: 17px; line-height: 1.65; white-space: pre-line; border-top: 1px solid #EDF0F4; padding-top: 16px; }
   mark { background: var(--flag); color: var(--ink); padding: 0 2px; }
   .legend { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); }
@@ -153,7 +158,7 @@
 
 <header class="topbar">
   <div class="wrap">
-    <div class="brand"><strong>HALL CPA</strong><span class="sep"></span><span>Proposal Builder</span></div>
+    <div class="brand"><strong>[FIRM NAME]</strong><span class="sep"></span><span>Proposal Builder</span></div>
     <div class="who"><span>Draft autosaved</span><span class="avatar" aria-hidden="true">AL</span></div>
   </div>
 </header>
@@ -187,66 +192,66 @@ const has = (c, s) => c.services.includes(s);
 
 // Each module: rule(c) decides whether it is recommended; why(c) explains it.
 const MODULES = [
-  { id: 'cover', cat: 'Core', title: 'Cover letter', owner: 'Firm marketing', tailored: true,
+  { id: 'cover', cat: 'Core', title: 'Why we\'re here', owner: 'Firm marketing', tailored: true,
     rule: () => true, why: () => 'Included in every proposal',
-    body: 'Dear [CONTACT NAME],\n\nThank you for the conversation about [CLIENT NAME]. You told us [PRIORITY FROM DISCOVERY NOTES]. This proposal lays out how our team would approach that, who you would work with, and what it would cost.' },
-  { id: 'about', cat: 'Core', title: 'About Hall CPA', owner: 'Firm marketing',
+    body: 'Prepared for [CLIENT NAME], attention [CONTACT NAME]\nWhat you told us: [PRIORITY FROM DISCOVERY NOTES]\nWhat this proposal covers: approach, team, timeline and fees' },
+  { id: 'about', cat: 'Core', title: 'About the firm', owner: 'Firm marketing',
     rule: () => true, why: () => 'Included in every proposal',
-    body: 'Hall CPA is a fully virtual CPA and advisory firm. [FIRM OVERVIEW — maintained by marketing]\n\nWhat clients can expect from us: [SERVICE PROMISES]' },
-  { id: 'rfp', cat: 'RFP', title: 'RFP requirement matrix', owner: 'Proposal desk', tailored: true,
+    body: '[FIRM NAME]: [FIRM OVERVIEW — maintained by marketing]\nWho we serve: [CLIENT SEGMENTS]\nWhat clients can expect: [SERVICE PROMISES]' },
+  { id: 'rfp', cat: 'RFP', title: 'How we meet your requirements', owner: 'Proposal desk', tailored: true, slides: 2,
     rule: (c) => c.source === 'rfp', why: () => 'Responding to an RFP',
-    body: 'Each requirement in the RFP is listed with the section of this proposal that answers it.\n\n[REQUIREMENTS EXTRACTED FROM RFP]' },
+    body: 'Each RFP requirement mapped to the slide that answers it\n[REQUIREMENTS EXTRACTED FROM RFP]' },
   { id: 'npexp', cat: 'Entity', title: 'Nonprofit and governmental experience', owner: 'Nonprofit practice lead',
     rule: (c) => c.entity !== 'fp', why: (c) => c.entity === 'np' ? 'Client is a nonprofit' : 'Client is governmental',
-    body: 'We serve [NUMBER] nonprofit and governmental organizations, including [REFERENCE CLIENTS]. Our team works with restricted funds, board reporting and grantor requirements every day.' },
+    body: 'We serve [NUMBER] nonprofit and governmental organizations\nIncluding [REFERENCE CLIENTS]\nDaily work with restricted funds, board reporting and grantor requirements' },
   { id: 're', cat: 'Industry', title: 'Real estate practice', owner: 'Real estate practice lead',
     rule: (c) => c.industry === 'Real estate', why: () => 'Industry: real estate',
-    body: 'Our real estate team works with [CLIENT TYPES — owners, developers, property managers] on entity structuring, property-level reporting and tax strategy.\n\n[CASE STUDY]' },
-  { id: 'dental', cat: 'Industry', title: 'Dental practices: Tooth & Coin', owner: 'Tooth & Coin lead',
+    body: 'Clients: [CLIENT TYPES — owners, developers, property managers]\nEntity structuring, property-level reporting and tax strategy\n[CASE STUDY]' },
+  { id: 'dental', cat: 'Industry', title: 'Dental practices', owner: 'Dental practice lead',
     rule: (c) => c.industry === 'Dental practices', why: () => 'Industry: dental practices',
-    body: 'Through Tooth & Coin, our dental-focused team supports practice owners with [SERVICES — benchmarking, associate compensation, practice transitions].\n\n[REFERENCE PRACTICE]' },
+    body: 'Support for practice owners: [SERVICES — benchmarking, associate compensation, practice transitions]\n[REFERENCE PRACTICE]' },
   { id: 'constr', cat: 'Industry', title: 'Construction: job costing and WIP', owner: 'Construction practice lead',
     rule: (c) => c.industry === 'Construction', why: () => 'Industry: construction',
-    body: 'We help contractors keep job costing and work-in-progress schedules current, so surety and bank reporting hold up.\n\n[SURETY / LENDER REQUIREMENTS]' },
+    body: 'Job costing and work-in-progress schedules kept current\nSurety and bank reporting that holds up\n[SURETY / LENDER REQUIREMENTS]' },
   { id: 'team', cat: 'Core', title: 'Your engagement team', owner: 'Practice leads',
     rule: () => true, why: () => 'Included in every proposal',
-    body: 'Engagement partner: [PARTNER NAME], [CREDENTIALS]\nEngagement manager: [MANAGER NAME]\n\nYou get one point of contact for day-to-day questions and a partner who stays involved after the engagement letter is signed.' },
+    body: 'Engagement partner: [PARTNER NAME], [CREDENTIALS]\nEngagement manager: [MANAGER NAME]\nOne day-to-day contact, and a partner who stays involved' },
   { id: 'audit', cat: 'Service', title: 'Audit approach', owner: 'Assurance practice lead',
     rule: (c) => has(c, 'audit'), why: () => 'Service: audit',
-    body: 'Our audit follows a risk-based approach: planning and risk assessment in [MONTH], interim procedures in [MONTH], and final fieldwork after year-end close.\n\nStandards applied: [AICPA / GAGAS]' },
+    body: 'Planning and risk assessment: [MONTH]\nInterim procedures: [MONTH]\nFinal fieldwork after year-end close\nStandards: [AICPA / GAGAS]' },
   { id: 'single', cat: 'Entity', title: 'Single Audit (Uniform Guidance)', owner: 'Assurance practice lead',
     rule: (c) => c.entity !== 'fp' && c.federal && has(c, 'audit'), why: () => 'Federal awards + audit selected',
-    body: 'Because [CLIENT NAME] expends federal awards above the Single Audit threshold, our audit includes compliance testing of major programs under Uniform Guidance.\n\nExpected major programs: [MAJOR PROGRAMS]' },
+    body: '[CLIENT NAME] expends federal awards above the Single Audit threshold\nCompliance testing of major programs under Uniform Guidance\nExpected major programs: [MAJOR PROGRAMS]' },
   { id: 'review', cat: 'Service', title: 'Review and compilation scope', owner: 'Assurance practice lead',
     rule: (c) => has(c, 'review'), why: () => 'Service: review / compilation',
-    body: 'A review provides limited assurance through analytical procedures and inquiry. A compilation presents your financial statements without assurance.\n\nRecommended level: [REVIEW OR COMPILATION]' },
+    body: 'Review: limited assurance through analytics and inquiry\nCompilation: statements presented without assurance\nRecommended: [REVIEW OR COMPILATION]' },
   { id: 'tax', cat: 'Service', title: 'Tax compliance and planning', owner: 'Tax practice lead',
     rule: (c) => has(c, 'tax'), why: () => 'Service: entity tax',
-    body: 'We prepare [RETURNS IN SCOPE] and meet with you before year-end to plan, so nothing about [FILING SEASON] is a surprise.' },
+    body: 'Returns in scope: [RETURNS IN SCOPE]\nPlanning meeting before year-end\nNo surprises in [FILING SEASON]' },
   { id: 'f990', cat: 'Entity', title: 'Form 990 preparation', owner: 'Nonprofit practice lead',
     rule: (c) => c.entity === 'np' && has(c, 'tax'), why: () => 'Nonprofit + entity tax',
-    body: 'Your Form 990 is a public document that donors and grantors read. We prepare it to be accurate and to tell your story well.\n\nSchedules in scope: [SCHEDULES]' },
+    body: 'A public document that donors and grantors read\nPrepared to be accurate and to tell your story well\nSchedules in scope: [SCHEDULES]' },
   { id: 'costseg', cat: 'Industry', title: 'Cost segregation studies', owner: 'Tax practice lead',
     rule: (c) => c.industry === 'Real estate' && has(c, 'tax'), why: () => 'Real estate + entity tax',
-    body: 'A cost segregation study can accelerate depreciation on [PROPERTY TYPES]. We identify candidate properties during [PHASE] and quote studies separately.\n\n[ESTIMATED BENEFIT — confirm with tax lead]' },
+    body: 'Accelerated depreciation on [PROPERTY TYPES]\nCandidate properties identified during [PHASE]\nStudies quoted separately\n[ESTIMATED BENEFIT — confirm with tax lead]' },
   { id: 'indiv', cat: 'Service', title: 'Owner and individual tax', owner: 'Tax practice lead',
     rule: (c) => has(c, 'indiv'), why: () => 'Service: owner and individual tax',
-    body: 'Owner returns are prepared alongside the business so entity and personal strategy line up.\n\nIn scope: [INDIVIDUALS / RETURNS]' },
+    body: 'Owner returns prepared alongside the business\nEntity and personal strategy aligned\nIn scope: [INDIVIDUALS / RETURNS]' },
   { id: 'cas', cat: 'Service', title: 'Outsourced accounting (CAS)', owner: 'CAS practice lead',
     rule: (c) => has(c, 'cas'), why: () => 'Service: outsourced accounting',
-    body: 'We take over [BOOKKEEPING / PAYROLL / AP] and close your books by the [CLOSE DAY] business day each month, with a short management report.' },
+    body: 'We take over [BOOKKEEPING / PAYROLL / AP]\nBooks closed by business day [CLOSE DAY] each month\nShort monthly management report' },
   { id: 'cfo', cat: 'Service', title: 'Fractional CFO and FP&A', owner: 'Advisory practice lead', tailored: true,
     rule: (c) => has(c, 'cfo'), why: () => 'Service: fractional CFO / advisory',
-    body: 'A fractional CFO from our team meets with leadership [CADENCE] to own budgeting, cash forecasting and KPI reporting.\n\nFocus areas: [PRIORITIES FROM DISCOVERY]' },
+    body: 'A fractional CFO meets with leadership [CADENCE]\nOwns budgeting, cash forecasting and KPI reporting\nFocus areas: [PRIORITIES FROM DISCOVERY]' },
   { id: 'timeline', cat: 'Core', title: 'Engagement timeline', owner: 'Practice leads',
     rule: () => true, why: () => 'Included in every proposal',
     body: 'Proposal accepted: [DATE]\nKickoff and data request: [DATE]\nFieldwork or first close: [DATE]\nFirst deliverable: [DATE]' },
   { id: 'fees', cat: 'Core', title: 'Fees and billing', owner: 'Finance',
     rule: () => true, why: () => 'Included in every proposal',
-    body: 'Our fee for the scope described is [FEE] per [PERIOD], billed [BILLING CADENCE]. Work outside this scope is quoted before it starts.' },
-  { id: 'accept', cat: 'Core', title: 'Next steps and acceptance', owner: 'Firm marketing',
+    body: 'Fee for the scope described: [FEE] per [PERIOD]\nBilled [BILLING CADENCE]\nOut-of-scope work quoted before it starts' },
+  { id: 'accept', cat: 'Core', title: 'Next steps', owner: 'Firm marketing',
     rule: () => true, why: () => 'Included in every proposal',
-    body: 'To move forward, sign the engagement letter we send separately by [RESPONSE DATE]. Questions go to [PARTNER NAME] at [EMAIL].' }
+    body: 'Sign the engagement letter by [RESPONSE DATE]\nQuestions: [PARTNER NAME], [EMAIL]' }
 ];
 const BY_ID = Object.fromEntries(MODULES.map(m => [m.id, m]));
 
@@ -292,6 +297,7 @@ function orderedIds() {
   selIds.forEach(id => { if (!ord.includes(id)) ord.push(id); });
   return ord;
 }
+const slideCount = (ord) => 2 + ord.reduce((n, id) => n + (BY_ID[id].slides || 1), 0);
 function totals(ord) {
   let flags = 0, tailored = 0;
   ord.forEach(id => { flags += flagsOf(fill(BY_ID[id].body)); if (BY_ID[id].tailored) tailored++; });
@@ -341,7 +347,7 @@ function step1() {
         <p>Claude extracts requirements, deadlines and evaluation criteria, then maps each one to a module and flags anything the library does not cover.</p></div>
         <button type="button" class="btn-secondary" data-action="mock" data-arg="RFP upload isn't wired up in this mockup.">Choose file</button></div>` : ''}
       <label class="field">Discovery notes
-        <span class="hint">Claude uses these to tailor the cover letter and scope language. It never adds content outside the approved library.</span>
+        <span class="hint">Claude uses these to tailor the opening slide and scope language. It never adds content outside the approved library.</span>
         <textarea data-model="notes" rows="5" placeholder="What did you learn on the call? Pain points, timing, decision-makers, current provider, budget signals">${esc(S.notes)}</textarea>
       </label>
     </section>
@@ -365,7 +371,7 @@ function step2() {
   const body = fill(pm.body), f = flagsOf(body);
   return `<div class="cols">
     <section class="card primary">
-      <div><h1>Choose content modules</h1><p class="lede">Recommended modules are pre-selected from the client profile. Preview any module before including it.</p></div>
+      <div><h1>Choose content modules</h1><p class="lede">Recommended modules are pre-selected from the client profile. Each module is one or more slides; preview any module before including it.</p></div>
       <h2>Recommended for ${esc(S.clientName.trim() || 'this client')} (${recs.length})</h2>
       <div class="modlist">${recs.map(modRow).join('')}</div>
       <h2>Also in the library (${others.length})</h2>
@@ -374,10 +380,10 @@ function step2() {
     <aside class="card side preview" aria-label="Module preview" aria-live="polite" style="flex-basis:380px">
       <div class="label-sm">Preview: ${esc(pm.cat)} module</div>
       <h2>${esc(pm.title)}</h2>
-      <div class="meta"><span>Owner: ${esc(pm.owner)}</span><span>Status: approved</span></div>
-      <div class="doc">${highlight(body)}</div>
+      <div class="meta"><span>Owner: ${esc(pm.owner)}</span><span>Status: approved</span><span>${plural(pm.slides || 1, 'slide', 'slides')}</span></div>
+      <div class="slide" role="img" aria-label="Slide preview: ${esc(pm.title)}"><div class="bar"><span>[FIRM NAME]</span><span>${esc(S.clientName.trim() || 'Client')}</span></div><h3>${esc(pm.title)}</h3><ul>${body.split('\n').map(l => `<li>${highlight(l)}</li>`).join('')}</ul></div>
       <div class="legend"><i aria-hidden="true"></i><span>${plural(f, 'field', 'fields')} to complete</span></div>
-      ${pm.tailored ? '<div class="note">Claude drafts the highlighted priority language for this section from your discovery notes. You approve it in Word.</div>' : ''}
+      ${pm.tailored ? '<div class="note">Claude tailors this slide from your discovery notes and leaves a review comment on it. You approve it in PowerPoint.</div>' : ''}
     </aside>
   </div>`;
 }
@@ -399,34 +405,35 @@ function step3() {
   }).join('');
   return `<div class="cols">
     <section class="card primary">
-      <div><h1>Review and order</h1><p class="lede">This order becomes the document structure and the table of contents.</p></div>
+      <div><h1>Review and order</h1><p class="lede">This order becomes the slide order and the agenda slide.</p></div>
       <ol class="outline">${items}</ol>
     </section>
     <aside class="card side" aria-label="Proposal summary">
       <div class="label-sm">Summary</div>
       <div class="stat"><span>Sections</span><b>${ord.length}</b></div>
+      <div class="stat"><span>Slides, incl. title and agenda</span><b>${slideCount(ord)}</b></div>
       <div class="stat"><span>Fields to complete</span><b>${t.flags}</b></div>
       <div class="stat"><span>Tailored by Claude</span><b>${t.tailored}</b></div>
-      <div class="stat"><span>Template</span><b>Hall CPA standard</b></div>
+      <div class="stat"><span>Template</span><b>Firm slide master</b></div>
     </aside>
   </div>`;
 }
 
 function step4() {
   const ord = orderedIds(), t = totals(ord);
-  const file = (S.clientName.trim() || 'Client').replace(/[^A-Za-z0-9]+/g, '_') + '_Proposal_DRAFT.docx';
+  const file = (S.clientName.trim() || 'Client').replace(/[^A-Za-z0-9]+/g, '_') + '_Proposal_DRAFT.pptx';
   return `<section class="card done-card">
     <div class="okmark">${CHECK.replace('width="16" height="16"', 'width="24" height="24"').replace('<svg aria-hidden="true"', '<svg aria-hidden="true" style="display:block"')}</div>
     <div><h1>Your draft is ready</h1><p class="filename">${esc(file)}</p></div>
     <ul class="checks">
-      <li><span>✓</span><span>Table of contents built from ${ord.length} section headings</span></li>
+      <li><span>✓</span><span>${slideCount(ord)} slides, with an agenda slide built from ${ord.length} sections</span></li>
       <li><span>✓</span><span>${plural(t.flags, 'field', 'fields')} highlighted in yellow for you to complete</span></li>
-      <li><span>✓</span><span>${plural(t.tailored, 'section', 'sections')} tailored by Claude, each with a review comment</span></li>
-      <li><span>✓</span><span>Hall CPA brand template applied</span></li>
+      <li><span>✓</span><span>${plural(t.tailored, 'section', 'sections')} tailored by Claude, each with a review comment on the slide</span></li>
+      <li><span>✓</span><span>Firm slide master and layouts applied</span></li>
     </ul>
-    <div><h2 style="margin-bottom:8px">Contents</h2><ol class="toc">${ord.map(id => `<li>${esc(BY_ID[id].title)}</li>`).join('')}</ol></div>
+    <div><h2 style="margin-bottom:8px">Agenda</h2><ol class="toc">${ord.map(id => `<li>${esc(BY_ID[id].title)}</li>`).join('')}</ol></div>
     <div class="actions">
-      <button type="button" class="btn-primary" data-action="mock" data-arg="Mockup only: Word generation isn't wired up yet.">Download .docx</button>
+      <button type="button" class="btn-primary" data-action="mock" data-arg="Mockup only: deck generation isn't wired up yet.">Download .pptx</button>
       <button type="button" class="btn-outline" data-action="go" data-arg="3">Back to review</button>
       <button type="button" class="btn-link" data-action="reset">Start a new proposal</button>
     </div>
@@ -436,7 +443,7 @@ function step4() {
 function navView() {
   if (S.step === 4) return '';
   const blocked = S.step === 1 && S.services.length === 0;
-  const label = ['Next: choose modules', 'Next: review order', 'Generate Word document'][S.step - 1];
+  const label = ['Next: choose modules', 'Next: review order', 'Generate PowerPoint deck'][S.step - 1];
   return `<div class="navbar">
     <div>${S.step > 1 ? '<button type="button" class="btn-outline" data-action="back" data-key="back">Back</button>' : ''}</div>
     <button type="button" class="btn-primary" data-action="next" data-key="next" ${blocked ? 'disabled' : ''}>${label}</button>
