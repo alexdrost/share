@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hall CPA · Proposal Builder (mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #1D5C8F;
+    --accent-soft: #EAF1F8;
+    --accent-ink: #0F3555;
+    --ink: #15233B;
+    --muted: #4A5568;
+    --line: #D9DEE5;
+    --line-strong: #B8C1CE;
+    --ground: #F4F6F8;
+    --surface: #FFFFFF;
+    --flag: #FFF176;
+    --ok: #1F6B4A;
+    --warn: #9A3412;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--ground); color: var(--ink);
+    font-family: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif; font-size: 15px; line-height: 1.5;
+  }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+  .topbar { background: var(--ink); color: #fff; }
+  .topbar .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; padding-bottom: 14px; }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand strong { letter-spacing: .1em; font-size: 14px; }
+  .brand .sep { width: 1px; height: 20px; background: #3B4A66; }
+  .brand span { color: #D6DEEA; }
+  .who { display: flex; align-items: center; gap: 12px; font-size: 13px; color: #D6DEEA; }
+  .avatar { width: 32px; height: 32px; border-radius: 50%; background: #2C3D5C; display: grid; place-items: center; color: #fff; font-weight: 600; }
+
+  .wrap { max-width: 1280px; margin: 0 auto; padding-left: 32px; padding-right: 32px; }
+  @media (max-width: 640px) { .wrap { padding-left: 16px; padding-right: 16px; } }
+
+  nav.steps { background: var(--surface); border-bottom: 1px solid var(--line); }
+  nav.steps .wrap { display: flex; flex-wrap: wrap; gap: 4px; }
+  .step {
+    display: flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 16px;
+    background: none; border: none; border-bottom: 3px solid transparent; color: #5A6678; font-weight: 500; cursor: pointer;
+  }
+  .step:disabled { cursor: default; }
+  .step .dot { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 600; background: #E9EDF2; color: #5A6678; }
+  .step.done { color: var(--ink); }
+  .step.done .dot { background: #DCE6F0; color: var(--accent-ink); }
+  .step.current { color: var(--ink); font-weight: 600; border-bottom-color: var(--accent); }
+  .step.current .dot { background: var(--accent); color: #fff; }
+
+  main.wrap { padding-top: 32px; padding-bottom: 48px; display: flex; flex-direction: column; gap: 24px; }
+  .cols { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+  .primary { flex: 999 1 560px; min-width: 0; }
+  .side { flex: 1 1 320px; min-width: 0; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 28px; display: flex; flex-direction: column; gap: 22px; }
+  .side.card { padding: 24px; gap: 14px; }
+  @media (max-width: 640px) { .card { padding: 20px; } }
+
+  h1 { margin: 0; font-size: 24px; font-weight: 600; line-height: 1.25; }
+  h2 { margin: 0; font-size: 16px; font-weight: 600; }
+  .lede { margin: 4px 0 0; color: var(--muted); }
+  .label-sm { font-size: 13px; font-weight: 600; color: var(--muted); }
+
+  .fieldrow { display: flex; flex-wrap: wrap; gap: 16px; }
+  label.field { display: flex; flex-direction: column; gap: 6px; flex: 1 1 240px; font-size: 14px; font-weight: 500; }
+  label.field .hint { font-weight: 400; color: var(--muted); }
+  input[type=text], select, textarea {
+    min-height: 44px; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 6px; font-size: 15px; background: #fff;
+  }
+  textarea { padding: 12px; resize: vertical; line-height: 1.5; }
+  fieldset { border: none; margin: 0; padding: 0; }
+  legend { font-size: 14px; font-weight: 500; padding: 0; margin-bottom: 8px; }
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px;
+    border-radius: 6px; border: 1px solid var(--line-strong); background: #fff; font-weight: 500; cursor: pointer;
+  }
+  .pill.round { border-radius: 22px; padding: 0 16px; }
+  .pill[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); color: var(--accent-ink); }
+  .pill svg { display: none; }
+  .pill[aria-pressed="true"] svg { display: block; }
+  .error { margin: 8px 0 0; font-size: 14px; color: var(--warn); }
+
+  .dropzone { border: 2px dashed var(--line-strong); border-radius: 10px; padding: 24px; background: #FAFBFC; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+  .dropzone p { margin: 0; font-size: 14px; color: var(--muted); }
+
+  .count { display: flex; align-items: baseline; gap: 8px; }
+  .count strong { font-size: 40px; line-height: 1; color: var(--accent); font-weight: 600; }
+  .count span { color: var(--muted); }
+  ul.reclist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  ul.reclist li { display: flex; flex-direction: column; border-bottom: 1px solid #EDF0F4; padding-bottom: 8px; }
+  .why { font-size: 13px; color: var(--muted); }
+  .fine { margin: 0; font-size: 13px; color: var(--muted); }
+
+  .modlist { display: flex; flex-direction: column; gap: 8px; }
+  .mod { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+  .mod.is-preview { border-color: var(--accent); background: #EEF3F9; }
+  .mod input[type=checkbox] { width: 20px; height: 20px; margin: 0; accent-color: var(--accent); }
+  .mod .txt { flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; }
+  .mod label { font-weight: 500; cursor: pointer; }
+  .btn-secondary { min-height: 44px; padding: 0 14px; border-radius: 6px; border: 1px solid var(--line-strong); background: #fff; font-size: 14px; font-weight: 500; cursor: pointer; }
+
+  .preview h2 { font-family: 'Source Serif 4', Georgia, serif; font-size: 26px; line-height: 1.25; }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--muted); }
+  .doc { font-family: 'Source Serif 4', Georgia, serif; font-size: 17px; line-height: 1.65; white-space: pre-line; border-top: 1px solid #EDF0F4; padding-top: 16px; }
+  mark { background: var(--flag); color: var(--ink); padding: 0 2px; }
+  .legend { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); }
+  .legend i { width: 14px; height: 14px; background: var(--flag); border: 1px solid #D4C24A; display: inline-block; }
+  .note { padding: 12px 14px; border-radius: 8px; background: #EEF3F9; font-size: 14px; color: #123E61; }
+
+  ol.outline { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  ol.outline li { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px; }
+  .num { width: 28px; font-weight: 600; color: var(--muted); }
+  .grow { flex: 1 1 220px; min-width: 0; font-weight: 500; }
+  .tag { font-size: 13px; padding: 2px 10px; border-radius: 12px; }
+  .tag.ai { background: #EEF3F9; color: #123E61; }
+  .tag.flag { background: #FFF6C2; color: #4A3B00; }
+  .movers { display: flex; gap: 4px; }
+  .icon-btn { width: 44px; height: 44px; border-radius: 6px; border: 1px solid var(--line-strong); background: #fff; cursor: pointer; display: grid; place-items: center; }
+  .icon-btn:disabled { opacity: .35; cursor: default; }
+
+  .stat { display: flex; justify-content: space-between; border-bottom: 1px solid #EDF0F4; padding-bottom: 10px; }
+  .stat:last-child { border-bottom: none; padding-bottom: 0; }
+  .stat b { font-weight: 600; }
+
+  .done-card { max-width: 720px; width: 100%; margin: 0 auto; padding: 36px; }
+  .okmark { width: 48px; height: 48px; border-radius: 50%; background: #E3F1EA; color: var(--ok); display: grid; place-items: center; }
+  .checks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .checks li { display: flex; gap: 10px; }
+  .checks li span:first-child { color: var(--ok); font-weight: 600; }
+  .toc { margin: 0; padding-left: 22px; font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; display: flex; flex-direction: column; gap: 4px; }
+  .filename { margin: 4px 0 0; color: var(--muted); word-break: break-all; }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn-primary { min-height: 48px; padding: 0 24px; border-radius: 6px; border: none; background: var(--accent); color: #fff; font-weight: 600; cursor: pointer; }
+  .btn-primary:disabled { opacity: .45; cursor: default; }
+  .btn-outline { min-height: 48px; padding: 0 22px; border-radius: 6px; border: 1px solid var(--line-strong); background: #fff; font-weight: 500; cursor: pointer; }
+  .btn-link { min-height: 48px; padding: 0 12px; border: none; background: none; font-weight: 500; text-decoration: underline; cursor: pointer; }
+  .navbar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+  .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 12px 18px; border-radius: 8px; font-size: 14px; max-width: calc(100% - 32px); }
+  .toast[hidden] { display: none; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><strong>HALL CPA</strong><span class="sep"></span><span>Proposal Builder</span></div>
+    <div class="who"><span>Draft autosaved</span><span class="avatar" aria-hidden="true">AL</span></div>
+  </div>
+</header>
+
+<nav class="steps" aria-label="Proposal steps"><div class="wrap" id="steps"></div></nav>
+<main class="wrap" id="app"></main>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+/* ---------- Library data (illustrative placeholder content) ---------- */
+const SERVICES = [
+  { id: 'audit', label: 'Audit' },
+  { id: 'review', label: 'Review / compilation' },
+  { id: 'tax', label: 'Entity tax' },
+  { id: 'indiv', label: 'Owner & individual tax' },
+  { id: 'cas', label: 'Outsourced accounting' },
+  { id: 'cfo', label: 'Fractional CFO / advisory' }
+];
+const ENTITIES = [
+  { id: 'fp', label: 'For-profit' },
+  { id: 'np', label: 'Nonprofit' },
+  { id: 'gov', label: 'Governmental' }
+];
+const SOURCES = [
+  { id: 'norfp', label: 'No RFP: built from discovery' },
+  { id: 'rfp', label: 'Responding to an RFP' }
+];
+const INDUSTRIES = ['Real estate', 'Dental practices', 'Construction', 'Professional services', 'Manufacturing', 'Human services', 'Other'];
+const STEP_LABELS = ['Client profile', 'Content modules', 'Review & order', 'Export'];
+const has = (c, s) => c.services.includes(s);
+
+// Each module: rule(c) decides whether it is recommended; why(c) explains it.
+const MODULES = [
+  { id: 'cover', cat: 'Core', title: 'Cover letter', owner: 'Firm marketing', tailored: true,
+    rule: () => true, why: () => 'Included in every proposal',
+    body: 'Dear [CONTACT NAME],\n\nThank you for the conversation about [CLIENT NAME]. You told us [PRIORITY FROM DISCOVERY NOTES]. This proposal lays out how our team would approach that, who you would work with, and what it would cost.' },
+  { id: 'about', cat: 'Core', title: 'About Hall CPA', owner: 'Firm marketing',
+    rule: () => true, why: () => 'Included in every proposal',
+    body: 'Hall CPA is a fully virtual CPA and advisory firm. [FIRM OVERVIEW — maintained by marketing]\n\nWhat clients can expect from us: [SERVICE PROMISES]' },
+  { id: 'rfp', cat: 'RFP', title: 'RFP requirement matrix', owner: 'Proposal desk', tailored: true,
+    rule: (c) => c.source === 'rfp', why: () => 'Responding to an RFP',
+    body: 'Each requirement in the RFP is listed with the section of this proposal that answers it.\n\n[REQUIREMENTS EXTRACTED FROM RFP]' },
+  { id: 'npexp', cat: 'Entity', title: 'Nonprofit and governmental experience', owner: 'Nonprofit practice lead',
+    rule: (c) => c.entity !== 'fp', why: (c) => c.entity === 'np' ? 'Client is a nonprofit' : 'Client is governmental',
+    body: 'We serve [NUMBER] nonprofit and governmental organizations, including [REFERENCE CLIENTS]. Our team works with restricted funds, board reporting and grantor requirements every day.' },
+  { id: 're', cat: 'Industry', title: 'Real estate practice', owner: 'Real estate practice lead',
+    rule: (c) => c.industry === 'Real estate', why: () => 'Industry: real estate',
+    body: 'Our real estate team works with [CLIENT TYPES — owners, developers, property managers] on entity structuring, property-level reporting and tax strategy.\n\n[CASE STUDY]' },
+  { id: 'dental', cat: 'Industry', title: 'Dental practices: Tooth & Coin', owner: 'Tooth & Coin lead',
+    rule: (c) => c.industry === 'Dental practices', why: () => 'Industry: dental practices',
+    body: 'Through Tooth & Coin, our dental-focused team supports practice owners with [SERVICES — benchmarking, associate compensation, practice transitions].\n\n[REFERENCE PRACTICE]' },
+  { id: 'constr', cat: 'Industry', title: 'Construction: job costing and WIP', owner: 'Construction practice lead',
+    rule: (c) => c.industry === 'Construction', why: () => 'Industry: construction',
+    body: 'We help contractors keep job costing and work-in-progress schedules current, so surety and bank reporting hold up.\n\n[SURETY / LENDER REQUIREMENTS]' },
+  { id: 'team', cat: 'Core', title: 'Your engagement team', owner: 'Practice leads',
+    rule: () => true, why: () => 'Included in every proposal',
+    body: 'Engagement partner: [PARTNER NAME], [CREDENTIALS]\nEngagement manager: [MANAGER NAME]\n\nYou get one point of contact for day-to-day questions and a partner who stays involved after the engagement letter is signed.' },
+  { id: 'audit', cat: 'Service', title: 'Audit approach', owner: 'Assurance practice lead',
+    rule: (c) => has(c, 'audit'), why: () => 'Service: audit',
+    body: 'Our audit follows a risk-based approach: planning and risk assessment in [MONTH], interim procedures in [MONTH], and final fieldwork after year-end close.\n\nStandards applied: [AICPA / GAGAS]' },
+  { id: 'single', cat: 'Entity', title: 'Single Audit (Uniform Guidance)', owner: 'Assurance practice lead',
+    rule: (c) => c.entity !== 'fp' && c.federal && has(c, 'audit'), why: () => 'Federal awards + audit selected',
+    body: 'Because [CLIENT NAME] expends federal awards above the Single Audit threshold, our audit includes compliance testing of major programs under Uniform Guidance.\n\nExpected major programs: [MAJOR PROGRAMS]' },
+  { id: 'review', cat: 'Service', title: 'Review and compilation scope', owner: 'Assurance practice lead',
+    rule: (c) => has(c, 'review'), why: () => 'Service: review / compilation',
+    body: 'A review provides limited assurance through analytical procedures and inquiry. A compilation presents your financial statements without assurance.\n\nRecommended level: [REVIEW OR COMPILATION]' },
+  { id: 'tax', cat: 'Service', title: 'Tax compliance and planning', owner: 'Tax practice lead',
+    rule: (c) => has(c, 'tax'), why: () => 'Service: entity tax',
+    body: 'We prepare [RETURNS IN SCOPE] and meet with you before year-end to plan, so nothing about [FILING SEASON] is a surprise.' },
+  { id: 'f990', cat: 'Entity', title: 'Form 990 preparation', owner: 'Nonprofit practice lead',
+    rule: (c) => c.entity === 'np' && has(c, 'tax'), why: () => 'Nonprofit + entity tax',
+    body: 'Your Form 990 is a public document that donors and grantors read. We prepare it to be accurate and to tell your story well.\n\nSchedules in scope: [SCHEDULES]' },
+  { id: 'costseg', cat: 'Industry', title: 'Cost segregation studies', owner: 'Tax practice lead',
+    rule: (c) => c.industry === 'Real estate' && has(c, 'tax'), why: () => 'Real estate + entity tax',
+    body: 'A cost segregation study can accelerate depreciation on [PROPERTY TYPES]. We identify candidate properties during [PHASE] and quote studies separately.\n\n[ESTIMATED BENEFIT — confirm with tax lead]' },
+  { id: 'indiv', cat: 'Service', title: 'Owner and individual tax', owner: 'Tax practice lead',
+    rule: (c) => has(c, 'indiv'), why: () => 'Service: owner and individual tax',
+    body: 'Owner returns are prepared alongside the business so entity and personal strategy line up.\n\nIn scope: [INDIVIDUALS / RETURNS]' },
+  { id: 'cas', cat: 'Service', title: 'Outsourced accounting (CAS)', owner: 'CAS practice lead',
+    rule: (c) => has(c, 'cas'), why: () => 'Service: outsourced accounting',
+    body: 'We take over [BOOKKEEPING / PAYROLL / AP] and close your books by the [CLOSE DAY] business day each month, with a short management report.' },
+  { id: 'cfo', cat: 'Service', title: 'Fractional CFO and FP&A', owner: 'Advisory practice lead', tailored: true,
+    rule: (c) => has(c, 'cfo'), why: () => 'Service: fractional CFO / advisory',
+    body: 'A fractional CFO from our team meets with leadership [CADENCE] to own budgeting, cash forecasting and KPI reporting.\n\nFocus areas: [PRIORITIES FROM DISCOVERY]' },
+  { id: 'timeline', cat: 'Core', title: 'Engagement timeline', owner: 'Practice leads',
+    rule: () => true, why: () => 'Included in every proposal',
+    body: 'Proposal accepted: [DATE]\nKickoff and data request: [DATE]\nFieldwork or first close: [DATE]\nFirst deliverable: [DATE]' },
+  { id: 'fees', cat: 'Core', title: 'Fees and billing', owner: 'Finance',
+    rule: () => true, why: () => 'Included in every proposal',
+    body: 'Our fee for the scope described is [FEE] per [PERIOD], billed [BILLING CADENCE]. Work outside this scope is quoted before it starts.' },
+  { id: 'accept', cat: 'Core', title: 'Next steps and acceptance', owner: 'Firm marketing',
+    rule: () => true, why: () => 'Included in every proposal',
+    body: 'To move forward, sign the engagement letter we send separately by [RESPONSE DATE]. Questions go to [PARTNER NAME] at [EMAIL].' }
+];
+const BY_ID = Object.fromEntries(MODULES.map(m => [m.id, m]));
+
+/* ---------- State ---------- */
+const initialState = () => ({
+  step: 1, maxStep: 1,
+  clientName: 'Maple Row Properties LLC', contact: '',
+  entity: 'fp', federal: false, industry: 'Real estate',
+  services: ['tax', 'cas'], source: 'norfp', notes: '',
+  sel: {},          // manual overrides: id -> true/false
+  order: null,      // manual section order
+  previewId: 'cover'
+});
+let S = initialState();
+
+/* ---------- Helpers ---------- */
+const esc = (v) => String(v).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+const FLAG_RE = /\[[^\]]+\]/g;
+const profile = () => ({ entity: S.entity, federal: S.federal, industry: S.industry, services: S.services, source: S.source });
+const fill = (txt) => {
+  let t = txt;
+  const name = S.clientName.trim(), contact = S.contact.trim();
+  if (name) t = t.split('[CLIENT NAME]').join(name);
+  if (contact) t = t.split('[CONTACT NAME]').join(contact);
+  return t;
+};
+const flagsOf = (t) => (t.match(FLAG_RE) || []).length;
+const highlight = (t) => t.split(/(\[[^\]]+\])/).map(p => p.startsWith('[') ? `<mark>${esc(p)}</mark>` : esc(p)).join('');
+const plural = (n, one, many) => n === 1 ? `1 ${one}` : `${n} ${many}`;
+const CHECK = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3 3 7-7"/></svg>';
+
+function modules() {
+  const c = profile();
+  return MODULES.map(m => {
+    const rec = !!m.rule(c);
+    const selected = S.sel[m.id] !== undefined ? S.sel[m.id] : rec;
+    return { m, rec, selected, why: rec ? m.why(c) : 'Library: ' + m.cat };
+  });
+}
+function orderedIds() {
+  const selIds = modules().filter(x => x.selected).map(x => x.m.id);
+  const ord = (S.order || []).filter(id => selIds.includes(id));
+  selIds.forEach(id => { if (!ord.includes(id)) ord.push(id); });
+  return ord;
+}
+function totals(ord) {
+  let flags = 0, tailored = 0;
+  ord.forEach(id => { flags += flagsOf(fill(BY_ID[id].body)); if (BY_ID[id].tailored) tailored++; });
+  return { flags, tailored };
+}
+
+/* ---------- Views ---------- */
+function stepsView() {
+  return STEP_LABELS.map((label, i) => {
+    const n = i + 1, cur = S.step === n, done = n < S.step;
+    const cls = cur ? 'current' : (done ? 'done' : '');
+    return `<button type="button" class="step ${cls}" data-action="go" data-arg="${n}" data-key="step-${n}" ${cur ? 'aria-current="step"' : ''}>
+      <span class="dot">${n}</span><span>${esc(label)}</span></button>`;
+  }).join('');
+}
+
+function pills(list, current, action, round) {
+  return list.map(o => `<button type="button" class="pill ${round ? 'round' : ''}" aria-pressed="${current(o)}" data-action="${action}" data-arg="${esc(o.id)}" data-key="${action}-${esc(o.id)}">${round ? CHECK : ''}<span>${esc(o.label)}</span></button>`).join('');
+}
+
+function recAside() {
+  const recs = modules().filter(x => x.rec);
+  return `<div><div class="label-sm">Recommended so far</div>
+      <div class="count"><strong>${recs.length}</strong><span>modules</span></div></div>
+    <ul class="reclist">${recs.map(x => `<li><span>${esc(x.m.title)}</span><span class="why">${esc(x.why)}</span></li>`).join('')}</ul>
+    <p class="fine">Rules set by practice leaders decide which modules apply. Claude tailors wording inside approved modules.</p>`;
+}
+
+function step1() {
+  return `<div class="cols">
+    <section class="card primary">
+      <div><h1>New proposal</h1><p class="lede">Describe the client. Each answer narrows which content modules belong in the proposal.</p></div>
+      <div class="fieldrow">
+        <label class="field">Client name<input type="text" data-model="clientName" value="${esc(S.clientName)}"></label>
+        <label class="field">Primary contact<input type="text" data-model="contact" value="${esc(S.contact)}" placeholder="Name, title"></label>
+      </div>
+      <fieldset><legend>Entity type</legend><div class="pills">${pills(ENTITIES, o => S.entity === o.id, 'entity')}</div></fieldset>
+      ${S.entity !== 'fp' ? `<fieldset><legend>Federal awards above the Single Audit threshold?</legend><div class="pills">
+        ${pills([{ id: 'yes', label: 'Yes' }, { id: 'no', label: 'No' }], o => (o.id === 'yes') === S.federal, 'federal')}</div></fieldset>` : ''}
+      <label class="field" style="max-width:420px">Industry
+        <select data-model="industry" data-key="industry">${INDUSTRIES.map(i => `<option ${i === S.industry ? 'selected' : ''}>${esc(i)}</option>`).join('')}</select>
+      </label>
+      <fieldset><legend>Services needed</legend><div class="pills">${pills(SERVICES, o => S.services.includes(o.id), 'service', true)}</div>
+        ${S.services.length === 0 ? '<p class="error">Select at least one service to continue.</p>' : ''}</fieldset>
+      <fieldset><legend>How did this opportunity arrive?</legend><div class="pills">${pills(SOURCES, o => S.source === o.id, 'source')}</div></fieldset>
+      ${S.source === 'rfp' ? `<div class="dropzone"><div style="flex:1 1 320px"><strong>Drop the RFP here (PDF or Word)</strong>
+        <p>Claude extracts requirements, deadlines and evaluation criteria, then maps each one to a module and flags anything the library does not cover.</p></div>
+        <button type="button" class="btn-secondary" data-action="mock" data-arg="RFP upload isn't wired up in this mockup.">Choose file</button></div>` : ''}
+      <label class="field">Discovery notes
+        <span class="hint">Claude uses these to tailor the cover letter and scope language. It never adds content outside the approved library.</span>
+        <textarea data-model="notes" rows="5" placeholder="What did you learn on the call? Pain points, timing, decision-makers, current provider, budget signals">${esc(S.notes)}</textarea>
+      </label>
+    </section>
+    <aside class="card side" aria-label="Live recommendations">${recAside()}</aside>
+  </div>`;
+}
+
+function modRow(x) {
+  const isPrev = S.previewId === x.m.id;
+  return `<div class="mod ${isPrev ? 'is-preview' : ''}">
+    <input type="checkbox" id="mod-${x.m.id}" data-action="toggle" data-arg="${x.m.id}" ${x.selected ? 'checked' : ''}>
+    <div class="txt"><label for="mod-${x.m.id}">${esc(x.m.title)}</label><span class="why">${esc(x.why)}</span></div>
+    <button type="button" class="btn-secondary" data-action="preview" data-arg="${x.m.id}" data-key="preview-${x.m.id}" aria-pressed="${isPrev}">${isPrev ? 'Previewing' : 'Preview'}</button>
+  </div>`;
+}
+
+function step2() {
+  const all = modules();
+  const recs = all.filter(x => x.rec), others = all.filter(x => !x.rec);
+  const pm = BY_ID[S.previewId] || MODULES[0];
+  const body = fill(pm.body), f = flagsOf(body);
+  return `<div class="cols">
+    <section class="card primary">
+      <div><h1>Choose content modules</h1><p class="lede">Recommended modules are pre-selected from the client profile. Preview any module before including it.</p></div>
+      <h2>Recommended for ${esc(S.clientName.trim() || 'this client')} (${recs.length})</h2>
+      <div class="modlist">${recs.map(modRow).join('')}</div>
+      <h2>Also in the library (${others.length})</h2>
+      <div class="modlist">${others.map(modRow).join('')}</div>
+    </section>
+    <aside class="card side preview" aria-label="Module preview" aria-live="polite" style="flex-basis:380px">
+      <div class="label-sm">Preview: ${esc(pm.cat)} module</div>
+      <h2>${esc(pm.title)}</h2>
+      <div class="meta"><span>Owner: ${esc(pm.owner)}</span><span>Status: approved</span></div>
+      <div class="doc">${highlight(body)}</div>
+      <div class="legend"><i aria-hidden="true"></i><span>${plural(f, 'field', 'fields')} to complete</span></div>
+      ${pm.tailored ? '<div class="note">Claude drafts the highlighted priority language for this section from your discovery notes. You approve it in Word.</div>' : ''}
+    </aside>
+  </div>`;
+}
+
+const UP = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10l4-4 4 4"/></svg>';
+const DOWN = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>';
+
+function step3() {
+  const ord = orderedIds(), t = totals(ord);
+  const items = ord.map((id, i) => {
+    const m = BY_ID[id], f = flagsOf(fill(m.body));
+    return `<li><span class="num">${i + 1}</span><span class="grow">${esc(m.title)}</span>
+      ${m.tailored ? '<span class="tag ai">Tailored by Claude</span>' : ''}
+      <span class="tag flag">${plural(f, 'field', 'fields')}</span>
+      <span class="movers">
+        <button type="button" class="icon-btn" data-action="up" data-arg="${i}" data-key="up-${id}" aria-label="Move ${esc(m.title)} up" ${i === 0 ? 'disabled' : ''}>${UP}</button>
+        <button type="button" class="icon-btn" data-action="down" data-arg="${i}" data-key="down-${id}" aria-label="Move ${esc(m.title)} down" ${i === ord.length - 1 ? 'disabled' : ''}>${DOWN}</button>
+      </span></li>`;
+  }).join('');
+  return `<div class="cols">
+    <section class="card primary">
+      <div><h1>Review and order</h1><p class="lede">This order becomes the document structure and the table of contents.</p></div>
+      <ol class="outline">${items}</ol>
+    </section>
+    <aside class="card side" aria-label="Proposal summary">
+      <div class="label-sm">Summary</div>
+      <div class="stat"><span>Sections</span><b>${ord.length}</b></div>
+      <div class="stat"><span>Fields to complete</span><b>${t.flags}</b></div>
+      <div class="stat"><span>Tailored by Claude</span><b>${t.tailored}</b></div>
+      <div class="stat"><span>Template</span><b>Hall CPA standard</b></div>
+    </aside>
+  </div>`;
+}
+
+function step4() {
+  const ord = orderedIds(), t = totals(ord);
+  const file = (S.clientName.trim() || 'Client').replace(/[^A-Za-z0-9]+/g, '_') + '_Proposal_DRAFT.docx';
+  return `<section class="card done-card">
+    <div class="okmark">${CHECK.replace('width="16" height="16"', 'width="24" height="24"').replace('<svg aria-hidden="true"', '<svg aria-hidden="true" style="display:block"')}</div>
+    <div><h1>Your draft is ready</h1><p class="filename">${esc(file)}</p></div>
+    <ul class="checks">
+      <li><span>✓</span><span>Table of contents built from ${ord.length} section headings</span></li>
+      <li><span>✓</span><span>${plural(t.flags, 'field', 'fields')} highlighted in yellow for you to complete</span></li>
+      <li><span>✓</span><span>${plural(t.tailored, 'section', 'sections')} tailored by Claude, each with a review comment</span></li>
+      <li><span>✓</span><span>Hall CPA brand template applied</span></li>
+    </ul>
+    <div><h2 style="margin-bottom:8px">Contents</h2><ol class="toc">${ord.map(id => `<li>${esc(BY_ID[id].title)}</li>`).join('')}</ol></div>
+    <div class="actions">
+      <button type="button" class="btn-primary" data-action="mock" data-arg="Mockup only: Word generation isn't wired up yet.">Download .docx</button>
+      <button type="button" class="btn-outline" data-action="go" data-arg="3">Back to review</button>
+      <button type="button" class="btn-link" data-action="reset">Start a new proposal</button>
+    </div>
+  </section>`;
+}
+
+function navView() {
+  if (S.step === 4) return '';
+  const blocked = S.step === 1 && S.services.length === 0;
+  const label = ['Next: choose modules', 'Next: review order', 'Generate Word document'][S.step - 1];
+  return `<div class="navbar">
+    <div>${S.step > 1 ? '<button type="button" class="btn-outline" data-action="back" data-key="back">Back</button>' : ''}</div>
+    <button type="button" class="btn-primary" data-action="next" data-key="next" ${blocked ? 'disabled' : ''}>${label}</button>
+  </div>`;
+}
+
+/* ---------- Render ---------- */
+const app = document.getElementById('app');
+const stepsEl = document.getElementById('steps');
+function render(scrollTop) {
+  const focusKey = document.activeElement && document.activeElement.dataset ? document.activeElement.dataset.key : null;
+  stepsEl.innerHTML = stepsView();
+  app.innerHTML = [step1, step2, step3, step4][S.step - 1]() + navView();
+  if (focusKey) {
+    const el = document.querySelector(`[data-key="${CSS.escape(focusKey)}"]`);
+    if (el && !el.disabled) el.focus({ preventScroll: true });
+  }
+  if (scrollTop) window.scrollTo({ top: 0 });
+}
+
+function go(n) {
+  S.step = n; S.maxStep = Math.max(S.maxStep, n);
+  render(true);
+  const h = app.querySelector('h1'); if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+}
+
+let toastTimer;
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.hidden = false;
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, 3000);
+}
+
+/* ---------- Events ---------- */
+document.addEventListener('click', (e) => {
+  const el = e.target.closest('[data-action]');
+  if (!el || el.disabled || el.type === 'checkbox') return;
+  const a = el.dataset.action, arg = el.dataset.arg;
+  switch (a) {
+    case 'go': go(Number(arg)); return;
+    case 'back': go(S.step - 1); return;
+    case 'next': if (!(S.step === 1 && S.services.length === 0)) go(S.step + 1); return;
+    case 'entity': S.entity = arg; break;
+    case 'federal': S.federal = arg === 'yes'; break;
+    case 'source': S.source = arg; break;
+    case 'service': S.services = S.services.includes(arg) ? S.services.filter(x => x !== arg) : S.services.concat(arg); break;
+    case 'preview': S.previewId = arg; break;
+    case 'up': case 'down': {
+      const ord = orderedIds(), i = Number(arg), j = a === 'up' ? i - 1 : i + 1;
+      if (j < 0 || j >= ord.length) return;
+      [ord[i], ord[j]] = [ord[j], ord[i]]; S.order = ord;
+      render();
+      const moved = ord[j];
+      const target = document.querySelector(`[data-key="${a}-${moved}"]`) || document.querySelector(`[data-key="${a === 'up' ? 'down' : 'up'}-${moved}"]`);
+      if (target) target.focus({ preventScroll: true });
+      return;
+    }
+    case 'reset': S = initialState(); go(1); return;
+    case 'mock': toast(arg); return;
+    default: return;
+  }
+  render();
+});
+
+document.addEventListener('change', (e) => {
+  const el = e.target;
+  if (el.type === 'checkbox' && el.dataset.action === 'toggle') {
+    const id = el.dataset.arg;
+    S.sel = Object.assign({}, S.sel, { [id]: el.checked });
+    return; // checkbox state is already shown; no re-render needed
+  }
+  if (el.dataset.model === 'industry') { S.industry = el.value; render(); }
+});
+
+document.addEventListener('input', (e) => {
+  const m = e.target.dataset.model;
+  if (m && m !== 'industry') S[m] = e.target.value; // text fields update state without re-rendering
+});
+
+render();
+</script>
+</body>
+</html>
