@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Accounting Industry Landscape, 2023–2026 | Alex Drost</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%A9%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%23ffffff%22/%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%2215%22%20height%3D%2226%22%20rx%3D%221.5%22%20fill%3D%22%23ee3b24%22/%3E%3Crect%20x%3D%2220%22%20y%3D%223%22%20width%3D%229%22%20height%3D%2211%22%20rx%3D%221.5%22%20fill%3D%22%23f7c140%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2216%22%20width%3D%229%22%20height%3D%226%22%20rx%3D%221.5%22%20fill%3D%22%231474be%22/%3E%3Crect%20x%3D%2220%22%20y%3D%2224%22%20width%3D%224%22%20height%3D%225%22%20rx%3D%221%22%20fill%3D%22%237d7d7d%22/%3E%3Crect%20x%3D%2225.5%22%20y%3D%2224%22%20width%3D%223.5%22%20height%3D%225%22%20rx%3D%221%22%20fill%3D%22%23bdbdbd%22/%3E%3C/svg%3E">
 <style>
 :root {
   color-scheme: light;
@@ -45,7 +45,10 @@ body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-fami
 .ls-head { display: grid; gap: var(--cds-gap-xs); text-align: center; justify-items: center; }
 .ls-head h1 { font-family: var(--font-anthropic-sans); font-weight: 700; font-size: clamp(1.9rem, 3.6vw, 3rem); letter-spacing: -0.015em; line-height: 1.05; margin: 0; }
 .ls-sub { margin: 0; color: #d9831f; font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); }
-.ls-by { margin: 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); letter-spacing: 0.01em; }
+.ls-by { margin: 0.15rem 0 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-body); font-weight: 500; }
+.ls .ls-by a { color: var(--color-fg); font-weight: 700; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; text-decoration-color: #0a66c2; }
+.ls .ls-by a:hover { color: #0a66c2; }
+.ls .ls-by a:focus-visible { outline: 2px solid #0a66c2; outline-offset: 2px; border-radius: 2px; }
 .ls-take { margin: 0; max-width: 62ch; color: var(--color-fg-muted); font-size: var(--cds-font-size-body); line-height: 1.5; }
 .ls .ls-take b { color: var(--color-fg); font-weight: 600; }
 .ls-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; }
@@ -109,8 +112,7 @@ body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-fami
   <header class="ls-head">
     <h1 id="landscape-title">Accounting Industry Landscape</h1>
     <p class="ls-sub">IPA Top 500 firms, ex Big 4, sized by net revenue</p>
-    <p class="ls-by">Created by Alex Drost</p>
-    <p class="ls-take" id="takeaway">PE-backed firms held <b data-draw="take_start" data-source="quarter_totals" data-field="pe_share">—</b> of this revenue in <span data-draw="take_q0" data-source="quarter_totals" data-field="quarter">—</span> and <b data-draw="take_end" data-source="quarter_totals" data-field="pe_share">—</b> by <span data-draw="take_q1" data-source="quarter_totals" data-field="quarter">—</span>, as platforms absorbed listed firms and large independents took PE money.</p>
+    <p class="ls-by">Created by <a href="https://www.linkedin.com/in/adrost/" target="_blank" rel="noopener noreferrer">Alex Drost</a></p>
   </header>
 
   <section class="ls-card" id="landscape">
@@ -252,7 +254,7 @@ window.dash = (() => {
     const dt = last ? Math.min(0.1, (ts - last) / 1000) : 0; last = ts;
     const end = LS.N - 1;
     const t = LS.t + dt * LS.speed / SEC;
-    if (t >= end) { LS.t = end; pause(); LS.notify(); return; }
+    if (t >= end) { LS.t = end; raf = 0; pause(); LS.notify(); return; }
     LS.t = t; LS.notify(); raf = requestAnimationFrame(loop);
   };
   const setPlayUI = () => {
@@ -265,9 +267,11 @@ window.dash = (() => {
   function play() {
     if (LS.N < 2) return;
     if (LS.t >= LS.N - 1) LS.t = 0;
-    LS.playing = true; last = 0; setPlayUI(); if (!raf) raf = requestAnimationFrame(loop);
+    LS.playing = true; last = 0; setPlayUI();
+    if (raf) cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(loop); LS.notify();
   }
-  function pause() { LS.playing = false; setPlayUI(); }
+  function pause() { LS.playing = false; if (raf) cancelAnimationFrame(raf); raf = 0; setPlayUI(); }
   LS.play = play; LS.pause = pause; LS.ui = setPlayUI;
 
   document.querySelectorAll('.ls-play').forEach((b) => b.addEventListener('click', () => (LS.playing ? pause() : play())));
@@ -277,6 +281,7 @@ window.dash = (() => {
   LS.subs.add(() => {
     const P = LS.prep && LS.prep();
     const q = LS.shownQ();
+    if (P && LS._capQ === q) return; LS._capQ = P ? q : null;
     const rep = !!(P && P.reportedQ.has(q));
     document.querySelectorAll('.ls-basis-rep').forEach((s) => { s.hidden = !P || !rep; });
     document.querySelectorAll('.ls-basis-est').forEach((s) => { s.hidden = !P || rep; });
@@ -347,7 +352,7 @@ window.dash = (() => {
   // helper: a drawing that redraws whenever the playhead moves
   LS.live = (name, render) => dash.draw(name, {
     mount(el) { const made = { el, key: null }; made.fn = () => render(el, made); LS.subs.add(made.fn); return made; },
-    update(el, made) { made.key = null; made.fn(); },
+    update(el, made) { made.key = null; made.w = el.clientWidth; made.fn(); },
     unmount(el, made) { LS.subs.delete(made.fn); },
   });
 })();
@@ -372,24 +377,13 @@ window.dash = (() => {
   kpi('k_firms', 'firms', (v) => String(v));
   kpi('k_moves', 'moves', (v) => String(v));
 
-  const ends = (name, field, which, fmt) => dash.draw(name, (el) => {
-    const T = totals();
-    if (!T || !T.length) { el.textContent = '—'; el.removeAttribute('data-where'); return; }
-    const row = which === 'first' ? T[0] : T[T.length - 1];
-    el.setAttribute('data-where', 'quarter=' + encodeURIComponent(row.quarter));
-    el.textContent = fmt(row[field]);
-  });
-  ends('take_start', 'pe_share', 'first', (v) => LS.pct(v));
-  ends('take_q0', 'quarter', 'first', (v) => v);
-  ends('take_end', 'pe_share', 'last', (v) => LS.pct(v));
-  ends('take_q1', 'quarter', 'last', (v) => v);
 
   // scrubber
   LS.live('scrub', (el, made) => {
     const T = totals();
     if (!T || T.length < 2) { if (made.key !== '—') { el.replaceChildren(); el.classList.add('dash-skeleton'); made.key = '—'; } return; }
     el.classList.remove('dash-skeleton');
-    const sig = T.length + ':' + el.clientWidth;
+    const sig = T.length + ':' + made.w;
     if (made.key !== sig) {
       made.key = sig;
       const input = document.createElement('input');
@@ -397,7 +391,7 @@ window.dash = (() => {
       input.setAttribute('aria-label', 'Quarter');
       input.addEventListener('input', () => { LS.pause(); LS.setT(Number(input.value)); });
       const ticks = document.createElement('div'); ticks.className = 'ls-ticks';
-      const every = el.clientWidth < 420 ? 4 : el.clientWidth < 700 ? 2 : 1;
+      const every = made.w < 420 ? 4 : made.w < 700 ? 2 : 1;
       T.forEach((r, i) => {
         if (i % every && i !== T.length - 1) return;
         const s = document.createElement('span');
@@ -420,6 +414,10 @@ window.dash = (() => {
   const NS = 'http://www.w3.org/2000/svg';
   const lerp = (a, b, e) => a + (b - a) * e;
   const lum = (hex) => { const n = parseInt(hex.slice(1), 16); const r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255; return (0.299 * r + 0.587 * g + 0.114 * b) / 255; };
+  // write an attribute or style only when its value changes (keeps each frame cheap)
+  const A_ = (el, k, v) => { const c = el._a || (el._a = {}); if (c[k] !== v) { c[k] = v; el.setAttribute(k, v); } };
+  const S_ = (el, k, v) => { const c = el._s || (el._s = {}); if (c[k] !== v) { c[k] = v; el.style[k] = v; } };
+  const f1 = (v) => (Math.round(v * 10) / 10).toString();
   const mix = (a, b, e) => (a === b || e <= 0 ? a : e >= 1 ? b : d3.interpolateRgb(a, b)(e));
 
   // a fresh squarified layout each quarter, largest firm first, so squares re-rank as revenue changes
@@ -462,31 +460,36 @@ window.dash = (() => {
     return out;
   }
 
-  function drawTiles(made, n, rect, total, tiles, dark) {
+  function drawTiles(made, n, rect, total, tiles, dark, tq) {
     const w = rect[2] - rect[0], h = rect[3] - rect[1];
     const pool = n.tiles;
     let used = 0;
     if (tiles && tiles.length && w > 6 && h > 6) {
-      let sum = tiles.reduce((s, t) => s + t.v, 0);
-      const k = sum > total * 0.97 ? (total * 0.97) / sum : 1;
-      const own = Math.max(total - sum * k, total * 0.03);
-      const root = d3.hierarchy({ children: [{ own: true, v: own }, ...tiles.map((t) => ({ ...t, v: t.v * k }))] }).sum((d) => (d.children ? 0 : d.v));
-      d3.treemap().size([w, h]).tile(d3.treemapSquarify.ratio(1))(root);
-      for (const leaf of root.leaves()) {
-        if (leaf.data.own) continue;
+      const shape = Math.round(Math.log(w / h) * 4);
+      const key = tq + '|' + shape + '|' + Math.round(total);
+      let lay = n.tileCache && n.tileCache.key === key ? n.tileCache.lay : null;
+      if (!lay) {
+        const sum = tiles.reduce((s, t) => s + t.v, 0);
+        const k = sum > total * 0.97 ? (total * 0.97) / sum : 1;
+        const own = Math.max(total - sum * k, total * 0.03);
+        const aw = Math.exp(shape / 4);
+        const root = d3.hierarchy({ children: [{ own: true, v: own }, ...tiles.map((t) => ({ ...t, v: t.v * k }))] }).sum((d) => (d.children ? 0 : d.v));
+        d3.treemap().size([aw, 1]).tile(d3.treemapSquarify.ratio(1))(root);
+        lay = root.leaves().filter((l) => !l.data.own).map((l) => ({ x0: l.x0 / aw, x1: l.x1 / aw, y0: l.y0, y1: l.y1, sub: l.data.name + '|' + l.data.v0 + '|' + (l.data.date || '') }));
+        n.tileCache = { key, lay };
+      }
+      const fill = dark ? 'url(#ls-tex-dark)' : 'url(#ls-tex-light)', stroke = dark ? 'rgba(255,255,255,0.7)' : 'rgba(0,0,0,0.4)';
+      for (const l of lay) {
         let r = pool[used];
-        if (!r) { r = document.createElementNS(NS, 'rect'); n.tg.append(r); pool.push(r); }
-        r.setAttribute('x', (rect[0] + leaf.x0).toFixed(1)); r.setAttribute('y', (rect[1] + leaf.y0).toFixed(1));
-        r.setAttribute('width', Math.max(0, leaf.x1 - leaf.x0).toFixed(1)); r.setAttribute('height', Math.max(0, leaf.y1 - leaf.y0).toFixed(1));
-        r.setAttribute('fill', dark ? 'url(#ls-tex-dark)' : 'url(#ls-tex-light)');
-        r.setAttribute('stroke', dark ? 'rgba(255,255,255,0.7)' : 'rgba(0,0,0,0.4)');
-        r.setAttribute('stroke-width', '0.6');
-        r.setAttribute('data-sub', leaf.data.name + '|' + leaf.data.v0 + '|' + (leaf.data.date || ''));
-        r.style.display = '';
+        if (!r) { r = document.createElementNS(NS, 'rect'); r.setAttribute('stroke-width', '0.6'); n.tg.append(r); pool.push(r); }
+        A_(r, 'x', f1(rect[0] + l.x0 * w)); A_(r, 'y', f1(rect[1] + l.y0 * h));
+        A_(r, 'width', f1(Math.max(0, (l.x1 - l.x0) * w))); A_(r, 'height', f1(Math.max(0, (l.y1 - l.y0) * h)));
+        A_(r, 'fill', fill); A_(r, 'stroke', stroke); A_(r, 'data-sub', l.sub);
+        S_(r, 'display', '');
         used++;
       }
     }
-    for (let i = used; i < pool.length; i++) pool[i].style.display = 'none';
+    for (let i = used; i < pool.length; i++) S_(pool[i], 'display', 'none');
   }
 
   dash.draw('map', {
@@ -522,7 +525,7 @@ window.dash = (() => {
 
       const findId = (target) => { const g = target.closest && target.closest('g[data-id]'); return g ? g.getAttribute('data-id') : null; };
       svg.addEventListener('pointermove', (ev) => { made.hoverId = findId(ev.target); made.hoverSub = ev.target.getAttribute && ev.target.getAttribute('data-sub'); made.pt = [ev.clientX, ev.clientY]; showTip(made); });
-      svg.addEventListener('pointerleave', () => { made.hoverId = null; made.tip.hidden = true; });
+      svg.addEventListener('pointerleave', () => { made.hoverId = null; made.tipQ = null; made.tip.hidden = true; });
       svg.addEventListener('click', (ev) => { const id = findId(ev.target); if (!id) return; LS.pinned = LS.pinned === id ? null : id; LS.notify(); });
       made.fn = () => render(made);
       LS.subs.add(made.fn);
@@ -575,7 +578,7 @@ window.dash = (() => {
     const fam = LS.pinned ? LS.family(P, LS.pinned) : null;
     const hov = LS.hover ? new Set(LS.hover) : null;
     const seen = new Set();
-    const ids = new Set([...A.keys(), ...(e > 0 ? B.keys() : [])]);
+    const ids = new Set(A.keys()); if (e > 0) for (const x of B.keys()) ids.add(x);
     for (const id of ids) {
       const ra = A.get(id), rb = e > 0 ? B.get(id) : null;
       let rect, op = 1, rowA = fa.get(id), rowB = fb.get(id), merging = false;
@@ -603,50 +606,50 @@ window.dash = (() => {
       const col = mix(ca, cb, Math.max(0, Math.min(1, (e - 0.35) / 0.4)));
       const pend = row.pending;
       const w = Math.max(0, rect[2] - rect[0]), h = Math.max(0, rect[3] - rect[1]);
-      n.r.setAttribute('x', rect[0].toFixed(1)); n.r.setAttribute('y', rect[1].toFixed(1));
-      n.r.setAttribute('width', w.toFixed(1)); n.r.setAttribute('height', h.toFixed(1));
-      n.r.setAttribute('fill', pend ? made.pats[row.status] || made.pats.ind : col);
+      A_(n.r, 'x', f1(rect[0])); A_(n.r, 'y', f1(rect[1]));
+      A_(n.r, 'width', f1(w)); A_(n.r, 'height', f1(h));
+      A_(n.r, 'fill', pend ? made.pats[row.status] || made.pats.ind : col);
       let dim = 1;
       if (fam) dim = fam.has(id) ? 1 : 0.18;
       const glow = (absorbing.has(id) && e > 0.05 && e < 0.999) || (hov && hov.has(id)) || LS.pinned === id;
-      n.r.style.strokeWidth = glow ? '2.5' : (w < 6 || h < 6 ? '0.4' : '1');
-      n.r.style.stroke = glow ? 'var(--color-fg)' : 'var(--color-panel)';
-      n.g.style.opacity = String(op * dim);
-      n.g.style.display = '';
+      S_(n.r, 'strokeWidth', glow ? '2.5' : (w < 6 || h < 6 ? '0.4' : '1'));
+      S_(n.r, 'stroke', glow ? 'var(--color-fg)' : 'var(--color-panel)');
+      S_(n.g, 'opacity', String(Math.round(op * dim * 100) / 100));
+      S_(n.g, 'display', '');
       // labels
       const dark = pend ? lum(col) : lum(col);
       const ink = pend ? '#ffffff' : (dark > 0.6 ? '#1d1d1d' : '#ffffff');
       const halo = pend ? (dark > 0.6 ? '#7a5a00' : col) : '';
       const tq = Math.min(N - 1, e > 0.75 ? k + 1 : k);
-      drawTiles(made, n, rect, row.v, merging ? null : (made.T && made.T[tq].get(id)), dark <= 0.6);
+      drawTiles(made, n, rect, row.v, merging ? null : (made.T && made.T[tq].get(id)), dark <= 0.6, tq);
       const fs = Math.max(9, Math.min(17, Math.min(w / 9, h / 3.2)));
       const nm = row.name || '';
       if (w > 62 && h > 30 && !merging) {
         const maxc = Math.floor((w - 10) / (fs * 0.56));
         const s = nm.length > maxc ? nm.slice(0, Math.max(1, maxc - 1)) + '…' : nm;
         if (n.nameStr !== s) { n.name.textContent = s; n.nameStr = s; }
-        n.name.setAttribute('x', (rect[0] + 6).toFixed(1)); n.name.setAttribute('y', (rect[1] + 5 + fs).toFixed(1));
-        n.name.setAttribute('font-size', fs.toFixed(1)); n.name.setAttribute('fill', ink); n.name.style.display = '';
-        n.name.style.paintOrder = pend ? 'stroke' : ''; n.name.style.stroke = halo; n.name.style.strokeWidth = pend ? '4' : ''; n.name.style.strokeLinejoin = pend ? 'round' : '';
-      } else n.name.style.display = 'none';
+        A_(n.name, 'x', f1(rect[0] + 6)); A_(n.name, 'y', f1(rect[1] + 5 + fs));
+        A_(n.name, 'font-size', f1(fs)); A_(n.name, 'fill', ink); S_(n.name, 'display', '');
+        S_(n.name, 'paintOrder', pend ? 'stroke' : ''); S_(n.name, 'stroke', halo); S_(n.name, 'strokeWidth', pend ? '4' : ''); S_(n.name, 'strokeLinejoin', pend ? 'round' : '');
+      } else S_(n.name, 'display', 'none');
       const rk = String(row.rank);
       if (w > 15 && h > 13) {
         const rs = Math.max(7, Math.min(11, Math.min(w / 3.2, h / 1.8)));
         if (n.rankStr !== rk) { n.rank.textContent = rk; n.rankStr = rk; }
-        n.rank.setAttribute('x', (rect[0] + 3).toFixed(1)); n.rank.setAttribute('y', (rect[3] - 3).toFixed(1));
-        n.rank.setAttribute('font-size', rs.toFixed(1)); n.rank.setAttribute('fill', ink); n.rank.setAttribute('opacity', pend ? '1' : '0.8'); n.rank.style.display = '';
-        n.rank.style.paintOrder = pend ? 'stroke' : ''; n.rank.style.stroke = halo; n.rank.style.strokeWidth = pend ? '3' : '';
-      } else n.rank.style.display = 'none';
+        A_(n.rank, 'x', f1(rect[0] + 3)); A_(n.rank, 'y', f1(rect[3] - 3));
+        A_(n.rank, 'font-size', f1(rs)); A_(n.rank, 'fill', ink); A_(n.rank, 'opacity', pend ? '1' : '0.8'); S_(n.rank, 'display', '');
+        S_(n.rank, 'paintOrder', pend ? 'stroke' : ''); S_(n.rank, 'stroke', halo); S_(n.rank, 'strokeWidth', pend ? '3' : '');
+      } else S_(n.rank, 'display', 'none');
     }
-    for (const [id, n] of made.nodes) if (!seen.has(id)) n.g.style.display = 'none';
-    made.svg.setAttribute('aria-label', `Treemap of ${fa.size} firms in ${P.qlabels[k]}`);
-    if (made.hoverId) showTip(made);
+    for (const [id, n] of made.nodes) if (!seen.has(id)) S_(n.g, 'display', 'none');
+    A_(made.svg, 'aria-label', `Treemap of ${fa.size} firms in ${P.qlabels[k]}`);
+    if (made.hoverId && made.tipQ !== LS.shownQ()) showTip(made);
   }
 
   function showTip(made) {
     const P = made.P; const id = made.hoverId;
     if (!P || !id || !made.pt) { made.tip.hidden = true; return; }
-    const q = LS.shownQ();
+    const q = LS.shownQ(); made.tipQ = q;
     const row = P.frames[q].get(id) || P.frames[Math.floor(LS.t)].get(id);
     if (!row) { made.tip.hidden = true; return; }
     const f = P.firms.get(id) || {};
@@ -723,7 +726,7 @@ window.dash = (() => {
   LS.live('share', (el, made) => {
     const d = dash.data('quarter_totals');
     if (d.status !== 'ok' || !d.data.length) { if (made.key !== '—') { el.replaceChildren(); el.textContent = '—'; made.key = '—'; } return; }
-    const T = d.data; const W = Math.max(260, el.clientWidth || 500); const H = 210;
+    const T = d.data; const W = Math.max(260, made.w || 500); const H = 210;
     const sig = W + ':' + T.length;
     if (made.key !== sig) {
       made.key = sig;
