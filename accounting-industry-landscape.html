@@ -56,6 +56,18 @@ body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-fami
 .ls-note { margin: 0 0 var(--cds-gap-md); color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); line-height: 1.45; }
 .ls-bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--cds-gap-md) var(--cds-gap-lg); margin-bottom: var(--cds-gap-md); }
 .ls-play { font: inherit; font-weight: 600; font-size: var(--cds-font-size-body); min-width: 6.5rem; padding: 0.55rem 1.1rem; border-radius: 999px; border: 0; background: var(--color-fg); color: var(--color-bg); cursor: pointer; }
+.ls-play[aria-pressed="false"]:not(.is-replay) { background: #f07d18; color: #1a1a1a; }
+.ls-play[aria-pressed="false"]:not(.is-replay):hover { background: #ff8c26; }
+@media (prefers-reduced-motion: no-preference) {
+  .ls-play.is-fresh { animation: ls-nudge 2.2s var(--cds-ease-out) infinite; }
+}
+@keyframes ls-nudge {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(240, 125, 24, .6); }
+  12% { transform: scale(1.08); }
+  24% { transform: scale(1); }
+  70% { box-shadow: 0 0 0 16px rgba(240, 125, 24, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(240, 125, 24, 0); }
+}
 .ls-play.is-replay { background: #0f8a7e; color: #ffffff; box-shadow: 0 0 0 0 rgba(15, 138, 126, .55); }
 @media (prefers-reduced-motion: no-preference) { .ls-play.is-replay { animation: ls-ring 1.6s var(--cds-ease-out) infinite; } }
 @keyframes ls-ring { 0% { box-shadow: 0 0 0 0 rgba(15, 138, 126, .55); } 100% { box-shadow: 0 0 0 12px rgba(15, 138, 126, 0); } }
@@ -117,7 +129,7 @@ body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-fami
 
   <section class="ls-card" id="landscape">
     <div class="ls-bar">
-      <button class="ls-play" type="button" aria-pressed="false"><span class="ls-play-l">Play</span><span class="ls-pause-l" hidden>Pause</span><span class="ls-replay-l" hidden>Replay</span></button>
+      <button class="ls-play is-fresh" type="button" aria-pressed="false"><span class="ls-play-l">Play</span><span class="ls-pause-l" hidden>Pause</span><span class="ls-replay-l" hidden>Replay</span></button>
       <div class="ls-when">
         <span class="ls-q" data-draw="qlabel" data-source="quarter_totals" data-field="quarter">—</span>
         <span class="ls-basis ls-basis-rep" hidden>Sized from an IPA list</span>
@@ -267,7 +279,9 @@ window.dash = (() => {
   function play() {
     if (LS.N < 2) return;
     if (LS.t >= LS.N - 1) LS.t = 0;
-    LS.playing = true; last = 0; setPlayUI();
+    LS.playing = true; last = 0;
+    document.querySelectorAll('.ls-play.is-fresh').forEach((b) => b.classList.remove('is-fresh'));
+    setPlayUI();
     if (raf) cancelAnimationFrame(raf);
     raf = requestAnimationFrame(loop); LS.notify();
   }
